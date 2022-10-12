@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PiHole Ad Blocking and PiVPN Remote Network Access &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GatorCade: RetroPi Arcade Cabinet" href="gatorcade.html" />
+    <link rel="prev" title="Nextcloud Personal Cloud Storage" href="nextcloud.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="rpi_projects.html">Raspberry Pi Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nextcloud.html">Nextcloud Personal Cloud Storage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PiHole Ad Blocking and PiVPN Remote Network Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preface">Preface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup-materials">Setup Materials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imager-software">Imager Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pi-first-time-setup">Pi First time Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pihole-setup">PiHole Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pivpn-setup">PiVPN Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gatorcade.html">GatorCade: RetroPi Arcade Cabinet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/python_projects.html">Python Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="rpi_projects.html">Raspberry Pi Projects</a> &raquo;</li>
+      <li>PiHole Ad Blocking and PiVPN Remote Network Access</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rpi/pivpn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pihole-ad-blocking-and-pivpn-remote-network-access">
+<h1>PiHole Ad Blocking and PiVPN Remote Network Access<a class="headerlink" href="#pihole-ad-blocking-and-pivpn-remote-network-access" title="Permalink to this headline"></a></h1>
+<section id="preface">
+<h2>Preface<a class="headerlink" href="#preface" title="Permalink to this headline"></a></h2>
+<section id="setup-materials">
+<h3>Setup Materials<a class="headerlink" href="#setup-materials" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Raspberry Pi 4 8GB</p></li>
+<li><p>sandisk 32 GB micro SD</p></li>
+<li><p>peripherals mouse/keyboard/monitor + cables</p></li>
+<li><p>A separate computer</p></li>
+<li><p>Ethernet Cable for Pi</p></li>
+</ul>
+</section>
+<section id="imager-software">
+<h3>Imager Software<a class="headerlink" href="#imager-software" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Raspberry Pi Imager</p></li>
+<li><p>Imager software like Etcher or win32DiskImager (backup image of drive for after install)</p></li>
+</ul>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline"></a></h3>
+<p>I install both of these programs onto the same Pi for safe browsing from anywhere in the world.
+This also allow for greater home network usage expanding utility of network attached storage, Plex Servers,
+and secure communication to remote desktops and devices.</p>
+</section>
+<section id="pi-first-time-setup">
+<h3>Pi First time Setup<a class="headerlink" href="#pi-first-time-setup" title="Permalink to this headline"></a></h3>
+<p>Turn on and follow the prompts. Connect the pi to over ethernet if possible,
+otherwise connect to wifi. skip updates and go to the terminal.</p>
+<p>Update the Raspberry Pi.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get update</span>
+<span class="go">sudo apt-get upgrade -y</span>
+</pre></div>
+</div>
+<p>Enable SSH on the Pi, either with the following line or by changing the IO settings in the desktop.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo service ssh start</span>
+</pre></div>
+</div>
+<p>Find the Pi’s local IP Address.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ifconfig</span>
+</pre></div>
+</div>
+<p>If this the first time that you have booted up the pi hardware, consider a firmware update.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo rpi-update</span>
+</pre></div>
+</div>
+<p>Restart the machine after these changes.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo reboot</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Network Settings</strong></p>
+<p>At this point you will want to go to your routers settings and configure a Static IP address
+for your Pi. The IP should be something like 192.168.X.Y where X is a number (0-255)
+intrinsic to the router settings, while Y is a number (0-255) that is reserved for the device
+the pi’s IP currently will show you what X is set to on your router.</p>
+<p><strong>For example:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PI:   192.168.80.77</p></li>
+<li><p>Router: 192.168.80.1 or 192.168.1.1</p></li>
+<li><p>alice’s phone:  192.168.80.24</p></li>
+<li><p>bob’s   phone:  192.168.80.32</p></li>
+</ul>
+</div></blockquote>
+<p>Go to your routers IP using your browser to change it’s settings, this is highly
+dependent on your Router but look for DCHP settings or Static IP.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Port Forwarding</strong></p>
+<p>Setup your router to port forward on the device’s static IP using the the port 1194.</p>
+<p>Now you want to setup a domain that masks your public IP, and a DDNS service to
+dynamically point to your network even if you ISP changes your Public IP.</p>
+<p>Go to DuckDNS (or any other DDNS provider) and create a domain and have it point to your public IP.
+try to access the server again using the DDNS domain name. You can stop here if you desire.
+Alternatively you can have a custom domain that you own point to the DDNS domain you created to
+add a layer of protection and uniqueness.</p>
+<dl class="simple">
+<dt>Useful links for port forwarding:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://portforward.com/">What is port forwarding?</a></p></li>
+<li><p><a class="reference external" href="https://www.howtogeek.com/66214/how-to-forward-ports-on-your-router/">How to forward a port</a></p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+<section id="pihole-setup">
+<h2>PiHole Setup<a class="headerlink" href="#pihole-setup" title="Permalink to this headline"></a></h2>
+<p>PiHole is a relatively easy setup, I recommend doing it with an attached display.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -sSL https://install.pi-hole.net | bash</span>
+</pre></div>
+</div>
+</section>
+<section id="pivpn-setup">
+<h2>PiVPN Setup<a class="headerlink" href="#pivpn-setup" title="Permalink to this headline"></a></h2>
+<p>PiVPN is slightly more difficult to setup than the PiHole, but is mostly complex due to the networking involved.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Make sure to follow the networking notes in the preface before attempting this setup.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -L https://install.pivpn.io | bash</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nextcloud.html" class="btn btn-neutral float-left" title="Nextcloud Personal Cloud Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gatorcade.html" class="btn btn-neutral float-right" title="GatorCade: RetroPi Arcade Cabinet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

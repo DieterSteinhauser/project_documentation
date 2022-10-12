@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nextcloud Personal Cloud Storage &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PiHole Ad Blocking and PiVPN Remote Network Access" href="pivpn.html" />
+    <link rel="prev" title="Raspberry Pi Projects" href="rpi_projects.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="rpi_projects.html">Raspberry Pi Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nextcloud Personal Cloud Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preface">Preface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup-materials">Setup Materials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imager-software">Imager Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useful-links">Useful Links</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pi-first-time-setup">Pi First time Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-packages">Installing Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nextcloud-installation">Nextcloud installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nextcloud-permissions">Nextcloud Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysql-database">mySQL database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#have-apache-find-nextcloud">Have Apache find Nextcloud</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enter-nextcloud">Enter Nextcloud</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-external-storage">Add External Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-warnings-in-nextcloud-security">Remove Warnings in Nextcloud Security</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pivpn.html">PiHole Ad Blocking and PiVPN Remote Network Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gatorcade.html">GatorCade: RetroPi Arcade Cabinet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/python_projects.html">Python Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="rpi_projects.html">Raspberry Pi Projects</a> &raquo;</li>
+      <li>Nextcloud Personal Cloud Storage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rpi/nextcloud.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nextcloud-personal-cloud-storage">
+<h1>Nextcloud Personal Cloud Storage<a class="headerlink" href="#nextcloud-personal-cloud-storage" title="Permalink to this headline"></a></h1>
+<section id="preface">
+<h2>Preface<a class="headerlink" href="#preface" title="Permalink to this headline"></a></h2>
+<section id="setup-materials">
+<h3>Setup Materials<a class="headerlink" href="#setup-materials" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Raspberry Pi 4 8GB</p></li>
+<li><p>WD Passport 2TB</p></li>
+<li><p>sandisk 32 GB micro SD</p></li>
+<li><p>peripherals mouse/keyboard/monitor + cables</p></li>
+<li><p>A separate computer</p></li>
+<li><p>Ethernet Cable for Pi</p></li>
+</ul>
+</section>
+<section id="imager-software">
+<h3>Imager Software<a class="headerlink" href="#imager-software" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Raspberry Pi Imager 1.4 (older version for compatibility)</p></li>
+<li><p>Raspberry Pi Imager 1.7 (newest at time of writing, has bootloader images)</p></li>
+<li><p>Imager software like Etcher or win32DiskImager (backup image of drive for after install)</p></li>
+</ul>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline"></a></h3>
+<p>A straightforward setup would be a large microSD card or an USB mass storage device.
+If you choose to use mass storage, you will need to get the USB bootloader from the official
+Raspberry Pi Imager. After imaging a SD card with the bootloader, entering it into the pi and powering
+on will update the boot priority then make the existing monitor display green when finished.
+I had a hard time getting the Raspberry Pi OS to boot correctly on my 2TB HDD when imaging from
+the Raspberry Pi Imager ver.1.7. I remembered I had an older Imager on my other computer (ver1.4)
+that has the (2021-05-07) release. This had solved my issue, your mileage may vary.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If using a non-system running (external) drive such as a USB Mass storage device
+alongside a micro SD system drive, there are instructions on mounting an external drive
+at the end of this install tutorial. <a class="reference external" href="https://help.nextcloud.com/t/external-storage-app-extremely-slow-down-the-system/96636">However, I do not recommend this method.</a>
+Using an external drive for storage produced lackluster speeds for me and others.
+This could be due to bottlenecks on the pi or limitations from my HDD. From what I have seen on forums,
+the slowdown is consistent across hardware and associated with the external storage app
+on nextcloud. It took days to sync 90GB of data and still did not sync certain files.
+I caution against taking this route.</p>
+</div>
+<p>The raspberry pi also does not support php7.4 or higher, which is required for the
+latest releases of nextcloud. There is a workaround for this seen later.
+If you are not using a Pi then you can probably install the php8.0 packages directly.
+If you are using a pi and wish to avoid this altogether, there is an older build that
+can be installed for ease of use.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For out-of-home use, I recommend using a VPN to tunnel into the Pi’s network. I Have a separate Raspberry Pi
+using piVPN and piHole for secure network access.</p>
+</div>
+</section>
+<section id="useful-links">
+<h3>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.nextcloud.com/">Nextcloud Docs</a></p></li>
+<li><p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-nextcloud-server/">Manual Install Help</a></p></li>
+<li><p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-mysql/">mySQL Setup</a></p></li>
+<li><p><a class="reference external" href="https://ownyourbits.com/nextcloudpi/">Pi Nextcloud Image</a></p></li>
+<li><p><a class="reference external" href="https://www.makeuseof.com/raspberry-pi-nextcloud/">Nextcloud Image Install Help</a></p></li>
+<li><p><a class="reference external" href="https://raspberrytips.com/install-nextcloud-raspberry-pi/">Image or Manual Install Help</a></p></li>
+</ul>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>you can install all of this while using the raspberry pi as your desktop,
+however I recommend using an app like PuTTy to secure shell (SSH) into the pi.
+This allows you to remote into the pi from another computer on the network using the
+Pi’s Local IP address.</p>
+<section id="pi-first-time-setup">
+<h3>Pi First time Setup<a class="headerlink" href="#pi-first-time-setup" title="Permalink to this headline"></a></h3>
+<p>Turn on and follow the prompts. Connect the pi to over ethernet if possible,
+otherwise connect to wifi. skip updates and go to the terminal.</p>
+<p>Update the Raspberry Pi.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get update</span>
+<span class="go">sudo apt-get upgrade -y</span>
+</pre></div>
+</div>
+<p>Enable SSH on the Pi, either with the following line or by changing the IO settings in the desktop.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo service ssh start</span>
+</pre></div>
+</div>
+<p>Find the Pi’s local IP Address.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ifconfig</span>
+</pre></div>
+</div>
+<p>If this the first time that you have booted up the pi hardware, consider a firmware update.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo rpi-update</span>
+</pre></div>
+</div>
+<p>Restart the machine after these changes.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo reboot</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Network Settings</strong></p>
+<p>At this point you will want to go to your routers settings and configure a Static IP address
+for your Pi. The IP should be something like 192.168.X.Y where X is a number (0-255)
+intrinsic to the router settings, while Y is a number (0-255) that is reserved for the device
+the pi’s IP currently will show you what X is set to on your router.</p>
+<p><strong>For example:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PI:   192.168.80.77</p></li>
+<li><p>Router: 192.168.80.1 or 192.168.1.1</p></li>
+<li><p>alice’s phone:  192.168.80.24</p></li>
+<li><p>bob’s   phone:  192.168.80.32</p></li>
+</ul>
+</div></blockquote>
+<p>Go to your routers IP using your browser to change it’s settings, this is highly
+dependent on your Router but look for DCHP settings or Static IP.</p>
+</div>
+</section>
+<section id="installing-packages">
+<h3>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline"></a></h3>
+<p>Install apache, once installed if you go to the pi’s IP you will see the default apache webpage.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install apache2 mariadb-server libapache2-mod-php</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Easy and Compatible Method</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>install php7.3, raspberry pi OS does not support higher than 7.3</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install php-gd php-json php-mysql php-curl php-mbstring php-intl php-imagick php-xml php-zip</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Latest Version Method</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>download the GPG key and add the PHP repo. <strong>You may need to update the Pi again.</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg</span>
+<span class="go">echo &quot;deb https://packages.sury.org/php/ $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/php.list</span>
+</pre></div>
+</div>
+<p>Now install php now with our workaround.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install php8.0 php8.0-gd php8.0-curl php8.0-zip php8.0-xml php8.0-mbstring php8.0-mysql php8.0-bz2 php8.0-intl php-smbclient php8.0-imap php8.0-gmp libapache2-mod-php8.0</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Restart apache now. The pi’s IP should display the default apache webpage after restart.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo service apache2 restart</span>
+</pre></div>
+</div>
+</section>
+<section id="nextcloud-installation">
+<h3>Nextcloud installation<a class="headerlink" href="#nextcloud-installation" title="Permalink to this headline"></a></h3>
+<p>go to the html directory apache webfolder and install the latest version of nextcloud.
+note, this puts the nextcloud web software in html, directory needs to be refernenced later.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /var/www/html</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Easy and Compatible Method</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>An older version of nextcloud if you did not do the php workaround.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo wget https://download.nextcloud.com/server/releases/nextcloud-15.0.8.zip</span>
+<span class="go">sudo unzip nextcloud-15.0.8.zip</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Latest Version Method</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Download and extract the latest release. Extracts all files in current directory.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo wget https://download.nextcloud.com/server/releases/latest.tar.bz2</span>
+<span class="go">sudo tar -xvf latest.tar.bz2</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nextcloud-permissions">
+<h3>Nextcloud Permissions<a class="headerlink" href="#nextcloud-permissions" title="Permalink to this headline"></a></h3>
+<p>Create a data directory for nextcloud to operate in, this is where all cloud data is stored.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mkdir -p /var/www/nextcloud/data</span>
+</pre></div>
+</div>
+<p>Give the (www-data) user and group control over the nextcloud data folder using chown.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo chown -R www-data:www-data /var/www/nextcloud/</span>
+</pre></div>
+</div>
+<p>Give permissions to the (www-data) user using chmod.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo chmod 750 /var/www/nextcloud/data</span>
+</pre></div>
+</div>
+</section>
+<section id="mysql-database">
+<h3>mySQL database<a class="headerlink" href="#mysql-database" title="Permalink to this headline"></a></h3>
+<p>create a mySQL database for the data to be stored in. follow all prompts in installation.
+sudo apt install mariadb-server # done when installing apache at beginning.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mysql_secure_installation</span>
+<span class="go">sudo mysql -u root -p</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CREATE USER &#39;picloud&#39; IDENTIFIED BY &#39;password&#39;;</span>
+
+<span class="go">CREATE DATABASE piclouddb;</span>
+
+<span class="go">GRANT ALL PRIVILEGES ON piclouddb.* TO &#39;picloud&#39;;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the above GRANT ALL PRIVILEGES did not work you can try this too.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">GRANT ALL PRIVILEGES ON piclouddb.* TO &#39;root&#39;@localhost;</span>
+</pre></div>
+</div>
+</div>
+<p>Save and quit.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">FLUSH PRIVILEGES;</span>
+<span class="go">quit</span>
+</pre></div>
+</div>
+</section>
+<section id="have-apache-find-nextcloud">
+<h3>Have Apache find Nextcloud<a class="headerlink" href="#have-apache-find-nextcloud" title="Permalink to this headline"></a></h3>
+<p>create a file with all of our changes for apache access to nextcloud.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo nano /etc/apache2/sites-avacdilable/nextcloud.conf</span>
+</pre></div>
+</div>
+<p>This is where you have to be mindful of the nextcloud service directory.
+The Alias /nextcloud is wherever the service directory is. Write the following in the file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Alias /nextcloud &quot;/var/www/html/nextcloud/&quot;</span>
+
+<span class="go">&lt;Directory /var/www/nextcloud/&gt;</span>
+<span class="go">  Require all granted</span>
+<span class="go">  AllowOverride All</span>
+<span class="go">  Options FollowSymLinks MultiViews</span>
+
+<span class="go">  &lt;IfModule mod_dav.c&gt;</span>
+<span class="go">    Dav off</span>
+<span class="go">  &lt;/IfModule&gt;</span>
+
+<span class="go">&lt;/Directory&gt;</span>
+</pre></div>
+</div>
+<p>Then we can have apache make use of the configuration file.
+After reloading apache, the nextcloud page should be available.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo a2ensite nextcloud.conf</span>
+<span class="go">sudo systemctl reload apache2</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="enter-nextcloud">
+<h2>Enter Nextcloud<a class="headerlink" href="#enter-nextcloud" title="Permalink to this headline"></a></h2>
+<p>Go to <a class="reference external" href="http://IP/nextcloud">http://IP/nextcloud</a> to see service’s webpage.</p>
+<p>Create an admin account.</p>
+<p>point the data directory to the directory we made earlier. <strong>/var/www/nextcloud/data</strong> if you did not change it.</p>
+<p>sign into the database using the database, user, and password specified
+earlier in the mySQL section</p>
+<p>Viola!</p>
+<section id="add-external-storage">
+<h3>Add External Storage<a class="headerlink" href="#add-external-storage" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://forum.endeavouros.com/t/tutorial-how-to-permanently-mount-external-internal-drives-in-linux/18688">mounting drives</a></p>
+<p>Using the above link, mount the drive to the device. Give permissions to the storage device using the following.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo chown -R www-data:www-data /path/to/localdir</span>
+<span class="go">sudo chmod -R 0750 /path/to/localdir</span>
+
+<span class="go">sudo -u www-data bash</span>
+<span class="go">cd /path/to/localdir</span>
+<span class="go">mkdir data</span>
+</pre></div>
+</div>
+<p>Install the external storage app on the nextcloud webpage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>External drive speed is considerably slower than primary drive speed. See the warning at the top of the page
+for more information.</p>
+</div>
+</section>
+<section id="remove-warnings-in-nextcloud-security">
+<h3>Remove Warnings in Nextcloud Security<a class="headerlink" href="#remove-warnings-in-nextcloud-security" title="Permalink to this headline"></a></h3>
+<p>Change the php memory limit and output buffering.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">navigate to /etc/php/&lt;version/&gt;apache2/</span>
+<span class="go">sudo nano php.ini</span>
+</pre></div>
+</div>
+<p>ctrl+W to search both terms
+raise mem limit above 512M and turn output buffering off
+repeat in /etc/php/&lt;version/&gt;cli/</p>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<p>Do you see the apache webpage on the IP?
+If not restart apache service or reinstall.</p>
+<p><strong>403 Error - Forbidden:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Redo ‘Nextcloud data directory and permissions’ section.</p></li>
+<li><p>Change ownership of the service files and the data files.</p></li>
+<li><p>Change modification privileges of the service files and the data files.</p></li>
+<li><p>restart apache.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>404 Error - Not Found:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>redo ‘Pointing to nextcloud via apache’ section</p></li>
+<li><p>make sure that the alias points to the service in the var/www/html section</p></li>
+<li><p>restart apache</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Nextcloud splash error when in ‘Enter Nextcloud’ section:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Make sure there are no errors in the Nextcloud data directory and permissions’ section</p></li>
+<li><p>I had copied a comment into sudo nano /etc/apache2/sites-avacdilable/nextcloud.conf and it threw this error.</p></li>
+<li><p>restart apache</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rpi_projects.html" class="btn btn-neutral float-left" title="Raspberry Pi Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pivpn.html" class="btn btn-neutral float-right" title="PiHole Ad Blocking and PiVPN Remote Network Access" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
