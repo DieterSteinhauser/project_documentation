@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using Sphinx Documentation Tools" href="using_sphinx.html" />
-    <link rel="prev" title="Python Projects" href="python_projects.html" /> 
+    <link rel="prev" title="Fundamentals of Python" href="fundamentals_tree.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,11 +41,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="python_projects.html">Python Projects</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting Started with Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#further-reading">Further Reading</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="fundamentals_tree.html">Fundamentals of Python</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Getting Started with Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#further-reading">Further Reading</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="using_sphinx.html">Using Sphinx Documentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_sphinx.html">Using Sphinx Documentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_basics.html">Basics of Python Programming</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
@@ -66,6 +70,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="python_projects.html">Python Projects</a> &raquo;</li>
+          <li><a href="fundamentals_tree.html">Fundamentals of Python</a> &raquo;</li>
       <li>Getting Started with Python</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python/getting_started.rst.txt" rel="nofollow"> View page source</a>
@@ -83,6 +88,17 @@ You’ll also want a development environment (IDE) to write and debug code. For 
 and for more advanced users, try using <a class="reference external" href="https://code.visualstudio.com/Download">VScode</a>. Alongside these, you may
 want to install <a class="reference external" href="https://notepad-plus-plus.org/downloads/">Notepad++</a> to add another tool to your toolbox of editing
 files and programs.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You may use notepad or whatever text editor you choose, but know that errors will be much harder
+to detect without a proper development environment. The hardest to detect being Tabs vs Spaces. If you
+use a mixture of tabs and spaces in python, your code will not run. Python much prefers spaces and IDE’s
+make the TAB key enter four spaces by default to avoid this issue.</p>
+</div>
+<p>You can run python without any of these tools by using the <code class="docutils literal notranslate"><span class="pre">python</span></code> command in the terminal.
+This can be used to run a specific script using a command like <code class="docutils literal notranslate"><span class="pre">python</span>&#160; <span class="pre">c:\folder\with\code\run_me.py</span></code> or simply
+opening the python console with <code class="docutils literal notranslate"><span class="pre">python</span></code> This is useful for testing small snippets of code. The same can be done
+with the IDLE application.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If your application of python is for statistics and graphing, similar to use of R or Matlab, you may want to
@@ -95,7 +111,7 @@ to update the pip package manager. If not already installed with your version of
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pip is a useful tool to extend the functionality of python with packages. Once installed, python packages can be
-installed as needed by writing <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;desired_package&gt;</span></code>. We will revisit packages at a later point.</p>
+installed as needed by writing <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;desired_package&gt;</span></code>. We will revisit specific packages at a later point.</p>
 </div>
 <p>After installing the package manager, go ahead and install these packages:
 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span> <span class="pre">scipy</span> <span class="pre">ipython</span> <span class="pre">jupyter</span> <span class="pre">lxml</span> <span class="pre">openpyxl</span> <span class="pre">pylint</span> <span class="pre">pytest</span> <span class="pre">pandas</span> <span class="pre">matplotlib</span> <span class="pre">seaborn</span> <span class="pre">paramiko</span> <span class="pre">requests</span> <span class="pre">sphinx</span> <span class="pre">sphinx_rtd_theme</span></code></p>
@@ -111,6 +127,10 @@ the <a class="reference internal" href="using_sphinx.html#using-sphinx-documenta
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline"></a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/">Python Documentation</a></p></li>
+<li><p><a class="reference external" href="https://pip.pypa.io/en/stable/">PIP Documentation</a></p></li>
+<li><p><a class="reference external" href="https://automatetheboringstuff.com/">Automate the Boring Stuff by Al Sweigart</a></p></li>
+<li><p><a class="reference external" href="https://pythonbooks.org/free-books/">Free Python Books</a></p></li>
 <li><p><a class="reference external" href="https://docs.quantifiedcode.com/python-anti-patterns/">Python Anti-Patterns</a></p></li>
 </ul>
 </section>
@@ -120,7 +140,7 @@ the <a class="reference internal" href="using_sphinx.html#using-sphinx-documenta
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="python_projects.html" class="btn btn-neutral float-left" title="Python Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fundamentals_tree.html" class="btn btn-neutral float-left" title="Fundamentals of Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="using_sphinx.html" class="btn btn-neutral float-right" title="Using Sphinx Documentation Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

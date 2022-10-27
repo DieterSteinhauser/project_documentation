@@ -5,6 +5,5 @@ Python Projects
    :maxdepth: 1
    :caption: Contents:
 
-   getting_started
-   using_sphinx
+   fundamentals_tree
 
