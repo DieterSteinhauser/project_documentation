@@ -727,7 +727,8 @@ You can also interact with files on the computer by doing the following:
        f.write("Now it has four lines\n")
 
 .. tip:: I highly recommend csv and json modules for writing to those file types. The general structure of reading/writing
-    is the same, with the benefit of nicely formatted code.
+    is the same, with the benefit of nicely formatted code. Pandas is also a useful module as it can further automate
+    file IO.
 
 .. seealso:: For more information on python inputs and outputs checkout
     `Python Documentation CH7: Input and Output. <https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files>`_
