@@ -13,5 +13,6 @@ Fundamentals of Python
    beginner_projects
    intermediate_projects
    advanced_projects
+   intro_solutions
 
 
