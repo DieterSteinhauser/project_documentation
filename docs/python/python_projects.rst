@@ -2,8 +2,8 @@ Python Projects
 =====================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
-   fundamentals_tree
+   python_fundamentals/fundamentals_tree
 

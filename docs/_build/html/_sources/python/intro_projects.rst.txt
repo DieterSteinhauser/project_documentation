@@ -3,7 +3,39 @@ Novice and Introductory Programming Projects
 
 Hello World
 --------------------------
-Have the terminal ask who you are, and say hello to you.
+
+All programmers start off with two simple words: 'Hello World!'
+
+This is a nice and friendly introduction to the programming environment and language. We can make python say this by
+doing the following in the python console.
+
+.. code-block:: python
+   :linenos:
+
+      print("Hello World!")
+
+We can improve upon this by creating a function. This function will do the following:
+
+.. automodule:: src.hello_world
+   :members:
+
+
+
+For this assignment do the following:
+
+- Create a method that implements the function described above.
+- Have your program say hello to the world.
+- have your program ask who you are.
+- have your program say hello to you directly.
+
+Solution
+****************
+
+.. literalinclude:: ../../src/python_fundamentals/hello_world.py
+   :language: python
+   :linenos:
+
+
 
 weight calculator
 --------------------------

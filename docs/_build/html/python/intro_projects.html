@@ -91,7 +91,64 @@
 <h1>Novice and Introductory Programming Projects<a class="headerlink" href="#novice-and-introductory-programming-projects" title="Permalink to this headline"></a></h1>
 <section id="hello-world">
 <h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline"></a></h2>
-<p>Have the terminal ask who you are, and say hello to you.</p>
+<p>All programmers start off with two simple words: ‘Hello World!’</p>
+<p>This is a nice and friendly introduction to the programming environment and language. We can make python say this by
+doing the following in the python console.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can improve upon this by creating a function. This function will do the following:</p>
+<p>For this assignment do the following:</p>
+<ul class="simple">
+<li><p>Create a method that implements the function described above.</p></li>
+<li><p>Have your program say hello to the world.</p></li>
+<li><p>have your program ask who you are.</p></li>
+<li><p>have your program say hello to you directly.</p></li>
+</ul>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
+<span class="linenos"> 3</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 6</span><span class="c1">#                         INCLUDES</span>
+<span class="linenos"> 7</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">10</span><span class="c1">#                         METHODS</span>
+<span class="linenos">11</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;World&#39;</span><span class="p">):</span>
+<span class="linenos">15</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">16</span><span class="sd">    Python method that says hello to a target</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="sd">    :param target: A target to direct your greeting. Defaults to &#39;World&#39; if target is not specified</span>
+<span class="linenos">19</span><span class="sd">    :type target: str</span>
+<span class="linenos">20</span><span class="sd">    :return: Prints &#39;Hello World!&#39; in the console.</span>
+<span class="linenos">21</span><span class="sd">    :rtype: None</span>
+<span class="linenos">22</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">23</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="k">return</span> <span class="kc">None</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">28</span><span class="c1">#                          MAIN</span>
+<span class="linenos">29</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">33</span>    <span class="n">say_hello</span><span class="p">()</span>
+<span class="linenos">34</span>    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Who do I have the pleasure of speaking to?&quot;</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">38</span><span class="c1">#                       END OF FILE</span>
+<span class="linenos">39</span><span class="c1"># ---------------------------------------------------------</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="weight-calculator">
 <h2>weight calculator<a class="headerlink" href="#weight-calculator" title="Permalink to this headline"></a></h2>
