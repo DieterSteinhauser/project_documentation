@@ -195,7 +195,61 @@
 <section id="fibonacci-sequence-solution">
 <h2>Fibonacci Sequence Solution<a class="headerlink" href="#fibonacci-sequence-solution" title="Permalink to this headline"></a></h2>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
+<span class="linenos"> 3</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 6</span><span class="c1">#                         INCLUDES</span>
+<span class="linenos"> 7</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">10</span><span class="c1">#                         METHODS</span>
+<span class="linenos">11</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="n">sequence</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">def</span> <span class="nf">fibonacci_of</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+<span class="linenos">17</span>    <span class="sd">&quot;&quot;&quot;Calculates the fibonacci number of a given index&quot;&quot;&quot;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="c1"># if we have already computed this index, return it.</span>
+<span class="linenos">20</span>    <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+<span class="linenos">21</span>        <span class="k">return</span> <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="c1"># Compute and store the Fibonacci number recursively</span>
+<span class="linenos">24</span>    <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibonacci_of</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci_of</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="k">return</span> <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="k">def</span> <span class="nf">fibonacci_list</span><span class="p">(</span><span class="n">max_index</span><span class="p">):</span>
+<span class="linenos">29</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">30</span><span class="sd">    Method that implements the fibonacci sequence to a given value</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="sd">    :param max_index: the maximum of the for loop for fizzbuzz.</span>
+<span class="linenos">33</span><span class="sd">    :type max_index: int</span>
+<span class="linenos">34</span><span class="sd">    :return: Creates a list of max_index fibonacci numbers.</span>
+<span class="linenos">35</span><span class="sd">    :rtype: list</span>
+<span class="linenos">36</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">37</span>    <span class="k">return</span> <span class="p">[</span><span class="n">fibonacci_of</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_index</span><span class="p">)]</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">40</span><span class="c1">#                          MAIN</span>
+<span class="linenos">41</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">45</span>    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a maximum number for a fibonacci sequence.&quot;</span><span class="p">))</span>
+<span class="linenos">46</span>    <span class="n">fibo_list</span> <span class="o">=</span> <span class="n">fibonacci_list</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="nb">print</span><span class="p">(</span><span class="n">fibo_list</span><span class="p">)</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">51</span><span class="c1">#                       END OF FILE</span>
+<span class="linenos">52</span><span class="c1"># ---------------------------------------------------------</span>
+</pre></div>
+</div>
+</div></blockquote>
 </section>
 </section>
 

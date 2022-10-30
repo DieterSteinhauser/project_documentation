@@ -88,11 +88,38 @@ Solution
 
 
 
-Fibbonacci Sequence
+Fibonacci Sequence
 --------------------------
-Implement the fibbonacci sequence
+
+Create a function that implements the fibonacci sequence to a number specified by the user.
+Have your program ask the user how many numbers they wish to calculate and print a list of the numbers.
+
+.. automodule:: src.python_fundamentals.fibonacci
+   :members:
 
 
 Solution
 *********
 :ref:`Fibonacci Sequence Solution`
+
+
+Fizz Buzz
+--------------------------
+
+Implement the common fizz buzz programming question.
+Have a program that asks the user for a maximum number for the fizz buzz loop.
+
+- Iterate through a loop from 1 to a maximum number.
+- For each number divisible by three, print 'Fizz'
+- For each number divisible by five, print 'Buzz'
+- For each number divisible by both three and five, print 'FizzBuzz'
+- Otherwise print the index of the loop.
+
+
+.. automodule:: src.python_fundamentals.fizzbuzz
+   :members:
+
+Solution
+*********
+:ref:`Fibonacci Sequence Solution`
+

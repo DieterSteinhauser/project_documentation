@@ -48,12 +48,14 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Novice and Introductory Programming Projects</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#hello-world">Hello World</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#weight-calculator">Weight Calculator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fibbonacci-sequence">Fibbonacci Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fibonacci-sequence">Fibonacci Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fizz-buzz">Fizz Buzz</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="beginner_projects.html">Beginner Projects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate_projects.html">Intermediate Projects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_projects.html">Advanced Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_solutions.html">Solutions to Introductory Programming Projects</a></li>
 </ul>
 </li>
 </ul>
@@ -149,8 +151,8 @@ on all planets in the solar system and the moon. Have the program nicely print t
 </dl>
 </dd></dl>
 
-<table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Gravitational Force on Different Planets</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Gravitational Force on Different Planets</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -195,11 +197,51 @@ on all planets in the solar system and the moon. Have the program nicely print t
 <p><a class="reference internal" href="intro_solutions.html#weight-calculator-solution"><span class="std std-ref">Weight Calculator Solution</span></a></p>
 </section>
 </section>
-<section id="fibbonacci-sequence">
-<h2>Fibbonacci Sequence<a class="headerlink" href="#fibbonacci-sequence" title="Permalink to this headline"></a></h2>
-<p>Implement the fibbonacci sequence</p>
+<section id="fibonacci-sequence">
+<h2>Fibonacci Sequence<a class="headerlink" href="#fibonacci-sequence" title="Permalink to this headline"></a></h2>
+<p>Create a function that implements the fibonacci sequence to a number specified by the user.
+Have your program ask the user how many numbers they wish to calculate and print a list of the numbers.</p>
+<span class="target" id="module-src.python_fundamentals.fibonacci"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.python_fundamentals.fibonacci.fibonacci_list">
+<span class="sig-prename descclassname"><span class="pre">src.python_fundamentals.fibonacci.</span></span><span class="sig-name descname"><span class="pre">fibonacci_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python_fundamentals.fibonacci.fibonacci_list" title="Permalink to this definition"></a></dt>
+<dd><p>Method that implements the fibonacci sequence to a given value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>max_index</strong> (<em>int</em>) – the maximum of the for loop for fizzbuzz.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Creates a list of max_index fibonacci numbers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.python_fundamentals.fibonacci.fibonacci_of">
+<span class="sig-prename descclassname"><span class="pre">src.python_fundamentals.fibonacci.</span></span><span class="sig-name descname"><span class="pre">fibonacci_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python_fundamentals.fibonacci.fibonacci_of" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the fibonacci number of a given index</p>
+</dd></dl>
+
 <section id="id2">
 <h3>Solution<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="intro_solutions.html#fibonacci-sequence-solution"><span class="std std-ref">Fibonacci Sequence Solution</span></a></p>
+</section>
+</section>
+<section id="fizz-buzz">
+<h2>Fizz Buzz<a class="headerlink" href="#fizz-buzz" title="Permalink to this headline"></a></h2>
+<p>Implement the common fizz buzz programming question.
+Have a program that asks the user for a maximum number for the fizz buzz loop.</p>
+<ul class="simple">
+<li><p>Iterate through a loop from 1 to a maximum number.</p></li>
+<li><p>For each number divisible by three, print ‘Fizz’</p></li>
+<li><p>For each number divisible by five, print ‘Buzz’</p></li>
+<li><p>For each number divisible by both three and five, print ‘FizzBuzz’</p></li>
+<li><p>Otherwise print the index of the loop.</p></li>
+</ul>
+<section id="id3">
+<h3>Solution<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
 <p><a class="reference internal" href="intro_solutions.html#fibonacci-sequence-solution"><span class="std std-ref">Fibonacci Sequence Solution</span></a></p>
 </section>
 </section>
