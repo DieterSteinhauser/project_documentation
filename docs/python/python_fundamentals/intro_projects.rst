@@ -121,5 +121,5 @@ Have a program that asks the user for a maximum number for the fizz buzz loop.
 
 Solution
 *********
-:ref:`Fibonacci Sequence Solution`
+:ref:`Fizz Buzz Solution`
 

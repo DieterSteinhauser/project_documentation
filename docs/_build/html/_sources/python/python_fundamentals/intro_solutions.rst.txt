@@ -24,3 +24,10 @@ Fibonacci Sequence Solution
     .. literalinclude:: ../../../src/python_fundamentals/fibonacci.py
        :language: python
        :linenos:
+
+Fizz Buzz Solution
+----------------------
+
+    .. literalinclude:: ../../../src/python_fundamentals/fizzbuzz.py
+       :language: python
+       :linenos:
