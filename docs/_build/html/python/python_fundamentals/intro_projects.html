@@ -15,6 +15,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -201,7 +202,23 @@ on all planets in the solar system and the moon. Have the program nicely print t
 <h2>Fibonacci Sequence<a class="headerlink" href="#fibonacci-sequence" title="Permalink to this headline"></a></h2>
 <p>Create a function that implements the fibonacci sequence to a number specified by the user.
 Have your program ask the user how many numbers they wish to calculate and print a list of the numbers.</p>
+<p>The fibonacci sequence is as follows:</p>
+<div class="math notranslate nohighlight">
+\[0, 1, 1, 2, 3, 5, 8, ....\]</div>
+<p>Which can be represented as:</p>
+<div class="math notranslate nohighlight">
+\[F(n) = F(n-1) + F(n-2)\]</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The following methods could be implemented to return the fibonacci sequence.</p>
 <span class="target" id="module-src.python_fundamentals.fibonacci"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.python_fundamentals.fibonacci.fibonacci">
+<span class="sig-prename descclassname"><span class="pre">src.python_fundamentals.fibonacci.</span></span><span class="sig-name descname"><span class="pre">fibonacci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python_fundamentals.fibonacci.fibonacci" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the fibonacci number of a given index</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="src.python_fundamentals.fibonacci.fibonacci_list">
 <span class="sig-prename descclassname"><span class="pre">src.python_fundamentals.fibonacci.</span></span><span class="sig-name descname"><span class="pre">fibonacci_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python_fundamentals.fibonacci.fibonacci_list" title="Permalink to this definition"></a></dt>
 <dd><p>Method that implements the fibonacci sequence to a given value</p>
@@ -218,12 +235,12 @@ Have your program ask the user how many numbers they wish to calculate and print
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="src.python_fundamentals.fibonacci.fibonacci_of">
-<span class="sig-prename descclassname"><span class="pre">src.python_fundamentals.fibonacci.</span></span><span class="sig-name descname"><span class="pre">fibonacci_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python_fundamentals.fibonacci.fibonacci_of" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates the fibonacci number of a given index</p>
-</dd></dl>
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may choose to implement the fibonacci method using recursion, a function that calls itself. This is
+one of many ways to handle this. It is not required to implement a recursive function, but you may find it easier to
+understand.</p>
+</div>
 <section id="id2">
 <h3>Solution<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
 <p><a class="reference internal" href="intro_solutions.html#fibonacci-sequence-solution"><span class="std std-ref">Fibonacci Sequence Solution</span></a></p>

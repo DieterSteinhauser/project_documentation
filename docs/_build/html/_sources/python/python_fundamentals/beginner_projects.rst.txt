@@ -5,9 +5,24 @@ Recursive Factorial
 --------------------------
 Implement a factorial function that relies on recursion.
 
+Recursion means that the method will call itself from within the method.
+
+Create the following method:
+
+.. automodule:: src.python_fundamentals.factorial
+   :members:
+
+Solution
+*********
+:ref:`Factorial Solution`
+
+
 File IO
 --------------------------
 Read binary data and format it nicely into a CSV for human readability.
+
+
+
 
 Class Structured Inventory System
 -----------------------------------

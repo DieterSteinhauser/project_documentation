@@ -94,9 +94,25 @@ Fibonacci Sequence
 Create a function that implements the fibonacci sequence to a number specified by the user.
 Have your program ask the user how many numbers they wish to calculate and print a list of the numbers.
 
+The fibonacci sequence is as follows:
+
+.. math:: 0, 1, 1, 2, 3, 5, 8, ....
+
+Which can be represented as:
+
+.. math:: F(n) = F(n-1) + F(n-2)
+
+|
+
+The following methods could be implemented to return the fibonacci sequence.
+
+
 .. automodule:: src.python_fundamentals.fibonacci
    :members:
 
+.. note:: You may choose to implement the fibonacci method using recursion, a function that calls itself. This is
+   one of many ways to handle this. It is not required to implement a recursive function, but you may find it easier to
+   understand.
 
 Solution
 *********

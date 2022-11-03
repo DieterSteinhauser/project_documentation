@@ -211,7 +211,7 @@
 <span class="linenos">13</span><span class="n">sequence</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 <span class="linenos">14</span>
 <span class="linenos">15</span>
-<span class="linenos">16</span><span class="k">def</span> <span class="nf">fibonacci_of</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+<span class="linenos">16</span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
 <span class="linenos">17</span>    <span class="sd">&quot;&quot;&quot;Calculates the fibonacci number of a given index&quot;&quot;&quot;</span>
 <span class="linenos">18</span>
 <span class="linenos">19</span>    <span class="c1"># if we have already computed this index, return it.</span>
@@ -219,7 +219,7 @@
 <span class="linenos">21</span>        <span class="k">return</span> <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 <span class="linenos">22</span>
 <span class="linenos">23</span>    <span class="c1"># Compute and store the Fibonacci number recursively</span>
-<span class="linenos">24</span>    <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibonacci_of</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci_of</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 <span class="linenos">25</span>    <span class="k">return</span> <span class="n">sequence</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 <span class="linenos">26</span>
 <span class="linenos">27</span>
@@ -232,7 +232,7 @@
 <span class="linenos">34</span><span class="sd">    :return: Creates a list of max_index fibonacci numbers.</span>
 <span class="linenos">35</span><span class="sd">    :rtype: list</span>
 <span class="linenos">36</span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos">37</span>    <span class="k">return</span> <span class="p">[</span><span class="n">fibonacci_of</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_index</span><span class="p">)]</span>
+<span class="linenos">37</span>    <span class="k">return</span> <span class="p">[</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_index</span><span class="p">)]</span>
 <span class="linenos">38</span>
 <span class="linenos">39</span><span class="c1"># ---------------------------------------------------------</span>
 <span class="linenos">40</span><span class="c1">#                          MAIN</span>

@@ -13,7 +13,7 @@
 sequence = {0: 0, 1: 1}
 
 
-def fibonacci_of(index):
+def fibonacci(index):
     """Calculates the fibonacci number of a given index"""
 
     # if we have already computed this index, return it.
@@ -21,7 +21,7 @@ def fibonacci_of(index):
         return sequence[index]
 
     # Compute and store the Fibonacci number recursively
-    sequence[index] = fibonacci_of(index - 1) + fibonacci_of(index - 2)
+    sequence[index] = fibonacci(index - 1) + fibonacci(index - 2)
     return sequence[index]
 
 
@@ -34,7 +34,7 @@ def fibonacci_list(max_index):
     :return: Creates a list of max_index fibonacci numbers.
     :rtype: list
     """
-    return [fibonacci_of(index) for index in range(max_index)]
+    return [fibonacci(index) for index in range(max_index)]
 
 # ---------------------------------------------------------
 #                          MAIN
