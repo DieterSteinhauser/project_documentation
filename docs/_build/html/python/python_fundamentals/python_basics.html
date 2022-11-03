@@ -63,6 +63,7 @@
 <li class="toctree-l3"><a class="reference internal" href="beginner_projects.html">Beginner Projects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="intermediate_projects.html">Intermediate Projects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_projects.html">Advanced Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_solutions.html">Solutions to Introductory Programming Projects</a></li>
 </ul>
 </li>
 </ul>
@@ -571,31 +572,31 @@ common is if, else logic, for loops, and while loops.</p>
 </table>
 <p>If statements evaluate the logic of a statement and execute commands based on the result. Else-if Statements (elif) can
 be inserted within logic to check more parameters.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="linenos">2</span> <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos">2</span><span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="linenos">3</span>
-<span class="linenos">4</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
-<span class="linenos">5</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;found </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="n">elements</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
-<span class="linenos">6</span> <span class="k">else</span><span class="p">:</span>
-<span class="linenos">7</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> was not found in </span><span class="si">{</span><span class="n">elements</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">4</span><span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+<span class="linenos">5</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;found </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="n">elements</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">7</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> was not found in </span><span class="si">{</span><span class="n">elements</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Iteration is best done using for or while loops, depending on the task. While loops find better usage for continuous
 iteration until there is a break point reached.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="c1"># index based loops use the range key</span>
-<span class="linenos"> 2</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<span class="linenos"> 3</span>     <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># index based loops use the range key</span>
+<span class="linenos"> 2</span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="linenos"> 3</span>    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span> <span class="c1">#while loop that does the same thing</span>
-<span class="linenos"> 6</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos"> 7</span> <span class="k">while</span><span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
-<span class="linenos"> 8</span>     <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-<span class="linenos"> 9</span>     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 5</span><span class="c1"># while loop that does the same thing</span>
+<span class="linenos"> 6</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 7</span><span class="k">while</span><span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+<span class="linenos"> 8</span>    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span> <span class="c1"># for each based loops iterate a data structure</span>
-<span class="linenos">12</span> <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="linenos">13</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
-<span class="linenos">14</span>     <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="linenos">11</span><span class="c1"># for each based loops iterate a data structure</span>
+<span class="linenos">12</span><span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="linenos">13</span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+<span class="linenos">14</span>    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -746,16 +747,16 @@ container for data. Everything in python is an object/data structure, even the p
 <h3>What is Mutability?<a class="headerlink" href="#what-is-mutability" title="Permalink to this headline"></a></h3>
 <p>An object that is <strong>mutable</strong> is one that can be edited in some way without assignment. An <strong>immutable</strong> object
 cannot be changed without assignment. The most common immutable objects are integers and strings. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">4</span>                <span class="c1"># 4 is assigned to variable foo</span>
-<span class="linenos"> 2</span> <span class="n">foo</span> <span class="o">+</span> <span class="mi">1</span>                <span class="c1"># evaluates to 5, but foo remains 4 without assignment</span>
-<span class="linenos"> 3</span> <span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
-<span class="linenos"> 4</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">3</span>                <span class="c1"># 3 is assigned to variable bar</span>
-<span class="linenos"> 5</span> <span class="n">bar</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">+</span> <span class="n">bar</span>        <span class="c1"># 7 is assigned ot the variable bar</span>
-<span class="linenos"> 6</span> <span class="nb">print</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
-<span class="linenos"> 7</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">]</span>   <span class="c1"># list of [4, 3] assigned to my_list</span>
-<span class="linenos"> 8</span> <span class="n">baz</span> <span class="o">=</span> <span class="mi">2</span>                <span class="c1"># 2 is assigned to variable baz</span>
-<span class="linenos"> 9</span> <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span>    <span class="c1"># My_list was appended as it is mutable, and is now [4, 3, 2]</span>
-<span class="linenos">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">4</span>                <span class="c1"># 4 is assigned to variable foo</span>
+<span class="linenos"> 2</span><span class="n">foo</span> <span class="o">+</span> <span class="mi">1</span>                <span class="c1"># evaluates to 5, but foo remains 4 without assignment</span>
+<span class="linenos"> 3</span><span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">bar</span> <span class="o">=</span> <span class="mi">3</span>                <span class="c1"># 3 is assigned to variable bar</span>
+<span class="linenos"> 5</span><span class="n">bar</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">+</span> <span class="n">bar</span>        <span class="c1"># 7 is assigned ot the variable bar</span>
+<span class="linenos"> 6</span><span class="nb">print</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">]</span>   <span class="c1"># list of [4, 3] assigned to my_list</span>
+<span class="linenos"> 8</span><span class="n">baz</span> <span class="o">=</span> <span class="mi">2</span>                <span class="c1"># 2 is assigned to variable baz</span>
+<span class="linenos"> 9</span><span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span>    <span class="c1"># My_list was appended as it is mutable, and is now [4, 3, 2]</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -776,11 +777,11 @@ how some function by reading the later parts in
 <p>Modules are extensions on your program that you can add to interact with packages or other python code that you’ve created.
 Imports of modules allow for cleaner code and expand functionality past the standard python library. You may import
 modules if a few different ways:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="kn">import</span> <span class="nn">os</span>                           <span class="c1"># direct import, calls would require the name, e.g. os.path()</span>
-<span class="linenos">2</span> <span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">fib2</span>          <span class="c1"># import specific functions</span>
-<span class="linenos">3</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>                  <span class="c1"># imports all methods from the module, this can be troublesome.</span>
-<span class="linenos">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                  <span class="c1"># imports numpy module but renames the call to np. e.g. np.array()</span>
-<span class="linenos">5</span> <span class="kn">from</span> \<span class="n">path</span>\<span class="n">to</span>\<span class="n">my</span>\<span class="n">module</span> <span class="kn">import</span> <span class="nn">add</span>  <span class="c1"># import function from a local module, good for segmenting code.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">os</span>                           <span class="c1"># direct import, calls would require the name, e.g. os.path()</span>
+<span class="linenos">2</span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">fib2</span>          <span class="c1"># import specific functions</span>
+<span class="linenos">3</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>                  <span class="c1"># imports all methods from the module, this can be troublesome.</span>
+<span class="linenos">4</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                  <span class="c1"># imports numpy module but renames the call to np. e.g. np.array()</span>
+<span class="linenos">5</span><span class="kn">from</span> \<span class="n">path</span>\<span class="n">to</span>\<span class="n">my</span>\<span class="n">module</span> <span class="kn">import</span> <span class="nn">add</span>  <span class="c1"># import function from a local module, good for segmenting code.</span>
 </pre></div>
 </div>
 <p>There are many useful libraries but this should get you started.</p>
@@ -847,28 +848,28 @@ modules if a few different ways:</p>
 <h2>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this headline"></a></h2>
 <p>Input and Output (IO) is a key pillar of all programming. Dataset interaction and user interaction are pertinent for
 most programs. for simple command line IO, consider the following example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;What is your name?&#39;</span><span class="p">)</span>
-<span class="linenos">2</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="linenos">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nice to meet you </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;What is your name?&#39;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="linenos">3</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nice to meet you </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
 <span class="linenos">4</span>
-<span class="linenos">5</span> <span class="c1"># same as above, but the input can print the question string.</span>
-<span class="linenos">6</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What is your name?&#39;</span><span class="p">)</span>
-<span class="linenos">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nice to meet you </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+<span class="linenos">5</span><span class="c1"># same as above, but the input can print the question string.</span>
+<span class="linenos">6</span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What is your name?&#39;</span><span class="p">)</span>
+<span class="linenos">7</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nice to meet you </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can also interact with files on the computer by doing the following:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="c1"># puts contents of the data into memory under the variable read_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># puts contents of the data into memory under the variable read_data</span>
 <span class="linenos"> 2</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;path</span><span class="se">\t</span><span class="s1">o</span><span class="se">\f</span><span class="s1">ile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="linenos"> 3</span> <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos"> 3</span>    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span> <span class="c1"># writes contents of the data to disk</span>
-<span class="linenos"> 6</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path</span><span class="se">\t</span><span class="s2">o</span><span class="se">\t</span><span class="s2">est.txt&quot;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="c1"># writes contents of the data to disk</span>
+<span class="linenos"> 6</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path</span><span class="se">\t</span><span class="s2">o</span><span class="se">\t</span><span class="s2">est.txt&quot;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="linenos"> 7</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;my first line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="linenos"> 8</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;This file</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="linenos"> 9</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;has three lines</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span> <span class="c1"># append contents of the data to disk</span>
-<span class="linenos">12</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path</span><span class="se">\t</span><span class="s2">o</span><span class="se">\t</span><span class="s2">est.txt&quot;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">11</span><span class="c1"># append contents of the data to disk</span>
+<span class="linenos">12</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path</span><span class="se">\t</span><span class="s2">o</span><span class="se">\t</span><span class="s2">est.txt&quot;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="linenos">13</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Now it has four lines</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

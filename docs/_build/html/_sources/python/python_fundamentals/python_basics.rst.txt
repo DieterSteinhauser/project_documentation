@@ -428,13 +428,13 @@ be inserted within logic to check more parameters.
 .. code-block:: python
    :linenos:
 
-    x = 5
-    elements = [4, 5, 6, 7]
+   x = 5
+   elements = [4, 5, 6, 7]
 
-    if x in elements:
-        print(f'found {x} in {elements}!')
-    else:
-        print(f'{x} was not found in {elements}')
+   if x in elements:
+       print(f'found {x} in {elements}!')
+   else:
+       print(f'{x} was not found in {elements}')
 
 Iteration is best done using for or while loops, depending on the task. While loops find better usage for continuous
 iteration until there is a break point reached.
@@ -442,20 +442,20 @@ iteration until there is a break point reached.
 .. code-block:: python
    :linenos:
 
-    # index based loops use the range key
-    for index in range(10):
-        print(index)
+   # index based loops use the range key
+   for index in range(10):
+       print(index)
 
-    #while loop that does the same thing
-    index = 0
-    while(index < 10)
-        print(index)
-        index += 1
+   # while loop that does the same thing
+   index = 0
+   while(index < 10):
+       print(index)
+       index += 1
 
-    # for each based loops iterate a data structure
-    elements = [4, 5, 6, 7]
-    for element in elements:
-        print(element)
+   # for each based loops iterate a data structure
+   elements = [4, 5, 6, 7]
+   for element in elements:
+       print(element)
 
 .. seealso:: There are more logical statements for evaluating program operations in
     `Python Documentation CH4: Flow Control <https://docs.python.org/3/tutorial/controlflow.html>`_ to learn about more
@@ -602,16 +602,16 @@ cannot be changed without assignment. The most common immutable objects are inte
 .. code-block:: python
     :linenos:
 
-     foo = 4                # 4 is assigned to variable foo
-     foo + 1                # evaluates to 5, but foo remains 4 without assignment
-     print(foo)
-     bar = 3                # 3 is assigned to variable bar
-     bar = foo + bar        # 7 is assigned ot the variable bar
-     print(bar)
-     my_list = [foo, bar]   # list of [4, 3] assigned to my_list
-     baz = 2                # 2 is assigned to variable baz
-     my_list.append(baz)    # My_list was appended as it is mutable, and is now [4, 3, 2]
-     print(my_list)
+    foo = 4                # 4 is assigned to variable foo
+    foo + 1                # evaluates to 5, but foo remains 4 without assignment
+    print(foo)
+    bar = 3                # 3 is assigned to variable bar
+    bar = foo + bar        # 7 is assigned ot the variable bar
+    print(bar)
+    my_list = [foo, bar]   # list of [4, 3] assigned to my_list
+    baz = 2                # 2 is assigned to variable baz
+    my_list.append(baz)    # My_list was appended as it is mutable, and is now [4, 3, 2]
+    print(my_list)
 
 
 .. seealso:: I highly recommend looking at the `Python Documentation CH5: Built-in Data Structures <https://docs.python.org/3/tutorial/datastructures.html>`_
@@ -635,11 +635,11 @@ modules if a few different ways:
 .. code-block:: python
    :linenos:
 
-    import os                           # direct import, calls would require the name, e.g. os.path()
-    from fibo import fib, fib2          # import specific functions
-    from math import *                  # imports all methods from the module, this can be troublesome.
-    import numpy as np                  # imports numpy module but renames the call to np. e.g. np.array()
-    from \path\to\my\module import add  # import function from a local module, good for segmenting code.
+   import os                           # direct import, calls would require the name, e.g. os.path()
+   from fibo import fib, fib2          # import specific functions
+   from math import *                  # imports all methods from the module, this can be troublesome.
+   import numpy as np                  # imports numpy module but renames the call to np. e.g. np.array()
+   from \path\to\my\module import add  # import function from a local module, good for segmenting code.
 
 There are many useful libraries but this should get you started.
 
@@ -699,31 +699,31 @@ most programs. for simple command line IO, consider the following example:
 .. code-block:: python
    :linenos:
 
-    print('What is your name?')
-    name = input()
-    print(f'Nice to meet you {name}!')
+   print('What is your name?')
+   name = input()
+   print(f'Nice to meet you {name}!')
 
-    # same as above, but the input can print the question string.
-    name = input('What is your name?')
-    print(f'Nice to meet you {name}!')
+   # same as above, but the input can print the question string.
+   name = input('What is your name?')
+   print(f'Nice to meet you {name}!')
 
 You can also interact with files on the computer by doing the following:
 
 .. code-block:: python
    :linenos:
 
-    # puts contents of the data into memory under the variable read_data
+   # puts contents of the data into memory under the variable read_data
    with open('path\to\file.txt', 'r', encoding="utf-8") as f:
-    read_data = f.read()
+       read_data = f.read()
 
-    # writes contents of the data to disk
-    with open("path\to\test.txt",'w',encoding = 'utf-8') as f:
+   # writes contents of the data to disk
+   with open("path\to\test.txt",'w',encoding = 'utf-8') as f:
        f.write("my first line\n")
        f.write("This file\n\n")
        f.write("has three lines\n")
 
-    # append contents of the data to disk
-    with open("path\to\test.txt",'a',encoding = 'utf-8') as f:
+   # append contents of the data to disk
+   with open("path\to\test.txt",'a',encoding = 'utf-8') as f:
        f.write("Now it has four lines\n")
 
 .. tip:: I highly recommend csv and json modules for writing to those file types. The general structure of reading/writing
