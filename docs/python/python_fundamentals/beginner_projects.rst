@@ -17,9 +17,9 @@ Solution
 :ref:`Factorial Solution`
 
 
-File IO
+File IO Part 1
 --------------------------
-Read binary data and format it nicely into a CSV for human readability.
+Read binary data and format it nicely into a text file for human readability.
 
 
 

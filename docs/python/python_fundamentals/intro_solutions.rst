@@ -1,4 +1,4 @@
-Solutions to Introductory Programming Projects
+Solutions to Introductory Projects
 ====================================================
 
 

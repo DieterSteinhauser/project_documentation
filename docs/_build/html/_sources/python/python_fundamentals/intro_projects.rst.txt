@@ -1,4 +1,4 @@
-Novice and Introductory Programming Projects
+Novice and Introductory Projects
 ====================================================
 
 Hello World
