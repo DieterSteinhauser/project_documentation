@@ -11,7 +11,7 @@ Hello World Solution
 
 
 Weight Calculator Solution
-----------------------
+-----------------------------------
 
     .. literalinclude:: ../../../src/python_fundamentals/weight_calculator.py
        :language: python
@@ -19,7 +19,7 @@ Weight Calculator Solution
 
 
 Fibonacci Sequence Solution
-----------------------
+-----------------------------------
 
     .. literalinclude:: ../../../src/python_fundamentals/fibonacci.py
        :language: python

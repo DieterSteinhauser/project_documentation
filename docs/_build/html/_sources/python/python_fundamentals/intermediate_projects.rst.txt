@@ -18,7 +18,7 @@ the process.
 
 
 Command Line Card Games (blackjack)
---------------------------
+---------------------------------------
 
 Linked List, Stack, and Queue
 ------------------------------

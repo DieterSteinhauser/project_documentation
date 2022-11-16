@@ -1,5 +1,5 @@
 Projects and Solutions
-=====================
+==========================
 
 .. toctree::
    :maxdepth: 2
@@ -9,6 +9,7 @@ Projects and Solutions
    intermediate_projects
    advanced_projects
    intro_solutions
+   beginner_solutions
 
 
 

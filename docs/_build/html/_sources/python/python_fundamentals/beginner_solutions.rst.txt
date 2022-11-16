@@ -9,3 +9,13 @@ Factorial Solution
        :language: python
        :linenos:
 
+
+
+File IO Solution
+--------------------------
+
+    .. literalinclude:: ../../../src/python_fundamentals/file_io.py
+       :language: python
+       :linenos:
+
+
