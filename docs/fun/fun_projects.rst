@@ -1,5 +1,5 @@
 Entertainment Projects
-=====================
+========================
 
 .. toctree::
    :maxdepth: 1

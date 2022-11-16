@@ -19,8 +19,6 @@ We can improve upon this by creating a function. This function will do the follo
 .. automodule:: src.python_fundamentals.hello_world
    :members:
 
-
-
 For this assignment do the following:
 
 - Create a method that implements the function described above.

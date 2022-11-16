@@ -1,5 +1,5 @@
 Fundamentals of Python
-=====================
+========================
 
 .. toctree::
    :maxdepth: 2
