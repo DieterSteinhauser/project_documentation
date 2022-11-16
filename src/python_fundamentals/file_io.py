@@ -23,3 +23,14 @@ poem = """Two roads diverged in a yellow wood,
         And that has made all the difference."""
 
 
+encoded_poem = poem.encode('UTF-8')
+
+import os
+# print(__file__)
+# print(os.path.join(os.path.dirname(__file__), '..'))
+# print(os.path.dirname(os.path.realpath(__file__)))
+# print(os.path.abspath(os.path.dirname(__file__)))
+
+local_dir = os.path.abspath(os.path.dirname(__file__))
+
+bin_file = os.path.join(local_dir, 'binary_file.txt')

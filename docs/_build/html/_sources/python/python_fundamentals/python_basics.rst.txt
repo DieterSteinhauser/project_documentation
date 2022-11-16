@@ -54,17 +54,17 @@ with any number of constants or variables.
      - 22 / 8
      - 2.75
 
-   * - *
+   * - \*
      - Multiplication
      - 3 * 5
      - 15
 
-   * - -
+   * - \-
      - Subtraction
      - 5 - 2
      - 3
 
-   * - +
+   * - \+
      - Addition
      - 2 + 2
      - 4
