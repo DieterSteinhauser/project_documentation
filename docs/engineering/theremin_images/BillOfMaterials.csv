@@ -1,0 +1,29 @@
+Name ,Description,Designators,Quantity,Price,Component Total
+1000uF Cap,Electrolytic Capacitor,C15,1, $1.60 , $1.60 
+270uF Cap,Electrolytic Capacitor,C2,1, $0.33 , $0.33 
+100uF Cap,Electrolytic Capacitor,C7,1, $0.09 , $0.09 
+10uF Cap,Electrolytic Capacitor,"C13, C14, C19",3, $0.07 , $0.21 
+1uF Cap,Electrolytic Capacitor,"C8, C9, C11, C12, C18",5, $0.06 , $0.30 
+0.47uF Cap,Electrolytic Capacitor,C10,1, $0.09 , $0.09 
+0.1uF Cap,Ceramic Capacitor,"C1, C4, C5, C6, C16, C17, C20",7, $0.09 , $0.63 
+50pF Cap,Ceramic Capacitor,C2,1, $0.17 , $0.17 
+10K Pots,3-pin Potentiometer,"R1, R5, R15, R16",4, $1.13 , $4.52 
+1K Res,axial Resistor,"R2, R4, R6",3, $0.05 , $0.15 
+220  Res,axial Resistor,"R7, R8, R9, R10, R11, R12, 
+R13, R14, R17, R18",10, $0.03 , $0.28 
+Photoresistor,Photoresistor,R3,1, $1.18 , $1.18 
+LEDs,5mm LED,"D1, D2, D3, D4, D5, D7, D8",7, $0.09 , $0.63 
+LCD44780,16x2 LCD Display,DS1,1, $6.27 , $6.27 
+LTC1661,10bit DAC,U3,1, $6.21 , $6.21 
+LM386,Audio Amplifier,U1,1, $1.50 , $1.50 
+8 Ohm Speaker,8 Ohm Speaker,P6,1, $4.68 , $4.68 
+LM2940,5V LDO Regulator,U4,1, $2.70 , $2.70 
+1N5819,Schottky Diode,D6,1, $0.28 , $0.28 
+9V Adapter,AC/DC Adapter,N/A,1, $7.99 , $7.99 
+Barrel Jack,Female Connector,P7,1, $0.71 , $0.71 
+SPST Switch,SPST Switch,P8,1, $2.15 , $2.15 
+HC-SR04,Ultrasonic Sensors,"P4, P5",2, $3.75 , $7.50 
+Pico,Raspberry Pico uP,U2,1, $4.00 , $4.00 
+SW_DIP 4 ,DIP Switch package,S1,1, $0.59 , $0.59 
+Buttons,Buttons,"S2, S3, S4, S5",4, $1.18 , $4.72 
+,,,,Project Total:, $59.48 
