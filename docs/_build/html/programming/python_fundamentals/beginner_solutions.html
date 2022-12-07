@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solutions to Beginner Programming Projects &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Entertainment Projects" href="../../fun/fun_projects.html" />
+    <link rel="prev" title="Solutions to Introductory Projects" href="intro_solutions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../programming_projects.html">Programming Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fundamentals_tree.html">Fundamentals of Python</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html">Getting Started with Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_sphinx.html">Using Sphinx Documentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_basics.html">Basics of Python Programming</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="projects.html">Projects and Solutions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="intro_projects.html">Novice and Introductory Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="beginner_projects.html">Beginner Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="intermediate_projects.html">Intermediate Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced_projects.html">Advanced Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="intro_solutions.html">Solutions to Introductory Projects</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Solutions to Beginner Programming Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fun/fun_projects.html">Entertainment Projects</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../programming_projects.html">Programming Projects</a> &raquo;</li>
+          <li><a href="fundamentals_tree.html">Fundamentals of Python</a> &raquo;</li>
+          <li><a href="projects.html">Projects and Solutions</a> &raquo;</li>
+      <li>Solutions to Beginner Programming Projects</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/programming/python_fundamentals/beginner_solutions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="solutions-to-beginner-programming-projects">
+<h1>Solutions to Beginner Programming Projects<a class="headerlink" href="#solutions-to-beginner-programming-projects" title="Permalink to this headline"></a></h1>
+<section id="factorial-solution">
+<h2>Factorial Solution<a class="headerlink" href="#factorial-solution" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
+<span class="linenos"> 3</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 6</span><span class="c1">#                         INCLUDES</span>
+<span class="linenos"> 7</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">10</span><span class="c1">#                         METHODS</span>
+<span class="linenos">11</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">15</span><span class="sd">    Calculates the factorial of a given number.</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="sd">    :param number: integer that the user wants the factorial of.</span>
+<span class="linenos">18</span><span class="sd">    :type number: int</span>
+<span class="linenos">19</span><span class="sd">    :return: integer of the resulting factorial.</span>
+<span class="linenos">20</span><span class="sd">    :rtype: int</span>
+<span class="linenos">21</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="n">return_val</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">24</span>    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">25</span>        <span class="n">return_val</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>    <span class="k">return</span> <span class="n">return_val</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">30</span><span class="c1">#                          MAIN</span>
+<span class="linenos">31</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">35</span>    <span class="n">num_user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number to compute a factorial&quot;</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">result</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">num_user</span><span class="p">))</span>
+<span class="linenos">37</span>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">40</span><span class="c1">#                       END OF FILE</span>
+<span class="linenos">41</span><span class="c1"># ---------------------------------------------------------</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="file-io-solution">
+<h2>File IO Solution<a class="headerlink" href="#file-io-solution" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">  2</span><span class="c1">#                          NOTES</span>
+<span class="linenos">  3</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">  6</span><span class="c1">#                         INCLUDES</span>
+<span class="linenos">  7</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 12</span><span class="c1">#                         SETUP</span>
+<span class="linenos"> 13</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="n">poem</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Two roads diverged in a yellow wood,</span>
+<span class="linenos"> 16</span><span class="s2">And sorry I could not travel both</span>
+<span class="linenos"> 17</span><span class="s2">And be one traveler, long I stood</span>
+<span class="linenos"> 18</span><span class="s2">And looked down one as far as I could</span>
+<span class="linenos"> 19</span><span class="s2">To where it bent in the undergrowth;</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span><span class="s2">Then took the other, as just as fair,</span>
+<span class="linenos"> 22</span><span class="s2">And having perhaps the better claim,</span>
+<span class="linenos"> 23</span><span class="s2">Because it was grassy and wanted wear;</span>
+<span class="linenos"> 24</span><span class="s2">Though as for that the passing there</span>
+<span class="linenos"> 25</span><span class="s2">Had worn them really about the same,</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="s2">And both that morning equally lay</span>
+<span class="linenos"> 28</span><span class="s2">In leaves no step had trodden black.</span>
+<span class="linenos"> 29</span><span class="s2">Oh, I kept the first for another day!</span>
+<span class="linenos"> 30</span><span class="s2">Yet knowing how way leads on to way,</span>
+<span class="linenos"> 31</span><span class="s2">I doubted if I should ever come back.</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="s2">I shall be telling this with a sigh</span>
+<span class="linenos"> 34</span><span class="s2">Somewhere ages and ages hence:</span>
+<span class="linenos"> 35</span><span class="s2">Two roads diverged in a wood, and I—</span>
+<span class="linenos"> 36</span><span class="s2">I took the one less traveled by,</span>
+<span class="linenos"> 37</span><span class="s2">And that has made all the difference.&quot;&quot;&quot;</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="n">local_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="linenos"> 40</span><span class="n">bin_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_dir</span><span class="p">,</span> <span class="s1">&#39;binary_file.txt&#39;</span><span class="p">)</span>
+<span class="linenos"> 41</span><span class="n">readable_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_dir</span><span class="p">,</span> <span class="s1">&#39;readable_file.txt&#39;</span><span class="p">)</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span><span class="c1"># encode data for the binary file</span>
+<span class="linenos"> 45</span><span class="n">hex_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 46</span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">poem</span><span class="p">:</span>
+<span class="linenos"> 47</span>    <span class="n">hex_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">letter</span><span class="p">)))</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="c1"># write to the binary file</span>
+<span class="linenos"> 50</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bin_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 51</span>    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">hex_list</span><span class="p">:</span>
+<span class="linenos"> 52</span>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 56</span><span class="c1">#                         ASSIGNMENT</span>
+<span class="linenos"> 57</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="n">local_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>  <span class="c1"># path to local directory</span>
+<span class="linenos"> 60</span><span class="n">bin_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_dir</span><span class="p">,</span> <span class="s1">&#39;binary_file.txt&#39;</span><span class="p">)</span>   <span class="c1"># binary file in local directory</span>
+<span class="linenos"> 61</span><span class="n">readable_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_dir</span><span class="p">,</span> <span class="s1">&#39;readable_file.txt&#39;</span><span class="p">)</span>  <span class="c1"># path to local directory</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span><span class="c1"># Method 1: More lines but easier to understand for beginners.</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span><span class="c1"># read the binary file</span>
+<span class="linenos"> 66</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bin_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 67</span>    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span><span class="c1"># parse byte data as letters</span>
+<span class="linenos"> 70</span><span class="n">hex_values</span> <span class="o">=</span> <span class="n">read_data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;0x&#39;</span><span class="p">)</span>  <span class="c1"># separate every value by their hex delimiter.</span>
+<span class="linenos"> 71</span><span class="n">hex_values</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># remove the weird empty element at the beginning of the list.</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span><span class="c1"># decode each letter in the list</span>
+<span class="linenos"> 74</span><span class="n">final_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="linenos"> 75</span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">hex_values</span><span class="p">:</span>
+<span class="linenos"> 76</span>
+<span class="linenos"> 77</span>    <span class="c1"># This will cast the string hex number to an integer, reading the value in base 16 (hex)</span>
+<span class="linenos"> 78</span>    <span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span>    <span class="c1"># interpret the hex value as an ascii/UTF-8 letter</span>
+<span class="linenos"> 81</span>    <span class="n">letter</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span>    <span class="c1"># add/append the letter to the complete string.</span>
+<span class="linenos"> 84</span>    <span class="n">final_string</span> <span class="o">=</span> <span class="n">final_string</span> <span class="o">+</span> <span class="n">letter</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span><span class="c1"># write to the binary file</span>
+<span class="linenos"> 87</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">readable_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 88</span>    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">final_string</span><span class="p">)</span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="c1"># ---------------------------------------------------------</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="c1"># Method 2: Less lines but more pythonic and efficient.</span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span><span class="c1"># read the binary file</span>
+<span class="linenos"> 95</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bin_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 96</span>    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span><span class="c1"># parse byte data as letters</span>
+<span class="linenos"> 99</span><span class="n">hex_values</span> <span class="o">=</span> <span class="n">read_data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;0x&#39;</span><span class="p">)</span>
+<span class="linenos">100</span><span class="n">decoded_letters</span> <span class="o">=</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">hex_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="c1"># compose a stirng</span>
+<span class="linenos">103</span><span class="n">final_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">decoded_letters</span><span class="p">)</span>
+<span class="linenos">104</span><span class="nb">print</span><span class="p">(</span><span class="n">final_string</span><span class="p">)</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span><span class="c1"># write to the binary file</span>
+<span class="linenos">107</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">readable_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">108</span>    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">final_string</span><span class="p">)</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span><span class="c1"># ---------------------------------------------------------</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro_solutions.html" class="btn btn-neutral float-left" title="Solutions to Introductory Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../fun/fun_projects.html" class="btn btn-neutral float-right" title="Entertainment Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

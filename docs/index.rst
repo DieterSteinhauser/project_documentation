@@ -6,8 +6,9 @@ Library of Project Documentation
    :caption: Contents:
 
    rpi/rpi_projects
-   python/python_projects
+   programming/programming_projects
    fun/fun_projects
+   engineering/engineering_projects
 
 Indices and tables
 ==================
