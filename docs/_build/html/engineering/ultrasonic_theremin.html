@@ -18,7 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Engineering Projects" href="engineering_projects.html" /> 
+    <link rel="prev" title="Condenser Microphone Workshop" href="condenser_microphone.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,6 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="condenser_microphone.html">Condenser Microphone Workshop</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Ultrasonic Theremin - Junior Design</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
@@ -113,6 +114,12 @@
   <section id="ultrasonic-theremin-junior-design">
 <h1>Ultrasonic Theremin - Junior Design<a class="headerlink" href="#ultrasonic-theremin-junior-design" title="Permalink to this headline"></a></h1>
 <p>Date: 11/2022</p>
+<figure class="align-center" id="id65">
+<img alt="../_images/image054.jpg" src="../_images/image054.jpg" />
+<figcaption>
+<p><span class="caption-text">Figure 42: Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id65" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <p>The Theremin is a musical instrument designed by Leon Theremin in 1928. The device
@@ -149,10 +156,10 @@ a dual core processor capable of 133MHz clock speed, set to 125MHz out of the bo
 comes equip with a 12-bit 500ksps ADC with 5 channels total. One channel is configured to an
 RP2040 internal temperature sensor, and three are tied to GPIO pins on the Pico <a class="footnote-reference brackets" href="#id60" id="id2">16</a>. The Pico
 also has a timer with four alarms, a Real-Time-Counter (RTC), and sixteen Pulse-Width Modulation (PWM) channels</p>
-<figure class="align-center" id="id65">
+<figure class="align-center" id="id66">
 <img alt="../_images/image001.png" src="../_images/image001.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Raspberry Pico Pinout <a class="footnote-reference brackets" href="#id59" id="id3">15</a>.</span><a class="headerlink" href="#id65" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Raspberry Pico Pinout <a class="footnote-reference brackets" href="#id59" id="id3">15</a>.</span><a class="headerlink" href="#id66" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -164,10 +171,10 @@ them to a digital signal for processing of information. An ADC takes continuous 
 from a continuous time domain into discrete magnitude data in a discrete time domain <a class="footnote-reference brackets" href="#id47" id="id4">3</a>. The
 conversion quantizes the signal based on the resolution, reference voltages, and sample rate of
 the ADC, introducing small errors into the signal as noise.</p>
-<figure class="align-center" id="id66">
+<figure class="align-center" id="id67">
 <img alt="../_images/image002.png" src="../_images/image002.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id66" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 2: Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id67" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Resolution and reference voltages of an ADC produces quantization errors within the
@@ -181,10 +188,10 @@ by the ADC multiplied by the voltage resolution of the ADC will return the volta
 the ADC. Quantization produces rounding errors in the approximation of the analog voltage,
 which is worsened by noise and jitter that exists on the signal prior to the ADC conversion.
 Signal noise can significantly reduce the effective number of bits to which an ADC is accurate.</p>
-<figure class="align-center" id="id67">
+<figure class="align-center" id="id68">
 <a class="reference internal image-reference" href="../_images/image003.png"><img alt="../_images/image003.png" src="../_images/image003.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">Figure 3: ADC formulas.</span><a class="headerlink" href="#id67" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 3: ADC formulas.</span><a class="headerlink" href="#id68" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Sample rate of an ADC produces quantization errors within the time domain of the
@@ -214,10 +221,10 @@ this project.</p>
 single master device and one or many slave devices. For a simple two device system, A clock
 (SCLK), a chip select (CS), and two data lines (MOSI, MISO) are employed. MOSI is the data
 transmitted from the master device, while MISO is the data received from the master device.</p>
-<figure class="align-center" id="id68">
+<figure class="align-center" id="id69">
 <img alt="../_images/image004.png" src="../_images/image004.png" />
 <figcaption>
-<p><span class="caption-text">Figure 4: SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id49" id="id8">5</a>.</span><a class="headerlink" href="#id68" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 4: SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id49" id="id8">5</a>.</span><a class="headerlink" href="#id69" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>SPI can incorporate multiple slave devices by connecting data and clock lines,
@@ -261,10 +268,10 @@ DAC will have a singular or pair of voltage references and a bit resolution for 
 precision and range of the output waveform. An output voltage can be calculated by dividing a
 given code by the number of discrete values the DAC can produce. This is then multiplied by the
 reference voltage to return the ideal output voltage.</p>
-<figure class="align-center" id="id69">
+<figure class="align-center" id="id70">
 <a class="reference internal image-reference" href="../_images/image007.png"><img alt="../_images/image007.png" src="../_images/image007.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">Figure 7: DAC formulas.</span><a class="headerlink" href="#id69" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 7: DAC formulas.</span><a class="headerlink" href="#id70" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>DAC’s have some non-idealities in the form of differential and integral non-linearity,
@@ -282,20 +289,20 @@ baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#
 avoid data corruption on the breadboard. However, small distances of SPI connections on the
 final PCB make higher speeds possible. The default SPI pins of the Pico were employed, located
 the bottom right corner of the Pico Pinout <a class="footnote-reference brackets" href="#id59" id="id16">15</a>.</p>
-<figure class="align-center" id="id70">
+<figure class="align-center" id="id71">
 <img alt="../_images/image008.png" src="../_images/image008.png" />
 <figcaption>
-<p><span class="caption-text">Figure 8: Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id56" id="id17">12</a></span><a class="headerlink" href="#id70" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 8: Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id56" id="id17">12</a></span><a class="headerlink" href="#id71" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
 the primary functionality desired for this module. Knowing this, the commands 0x9 or 0xA
 would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id56" id="id18">12</a></p>
-<figure class="align-center" id="id71">
+<figure class="align-center" id="id72">
 <img alt="../_images/image009.png" src="../_images/image009.png" />
 <figcaption>
-<p><span class="caption-text">Figure 9: SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id56" id="id19">12</a>.</span><a class="headerlink" href="#id71" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 9: SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id56" id="id19">12</a>.</span><a class="headerlink" href="#id72" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In our program, we must parse the data for every transmission so that a word packet sent will
@@ -311,10 +318,10 @@ non-inverting input, an upper supply, a lower supply, and an output. An ideal Op
 infinite input resistance and zero output resistance. As a result, input terminals see zero current.
 Input terminals also see equivalent voltages. Lastly, ideal op-amps experience infinite open-loop
 gain and infinite Gain Bandwidth (GBW).</p>
-<figure class="align-center" id="id72">
+<figure class="align-center" id="id73">
 <img alt="../_images/figure10.png" src="../_images/figure10.png" />
 <figcaption>
-<p><span class="caption-text">Figure 10: Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id45" id="id20">1</a>.</span><a class="headerlink" href="#id72" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 10: Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id45" id="id20">1</a>.</span><a class="headerlink" href="#id73" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Using an infinite open-loop gain is limiting, as the output voltage signal would become
@@ -323,16 +330,16 @@ some form of negative feedback is implemented to create a closed loop gain withi
 boundaries of the supply rails. Negative feedback amplifiers come in inverting (Figure 11) and
 non-inverting (Figure 12) configurations, with gain determined by the ratio of resistances seen by
 the negative feedback loop.</p>
-<figure class="align-center" id="id73">
+<figure class="align-center" id="id74">
 <img alt="../_images/figure11.png" src="../_images/figure11.png" />
 <figcaption>
-<p><span class="caption-text">Figure 11: Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id45" id="id21">1</a>.</span><a class="headerlink" href="#id73" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 11: Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id45" id="id21">1</a>.</span><a class="headerlink" href="#id74" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id74">
+<figure class="align-center" id="id75">
 <img alt="../_images/figure12.png" src="../_images/figure12.png" />
 <figcaption>
-<p><span class="caption-text">Figure 12: Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id45" id="id22">1</a>.</span><a class="headerlink" href="#id74" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 12: Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id45" id="id22">1</a>.</span><a class="headerlink" href="#id75" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Non-idealities of real-life Op-Amps will also affect the circuit, the most influential of which is
@@ -342,16 +349,16 @@ attributes of an active lowpass filter. With the lower cutoff frequency determin
 divided by the gain of the circuit <a class="footnote-reference brackets" href="#id51" id="id23">7</a>. As a result, open-loop response often has high gain with
 very low cutoff frequency. Whereas closed-loop gain will keep gain approximately constant for a
 much wider bandwidth.</p>
-<figure class="align-center" id="id75">
+<figure class="align-center" id="id76">
 <img alt="../_images/image021.png" src="../_images/image021.png" />
 <figcaption>
-<p><span class="caption-text">Figure 13: LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id53" id="id24">9</a>.</span><a class="headerlink" href="#id75" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 13: LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id53" id="id24">9</a>.</span><a class="headerlink" href="#id76" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id76">
+<figure class="align-center" id="id77">
 <img alt="../_images/image022.png" src="../_images/image022.png" />
 <figcaption>
-<p><span class="caption-text">Figure 14: Gain Bandwidth formula <a class="footnote-reference brackets" href="#id53" id="id25">9</a>.</span><a class="headerlink" href="#id76" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 14: Gain Bandwidth formula <a class="footnote-reference brackets" href="#id53" id="id25">9</a>.</span><a class="headerlink" href="#id77" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
@@ -369,10 +376,10 @@ cutoff frequencies. Filters can be implemented in active and passive configurati
 with and without Op-Amps respectively. Regardless of a filter being passive or active, Filter
 frequencies and modes of operation are created between RL and RC components. Figure 15
 implements passive and active filters in multiple filter configurations.</p>
-<figure class="align-center" id="id77">
+<figure class="align-center" id="id78">
 <img alt="../_images/image023.png" src="../_images/image023.png" />
 <figcaption>
-<p><span class="caption-text">Figure 15: First order filter table with active and passive applications <a class="footnote-reference brackets" href="#id45" id="id26">1</a>.</span><a class="headerlink" href="#id77" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 15: First order filter table with active and passive applications <a class="footnote-reference brackets" href="#id45" id="id26">1</a>.</span><a class="headerlink" href="#id78" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -383,10 +390,10 @@ circuit with 26dB gain (20V/V) using the LM386. This was easily accomplished by 
 the LM386 datasheet as they provide applications in section 9 of the document (Figure 16) <a class="footnote-reference brackets" href="#id55" id="id27">11</a>.
 Implementation can be seen on the schematic, Figure 22. I made no changes to the circuit
 recommended by the datasheet.</p>
-<figure class="align-center" id="id78">
+<figure class="align-center" id="id79">
 <img alt="../_images/image024.png" src="../_images/image024.png" />
 <figcaption>
-<p><span class="caption-text">Figure 16: LM386 Wiring Diagram for a gain of 20 <a class="footnote-reference brackets" href="#id55" id="id28">11</a>.</span><a class="headerlink" href="#id78" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 16: LM386 Wiring Diagram for a gain of 20 <a class="footnote-reference brackets" href="#id55" id="id28">11</a>.</span><a class="headerlink" href="#id79" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -398,10 +405,10 @@ a smooth 5V source for most components, with local decoupling capacitors where n
 LM2940 is a prime candidate for 5V regulation as its implementation is simple, only requiring
 two capacitors on the Vin and Vout <a class="footnote-reference brackets" href="#id54" id="id29">10</a>. I implemented an array of values for the output
 capacitors out of an abundance of safety and a desire for a highly filtered power source <a class="footnote-reference brackets" href="#id46" id="id30">2</a>, <a class="footnote-reference brackets" href="#id48" id="id31">4</a>, <a class="footnote-reference brackets" href="#id64" id="id32">20</a>.</p>
-<figure class="align-center" id="id79">
+<figure class="align-center" id="id80">
 <img alt="../_images/image025.png" src="../_images/image025.png" />
 <figcaption>
-<p><span class="caption-text">Figure 17: LM2940 LDO Wiring Diagram <a class="footnote-reference brackets" href="#id54" id="id33">10</a>.</span><a class="headerlink" href="#id79" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 17: LM2940 LDO Wiring Diagram <a class="footnote-reference brackets" href="#id54" id="id33">10</a>.</span><a class="headerlink" href="#id80" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In addition to the 5V source, I powered the Raspberry Pico via the VSYS node to activate
@@ -410,10 +417,10 @@ Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via
 The Pico power-chain is good because the SMPS is efficient, but noise on the output causes
 problems with other systems like the ADC <a class="footnote-reference brackets" href="#id59" id="id34">15</a>, <a class="footnote-reference brackets" href="#id60" id="id35">16</a>. As a result, I added bypass capacitors to this
 source as well.</p>
-<figure class="align-center" id="id80">
+<figure class="align-center" id="id81">
 <img alt="../_images/figure18.png" src="../_images/figure18.png" />
 <figcaption>
-<p><span class="caption-text">Figure 18: Pico Power-chain and the implemented method of external supply <a class="footnote-reference brackets" href="#id54" id="id36">10</a>.</span><a class="headerlink" href="#id80" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 18: Pico Power-chain and the implemented method of external supply <a class="footnote-reference brackets" href="#id54" id="id36">10</a>.</span><a class="headerlink" href="#id81" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -443,10 +450,10 @@ the Echo pin, waiting for a high signal from the receiver, indicating the return
 The time between the rising and falling edge of the Echo pin can be used to calculate distance
 based on the speed of sound, 343 m/s. Based on the distances calculated from each sensor, we
 can modify output sound data.</p>
-<figure class="align-center" id="id81">
+<figure class="align-center" id="id82">
 <img alt="../_images/image028.png" src="../_images/image028.png" />
 <figcaption>
-<p><span class="caption-text">Figure 19: Ultrasonic sensor timing diagram <a class="footnote-reference brackets" href="#id52" id="id38">8</a>.</span><a class="headerlink" href="#id81" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 19: Ultrasonic sensor timing diagram <a class="footnote-reference brackets" href="#id52" id="id38">8</a>.</span><a class="headerlink" href="#id82" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -477,10 +484,10 @@ waveform controls.</p>
 presenting the Analog output waveform. Another potentiometer was connected between the
 DAC and amplifier to provide a coarse volume control on the output. Digital output in the form
 of Status LEDs indicate continuous operation by toggling and display on reset of the device.</p>
-<figure class="align-center" id="id82">
+<figure class="align-center" id="id83">
 <img alt="../_images/image029.png" src="../_images/image029.png" />
 <figcaption>
-<p><span class="caption-text">Figure 20: Hardware Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id82" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 20: Hardware Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id83" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>A single processor flow was employed for reliability and simplicity. To help speed up
@@ -501,10 +508,10 @@ then started or adjusted for frequency shifts, and the processor sends SPI data 
 output. If the sensors do not detect objects or a waveform is not selected with a switch, sound
 will not be output. Lastly, the onboard LED is toggled and the loop restarts for the duration of
 instrument use.</p>
-<figure class="align-center" id="id83">
+<figure class="align-center" id="id84">
 <img alt="../_images/image030.png" src="../_images/image030.png" />
 <figcaption>
-<p><span class="caption-text">Figure 21: Software Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id83" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 21: Software Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id84" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -530,29 +537,29 @@ manually is required. I chose to auto-route, followed with manual edits to corre
 routes. I found 20mil routes were sufficient for this circuit. Copper pours are also recommended
 for adding a ground or Vcc layer to the PCB, further simplifying routing design and common
 routes. I implemented a Ground and 5V layer using the copper pours.</p>
-<figure class="align-center" id="id84">
+<figure class="align-center" id="id85">
 <img alt="../_images/image031.png" src="../_images/image031.png" />
 <figcaption>
-<p><span class="caption-text">Figure 22: Ultrasonic Theremin schematic page 1 of 2.</span><a class="headerlink" href="#id84" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id85">
-<img alt="../_images/image032.png" src="../_images/image032.png" />
-<figcaption>
-<p><span class="caption-text">Figure 23: Ultrasonic Theremin schematic page 2 of 2.</span><a class="headerlink" href="#id85" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 22: Ultrasonic Theremin schematic page 1 of 2.</span><a class="headerlink" href="#id85" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id86">
+<img alt="../_images/image032.png" src="../_images/image032.png" />
+<figcaption>
+<p><span class="caption-text">Figure 23: Ultrasonic Theremin schematic page 2 of 2.</span><a class="headerlink" href="#id86" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id87">
 <img alt="../_images/image033.png" src="../_images/image033.png" />
 <figcaption>
-<p><span class="caption-text">Figure 24: Top side of Ultrasonic Theremin PCB layout.</span><a class="headerlink" href="#id86" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 24: Top side of Ultrasonic Theremin PCB layout.</span><a class="headerlink" href="#id87" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="bill-of-materials">
 <h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Permalink to this headline"></a></h3>
-<table class="docutils align-default" id="id87">
-<caption><span class="caption-text">Bill Of Materials</span><a class="headerlink" href="#id87" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id88">
+<caption><span class="caption-text">Bill Of Materials</span><a class="headerlink" href="#id88" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 17%" />
@@ -771,16 +778,16 @@ Also, using female headers for the ultrasonic sensors, LCD, DIP packages, and po
 aided debug and ensured that any errors in design could be more easily fixed if the PCB was
 routed wrong. Thankfully, there were no design breaking errors in this circuit, and most
 components worked immediately after installation.</p>
-<figure class="align-center" id="id88">
+<figure class="align-center" id="id89">
 <img alt="../_images/image034.png" src="../_images/image034.png" />
 <figcaption>
-<p><span class="caption-text">Figure 25: Empty Theremin Circuit PCB.</span><a class="headerlink" href="#id88" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 25: Empty Theremin Circuit PCB.</span><a class="headerlink" href="#id89" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id89">
+<figure class="align-center" id="id90">
 <img alt="../_images/image036.jpg" src="../_images/image036.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 26: Populated Theremin Circuit PCB.</span><a class="headerlink" href="#id89" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 26: Populated Theremin Circuit PCB.</span><a class="headerlink" href="#id90" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="power">
@@ -789,22 +796,22 @@ components worked immediately after installation.</p>
 with as little as 10mV ripple on the source. Extra filtering on the 3.3V source also seemed
 fruitful but may benefit from a larger array of capacitances to further smooth the ~30-40mV
 ripple observed on the device pin. This is a slight improvement on the unfiltered 3.3V rail.</p>
-<figure class="align-center" id="id90">
+<figure class="align-center" id="id91">
 <img alt="../_images/image037.jpg" src="../_images/image037.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 27: Power regulation system on the PCB</span><a class="headerlink" href="#id90" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id91">
-<img alt="../_images/image038.png" src="../_images/image038.png" />
-<figcaption>
-<p><span class="caption-text">Figure 28: 5V source observed on the oscilloscope.</span><a class="headerlink" href="#id91" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 27: Power regulation system on the PCB</span><a class="headerlink" href="#id91" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id92">
+<img alt="../_images/image038.png" src="../_images/image038.png" />
+<figcaption>
+<p><span class="caption-text">Figure 28: 5V source observed on the oscilloscope.</span><a class="headerlink" href="#id92" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id93">
 <img alt="../_images/image039.png" src="../_images/image039.png" />
 <figcaption>
-<p><span class="caption-text">Figure 29: 3.3V source observed on the oscilloscope.</span><a class="headerlink" href="#id92" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 29: 3.3V source observed on the oscilloscope.</span><a class="headerlink" href="#id93" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -817,34 +824,34 @@ amplifier stage. Frequencies of 160Hz were achievable with system stability. Fre
 demand.</p>
 <section id="without-speaker-load">
 <h4>Without Speaker Load<a class="headerlink" href="#without-speaker-load" title="Permalink to this headline"></a></h4>
-<figure class="align-center" id="id93">
+<figure class="align-center" id="id94">
 <img alt="../_images/audio.jpg" src="../_images/audio.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 30: Audio output system.</span><a class="headerlink" href="#id93" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id94">
-<img alt="../_images/image040.png" src="../_images/image040.png" />
-<figcaption>
-<p><span class="caption-text">Figure 31: Sine wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id94" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 30: Audio output system.</span><a class="headerlink" href="#id94" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id95">
-<img alt="../_images/image041.png" src="../_images/image041.png" />
+<img alt="../_images/image040.png" src="../_images/image040.png" />
 <figcaption>
-<p><span class="caption-text">Figure 32: Square wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id95" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 31: Sine wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id95" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id96">
-<img alt="../_images/image042.png" src="../_images/image042.png" />
+<img alt="../_images/image041.png" src="../_images/image041.png" />
 <figcaption>
-<p><span class="caption-text">Figure 33: Triangle wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id96" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 32: Square wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id96" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id97">
+<img alt="../_images/image042.png" src="../_images/image042.png" />
+<figcaption>
+<p><span class="caption-text">Figure 33: Triangle wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id97" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id98">
 <img alt="../_images/image043.png" src="../_images/image043.png" />
 <figcaption>
-<p><span class="caption-text">Figure 34: Sawtooth wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id97" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 34: Sawtooth wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id98" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -854,28 +861,28 @@ demand.</p>
 loading and unloading. Slight hiccupping of the output waveform can also be observed due to
 issues with the python interpreter, as well as variation in frequency/amplitude from ultrasonic
 sensors when sampling.</p>
-<figure class="align-center" id="id98">
+<figure class="align-center" id="id99">
 <img alt="../_images/image044.png" src="../_images/image044.png" />
 <figcaption>
-<p><span class="caption-text">Figure 35: Sine wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id98" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id99">
-<img alt="../_images/image045.png" src="../_images/image045.png" />
-<figcaption>
-<p><span class="caption-text">Figure 36: Square wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id99" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 35: Sine wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id99" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id100">
-<img alt="../_images/image046.png" src="../_images/image046.png" />
+<img alt="../_images/image045.png" src="../_images/image045.png" />
 <figcaption>
-<p><span class="caption-text">Figure 37: Triangle wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id100" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 36: Square wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id100" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id101">
+<img alt="../_images/image046.png" src="../_images/image046.png" />
+<figcaption>
+<p><span class="caption-text">Figure 37: Triangle wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id101" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id102">
 <img alt="../_images/image047.png" src="../_images/image047.png" />
 <figcaption>
-<p><span class="caption-text">Figure 38: Sawtooth wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id101" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 38: Sawtooth wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id102" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -889,34 +896,34 @@ and amplitude readings in real time. DIP switches control the wave types, allowi
 triangle, and sawtooth from left to right. Once both sensors detect objects, they display the
 potential frequency and amplitude of the wave. The output signal is only generated when both
 sensors detect, and a waveform switch is selected.</p>
-<figure class="align-center" id="id102">
+<figure class="align-center" id="id103">
 <img alt="../_images/figure39.png" src="../_images/figure39.png" />
 <figcaption>
-<p><span class="caption-text">Figure 39: Splash screen on system reset.</span><a class="headerlink" href="#id102" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id103">
-<img alt="../_images/figure40.png" src="../_images/figure40.png" />
-<figcaption>
-<p><span class="caption-text">Figure 40: Home screen with waveform selection, frequency, and amplitude readings.</span><a class="headerlink" href="#id103" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 39: Splash screen on system reset.</span><a class="headerlink" href="#id103" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id104">
-<img alt="../_images/figure41.png" src="../_images/figure41.png" />
+<img alt="../_images/figure40.png" src="../_images/figure40.png" />
 <figcaption>
-<p><span class="caption-text">Figure 41: Amplitude and frequency boundary menu.</span><a class="headerlink" href="#id104" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 40: Home screen with waveform selection, frequency, and amplitude readings.</span><a class="headerlink" href="#id104" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id105">
-<img alt="../_images/image054.jpg" src="../_images/image054.jpg" />
+<img alt="../_images/figure41.png" src="../_images/figure41.png" />
 <figcaption>
-<p><span class="caption-text">Figure 42: Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id105" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 41: Amplitude and frequency boundary menu.</span><a class="headerlink" href="#id105" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id106">
+<img alt="../_images/image054.jpg" src="../_images/image054.jpg" />
+<figcaption>
+<p><span class="caption-text">Figure 42: Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id106" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id107">
 <img alt="../_images/image055.jpg" src="../_images/image055.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 43: Close up of the ultrasonic theremin in its case.</span><a class="headerlink" href="#id106" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 43: Close up of the ultrasonic theremin in its case.</span><a class="headerlink" href="#id107" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -1886,7 +1893,7 @@ Nov-2022].</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="engineering_projects.html" class="btn btn-neutral float-left" title="Engineering Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="condenser_microphone.html" class="btn btn-neutral float-left" title="Condenser Microphone Workshop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

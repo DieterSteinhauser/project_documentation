@@ -29,7 +29,7 @@ def fibonacci_list(max_index):
     """
     Method that implements the fibonacci sequence to a given value
 
-    :param max_index: the maximum of the for loop for fizzbuzz.
+    :param max_index: the maximum of the for loop for the fibonacci sequence.
     :type max_index: int
     :return: Creates a list of max_index fibonacci numbers.
     :rtype: list

@@ -3,6 +3,14 @@ Ultrasonic Theremin - Junior Design
 
 Date: 11/2022
 
+
+.. figure:: theremin_images/image054.jpg
+  :align: center
+
+  Figure 42: Ultrasonic Theremin in its case.
+
+
+
 *******************
 Introduction
 *******************
