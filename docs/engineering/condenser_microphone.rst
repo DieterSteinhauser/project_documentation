@@ -2,7 +2,10 @@ Condenser Microphone Workshop
 ====================================================
 
 
+.. figure:: fet_mic_images/image021.png
+  :align: center
 
+  Finished Microphone.
 
 ******************************
 Introduction and Objectives

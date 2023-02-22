@@ -89,6 +89,12 @@
              
   <section id="condenser-microphone-workshop">
 <h1>Condenser Microphone Workshop<a class="headerlink" href="#condenser-microphone-workshop" title="Permalink to this headline"></a></h1>
+<figure class="align-center" id="id1">
+<img alt="../_images/image0211.png" src="../_images/image0211.png" />
+<figcaption>
+<p><span class="caption-text">Finished Microphone.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <section id="introduction-and-objectives">
 <h2>Introduction and Objectives<a class="headerlink" href="#introduction-and-objectives" title="Permalink to this headline"></a></h2>
 <dl class="simple">
@@ -111,10 +117,10 @@ internals of a donor microphone, Soldering circuit components to the microphone,
 giving condenser microphones the alternate name of capacitor microphones. Capsules have a fixed backplate side and a
 diaphragm side that can vibrate due to sound waves. This vibration causes a difference in the distance between the
 plates, changing the capacitance and therefore the voltage across the capacitor.</p>
-<figure class="align-center" id="id1">
+<figure class="align-center" id="id2">
 <img alt="../_images/image001.png" src="../_images/image001.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Capacitor physics equations.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Capacitor physics equations.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Electret diaphragms can be a thin metal, or mylar covered with a metal coating. A gold coating is often found in
@@ -126,10 +132,10 @@ the TSB-2555 do not require a polarizing voltage. In our case, a 5V source from 
 microphone using an audio interface that transforms the voltage to 48V for phantom power.
 Phantom power is simply a DC offset applied to the signal line for analog circuitry, and while the standard is 48V,
 can range from values from 12V to 48V.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id3">
 <img alt="../_images/image002.png" src="../_images/image002.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: Electret Capsule anatomy and wiring diagram.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 2: Electret Capsule anatomy and wiring diagram.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Unlike most electret capsules, the TSB-2555 Electret capsule does not have an internal JFET, similar to the one
@@ -142,16 +148,16 @@ The 1GΩ Resistor biases the JFET, finding a path to ground. This puts the JFET
 startup and helps develop the capsule signal. A low-pass filter is also being created between the capsule capacitor
 and resistor, limiting noise developed by the capsule. If you are interested in the capacitance of the capsule,
 there is a link to the disassembly and testing of the TSB-2555 in the appendix.</p>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id4">
 <img alt="../_images/image003.png" src="../_images/image003.png" />
 <figcaption>
-<p><span class="caption-text">Figure 3: Input section of the circuit. Electret Capsule JFET wiring diagram.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 3: Input section of the circuit. Electret Capsule JFET wiring diagram.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id5">
 <img alt="../_images/image004.png" src="../_images/image004.png" />
 <figcaption>
-<p><span class="caption-text">Figure 4: Time constant and cutoff frequency equation.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 4: Time constant and cutoff frequency equation.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The 1M potentiometer that is connected to the 1Gigaohm resistor applies tuning this filter by adding resistance in
@@ -159,10 +165,10 @@ series to the development of the signal.Identical load resistors are applied to 
 creating a phase splitter. The source of the FET contains identical voltage to the gate, while the voltage drop from
 source to drain creates a halved amplitude and opposite polarity. There is a total voltage gain factor of ~1/2 due
 to this. Signals are then sent to the BJT’s through coupling and smoothing capacitors. (Figure 5)</p>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id6">
 <img alt="../_images/image005.png" src="../_images/image005.png" />
 <figcaption>
-<p><span class="caption-text">Figure 5: Microphone input stage. A focus on the identical 2.4k load resistors and AC coupling/smoothing capacitors.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 5: Microphone input stage. A focus on the identical 2.4k load resistors and AC coupling/smoothing capacitors.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -171,10 +177,10 @@ to this. Signals are then sent to the BJT’s through coupling and smoothing cap
 <p>The output stage is composed of passive lowpass filters on the XLR signal wires.Two PNP BJT’s compose emitter
 followers for buffered outputs to the XLR connector. These BJT’s provide low output impedance for transmission
 to the Pre-amp or audio interface. As expected with a BJT, there is about a 0.7V DC drop across the base and emitter.</p>
-<figure class="align-center" id="id6">
+<figure class="align-center" id="id7">
 <img alt="../_images/image0061.png" src="../_images/image0061.png" />
 <figcaption>
-<p><span class="caption-text">Figure 6: Microphone output stage. A focus on the lowpass filters and the Bipolar BJT’s setup in an emitter follower configuration.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 6: Microphone output stage. A focus on the lowpass filters and the Bipolar BJT’s setup in an emitter follower configuration.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -188,26 +194,26 @@ and cleaning the voltage to a DC value in the range of 10-12V. This cleaned volt
 the input stage. The capacitors provide a smoothing to the voltage, while the Zener diode steps down and regulates
 the voltage. This is also known as a Zener diode regulator. The output filter creates a low pass with a cutoff of ~5Hz,
 limiting noise on the DC voltage.</p>
-<figure class="align-center" id="id7">
+<figure class="align-center" id="id8">
 <img alt="../_images/image0071.png" src="../_images/image0071.png" />
 <figcaption>
-<p><span class="caption-text">Figure 7: Microphone power stage. A focus on the Zener regulator and RC filters.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 7: Microphone power stage. A focus on the Zener regulator and RC filters.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="assembly">
 <h2>Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline"></a></h2>
-<figure class="align-center" id="id8">
+<figure class="align-center" id="id9">
 <img alt="../_images/XLR_female.png" src="../_images/XLR_female.png" />
 <figcaption>
-<p><span class="caption-text">Figure 9: Female XLR jack connections.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 9: Female XLR jack connections.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id9">
+<figure class="align-center" id="id10">
 <img alt="../_images/image011.png" src="../_images/image011.png" />
 <figcaption>
-<p><span class="caption-text">Figure 11: Microphone Schematic and component table for creation of a Printed Circuit Board.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 11: Microphone Schematic and component table for creation of a Printed Circuit Board.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
