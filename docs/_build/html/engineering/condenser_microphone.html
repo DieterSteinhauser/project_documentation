@@ -51,7 +51,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#power">Power</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#assembly">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assembly">Assembly</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#capsule-swap">Capsule Swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pcb-swap">PCB Swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pcb-soldering">PCB Soldering</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#results">Results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendix">Appendix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
@@ -204,18 +209,46 @@ limiting noise on the DC voltage.</p>
 </section>
 <section id="assembly">
 <h2>Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline"></a></h2>
+<section id="capsule-swap">
+<h3>Capsule Swap<a class="headerlink" href="#capsule-swap" title="Permalink to this headline"></a></h3>
+<p>Start disassembly by unscrewing the microphone bottom to reveal the internal components.
+Remove the two screws that connect the capsule wire shield to the chassis to reveal the electret capsule.
+Unsolder the connecting wire of the existing capsule. After, unscrew the capsule holder to remove the capsule from the
+microphone chassis. Carefully cut the plastic of the capsule holder to remove the original small capsule.
+This action is best done with a set of diagonal cutters. Trim down any excess plastic within the capsule holder
+to better fit the new electret capsule. Once the capsule holder is augmented, insert the new electret capsule,
+and set it in place with a small amount of hot glue. If you are having trouble fitting the new capsule into the
+capsule holder, try trimming down the holder more. If it still does not fit, carefully cut out a slice of the capsule
+ring to expand the capsule holder to better fit the new capsule. When you have the new capsule set into the capsule
+holder, screw the capsule holder back into the chassis, making note of which screw holes are threaded.
+Resolder the existing capsule wires to the new electret capsule, with the signal wire going to the center
+tab of the capsule and the ground wire going to the edge of the capsule.</p>
+</section>
+<section id="pcb-swap">
+<h3>PCB Swap<a class="headerlink" href="#pcb-swap" title="Permalink to this headline"></a></h3>
+<p>Unsolder the wire ends that are attached to the existing board. Start with the capsule wires,
+then work your way down to the XLR wires. Some boards label the XLR wire ends, others do not,
+so to best connect your XLR jack to the new board, compare the XLR connections to the figures below
+and Resolder with new wires if the color code of your existing wires is too confusing.
+After this, unscrew the existing board and set the chassis aside.</p>
 <figure class="align-center" id="id9">
 <img alt="../_images/XLR_female.png" src="../_images/XLR_female.png" />
 <figcaption>
 <p><span class="caption-text">Figure 9: Female XLR jack connections.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+</section>
+<section id="pcb-soldering">
+<h3>PCB Soldering<a class="headerlink" href="#pcb-soldering" title="Permalink to this headline"></a></h3>
+<p>Solder the new components to the PCB. I recommend Soldering All Passive components first but it could be done in
+any order.</p>
 <figure class="align-center" id="id10">
 <img alt="../_images/image011.png" src="../_images/image011.png" />
 <figcaption>
 <p><span class="caption-text">Figure 11: Microphone Schematic and component table for creation of a Printed Circuit Board.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+</section>
 </section>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline"></a></h2>

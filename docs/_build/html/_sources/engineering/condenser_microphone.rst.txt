@@ -117,12 +117,41 @@ limiting noise on the DC voltage.
 Assembly
 ******************
 
+Capsule Swap
+------------------
+
+Start disassembly by unscrewing the microphone bottom to reveal the internal components.
+Remove the two screws that connect the capsule wire shield to the chassis to reveal the electret capsule.
+Unsolder the connecting wire of the existing capsule. After, unscrew the capsule holder to remove the capsule from the
+microphone chassis. Carefully cut the plastic of the capsule holder to remove the original small capsule.
+This action is best done with a set of diagonal cutters. Trim down any excess plastic within the capsule holder
+to better fit the new electret capsule. Once the capsule holder is augmented, insert the new electret capsule,
+and set it in place with a small amount of hot glue. If you are having trouble fitting the new capsule into the
+capsule holder, try trimming down the holder more. If it still does not fit, carefully cut out a slice of the capsule
+ring to expand the capsule holder to better fit the new capsule. When you have the new capsule set into the capsule
+holder, screw the capsule holder back into the chassis, making note of which screw holes are threaded.
+Resolder the existing capsule wires to the new electret capsule, with the signal wire going to the center
+tab of the capsule and the ground wire going to the edge of the capsule.
+
+PCB Swap
+------------------
+
+Unsolder the wire ends that are attached to the existing board. Start with the capsule wires,
+then work your way down to the XLR wires. Some boards label the XLR wire ends, others do not,
+so to best connect your XLR jack to the new board, compare the XLR connections to the figures below
+and Resolder with new wires if the color code of your existing wires is too confusing.
+After this, unscrew the existing board and set the chassis aside.
+
 .. figure:: fet_mic_images/XLR_female.png
   :align: center
 
   Figure 9: Female XLR jack connections.
 
+PCB Soldering
+------------------
 
+Solder the new components to the PCB. I recommend Soldering All Passive components first but it could be done in
+any order.
 
 .. figure:: fet_mic_images/image011.png
   :align: center
