@@ -162,9 +162,63 @@ any order.
 Results
 ******************
 
+.. figure:: fet_mic_images/image023.jpg
+  :align: center
+
+  Finished Microphone.
+
+.. figure:: fet_mic_images/image022.jpg
+  :align: center
+
+  Reverse side of the Finished Microphone.
+
+
 ******************
 Appendix
 ******************
+
+Parts List
+------------------
+
+`Mouser active and passive parts  <https://www.mouser.com/ProjectManager/ProjectDetail.aspx?State=EDIT&ProjectGUID=f74b44ec-a300-4a63-ad8d-b5751556b5cd>`_
+
+`Base microphone for shell ~$15-30 (search for BM800 on Amazon) <https://www.amazon.com/ZINGYOU-Condenser-Microphone-Cardioid-Recording/dp/B075MX6SGX/ref=sr_1_13?crid=1U0EWKZ1UK6IE&dchild=1&keywords=bm+800+microphone&qid=1635268936&sprefix=bm800%2Caps%2C83&sr=8-13>`_
+
+`TSB-2555B electret capsule $13 plus shipping <https://www.jlielectronics.com/microphone-capsules/jli-2555bxz3-gp/>`_
+
+
+Audio Interface Recommendations
+--------------------------------
+
+  .. note:: You will need an interface/Phantom power supply of some sort as the circuit is designed for 48V phantom power.
+   Here are some recommendations at different price points if you not already own one.
+   You will need a Female to Male XLR cable as well.
+
+`Behringer UM2  <https://www.amazon.com/BEHRINGER-Audio-Interface-1-Channel-UM2/dp/B00EK1OTZC>`_
+
+`Scarlett 2i2  <https://www.sweetwater.com/store/detail/Scarlet2i2G3--focusrite-scarlett-2i2-3rd-gen-usb-audio-interface>`_
+
+`SSL2  <https://www.sweetwater.com/store/detail/SSL2Plus--solid-state-logic-ssl2-usb-audio-interface>`_
+
+Reference Material
+--------------------
+
+`What is a condenser microphone?  <https://mynewmicrophone.com/what-is-a-condenser-microphone-detailed-answer-examples/>`_
+
+`Microphone wikipedia page  <https://en.wikipedia.org/wiki/Microphone>`_
+
+`Basic FET microphone circuits  <http://www.audioimprov.com/AudioImprov/Mics/Entries/2015/4/23_Basic_FET_Microphone_Circuits.html>`_
+
+`Mic Circuits in detail <http://www.audioimprov.com/AudioImprov/Mics/Entries/2021/2/5_Circuits_-_Simple_to_Professional.html>`_
+
+`Zener Noise  <http://www.audioimprov.com/AudioImprov/Mics/Entries/2021/1/17_Zener_Noise.html>`_
+
+`TSB2555 Capsule dismantling <https://www.firstpr.com.au/rwi/mics/2009-09-a/>`_
+
+`Microphone instructables <https://www.instructables.com/Modify-a-cheap-LDC-Condenser-microphone/>`_
+
+
+
 
 ******************
 References
