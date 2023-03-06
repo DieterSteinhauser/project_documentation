@@ -9,7 +9,8 @@ Library of Project Documentation
    programming/programming_projects
    fun/fun_projects
    engineering/engineering_projects
-   engineering/engineering_reference
+   engineering/engineering_reference.rst
+
 
 Indices and tables
 ==================
