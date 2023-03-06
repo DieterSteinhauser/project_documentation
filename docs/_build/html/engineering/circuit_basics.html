@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circuit Foundations &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Passive Filters" href="passive_filters.html" />
+    <link rel="prev" title="Engineering Reference and Theory" href="engineering_reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Circuit Foundations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#voltage-current-and-resistance">Voltage, Current, and Resistance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ohms-law">Ohms Law</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power">Power</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#series">Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel">Parallel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dividers">Dividers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kirchhoff-s-laws">Kirchhoff’s laws</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kvl-kirchhoff-s-voltage-law">KVL: Kirchhoff’s voltage law</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kcl-kirchhoff-s-current-law">KCL: Kirchhoff’s current law</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#circuit-analysis">Circuit Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nodal-analysis">Nodal Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-analysis">Mesh Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thevenin-equivalent">Thevenin Equivalent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#norton-equivalent">Norton Equivalent</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Circuit Foundations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/circuit_basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="circuit-foundations">
+<h1>Circuit Foundations<a class="headerlink" href="#circuit-foundations" title="Permalink to this headline"></a></h1>
+<section id="voltage-current-and-resistance">
+<h2>Voltage, Current, and Resistance<a class="headerlink" href="#voltage-current-and-resistance" title="Permalink to this headline"></a></h2>
+<section id="ohms-law">
+<h3>Ohms Law<a class="headerlink" href="#ohms-law" title="Permalink to this headline"></a></h3>
+</section>
+<section id="power">
+<h3>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h3>
+</section>
+<section id="series">
+<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline"></a></h3>
+</section>
+<section id="parallel">
+<h3>Parallel<a class="headerlink" href="#parallel" title="Permalink to this headline"></a></h3>
+</section>
+<section id="dividers">
+<h3>Dividers<a class="headerlink" href="#dividers" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+<section id="kirchhoff-s-laws">
+<h2>Kirchhoff’s laws<a class="headerlink" href="#kirchhoff-s-laws" title="Permalink to this headline"></a></h2>
+<section id="kvl-kirchhoff-s-voltage-law">
+<h3>KVL: Kirchhoff’s voltage law<a class="headerlink" href="#kvl-kirchhoff-s-voltage-law" title="Permalink to this headline"></a></h3>
+</section>
+<section id="kcl-kirchhoff-s-current-law">
+<h3>KCL: Kirchhoff’s current law<a class="headerlink" href="#kcl-kirchhoff-s-current-law" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+<section id="circuit-analysis">
+<h2>Circuit Analysis<a class="headerlink" href="#circuit-analysis" title="Permalink to this headline"></a></h2>
+<section id="nodal-analysis">
+<h3>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline"></a></h3>
+</section>
+<section id="mesh-analysis">
+<h3>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline"></a></h3>
+</section>
+<section id="thevenin-equivalent">
+<h3>Thevenin Equivalent<a class="headerlink" href="#thevenin-equivalent" title="Permalink to this headline"></a></h3>
+</section>
+<section id="norton-equivalent">
+<h3>Norton Equivalent<a class="headerlink" href="#norton-equivalent" title="Permalink to this headline"></a></h3>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
+<a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
+[Accessed: 17-Oct-2022].</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="engineering_reference.html" class="btn btn-neutral float-left" title="Engineering Reference and Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="passive_filters.html" class="btn btn-neutral float-right" title="Passive Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

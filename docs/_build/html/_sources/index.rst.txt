@@ -9,6 +9,7 @@ Library of Project Documentation
    programming/programming_projects
    fun/fun_projects
    engineering/engineering_projects
+   engineering/engineering_reference
 
 Indices and tables
 ==================

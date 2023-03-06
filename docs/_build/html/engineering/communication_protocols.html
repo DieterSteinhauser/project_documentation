@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communication Protocols &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Raspberry Pico Microcontroller" href="raspberry_pico.html" />
+    <link rel="prev" title="Data Conversion: ADC and DAC Theory" href="data_conversion.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Communication Protocols</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spi-serial-peripheral-interface">SPI - Serial Peripheral Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Communication Protocols</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/communication_protocols.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="communication-protocols">
+<h1>Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permalink to this headline"></a></h1>
+<section id="spi-serial-peripheral-interface">
+<h2>SPI - Serial Peripheral Interface<a class="headerlink" href="#spi-serial-peripheral-interface" title="Permalink to this headline"></a></h2>
+<p>SPI is a full-duplex serial communication protocol that was created by Motorola in the
+1980’s for high-speed communication in embedded systems <a class="footnote-reference brackets" href="#id5" id="id1">18</a>. The SPI protocol consists of a
+single master device and one or many slave devices. For a simple two device system, A clock
+(SCLK), a chip select (CS), and two data lines (MOSI, MISO) are employed. MOSI is the data
+transmitted from the master device, while MISO is the data received from the master device.</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/image004.png" src="../_images/image004.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id5" id="id2">18</a>.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>SPI can incorporate multiple slave devices by connecting data and clock lines,
+individually accessing a slave device by using a dedicated chip select line for each device as seen
+in figure 2. This can become GPIO intensive as the number of pins needed on the master device
+will increase with each additional slave device. Alternatively, SPI devices can work
+cooperatively by tying all chip selects to the same line as seen in figure 3. This works well if data
+does not need to be returned from the slave devices and the slave devices are intended to have
+the same output.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../_images/image005.png"><img alt="fig5" src="../_images/image005.png" style="width: 320px;" /></a></p></td>
+<td><p><a class="reference internal" href="../_images/image006.png"><img alt="fig6" src="../_images/image006.png" style="width: 320px;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>Figure 2: SPI independent configuration</em> <a class="footnote-reference brackets" href="#id5" id="id3">18</a>.</p></td>
+<td><p><em>Figure 3: SPI daisy-chained configuration</em> <a class="footnote-reference brackets" href="#id5" id="id4">18</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>SPI transmits and receives data simultaneously in both directions, making the
+communication full duplex in design. SPI also uses GPIO for addressing a chip instead of
+transmitting addresses over the data lines commonly seen in I2C. Because of the full duplex data
+transmission and GPIO addressing, SPI has very high transmission speeds, but can become
+GPIO intensive. In practice, the maximum clock speeds of a SPI configuration depend highly on
+the connected devices and their method of connection. Finally, the SPI protocol is highly
+configurable in that the clock polarity and phase can be configured. This is also highly dependent
+on connected devices and should be considered when creating a two-device or multi-device
+system. In terms of using SPI on the Pico, A clock at or below 1MHz is best for breadboarding
+and flywire use.</p>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets">18</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>)</span></dt>
+<dd><p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a>. [Accessed: 19-Oct-2022].</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_conversion.html" class="btn btn-neutral float-left" title="Data Conversion: ADC and DAC Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="raspberry_pico.html" class="btn btn-neutral float-right" title="Raspberry Pico Microcontroller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

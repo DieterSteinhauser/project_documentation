@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raspberry Pico Microcontroller &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LTC1661 DAC" href="ltc1661_dac.html" />
+    <link rel="prev" title="Communication Protocols" href="communication_protocols.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Raspberry Pico Microcontroller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pico-overview">Pico Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adc-configuration">ADC Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-regulation-and-filtering">Power Regulation and Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-clock-speeds">Changing Clock Speeds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputs-and-outputs">Inputs and Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Raspberry Pico Microcontroller</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/raspberry_pico.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="raspberry-pico-microcontroller">
+<h1>Raspberry Pico Microcontroller<a class="headerlink" href="#raspberry-pico-microcontroller" title="Permalink to this headline"></a></h1>
+<section id="pico-overview">
+<h2>Pico Overview<a class="headerlink" href="#pico-overview" title="Permalink to this headline"></a></h2>
+<p>The Raspberry Pico is a development board with an RP2040 microcontroller chip. It has
+264KB of SRAM and 2MB of flash memory. Development for the Pico is versatile as the
+platform capable of being programmed in MicroPython, CPython, C, and Rust <a class="footnote-reference brackets" href="#id10" id="id1">1</a>. The Pico has
+a dual core processor with a warrantied clock speed of 133MHz, set to 125MHz out of the box.
+The Pico is easily overclocked to over double the stock processor speed, with simple overclocking available
+to 270MHz.There are 40 GPIO pins on the board, with SPI, I2C, and UART communication capability. The Pico
+comes equip with a 12-bit 500ksps ADC with 5 channels total. One channel is configured to an
+RP2040 internal temperature sensor, and three are tied to GPIO pins on the Pico <a class="footnote-reference brackets" href="#id11" id="id2">2</a>. The Pico
+also has a timer with four alarms, a Real-Time-Counter (RTC), and sixteen Pulse-Width Modulation (PWM) channels.</p>
+<figure class="align-center" id="id12">
+<img alt="../_images/image0011.png" src="../_images/image0011.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Raspberry Pico Pinout <a class="footnote-reference brackets" href="#id10" id="id3">1</a>.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="adc-configuration">
+<h2>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Permalink to this headline"></a></h2>
+<p>Since the ADC in on the Raspberry Pico, initial setup of the ADC can easily be achieved
+using the ADC section of the Pico Software Development Kit (SDK) <a class="footnote-reference brackets" href="#id11" id="id4">2</a>. This provides the
+engineer with a simple and straightforward introduction on taking ADC readings. However, the
+12-bit ADC onboard the Pico is not great by any means. This is due to the switching power
+regulator on the Pico. As a result of switching signal noise, the onboard voltage reference for the
+ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy <a class="footnote-reference brackets" href="#id10" id="id5">1</a>.
+The datasheet gives suggestions on improvement of the ADC readings. An External reference
+voltage may be used, the R7 resistor can be removed, or issues can be mitigated in averaging and
+offset code. Adding bypass capacitors to the reference voltage and ADC input pins can also improve filtering
+and smoothing at the cost of a larger circuit footprint. This is enough for general measurements.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Reading values from the ADC</span><a class="headerlink" href="#id13" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># -----------------------------------------</span>
+ <span class="c1">#           ADC Configuration</span>
+ <span class="c1"># -----------------------------------------</span>
+ <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span>
+
+ <span class="n">UPY_BIT_RES</span> <span class="o">=</span> <span class="mi">16</span>
+ <span class="n">ADC_REF</span> <span class="o">=</span> <span class="mf">3.3</span>
+ <span class="n">VOLT_PER_BIT</span> <span class="o">=</span> <span class="n">ADC_REF</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">UPY_BIT_RES</span><span class="p">)</span> <span class="c1"># ADC receives in 2 byte packets and micropython automagically fixes it.</span>
+
+ <span class="n">adc0</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span> <span class="c1"># Connect to GP26, which is channel 0</span>
+ <span class="n">adc1</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span> <span class="c1"># Connect to GP27, which is channel 1</span>
+ <span class="c1"># adc2 = machine.ADC(28) # Connect to GP28, which is channel 2</span>
+ <span class="n">adc_reading</span> <span class="o">=</span> <span class="n">adc0</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">VOLT_PER_BIT</span> <span class="c1"># read and report the ADC reading</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="power-regulation-and-filtering">
+<h2>Power Regulation and Filtering<a class="headerlink" href="#power-regulation-and-filtering" title="Permalink to this headline"></a></h2>
+<p>The Pico can be powerered either through a micro USB cable or through external voltage regulation. The Pico is capable
+of operating on a 2.3 to 5.5V source. A simple yet effective way to safely power the Raspberry Pico externally is via
+the VSYS pin. This will activate the device and use the 3.3V Switching Mode Power Supply (SMPS). To avoid backflow when
+the Pico is plugged in via USB, this connection should be done using a Schottky diode from your source to VSYS <a class="footnote-reference brackets" href="#id10" id="id6">1</a>.
+The Pico power-chain is decent because the SMPS is efficient, but noise on the output causes
+problems with other systems like the ADC <a class="footnote-reference brackets" href="#id10" id="id7">1</a>, <a class="footnote-reference brackets" href="#id11" id="id8">2</a>.</p>
+<figure class="align-center" id="id14">
+<img alt="../_images/figure18.png" src="../_images/figure18.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Pico Power-chain and the implemented method of external supply <a class="footnote-reference brackets" href="#id10" id="id9">1</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="changing-clock-speeds">
+<h2>Changing Clock Speeds<a class="headerlink" href="#changing-clock-speeds" title="Permalink to this headline"></a></h2>
+<p>The raspberry Pi foundation ensures operation of the Pico at 133MHz, however the device can work well past that
+frequency. Higher frequency clock speeds can lead to issues with systems and should be tested on a case by case basis.
+Speeds above 200MHz can interfere with UART and other USB serial communications. Speeds above 270MHz are not easily
+achievable without flashing to the EEPROM directly. Flashing the EEPROM can allow for clock speeds in the 400MHz range.</p>
+<p>The Pico can also be under-clocked for better efficiency in low power and light workloads. Changing the internal clock
+speed with extend maximum watchdog timer periods, another perk of under-clocking.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pushing the Raspberry Pico beyond 133MHz voids your warranty, and can shorten the lifespan
+of the device!</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Changing Device Clock Speeds</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">freq</span>
+
+ <span class="c1"># -----------------------------------------</span>
+ <span class="c1">#           SYSTEM CLOCK</span>
+ <span class="c1"># -----------------------------------------</span>
+
+ <span class="n">DEFAULT_SYS_CLK</span> <span class="o">=</span> <span class="mi">125_000_000</span>
+ <span class="n">OVERCLOCK</span> <span class="o">=</span> <span class="mi">270_000_000</span>
+ <span class="n">UNDERCLOCK</span> <span class="o">=</span> <span class="mi">30_000_000</span>
+
+ <span class="c1"># Pico can go up to 270MHz before needing to flash to the eeprom directly.</span>
+ <span class="n">system_clock</span> <span class="o">=</span> <span class="n">OVERCLOCK</span>
+
+ <span class="c1"># if the system clock is not the default, apply the clock speed.</span>
+ <span class="k">if</span> <span class="n">system_clock</span> <span class="o">!=</span>  <span class="n">DEFAULT_SYS_CLK</span><span class="p">:</span>
+     <span class="n">freq</span><span class="p">(</span><span class="n">system_clock</span><span class="p">)</span>
+
+ <span class="c1"># print(f&#39;Clock: {freq()/1e6}MHz&#39;)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="inputs-and-outputs">
+<h2>Inputs and Outputs<a class="headerlink" href="#inputs-and-outputs" title="Permalink to this headline"></a></h2>
+<p>Buttons, switches, and LEDs are integral to most designs for various controls and
+system status. All inputs are easliy setup in a pull-down configuration. GPIO selected for these
+pins were selected last to ensure critical systems had placement. Button debouncing can be taken
+care of in software by implementing a delay after initial triggering. Alternatively, these buttons
+could be debounced using small bypass capacitors such as a 100nF, creating a RC continuous voltage
+response for the IO pin instead of a bouncing signal. All buttons, switches, and output LED’s should use
+the 3.3V source from the SMPS as to not damage GPIO pins on the Pico. LED’s should also be paired
+with 220-ohm resistors to give the LED’s maximum brightness in a safe current range.</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Button Interrupts and Debouncing through Software</span><a class="headerlink" href="#id16" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">ticks_ms</span>
+ <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+
+ <span class="c1"># Button Pin Assignment</span>
+ <span class="c1"># ----------------------------</span>
+ <span class="n">button0</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+ <span class="n">button1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+ <span class="n">button2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+ <span class="n">button3</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+ <span class="n">button_pins</span> <span class="o">=</span> <span class="p">[</span><span class="n">button0</span><span class="p">,</span> <span class="n">button1</span><span class="p">,</span> <span class="n">button2</span><span class="p">,</span> <span class="n">button3</span><span class="p">]</span>
+
+ <span class="c1"># -----------------------------------------</span>
+ <span class="c1">#           GENERAL I/O</span>
+ <span class="c1"># -----------------------------------------</span>
+ <span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span>
+ <span class="k">def</span> <span class="nf">debounce</span><span class="p">():</span>
+     <span class="k">global</span> <span class="n">last_time</span>
+     <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
+
+     <span class="c1"># if it has been more that 1/10 of a second since the last event, we have a new event</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">new_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+         <span class="n">last_time</span> <span class="o">=</span> <span class="n">new_time</span>
+         <span class="k">return</span> <span class="kc">True</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="k">return</span> <span class="kc">False</span>
+
+ <span class="c1"># These handlers are what occurs when a button is pressed.</span>
+ <span class="k">def</span> <span class="nf">button0_irq_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+     <span class="k">global</span> <span class="n">reset</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">debounce</span><span class="p">()):</span>
+         <span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+
+ <span class="k">def</span> <span class="nf">button1_irq_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+     <span class="k">global</span> <span class="n">menu_select</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">debounce</span><span class="p">()):</span>
+         <span class="n">menu_select</span> <span class="o">=</span> <span class="mi">0</span>
+
+ <span class="k">def</span> <span class="nf">button2_irq_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+     <span class="k">global</span> <span class="n">menu_select</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">debounce</span><span class="p">()):</span>
+         <span class="n">menu_select</span> <span class="o">=</span> <span class="mi">1</span>
+
+ <span class="k">def</span> <span class="nf">button3_irq_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+     <span class="k">global</span> <span class="n">menu_select</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">debounce</span><span class="p">()):</span>
+         <span class="n">menu_select</span> <span class="o">=</span> <span class="mi">2</span>
+
+ <span class="c1"># now we register the handler function when the button is pressed</span>
+ <span class="n">button0</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_RISING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button0_irq_handler</span><span class="p">)</span>
+ <span class="n">button1</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_RISING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button1_irq_handler</span><span class="p">)</span>
+ <span class="n">button2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_RISING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button2_irq_handler</span><span class="p">)</span>
+ <span class="n">button3</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_RISING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button3_irq_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>,<a href="#id5">3</a>,<a href="#id6">4</a>,<a href="#id7">5</a>,<a href="#id9">6</a>)</span></dt>
+<dd><p>“Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
+<a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf</a>. [Accessed: 15-Nov-2022].</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>,<a href="#id8">3</a>)</span></dt>
+<dd><p>“Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
+<a class="reference external" href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf">https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf</a>. [Accessed: 15-
+Nov-2022].</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="communication_protocols.html" class="btn btn-neutral float-left" title="Communication Protocols" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ltc1661_dac.html" class="btn btn-neutral float-right" title="LTC1661 DAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
