@@ -2,7 +2,7 @@ Engineering Reference and Theory
 ==================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Analog Engineering:
 
    circuit_basics
@@ -17,7 +17,7 @@ Engineering Reference and Theory
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Digital Engineering:
 
    data_conversion
