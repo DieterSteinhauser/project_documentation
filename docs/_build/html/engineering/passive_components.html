@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passive Components &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Passive Filters" href="passive_filters.html" />
+    <link rel="prev" title="Circuit Foundations" href="circuit_basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Passive Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#capacitors">Capacitors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coupling-and-decoupling-bypass">Coupling and Decoupling (Bypass)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel-and-series-capacitors">Parallel and Series Capacitors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time-domain-rc-circuit">Time Domain RC circuit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inductors">Inductors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Passive Components</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/passive_components.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="passive-components">
+<h1>Passive Components<a class="headerlink" href="#passive-components" title="Permalink to this headline"></a></h1>
+<section id="capacitors">
+<h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline"></a></h2>
+<p>Capacitors are a passive electrical component that stores energy in the electric field. They can be used for a variety
+of roles such as filters, timers, short term energy sources, or even to separate DC and AC signals.</p>
+<p>Capacitors are essentially two conductive metal plates surrounding a non-conducting region or dielectric.
+The metal plates have an area <strong>A</strong>, a distance between <strong>d</strong>, and a dielectric permittivity <strong>ε</strong>. A capacitor of C
+Farads with V volts across it’s terminals has Q coulombs stored on a plate and -Q on the other <a class="footnote-reference brackets" href="#id7" id="id1">1</a></p>
+<div class="math notranslate nohighlight">
+\[C = \frac{Q}{V} = \epsilon_0\frac{A}{d}\]</div>
+<p>By taking the derivative of the above equation, you can see that current through a capacitor is equal to the capacitance
+times the derivative of voltage with respect to time. Capacitors resist change in voltage, and are primarily used for
+filtering, bypassing, and coupling.</p>
+<div class="math notranslate nohighlight">
+\[(Q)dt = (CV)dt = I = C\frac{dV}{dt}\]</div>
+<section id="coupling-and-decoupling-bypass">
+<h3>Coupling and Decoupling (Bypass)<a class="headerlink" href="#coupling-and-decoupling-bypass" title="Permalink to this headline"></a></h3>
+<p>Consider having an Ideal DC voltage of 5V with no change over time, this would mean that the dV/dt term would be zero,
+making current through the capacitor zero. This essentially creates an open circuit for a DC or low frequency signals.
+An alternating signal of higher frequency would be allowed to pass, creating a nonzero dV/dt term and therefore current.
+When a capacitor is used in a signal path, this is called blocking or <strong>coupling</strong>. This can be used to block a DC
+voltage from one part of a circuit to another.</p>
+<p>Alternatively, when a Capacitor is placed from a DC node to ground, this is referred to as a <strong>decoupling</strong> or
+<strong>bypass</strong> capacitor. Decoupling and bypass capacitors have slightly different reasons for use, but are practically
+synonymous. A bypass capacitor prioritizes removal of unwanted high frequency ripple and noise from a node on the
+circuit since it acts as low impedance (a short) for high frequencies. Decoupling avoids AC ripple, noise, and overall voltage
+discontinuities. Capacitors used for decoupling are generally next to a device or IC to clean up voltage used for
+power or reference.</p>
+</section>
+<section id="parallel-and-series-capacitors">
+<h3>Parallel and Series Capacitors<a class="headerlink" href="#parallel-and-series-capacitors" title="Permalink to this headline"></a></h3>
+<p>Capacitors in parallel have the sum of their individual capacitances <a class="footnote-reference brackets" href="#id7" id="id2">1</a>.</p>
+<div class="math notranslate nohighlight">
+\[C_{tot} = C_1 + C_2 + C_3 + ...\]</div>
+<p>Capacitors in series have formulas similar to resistors in parallel.</p>
+<div class="math notranslate nohighlight">
+\[C_{tot} = \frac{C_1 * C_2}{C_1 + C_2}\]</div>
+<div class="math notranslate nohighlight">
+\[C_{tot} = \frac{1}{\frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3} + ...}\]</div>
+</section>
+<section id="time-domain-rc-circuit">
+<h3>Time Domain RC circuit<a class="headerlink" href="#time-domain-rc-circuit" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id8">
+<img alt="../_images/rc_charging_circuit.png" src="../_images/rc_charging_circuit.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: RC Charging and Discharging Circuit <a class="footnote-reference brackets" href="#id7" id="id3">1</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Given an RC circuit, a time constant will be created as the product of the resistance and capacitance.</p>
+<div class="math notranslate nohighlight">
+\[\tau = RC\]</div>
+<p>RC circuit charging and discharging occurs at an exponential decay based on the time constant. This is most easily seen
+in discharging, where the output voltage is the initial voltage times the exponential decay function of time. In the
+case of charging, the output is equal to the final voltage times the inverse of the exponential decay function of time.</p>
+<figure class="align-center" id="id9">
+<img alt="../_images/rc_discharging.png" src="../_images/rc_discharging.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Voltage over time of circuit discharging. <a class="footnote-reference brackets" href="#id7" id="id4">1</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<img alt="../_images/rc_charging.png" src="../_images/rc_charging.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Voltage over time of circuit charging. <a class="footnote-reference brackets" href="#id7" id="id5">1</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="inductors">
+<h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline"></a></h2>
+<p>Similar to Capacitors, Inductors are passive components that store energy in a circuit. However, Inductors store energy
+in the magnetic field. and the rate of current change in an inductor is proportional to the voltage across it <a class="footnote-reference brackets" href="#id7" id="id6">1</a>.
+The unit for inductance (L) is called Henrys H.</p>
+<div class="math notranslate nohighlight">
+\[V = L\frac{dI}{dt}\]</div>
+<p>Real life inductors have a variety of non-idealities which makes most cases favor the more ideal capacitor. That being
+said, inductors have interesting applications.</p>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>,<a href="#id5">5</a>,<a href="#id6">6</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="16">
+<li><p>Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.</p></li>
+</ol>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="circuit_basics.html" class="btn btn-neutral float-left" title="Circuit Foundations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="passive_filters.html" class="btn btn-neutral float-right" title="Passive Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

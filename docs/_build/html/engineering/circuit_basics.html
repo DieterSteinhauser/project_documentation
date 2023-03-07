@@ -15,10 +15,11 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Passive Filters" href="passive_filters.html" />
+    <link rel="next" title="Passive Components" href="passive_components.html" />
     <link rel="prev" title="Engineering Reference and Theory" href="engineering_reference.html" /> 
 </head>
 
@@ -45,28 +46,17 @@
 <li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Circuit Foundations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#voltage-current-and-resistance">Voltage, Current, and Resistance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ohms-law">Ohms Law</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#power">Power</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#series">Series</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parallel">Parallel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dividers">Dividers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ohms-law">Ohms Law</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kcl-kirchhoff-s-current-law">KCL: Kirchhoff’s current law</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kvl-kirchhoff-s-voltage-law">KVL: Kirchhoff’s voltage law</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power">Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#series-and-parallel">Series and Parallel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#voltage-dividers">Voltage Dividers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thevenin-and-norton-equivalent">Thevenin and Norton Equivalent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decibel-representation">Decibel Representation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#kirchhoff-s-laws">Kirchhoff’s laws</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#kvl-kirchhoff-s-voltage-law">KVL: Kirchhoff’s voltage law</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kcl-kirchhoff-s-current-law">KCL: Kirchhoff’s current law</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#circuit-analysis">Circuit Analysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#nodal-analysis">Nodal Analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mesh-analysis">Mesh Analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#thevenin-equivalent">Thevenin Equivalent</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#norton-equivalent">Norton Equivalent</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
@@ -110,55 +100,141 @@
              
   <section id="circuit-foundations">
 <h1>Circuit Foundations<a class="headerlink" href="#circuit-foundations" title="Permalink to this headline"></a></h1>
-<section id="voltage-current-and-resistance">
-<h2>Voltage, Current, and Resistance<a class="headerlink" href="#voltage-current-and-resistance" title="Permalink to this headline"></a></h2>
 <section id="ohms-law">
-<h3>Ohms Law<a class="headerlink" href="#ohms-law" title="Permalink to this headline"></a></h3>
-</section>
-<section id="power">
-<h3>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h3>
-</section>
-<section id="series">
-<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline"></a></h3>
-</section>
-<section id="parallel">
-<h3>Parallel<a class="headerlink" href="#parallel" title="Permalink to this headline"></a></h3>
-</section>
-<section id="dividers">
-<h3>Dividers<a class="headerlink" href="#dividers" title="Permalink to this headline"></a></h3>
-</section>
-</section>
-<section id="kirchhoff-s-laws">
-<h2>Kirchhoff’s laws<a class="headerlink" href="#kirchhoff-s-laws" title="Permalink to this headline"></a></h2>
-<section id="kvl-kirchhoff-s-voltage-law">
-<h3>KVL: Kirchhoff’s voltage law<a class="headerlink" href="#kvl-kirchhoff-s-voltage-law" title="Permalink to this headline"></a></h3>
+<h2>Ohms Law<a class="headerlink" href="#ohms-law" title="Permalink to this headline"></a></h2>
+<p>In any given circuit, there are values that we want to observe change over time. All of circuits revolves around the
+relationships between these three values.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Voltage</strong> (<em>V</em>) - The difference in electric potential between two points. It is derived from a joule of work
+needed to move a coulomb of charge through a potential difference of 1 volt. <a class="footnote-reference brackets" href="#id6" id="id1">1</a> Voltage is measured <strong>across</strong>
+components. Voltages can be generated from energy sources, and applying voltages across devices create a current.</p></li>
+<li><p><strong>Current</strong> (<em>I</em>) - The rate of electron flow through a point. 1 Amp is a speed derived from flow of 1 coulomb
+of charge per second. From a practical perspective, current is thought to flow from the higher potential to
+the lower potential. However, electron flow occurs from the more negative (lower) potential to the positive
+(higher) potential. Current is measured <strong>through</strong> components.</p></li>
+<li><p><strong>Resistance</strong> (<em>Ω</em>) - Resistance is the opposition to flow of electric current. Resistivity is inverse to
+conductivity. Resistance is measured in Ohms and defined with the omega (Ω) symbol. Ohm’s Law says that 1Ω of
+resistance is equivalent to 1 volt supplying 1 Amp of current.</p></li>
+</ul>
+</div></blockquote>
+<p>The relationship between these three values creates Ohm’s Law.</p>
+<div class="math notranslate nohighlight">
+\[R = V/I\]</div>
+<div class="math notranslate nohighlight">
+\[V = IR\]</div>
 </section>
 <section id="kcl-kirchhoff-s-current-law">
-<h3>KCL: Kirchhoff’s current law<a class="headerlink" href="#kcl-kirchhoff-s-current-law" title="Permalink to this headline"></a></h3>
+<h2>KCL: Kirchhoff’s current law<a class="headerlink" href="#kcl-kirchhoff-s-current-law" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id7">
+<img alt="../_images/kcl.png" src="../_images/kcl.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: KCL in a circuit node.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The sum of currents into a point is equal to the sum of currents out of the point. KCL can be used for
+<a class="reference external" href="https://en.wikipedia.org/wiki/Nodal_analysis">Nodal Analysis</a>, observing the current in and out of a node to
+find voltage drops or resistor values.</p>
 </section>
+<section id="kvl-kirchhoff-s-voltage-law">
+<h2>KVL: Kirchhoff’s voltage law<a class="headerlink" href="#kvl-kirchhoff-s-voltage-law" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id8">
+<img alt="../_images/kvl.png" src="../_images/kvl.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: KVL seen in a circuit.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The sum of voltage differences around a closed circuit is zero. Any parallel circuit will see the same potential
+difference between two points. In the above figure, the two points are seen as the top and bottom rails. KVL can be
+used to perform <a class="reference external" href="https://en.wikipedia.org/wiki/Mesh_analysis">Mesh Analysis</a> by observing closed circuits in
+parallel and finding the current based on equivalent voltage drops.</p>
 </section>
-<section id="circuit-analysis">
-<h2>Circuit Analysis<a class="headerlink" href="#circuit-analysis" title="Permalink to this headline"></a></h2>
-<section id="nodal-analysis">
-<h3>Nodal Analysis<a class="headerlink" href="#nodal-analysis" title="Permalink to this headline"></a></h3>
+<section id="power">
+<h2>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h2>
+<p>The power supplied or consumed by a circuit is equivalent to the Voltage applied times the Current created. This is
+(Energy / charge) * (charge / time). Power is measured in Watts (W) and is equivalent to 1 Joule per second.</p>
+<div class="math notranslate nohighlight">
+\[P = VI = \frac{V^2}{R} = I^2R\]</div>
 </section>
-<section id="mesh-analysis">
-<h3>Mesh Analysis<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline"></a></h3>
+<section id="series-and-parallel">
+<h2>Series and Parallel<a class="headerlink" href="#series-and-parallel" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id9">
+<img alt="../_images/series_and_parallel.png" src="../_images/series_and_parallel.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3: Series and Parallel resistors <a class="footnote-reference brackets" href="#id6" id="id2">1</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Resistors when placed in series effectively combine their resistance. Series</p>
+<div class="math notranslate nohighlight">
+\[R= R_1 + R_2\]</div>
+<p>Whereas Parallel or Shunt resistors will effectively create a smaller resistor.</p>
+<div class="math notranslate nohighlight">
+\[R= \frac{R_1 * R_2}{R_1 + R_2}\]</div>
 </section>
-<section id="thevenin-equivalent">
-<h3>Thevenin Equivalent<a class="headerlink" href="#thevenin-equivalent" title="Permalink to this headline"></a></h3>
+<section id="voltage-dividers">
+<h2>Voltage Dividers<a class="headerlink" href="#voltage-dividers" title="Permalink to this headline"></a></h2>
+<p>Voltage dividers are a commonly used circuit takes a voltage input and create a voltage output that is a fraction of
+original size. Voltage dividers do this predictably and consistently.</p>
+<figure class="align-center" id="id10">
+<img alt="../_images/voltage_divider.png" src="../_images/voltage_divider.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4: A voltage divider circuit <a class="footnote-reference brackets" href="#id6" id="id3">1</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 </section>
-<section id="norton-equivalent">
-<h3>Norton Equivalent<a class="headerlink" href="#norton-equivalent" title="Permalink to this headline"></a></h3>
+<section id="thevenin-and-norton-equivalent">
+<h2>Thevenin and Norton Equivalent<a class="headerlink" href="#thevenin-and-norton-equivalent" title="Permalink to this headline"></a></h2>
+<p>Thevenin’s theorem states that any two terminal network of resistors and voltage sources can be represented as an
+equivalent single resistor and voltage source in <strong>series</strong>. This can be found by finding the open circuit voltage
+across the two nodes, and the short circuit current that would occur if you shorted the two nodes. From these values,
+Kirchhoff’s laws, and ohm’s law, you can deduce the Thevenin equivalent circuit.</p>
+<div class="math notranslate nohighlight">
+\[V_T= V_{oc}\]</div>
+<div class="math notranslate nohighlight">
+\[R_T= \frac{V_{oc}}{I_{sc}}\]</div>
+<figure class="align-center" id="id11">
+<img alt="../_images/thevenin_equivalent.png" src="../_images/thevenin_equivalent.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4: A Thevenin equivalent circuit for a voltage divider circuit <a class="footnote-reference brackets" href="#id6" id="id4">1</a>.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Norton’s theorem states that any two terminal network of resistors and voltage sources can be represented as an
+equivalent single resistor and voltage source in <strong>parallel</strong>. This can be found by finding the open circuit voltage
+across the two nodes, and the short circuit current that would occur if you shorted the two nodes. From these values,
+Kirchhoff’s laws, and ohm’s law, you can deduce the Norton equivalent circuit.</p>
+<div class="math notranslate nohighlight">
+\[I_N= I_{sc}\]</div>
+<div class="math notranslate nohighlight">
+\[R_N= \frac{V_{oc}}{I_{sc}}\]</div>
+<figure class="align-center" id="id12">
+<img alt="../_images/norton_equivalent.png" src="../_images/norton_equivalent.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4: A Norton equivalent circuit for a voltage divider circuit <a class="footnote-reference brackets" href="#id6" id="id5">1</a>.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="decibel-representation">
+<h2>Decibel Representation<a class="headerlink" href="#decibel-representation" title="Permalink to this headline"></a></h2>
+<p>Relative amplitude of signals are often measured on a logarithmic scale of Decibels (<em>dB</em>). Power in decibel notation
+can be found using the following. Decibel notation is convenient because a difference in 10dB expresses a magnitude of
+change in power. Thus, a 30dBW difference is equivalent to 1000W difference.</p>
+<div class="math notranslate nohighlight">
+\[dB = 10\log_{10}{P}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta dB = 10\log_{10}{\frac{P_2}{P_1}}\]</div>
+<p>When representing voltage in decibel notation, the following equations are used.</p>
+<div class="math notranslate nohighlight">
+\[dB = 20\log_{10}{V}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta dB = 20\log_{10}{\frac{V_2}{V_1}}\]</div>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
-<dt class="label" id="id1"><span class="brackets">1</span></dt>
-<dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
-<a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
-[Accessed: 17-Oct-2022].</p>
+<dt class="label" id="id6"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>,<a href="#id5">5</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="16">
+<li><p>Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.</p></li>
+</ol>
 </dd>
 </dl>
-</section>
 </section>
 </section>
 
@@ -167,7 +243,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="engineering_reference.html" class="btn btn-neutral float-left" title="Engineering Reference and Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="passive_filters.html" class="btn btn-neutral float-right" title="Passive Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="passive_components.html" class="btn btn-neutral float-right" title="Passive Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

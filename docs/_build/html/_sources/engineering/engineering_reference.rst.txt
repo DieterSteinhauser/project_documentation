@@ -6,7 +6,9 @@ Engineering Reference and Theory
    :caption: Analog Engineering:
 
    circuit_basics
+   passive_components
    passive_filters
+   diodes
    bjt
    fet
    op_amp
