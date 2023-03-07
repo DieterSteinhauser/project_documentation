@@ -7,7 +7,10 @@ FETs Field Effect Transistors
 **References**
 
 
-.. [1] “Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
-    https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf.
-    [Accessed: 17-Oct-2022].
+.. [1] A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 5: MOS Field-Effect
+    Transistors (MOSFETs),” in Microelectronic circuits, New York, NY: Oxford University Press, 2021,
+    pp. 60–73.
+
+.. [2] P. Horowitz and W. Hill, “Chapter 3: Field-Effect Transistors,” in The Art of Electronics, New York:
+   Cambridge University Press, 2022.
 

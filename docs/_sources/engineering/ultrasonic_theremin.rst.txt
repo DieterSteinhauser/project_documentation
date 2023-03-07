@@ -49,18 +49,18 @@ Pico Overview
 
 The Raspberry Pico is a development board with an RP2040 microcontroller chip. It has
 264KB of SRAM and 2MB of flash memory. Development for the Pico is versatile as the
-platform capable of being programmed in MicroPython, CPython, C, and Rust [15]_. The Pico has
-a dual core processor capable of 133MHz clock speed, set to 125MHz out of the box. There are
+platform capable of being programmed in MicroPython, CPython, C, and Rust [13]_. The Pico has
+a dual core processor capable of 133MHz clock speed, set to 125MHz out of the box [15]_. There are
 40 GPIO pins on the board, with SPI, I2C, and UART communication capability. The Pico
 comes equip with a 12-bit 500ksps ADC with 5 channels total. One channel is configured to an
-RP2040 internal temperature sensor, and three are tied to GPIO pins on the Pico [16]_. The Pico
+RP2040 internal temperature sensor, and three are tied to GPIO pins on the Pico [14]_. The Pico
 also has a timer with four alarms, a Real-Time-Counter (RTC), and sixteen Pulse-Width Modulation (PWM) channels
 
 
 .. figure:: theremin_images/image001.png
   :align: center
 
-  Figure 1: Raspberry Pico Pinout [15]_.
+  Figure 1: Raspberry Pico Pinout [13]_.
 
 
 ADC Theory
@@ -107,11 +107,11 @@ ADC Configuration
 ------------------
 
 Since the ADC in on the Raspberry Pico, initial setup of the ADC can easily be achieved
-using the ADC section of the Pico Software Development Kit (SDK) [16]_. This provides the
+using the ADC section of the Pico Software Development Kit (SDK) [14]_. This provides the
 engineer with a simple and straightforward introduction on taking ADC readings. However, the
 12-bit ADC onboard the Pico is not great by any means. This is due to the switching power
 regulator on the Pico. As a result of switching signal noise, the onboard voltage reference for the
-ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy [15]_.
+ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy [13]_.
 The datasheet gives suggestions on improvement of the ADC readings. An External reference
 voltage may be used, the R7 resistor can be removed, or issues can be mitigated in averaging and
 offset code. I chose a different route entirely, by adding bypass capacitors to the reference
@@ -122,7 +122,7 @@ SPI Theory
 ------------------
 
 SPI is a full-duplex serial communication protocol that was created by Motorola in the
-1980’s for high-speed communication in embedded systems [18]_. The SPI protocol consists of a
+1980’s for high-speed communication in embedded systems [16]_. The SPI protocol consists of a
 single master device and one or many slave devices. For a simple two device system, A clock
 (SCLK), a chip select (CS), and two data lines (MOSI, MISO) are employed. MOSI is the data
 transmitted from the master device, while MISO is the data received from the master device.
@@ -130,7 +130,7 @@ transmitted from the master device, while MISO is the data received from the mas
 .. figure:: theremin_images/image004.png
   :align: center
 
-  Figure 4: SPI configuration for a two-device system [5]_.
+  Figure 4: SPI configuration for a two-device system [16]_.
 
 SPI can incorporate multiple slave devices by connecting data and clock lines,
 individually accessing a slave device by using a dedicated chip select line for each device as seen
@@ -153,8 +153,8 @@ the same output.
 
    * - |fig5|
      - |fig6|
-   * - *Figure 5: SPI independent configuration* [5]_.
-     - *Figure 6: SPI daisy-chained configuration* [5]_.
+   * - *Figure 5: SPI independent configuration* [16]_.
+     - *Figure 6: SPI daisy-chained configuration* [16]_.
 
 
 
@@ -174,7 +174,7 @@ DAC Theory
 ------------------
 A Digital to Analog Converter operates on much of the same principles of an ADC but in
 reverse. DAC’s take a digital code that is within the resolution range of the device and output an
-analog waveform. Uses for DAC’s are often found in creating audio and video signals [5]_. A
+analog waveform. Uses for DAC’s are often found in creating audio and video signals [4]_. A
 DAC will have a singular or pair of voltage references and a bit resolution for characterizing the
 precision and range of the output waveform. An output voltage can be calculated by dividing a
 given code by the number of discrete values the DAC can produce. This is then multiplied by the
@@ -196,27 +196,27 @@ DAC Configuration
 The LTC1661 from Linear Technology hosts two 10-bit DAC’s that are addressable via
 SPI [3]_. Communication is configured with the SPI clock idling low and capturing data on the
 rising edge of the clock. Simple initialization of SPI on the Pico can be seen chapter 3.7 the
-MicroPython SDK [16]_. For an in-depth approach to SPI initialization and communication on the
-Pico, the MicroPython documentation for the SPI module proved insightful [14]_. The maximum
-baud rate of the LTC1661 is 10MHz [12]_. I employed a baud rate of no larger than 8MHz to
+MicroPython SDK [14]_. For an in-depth approach to SPI initialization and communication on the
+Pico, the MicroPython documentation for the SPI module proved insightful [12]_. The maximum
+baud rate of the LTC1661 is 10MHz [10]_. I employed a baud rate of no larger than 8MHz to
 avoid data corruption on the breadboard. However, small distances of SPI connections on the
 final PCB make higher speeds possible. The default SPI pins of the Pico were employed, located
-the bottom right corner of the Pico Pinout [15]_.
+the bottom right corner of the Pico Pinout [13]_.
 
 .. figure:: theremin_images/image008.png
   :align: center
 
-  Figure 8: Timing Diagram of LTC1661 SPI communication [12]_
+  Figure 8: Timing Diagram of LTC1661 SPI communication [10]_
 
 Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
 the primary functionality desired for this module. Knowing this, the commands 0x9 or 0xA
-would be applicable for continuously changing voltage on output A and B respectively [12]_
+would be applicable for continuously changing voltage on output A and B respectively [10]_
 
 .. figure:: theremin_images/image009.png
   :align: center
 
-  Figure 9: SPI communication Sequence for the LTC1661 [12]_.
+  Figure 9: SPI communication Sequence for the LTC1661 [10]_.
 
 In our program, we must parse the data for every transmission so that a word packet sent will
 have the format seen in figure 9. The LTC1661 sends the command, then splits the data bits
@@ -259,19 +259,19 @@ Non-idealities of real-life Op-Amps will also affect the circuit, the most influ
 determined by a given IC’s strengths and weaknesses. A notable non-ideality can be seen in gain
 bandwidth and subsequent frequency response. Finite GBW/GBP of an Op-Amp produces
 attributes of an active lowpass filter. With the lower cutoff frequency determined by the GBP
-divided by the gain of the circuit [7]_. As a result, open-loop response often has high gain with
+divided by the gain of the circuit [5]_. As a result, open-loop response often has high gain with
 very low cutoff frequency. Whereas closed-loop gain will keep gain approximately constant for a
 much wider bandwidth.
 
 .. figure:: theremin_images/image021.png
   :align: center
 
-  Figure 13: LM741 Frequency response in open and closed loop configurations [9]_.
+  Figure 13: LM741 Frequency response in open and closed loop configurations [7]_.
 
 .. figure:: theremin_images/image022.png
   :align: center
 
-  Figure 14: Gain Bandwidth formula [9]_.
+  Figure 14: Gain Bandwidth formula [7]_.
 
 Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
 Output voltage can become saturated due to voltage gain exceeding the supply rails. Current
@@ -300,14 +300,14 @@ Audio Amplifier Configuration
 
 The audio amplifier circuit has a simple implementation. The primary goal was creating a
 circuit with 26dB gain (20V/V) using the LM386. This was easily accomplished by referring to
-the LM386 datasheet as they provide applications in section 9 of the document (Figure 16) [11]_.
+the LM386 datasheet as they provide applications in section 9 of the document (Figure 16) [9]_.
 Implementation can be seen on the schematic, Figure 22. I made no changes to the circuit
 recommended by the datasheet.
 
 .. figure:: theremin_images/image024.png
   :align: center
 
-  Figure 16: LM386 Wiring Diagram for a gain of 20 [11]_.
+  Figure 16: LM386 Wiring Diagram for a gain of 20 [9]_.
 
 
 Power Regulation and Filtering
@@ -317,25 +317,25 @@ To supply power to the system, I chose to use the LM2940 5V low-dropout regulato
 This allows for a 9-12V DC source to supply the devices without much overhead. This provided
 a smooth 5V source for most components, with local decoupling capacitors where needed. The
 LM2940 is a prime candidate for 5V regulation as its implementation is simple, only requiring
-two capacitors on the Vin and Vout [10]_. I implemented an array of values for the output
-capacitors out of an abundance of safety and a desire for a highly filtered power source [2]_, [4]_, [20]_.
+two capacitors on the Vin and Vout [8]_. I implemented an array of values for the output
+capacitors out of an abundance of safety and a desire for a highly filtered power source [2]_, [18]_.
 
 .. figure:: theremin_images/image025.png
   :align: center
 
-  Figure 17: LM2940 LDO Wiring Diagram [10]_.
+  Figure 17: LM2940 LDO Wiring Diagram [8]_.
 
 In addition to the 5V source, I powered the Raspberry Pico via the VSYS node to activate
 the device and use the 3.3V Switching Mode Power Supply (SMPS). This was done using a
-Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB [15].
+Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB [13]_.
 The Pico power-chain is good because the SMPS is efficient, but noise on the output causes
-problems with other systems like the ADC [15]_, [16]_. As a result, I added bypass capacitors to this
+problems with other systems like the ADC [13]_, [14]_. As a result, I added bypass capacitors to this
 source as well.
 
 .. figure:: theremin_images/figure18.png
   :align: center
 
-  Figure 18: Pico Power-chain and the implemented method of external supply [10]_.
+  Figure 18: Pico Power-chain and the implemented method of external supply [8]_.
 
 
 Inputs and Outputs
@@ -357,7 +357,7 @@ Ultrasonic Sensors
 -------------------
 
 The HC-SR04 is an Ultrasonic sensor module that uses sonar to determine distance of
-objects similar to echolocation seen in animals like bats or dolphins [8]_. It is rated for distances
+objects similar to echolocation seen in animals like bats or dolphins [6]_. It is rated for distances
 of 2cm to 400cm and can provide high accuracy within this range. The sensors have four
 connections, VCC, Trig, Echo, and GND. The device operates with a 5V supply, while the
 trigger and echo are used to communicate digital data between the sensor and a microcontroller.
@@ -372,7 +372,7 @@ can modify output sound data.
 .. figure:: theremin_images/image028.png
   :align: center
 
-  Figure 19: Ultrasonic sensor timing diagram [8]_.
+  Figure 19: Ultrasonic sensor timing diagram [6]_.
 
 
 LCD Configuration
@@ -381,13 +381,13 @@ LCD Configuration
 Configuration of the Crystal Fontz AH1602Z-YYH for parallel communication was a
 major step in setup of this circuit. I chose to use parallel communication to interact with the LCD
 as opposed to SPI or I2C for simplicity and use of previous code. The LCD is wired in parallel to
-the microcontroller with four-bit communication [19]_. A potentiometer was connected for
+the microcontroller with four-bit communication [17]_. A potentiometer was connected for
 contrast control of the LCD, and a photoresistor and 1k-ohm resistor was connected in parallel
 for adaptive brightness control. For parallel communication, a nibble of data is sent to the display
 simultaneously. Full bytes of data are then sent to the device in a process called bit-banging. This
 splits a byte of data to send two nibbles in series, communicating the upper four bits and then the
 lower four bits. For wiring of the device, previous lecture slides and LCD driver manual were
-helpful in wiring and debugging issues with contrast and brightness [19]_.
+helpful in wiring and debugging issues with contrast and brightness [17]_.
 
 Theremin Circuit Configuration
 -------------------------------
@@ -443,7 +443,7 @@ Schematic and PCB Design
 
 All previously mentioned components must be compiled into a schematic design for
 wiring structure and PCB design. Useful tips and tricks for understanding the Altium can be
-learned by watching Professor Stapleton’s videos [13]_.
+learned by watching Professor Stapleton’s videos [11]_.
 
 The most useful design points are regarding power and capacitor placement. Bypass and
 decoupling capacitors are added to the board for several reasons. First, capacitors can be used on
@@ -451,9 +451,9 @@ power headers to avoid voltage spikes and removing AC ripple on DC power. Small 
 caps offer low series resistance and react fast but have a difficult time dealing with substantial
 amounts of charge over long periods. Polarized electrolytic capacitors usually have a much
 higher capacitance, and in conjunction with smaller ceramic capacitors, effectively clean DC
-voltage [2]_, [13]_. In larger schematics and PCB’s, we are not always able to position circuits near
+voltage [2]_, [11]_. In larger schematics and PCB’s, we are not always able to position circuits near
 bypass capacitors. Therefore, small decoupling capacitors are recommended for placement near a
-circuit subsection to help clean AC ripple from DC voltages [4]_.
+circuit subsection to help clean AC ripple from DC voltages [2]_.
 
 Once the schematic was populated with all necessary circuit components, the PCB was
 updated with all schematic components for board layout. A general layout of parts was done
@@ -726,60 +726,53 @@ References
 .. [3] “Analog-to-digital converter,” Wikipedia, 09-Oct-2022. [Online]. Available:
     https://en.wikipedia.org/wiki/Analog-to-digital_converter. [Accessed: 19-Oct-2022].
 
-.. [4] “Decoupling capacitors and bypass capacitors – working, applications and differences,”
-    Components101. [Online]. Available: https://components101.com/articles/decouplingcapacitor-vs-bypass-capacitors-working-and-applications. [Accessed: 27-Aug-2022].
-
-.. [5] “Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
+.. [4] “Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
     https://en.wikipedia.org/wiki/Digital-to-analog_converter. [Accessed: 19-Oct-2022].
 
-.. [6] “FilterPro™ user's Guide - Ti.com,” Texas Instruments, Feb-2011. [Online]. Available:
-    https://www.ti.com/lit/an/sbfa001b/sbfa001b.pdf. [Accessed: 14-Nov-2022].
-
-.. [7] H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
+.. [5] H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
     Newnes, 2008.
 
-.. [8] “HC-SR04 User Manual,” Scribd. [Online]. Available:
+.. [6] “HC-SR04 User Manual,” Scribd. [Online]. Available:
     https://www.scribd.com/document/363064776/HC-SR04-User-Manual. [Accessed: 14-
     Nov-2022].
 
-.. [9] I. Poole, “OP AMP frequency response & gain bandwidth product,” Electronics Notes, 30-
+.. [7] I. Poole, “OP AMP frequency response & gain bandwidth product,” Electronics Notes, 30-
     Nov-2021. [Online]. Available: https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php. [Accessed: 31-Oct-2022].
 
-.. [10] “LM2940x 1-a low dropout regulator datasheet (rev. J) -Texas Instruments,” Texas
+.. [8] “LM2940x 1-a low dropout regulator datasheet (rev. J) -Texas Instruments,” Texas
     Instruments. [Online]. Available:
     https://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=LM2940C&fileType=pdf&HQS=ti-null-null-alldatasheets-df-ds-null-wwe&DCM=yes. [Accessed: 14-Nov2022].
 
-.. [11] “LM386,” LM386 data sheet, product information and support | TI.com. [Online].
+.. [9] “LM386,” LM386 data sheet, product information and support | TI.com. [Online].
     Available: https://www.ti.com/product/LM386. [Accessed: 30-Oct-2022].
 
-
-.. [12] “Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
+.. [10] “Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
     https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf.
     [Accessed: 17-Oct-2022].
 
-.. [13] M. Stapleton, “Altium Designer 20 Video Series,” YouTube, 2021. [Online]. Available:
+.. [11] M. Stapleton, “Altium Designer 20 Video Series,” YouTube, 2021. [Online]. Available:
     https://www.youtube.com/channel/UCutfTyfmz-WB2hYA03RRN5A/featured. [Accessed:
     27-Aug-2022].
 
-.. [14] “MicroPython documentation,” Overview - MicroPython 1.19.1 documentation, 14-Oct2022. [Online]. Available: https://docs.micropython.org/en/latest/. [Accessed: 19-Oct2022].
+.. [12] “MicroPython documentation,” Overview - MicroPython 1.19.1 documentation, 14-Oct2022. [Online]. Available: https://docs.micropython.org/en/latest/. [Accessed: 19-Oct2022].
 
-.. [15] “Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
+.. [13] “Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
     https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf. [Accessed: 15-Nov-2022].
 
-.. [16] “Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
+.. [14] “Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
     https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf. [Accessed: 15-
     Nov-2022].
 
-.. [17] “RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
+.. [15] “RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
     https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf. [Accessed: 14-Nov-2022].
 
-.. [18] “Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+.. [16] “Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
     https://en.wikipedia.org/wiki/Serial_Peripheral_Interface. [Accessed: 19-Oct-2022].
 
-.. [19] “Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
+.. [17] “Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
     https://www.crystalfontz.com/controllers/Sitronix/ST7066U/438. [Accessed: 03-Oct2022].
 
-.. [20] “What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
+.. [18] “What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
     http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html.
     [Accessed: 27-Aug-2022].
 

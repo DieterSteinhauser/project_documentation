@@ -6,7 +6,7 @@ SPI - Serial Peripheral Interface
 ***********************************
 
 SPI is a full-duplex serial communication protocol that was created by Motorola in the
-1980’s for high-speed communication in embedded systems [18]_. The SPI protocol consists of a
+1980’s for high-speed communication in embedded systems [1]_. The SPI protocol consists of a
 single master device and one or many slave devices. For a simple two device system, A clock
 (SCLK), a chip select (CS), and two data lines (MOSI, MISO) are employed. MOSI is the data
 transmitted from the master device, while MISO is the data received from the master device.
@@ -14,7 +14,7 @@ transmitted from the master device, while MISO is the data received from the mas
 .. figure:: theremin_images/image004.png
   :align: center
 
-  Figure 1: SPI configuration for a two-device system [18]_.
+  Figure 1: SPI configuration for a two-device system [1]_.
 
 SPI can incorporate multiple slave devices by connecting data and clock lines,
 individually accessing a slave device by using a dedicated chip select line for each device as seen
@@ -37,8 +37,8 @@ the same output.
 
    * - |fig5|
      - |fig6|
-   * - *Figure 2: SPI independent configuration* [18]_.
-     - *Figure 3: SPI daisy-chained configuration* [18]_.
+   * - *Figure 2: SPI independent configuration* [1]_.
+     - *Figure 3: SPI daisy-chained configuration* [1]_.
 
 
 
@@ -57,7 +57,7 @@ and flywire use.
 **References**
 
 
-.. [18] “Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+.. [1] “Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
     https://en.wikipedia.org/wiki/Serial_Peripheral_Interface. [Accessed: 19-Oct-2022].
 
 

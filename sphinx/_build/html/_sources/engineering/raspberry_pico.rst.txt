@@ -8,7 +8,7 @@ Pico Overview
 The Raspberry Pico is a development board with an RP2040 microcontroller chip. It has
 264KB of SRAM and 2MB of flash memory. Development for the Pico is versatile as the
 platform capable of being programmed in MicroPython, CPython, C, and Rust [1]_. The Pico has
-a dual core processor with a warrantied clock speed of 133MHz, set to 125MHz out of the box.
+a dual core processor with a warrantied clock speed of 133MHz, set to 125MHz out of the box [3]_.
 The Pico is easily overclocked to over double the stock processor speed, with simple overclocking available
 to 270MHz.There are 40 GPIO pins on the board, with SPI, I2C, and UART communication capability. The Pico
 comes equip with a 12-bit 500ksps ADC with 5 channels total. One channel is configured to an
@@ -73,7 +73,7 @@ problems with other systems like the ADC [1]_, [2]_.
 Changing Clock Speeds
 ***********************************
 
-The raspberry Pi foundation ensures operation of the Pico at 133MHz, however the device can work well past that
+The raspberry Pi foundation ensures operation of the Pico at 133MHz [3]_, however the device can work well past that
 frequency. Higher frequency clock speeds can lead to issues with systems and should be tested on a case by case basis.
 Speeds above 200MHz can interfere with UART and other USB serial communications. Speeds above 270MHz are not easily
 achievable without flashing to the EEPROM directly. Flashing the EEPROM can allow for clock speeds in the 400MHz range.
@@ -188,4 +188,7 @@ with 220-ohm resistors to give the LED’s maximum brightness in a safe current 
 .. [2] “Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
     https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf. [Accessed: 15-
     Nov-2022].
+
+.. [3] “RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
+    https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf. [Accessed: 14-Nov-2022].
 

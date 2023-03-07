@@ -90,22 +90,22 @@
   <section id="ltc1661-dac">
 <h1>LTC1661 DAC<a class="headerlink" href="#ltc1661-dac" title="Permalink to this headline"></a></h1>
 <p>The LTC1661 from Linear Technology hosts two 10-bit DAC’s that are addressable via
-SPI <a href="#id9"><span class="problematic" id="id1">[3]_</span></a>. Communication is configured with the SPI clock idling low and capturing data on the
-rising edge of the clock.  The maximum baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#id6" id="id2">1</a>.</p>
-<figure class="align-center" id="id7">
+SPI <a class="footnote-reference brackets" href="#id6" id="id1">1</a>. Communication is configured with the SPI clock idling low and capturing data on the
+rising edge of the clock.  The maximum baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#id7" id="id2">2</a>.</p>
+<figure class="align-center" id="id8">
 <img alt="../_images/image008.png" src="../_images/image008.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id6" id="id3">1</a></span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id7" id="id3">2</a></span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
 the primary functionality desired for this module. Knowing this, the commands 0x9 or 0xA
-would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id6" id="id4">1</a></p>
-<figure class="align-center" id="id8">
+would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id7" id="id4">2</a></p>
+<figure class="align-center" id="id9">
 <img alt="../_images/image009.png" src="../_images/image009.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id6" id="id5">1</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 2: SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id7" id="id5">2</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In our program, we must parse the data for every transmission so that a word packet sent will
@@ -114,7 +114,11 @@ between the two bytes, followed by don’t cares to fill the word packet. In an 
 DAC, less bit manipulation is required.</p>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets">1</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>,<a href="#id5">4</a>)</span></dt>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a>. [Accessed: 19-Oct-2022].</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>,<a href="#id5">4</a>)</span></dt>
 <dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
 <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
 [Accessed: 17-Oct-2022].</p>

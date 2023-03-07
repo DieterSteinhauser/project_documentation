@@ -25,7 +25,8 @@ Design Theory
 ******************
 
 Microphone Capsule and JFET
-------------------
+------------------------------
+
 A condenser microphone operates with a device called an electret capsule. Electrets act very similar to a capacitor,
 giving condenser microphones the alternate name of capacitor microphones. Capsules have a fixed backplate side and a
 diaphragm side that can vibrate due to sound waves. This vibration causes a difference in the distance between the

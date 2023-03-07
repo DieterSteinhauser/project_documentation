@@ -120,7 +120,7 @@ Kirchhoff's laws, and ohm's law, you can deduce the Thevenin equivalent circuit.
 
 
 Norton’s theorem states that any two terminal network of resistors and voltage sources can be represented as an
-equivalent single resistor and voltage source in **parallel**. This can be found by finding the open circuit voltage
+equivalent single resistor and current source in **parallel**. This can be found by finding the open circuit voltage
 across the two nodes, and the short circuit current that would occur if you shorted the two nodes. From these values,
 Kirchhoff's laws, and ohm's law, you can deduce the Norton equivalent circuit.
 

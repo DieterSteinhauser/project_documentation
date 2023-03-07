@@ -101,11 +101,11 @@
 <h1>Passive Components<a class="headerlink" href="#passive-components" title="Permalink to this headline"></a></h1>
 <section id="capacitors">
 <h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline"></a></h2>
-<p>Capacitors are a passive electrical component that stores energy in the electric field. They can be used for a variety
+<p>Capacitors are passive electrical components that store energy in the electric field. They can be used for a variety
 of roles such as filters, timers, short term energy sources, or even to separate DC and AC signals.</p>
 <p>Capacitors are essentially two conductive metal plates surrounding a non-conducting region or dielectric.
 The metal plates have an area <strong>A</strong>, a distance between <strong>d</strong>, and a dielectric permittivity <strong>ε</strong>. A capacitor of C
-Farads with V volts across it’s terminals has Q coulombs stored on a plate and -Q on the other <a class="footnote-reference brackets" href="#id7" id="id1">1</a></p>
+Farads with V volts across it’s terminals has Q coulombs stored on a plate and -Q on the other <a class="footnote-reference brackets" href="#id10" id="id1">1</a></p>
 <div class="math notranslate nohighlight">
 \[C = \frac{Q}{V} = \epsilon_0\frac{A}{d}\]</div>
 <p>By taking the derivative of the above equation, you can see that current through a capacitor is equal to the capacitance
@@ -119,9 +119,9 @@ filtering, bypassing, and coupling.</p>
 making current through the capacitor zero. This essentially creates an open circuit for a DC or low frequency signals.
 An alternating signal of higher frequency would be allowed to pass, creating a nonzero dV/dt term and therefore current.
 When a capacitor is used in a signal path, this is called blocking or <strong>coupling</strong>. This can be used to block a DC
-voltage from one part of a circuit to another.</p>
+voltage from one part of a circuit to another <a class="footnote-reference brackets" href="#id10" id="id2">1</a>.</p>
 <p>Alternatively, when a Capacitor is placed from a DC node to ground, this is referred to as a <strong>decoupling</strong> or
-<strong>bypass</strong> capacitor. Decoupling and bypass capacitors have slightly different reasons for use, but are practically
+<strong>bypass</strong> capacitor <a class="footnote-reference brackets" href="#id11" id="id3">2</a>, <a class="footnote-reference brackets" href="#id12" id="id4">3</a>. Decoupling and bypass capacitors have slightly different reasons for use, but are practically
 synonymous. A bypass capacitor prioritizes removal of unwanted high frequency ripple and noise from a node on the
 circuit since it acts as low impedance (a short) for high frequencies. Decoupling avoids AC ripple, noise, and overall voltage
 discontinuities. Capacitors used for decoupling are generally next to a device or IC to clean up voltage used for
@@ -129,7 +129,7 @@ power or reference.</p>
 </section>
 <section id="parallel-and-series-capacitors">
 <h3>Parallel and Series Capacitors<a class="headerlink" href="#parallel-and-series-capacitors" title="Permalink to this headline"></a></h3>
-<p>Capacitors in parallel have the sum of their individual capacitances <a class="footnote-reference brackets" href="#id7" id="id2">1</a>.</p>
+<p>Capacitors in parallel have the sum of their individual capacitances <a class="footnote-reference brackets" href="#id10" id="id5">1</a>.</p>
 <div class="math notranslate nohighlight">
 \[C_{tot} = C_1 + C_2 + C_3 + ...\]</div>
 <p>Capacitors in series have formulas similar to resistors in parallel.</p>
@@ -140,10 +140,10 @@ power or reference.</p>
 </section>
 <section id="time-domain-rc-circuit">
 <h3>Time Domain RC circuit<a class="headerlink" href="#time-domain-rc-circuit" title="Permalink to this headline"></a></h3>
-<figure class="align-center" id="id8">
+<figure class="align-center" id="id13">
 <img alt="../_images/rc_charging_circuit.png" src="../_images/rc_charging_circuit.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: RC Charging and Discharging Circuit <a class="footnote-reference brackets" href="#id7" id="id3">1</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: RC Charging and Discharging Circuit <a class="footnote-reference brackets" href="#id10" id="id6">1</a>.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Given an RC circuit, a time constant will be created as the product of the resistance and capacitance.</p>
@@ -152,16 +152,16 @@ power or reference.</p>
 <p>RC circuit charging and discharging occurs at an exponential decay based on the time constant. This is most easily seen
 in discharging, where the output voltage is the initial voltage times the exponential decay function of time. In the
 case of charging, the output is equal to the final voltage times the inverse of the exponential decay function of time.</p>
-<figure class="align-center" id="id9">
+<figure class="align-center" id="id14">
 <img alt="../_images/rc_discharging.png" src="../_images/rc_discharging.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Voltage over time of circuit discharging. <a class="footnote-reference brackets" href="#id7" id="id4">1</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Voltage over time of circuit discharging. <a class="footnote-reference brackets" href="#id10" id="id7">1</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id10">
+<figure class="align-center" id="id15">
 <img alt="../_images/rc_charging.png" src="../_images/rc_charging.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Voltage over time of circuit charging. <a class="footnote-reference brackets" href="#id7" id="id5">1</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Voltage over time of circuit charging. <a class="footnote-reference brackets" href="#id10" id="id8">1</a>.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -169,7 +169,7 @@ case of charging, the output is equal to the final voltage times the inverse of 
 <section id="inductors">
 <h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline"></a></h2>
 <p>Similar to Capacitors, Inductors are passive components that store energy in a circuit. However, Inductors store energy
-in the magnetic field. and the rate of current change in an inductor is proportional to the voltage across it <a class="footnote-reference brackets" href="#id7" id="id6">1</a>.
+in the magnetic field. and the rate of current change in an inductor is proportional to the voltage across it <a class="footnote-reference brackets" href="#id10" id="id9">1</a>.
 The unit for inductance (L) is called Henrys H.</p>
 <div class="math notranslate nohighlight">
 \[V = L\frac{dI}{dt}\]</div>
@@ -177,10 +177,20 @@ The unit for inductance (L) is called Henrys H.</p>
 said, inductors have interesting applications.</p>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
-<dt class="label" id="id7"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>,<a href="#id5">5</a>,<a href="#id6">6</a>)</span></dt>
+<dt class="label" id="id10"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id5">3</a>,<a href="#id6">4</a>,<a href="#id7">5</a>,<a href="#id8">6</a>,<a href="#id9">7</a>)</span></dt>
 <dd><ol class="upperalpha simple" start="16">
 <li><p>Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.</p></li>
 </ol>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>“What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
+[Online]. Available: <a class="reference external" href="https://www.electronicshub.org/bypass-capacitor-tutorial/">https://www.electronicshub.org/bypass-capacitor-tutorial/</a>. [Accessed:
+27-Aug-2022].</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>“What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
+<a class="reference external" href="http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html">http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html</a>.
+[Accessed: 27-Aug-2022].</p>
 </dd>
 </dl>
 </section>

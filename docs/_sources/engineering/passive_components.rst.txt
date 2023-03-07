@@ -5,7 +5,7 @@ Passive Components
 Capacitors
 ******************
 
-Capacitors are a passive electrical component that stores energy in the electric field. They can be used for a variety
+Capacitors are passive electrical components that store energy in the electric field. They can be used for a variety
 of roles such as filters, timers, short term energy sources, or even to separate DC and AC signals.
 
 Capacitors are essentially two conductive metal plates surrounding a non-conducting region or dielectric.
@@ -28,10 +28,10 @@ Consider having an Ideal DC voltage of 5V with no change over time, this would m
 making current through the capacitor zero. This essentially creates an open circuit for a DC or low frequency signals.
 An alternating signal of higher frequency would be allowed to pass, creating a nonzero dV/dt term and therefore current.
 When a capacitor is used in a signal path, this is called blocking or **coupling**. This can be used to block a DC
-voltage from one part of a circuit to another.
+voltage from one part of a circuit to another [1]_.
 
 Alternatively, when a Capacitor is placed from a DC node to ground, this is referred to as a **decoupling** or
-**bypass** capacitor. Decoupling and bypass capacitors have slightly different reasons for use, but are practically
+**bypass** capacitor [2]_, [3]_. Decoupling and bypass capacitors have slightly different reasons for use, but are practically
 synonymous. A bypass capacitor prioritizes removal of unwanted high frequency ripple and noise from a node on the
 circuit since it acts as low impedance (a short) for high frequencies. Decoupling avoids AC ripple, noise, and overall voltage
 discontinuities. Capacitors used for decoupling are generally next to a device or IC to clean up voltage used for
@@ -97,3 +97,12 @@ said, inductors have interesting applications.
 
 
 .. [1] P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.
+
+.. [2] “What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
+    [Online]. Available: https://www.electronicshub.org/bypass-capacitor-tutorial/. [Accessed:
+    27-Aug-2022].
+
+.. [3] “What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
+    http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html.
+    [Accessed: 27-Aug-2022].
+

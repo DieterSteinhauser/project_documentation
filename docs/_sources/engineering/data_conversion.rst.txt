@@ -54,7 +54,7 @@ DAC - Digital to Analog Conversion
 
 A Digital to Analog Converter operates on much of the same principles of an ADC but in
 reverse. DAC’s take a digital code that is within the resolution range of the device and output an
-analog waveform. Uses for DAC’s are often found in creating audio and video signals [1]_. A
+analog waveform. Uses for DAC’s are often found in creating audio and video signals [2]_. A
 DAC will have a singular or pair of voltage references and a bit resolution for characterizing the
 precision and range of the output waveform. An output voltage can be calculated by dividing a
 given code by the number of discrete values the DAC can produce. This is then multiplied by the
