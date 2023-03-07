@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operational Amplifiers &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Active Filters" href="active_filters.html" />
+    <link rel="prev" title="FETs Field Effect Transistors" href="fet.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Operational Amplifiers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ideal-op-amp">Ideal Op-Amp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-amp-non-idealities">Op Amp Non-Idealities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Operational Amplifiers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/op_amp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="operational-amplifiers">
+<h1>Operational Amplifiers<a class="headerlink" href="#operational-amplifiers" title="Permalink to this headline"></a></h1>
+<section id="ideal-op-amp">
+<h2>Ideal Op-Amp<a class="headerlink" href="#ideal-op-amp" title="Permalink to this headline"></a></h2>
+<p>Operational Amplifiers (Op-Amps) are high-gain voltage amplifiers with differential
+input and a single voltage output. Op-Amps typically have five terminals: An inverting input,
+non-inverting input, an upper supply, a lower supply, and an output. An ideal Op-Amp has an
+infinite input resistance and zero output resistance. As a result, input terminals see zero current.
+Input terminals also see equivalent voltages. Lastly, ideal op-amps experience infinite open-loop
+gain and infinite Gain Bandwidth (GBW).</p>
+<figure class="align-center" id="id10">
+<img alt="../_images/figure10.png" src="../_images/figure10.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id7" id="id1">1</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Using an infinite open-loop gain is limiting, as the output voltage signal would become
+saturated immediately. This could be useful in a comparator circuit. However, for most purposes
+some form of negative feedback is implemented to create a closed loop gain within the
+boundaries of the supply rails. Negative feedback amplifiers come in inverting (Figure 2) and
+non-inverting (Figure 3) configurations, with gain determined by the ratio of resistances seen by
+the negative feedback loop.</p>
+<figure class="align-center" id="id11">
+<img alt="../_images/figure11.png" src="../_images/figure11.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id7" id="id2">1</a>.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id12">
+<img alt="../_images/figure12.png" src="../_images/figure12.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3: Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id7" id="id3">1</a>.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="op-amp-non-idealities">
+<h2>Op Amp Non-Idealities<a class="headerlink" href="#op-amp-non-idealities" title="Permalink to this headline"></a></h2>
+<p>Non-idealities of real-life Op-Amps will also affect the circuit, the most influential of which is
+determined by a given IC’s strengths and weaknesses. A notable non-ideality can be seen in gain
+bandwidth and subsequent frequency response. Finite GBW/GBP of an Op-Amp produces
+attributes of an active lowpass filter. With the lower cutoff frequency determined by the GBP
+divided by the gain of the circuit <a class="footnote-reference brackets" href="#id8" id="id4">2</a>. As a result, open-loop response often has high gain with
+very low cutoff frequency. Whereas closed-loop gain will keep gain approximately constant for a
+much wider bandwidth.</p>
+<figure class="align-center" id="id13">
+<img alt="../_images/image0211.png" src="../_images/image0211.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4: LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id9" id="id5">3</a>.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
+<img alt="../_images/image022.png" src="../_images/image022.png" />
+<figcaption>
+<p><span class="caption-text">Figure 5: Gain Bandwidth formula <a class="footnote-reference brackets" href="#id9" id="id6">3</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
+Output voltage can become saturated due to voltage gain exceeding the supply rails. Current
+supplied by an Op-Amp IC is highly dependent on a model, and current limits may be imposed
+for safety of the internal circuitry. The maximum rate of change for an Op-Amps output voltage
+is referred to as its slew rate. Op-Amps are slew rate limited at frequencies of operation that
+require a faster rate than the IC can permit.</p>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
+<dd><p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
+Amplifiers,” in Microelectronic circuits, New York, NY: Oxford University Press, 2021,
+pp. 60–73.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p>H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
+Newnes, 2008.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">3</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>I. Poole, “OP AMP frequency response &amp; gain bandwidth product,” Electronics Notes, 30-
+Nov-2021. [Online]. Available: <a class="reference external" href="https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php">https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php</a>. [Accessed: 31-Oct-2022].</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fet.html" class="btn btn-neutral float-left" title="FETs Field Effect Transistors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="active_filters.html" class="btn btn-neutral float-right" title="Active Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

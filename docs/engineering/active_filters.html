@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active Filters &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Instrumentation Amplifiers" href="instrument_amps.html" />
+    <link rel="prev" title="Operational Amplifiers" href="op_amp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Active Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-order-filter-theory">First-Order Filter Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-responses-butterworth-bessel-and-chebyshev">Filter Responses: Butterworth, Bessel, and Chebyshev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-realization-sallen-key-configuration">Filter Realization: Sallen-Key Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-realization-multiple-feedback-configuration">Filter Realization: Multiple Feedback Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Active Filters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/active_filters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="active-filters">
+<h1>Active Filters<a class="headerlink" href="#active-filters" title="Permalink to this headline"></a></h1>
+<section id="first-order-filter-theory">
+<h2>First-Order Filter Theory<a class="headerlink" href="#first-order-filter-theory" title="Permalink to this headline"></a></h2>
+<p>Analog filters are a method of reducing gain of responses at certain frequencies. First-order
+filters implement a singular cutoff frequency while second order filters implement multiple
+cutoff frequencies. Filters can be implemented in active and passive configurations, meaning
+with and without Op-Amps respectively. Regardless of a filter being passive or active, Filter
+frequencies and modes of operation are created between RL and RC components. Figure 1
+implements passive and active filters in multiple filter configurations.</p>
+<figure class="align-center" id="id14">
+<img alt="../_images/image023.png" src="../_images/image023.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: First order filter table with active and passive applications <a class="footnote-reference brackets" href="#id11" id="id1">1</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filter-responses-butterworth-bessel-and-chebyshev">
+<h2>Filter Responses: Butterworth, Bessel, and Chebyshev<a class="headerlink" href="#filter-responses-butterworth-bessel-and-chebyshev" title="Permalink to this headline"></a></h2>
+<p>Responses of real filters have three idealities in the form of Butterworth, Bessel, and Chebyshev filters.
+Each focus on different characteristics with various tradeoffs, approximating an ideal response.
+The filter with the flattest possible passband response is the Butterworth filter <a class="footnote-reference brackets" href="#id12" id="id2">2</a>. Pulse and step responses
+with a Butterworth filter have minor overshoot and ringing. Attenuation of the Butterworth filter is -20dB per pole.
+The Butterworth filter is an overall well performing filter. The main drawback of a Butterworth filter is the large
+transition region between the passband and the stopband.</p>
+<figure class="align-center" id="id15">
+<img alt="../_images/filter_response.png" src="../_images/filter_response.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Magnitude Response and Step Response of Butterworth, Bessel, and Chebyshev filters <a class="footnote-reference brackets" href="#id13" id="id3">3</a>.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Response of the Chebyshev filter has a steeper attenuation
+compared to the Butterworth, with the disadvantage of overshoot and ringing in the passband <a class="footnote-reference brackets" href="#id12" id="id4">2</a>. Chebyshev filters
+have their cutoff at the point where the response falls below the ripple band. These filters are best for sharp
+frequency filter cutoffs. In contrast, the Bessel filter has maximally flat time delay, with very little overshoot
+and ringing. Bessel filters can preserve the wave shape of the original filter signal. The drawbacks of Bessel
+filters are associated with its shallow attenuation and large transition region. Bessel filters are also not as flat
+in its magnitude response as Butterworth filters.</p>
+</section>
+<section id="filter-realization-sallen-key-configuration">
+<h2>Filter Realization: Sallen-Key Configuration<a class="headerlink" href="#filter-realization-sallen-key-configuration" title="Permalink to this headline"></a></h2>
+<p>The Sallen-Key is a popular topology for active filters configuration as it has the least dependence on
+the Op-Amp performance. This is due to the Op-Amp being configured as an amplifier instead of an integrator <a class="footnote-reference brackets" href="#id13" id="id5">3</a>.
+The configuration also allows for ratio values for passive components are low, which is good for large-scale
+manufacturing. However, the Sallen-Key is not easily tuned, which can be a serious drawback in choosing this topology.
+The quality factor of the circuit will also impact gain of bandpass configurations. Sallen-Key is a great topology
+if gain accuracy is important, a unity-gain filter is used, and the quality factor Q is low <a class="footnote-reference brackets" href="#id12" id="id6">2</a>.</p>
+<figure class="align-center" id="id16">
+<img alt="../_images/sallen_key.png" src="../_images/sallen_key.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3: Sallen-Key Filter Configurations  <a class="footnote-reference brackets" href="#id13" id="id7">3</a>.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filter-realization-multiple-feedback-configuration">
+<h2>Filter Realization: Multiple Feedback Configuration<a class="headerlink" href="#filter-realization-multiple-feedback-configuration" title="Permalink to this headline"></a></h2>
+<p>Another topology for composing filters is the multiple feedback configuration (MFB). This uses the Op-Amp as
+an integrator, so it is more dependent on Op-Amp characteristics than the Sallen-Key configuration <a class="footnote-reference brackets" href="#id13" id="id8">3</a>.
+Ratios between maximum and minimum passive component values are larger than the Sallen-Key as well.
+MFB is preferable due to its low sensitivity to variation in components. It is relatively easy to tune filter
+characteristics <a class="footnote-reference brackets" href="#id12" id="id9">2</a>. It should also be known that the MFB configuration inverts the signal, so pairs of two should
+be employed to avoid output signal inversion.</p>
+<figure class="align-center" id="id17">
+<img alt="../_images/multiple_feedback.png" src="../_images/multiple_feedback.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4: Multiple Feedback Filter Configurations [6].  <a class="footnote-reference brackets" href="#id13" id="id10">3</a>.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
+Amplifiers,” in Microelectronic circuits, New York, NY: Oxford University Press, 2021,
+pp. 60–73.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>,<a href="#id6">3</a>,<a href="#id9">4</a>)</span></dt>
+<dd><p>“FilterPro™ user’s Guide - Ti.com,” Texas Instruments, Feb-2011. [Online]. Available:
+<a class="reference external" href="https://www.ti.com/lit/an/sbfa001b/sbfa001b.pdf">https://www.ti.com/lit/an/sbfa001b/sbfa001b.pdf</a>. [Accessed: 14-Nov-2022].</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">3</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id5">2</a>,<a href="#id7">3</a>,<a href="#id8">4</a>,<a href="#id10">5</a>)</span></dt>
+<dd><p>H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
+Newnes, 2008.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="op_amp.html" class="btn btn-neutral float-left" title="Operational Amplifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="instrument_amps.html" class="btn btn-neutral float-right" title="Instrumentation Amplifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Conversion: ADC and DAC Theory &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Communication Protocols" href="communication_protocols.html" />
+    <link rel="prev" title="Instrumentation Amplifiers" href="instrument_amps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Conversion: ADC and DAC Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adc-analog-to-digital-conversion">ADC - Analog to Digital Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dac-digital-to-analog-conversion">DAC - Digital to Analog Conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Data Conversion: ADC and DAC Theory</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/data_conversion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-conversion-adc-and-dac-theory">
+<h1>Data Conversion: ADC and DAC Theory<a class="headerlink" href="#data-conversion-adc-and-dac-theory" title="Permalink to this headline"></a></h1>
+<section id="adc-analog-to-digital-conversion">
+<h2>ADC - Analog to Digital Conversion<a class="headerlink" href="#adc-analog-to-digital-conversion" title="Permalink to this headline"></a></h2>
+<p>Analog to Digital Converters are the primary method of capturing analog data using a
+microcontroller. ADC’s capture analog signals such as sound or light waveforms and convert
+them to a digital signal for processing of information. An ADC takes continuous magnitude data
+from a continuous time domain into discrete magnitude data in a discrete time domain <a class="footnote-reference brackets" href="#id3" id="id1">1</a>. The
+conversion quantizes the signal based on the resolution, reference voltages, and sample rate of
+the ADC, introducing small errors into the signal as noise.</p>
+<figure class="align-center" id="id5">
+<img alt="../_images/image0021.png" src="../_images/image0021.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Resolution and reference voltages of an ADC produces quantization errors within the
+amplitude domain of a signal, where the sample rate of an ADC produces quantization errors
+within the time domain. Resolution gives the number of discrete values an ADC can produce,
+where the reference voltages provide the span of voltages the ADC can receive as a signal.
+Ground is often defaulted to the lower reference voltage to simplify ADC implementation. As a
+result, the voltage resolution in volts per bit is given as the span between the reference voltages
+divided by the number of discrete values the ADC resolution can produce. The digital code made
+by the ADC multiplied by the voltage resolution of the ADC will return the voltage recorded by
+the ADC. Quantization produces rounding errors in the approximation of the analog voltage,
+which is worsened by noise and jitter that exists on the signal prior to the ADC conversion.
+Signal noise can significantly reduce the effective number of bits to which an ADC is accurate.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/image0031.png"><img alt="../_images/image0031.png" src="../_images/image0031.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2: ADC formulas.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Sample rate of an ADC produces quantization errors within the time domain of the
+signal. The sampling rate of an ADC should ideally greater than twice the highest frequency
+being recorded, otherwise aliasing will occur. Aliasing can also be mitigated by adding a low-pass
+filter to the ADC input, removing frequencies above half of the sampling frequency.
+Oversampling is also commonly employed as it can reduce noise and improve bit-depth.</p>
+</section>
+<section id="dac-digital-to-analog-conversion">
+<h2>DAC - Digital to Analog Conversion<a class="headerlink" href="#dac-digital-to-analog-conversion" title="Permalink to this headline"></a></h2>
+<p>A Digital to Analog Converter operates on much of the same principles of an ADC but in
+reverse. DAC’s take a digital code that is within the resolution range of the device and output an
+analog waveform. Uses for DAC’s are often found in creating audio and video signals <a class="footnote-reference brackets" href="#id3" id="id2">1</a>. A
+DAC will have a singular or pair of voltage references and a bit resolution for characterizing the
+precision and range of the output waveform. An output voltage can be calculated by dividing a
+given code by the number of discrete values the DAC can produce. This is then multiplied by the
+reference voltage to return the ideal output voltage.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/image0071.png"><img alt="../_images/image0071.png" src="../_images/image0071.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 3: DAC formulas.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>DAC’s have some non-idealities in the form of differential and integral non-linearity,
+which characterize the difference between two adjacent code values and the difference in the
+transfer characteristic, respectively.</p>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>“Analog-to-digital converter,” Wikipedia, 09-Oct-2022. [Online]. Available:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">https://en.wikipedia.org/wiki/Analog-to-digital_converter</a>. [Accessed: 19-Oct-2022].</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">2</span></dt>
+<dd><p>“Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">https://en.wikipedia.org/wiki/Digital-to-analog_converter</a>. [Accessed: 19-Oct-2022].</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="instrument_amps.html" class="btn btn-neutral float-left" title="Instrumentation Amplifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="communication_protocols.html" class="btn btn-neutral float-right" title="Communication Protocols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
