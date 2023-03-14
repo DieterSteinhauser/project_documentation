@@ -18,7 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data Conversion: ADC and DAC Theory" href="data_conversion.html" />
+    <link rel="next" title="Linear Regulators" href="linear_regulators.html" />
     <link rel="prev" title="Active Filters" href="active_filters.html" /> 
 </head>
 
@@ -51,7 +51,12 @@
 <li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Instrumentation Amplifiers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#theory">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
@@ -89,14 +94,52 @@
              
   <section id="instrumentation-amplifiers">
 <h1>Instrumentation Amplifiers<a class="headerlink" href="#instrumentation-amplifiers" title="Permalink to this headline"></a></h1>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id6">
+<img alt="../_images/instrumentation_amp.png" src="../_images/instrumentation_amp.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: The classic instrumentation amplifier circuit <a class="footnote-reference brackets" href="#id5" id="id1">2</a>.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Instrumentation Amplifiers (INA) are an improvement on the differential amplifier for applications needing high input
+impedance, gain, CMRR, and low noise. They work on the principle of taking an existing differential amplifier and
+adding non-inverting amplifiers to the differential input. By adding resistor Rg, gain can be applied to the
+differential signal. If the gain resistor is omitted, the input amplifiers become voltage followers and the gain
+of the system is 1. High CMRR and low noise is only available when a large gain is applied, as Rg scales the signal to
+noise ratio of the input stage and diminishes reliance on U3 for common mode rejection.</p>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id7">
+<img alt="../_images/inst_apps_1.png" src="../_images/inst_apps_1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Applications of the INA128 Instrumentation Amplifier <a class="footnote-reference brackets" href="#id4" id="id2">1</a>.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Instrumentation amplifiers are fantastic devices for applications requiring observation of a signal without
+disturbing it. However, they are costly devices compared to a typical op-amp, and the INA circuit is hard to
+recreate off chip without matched pair components. Features such as CMRR and noise reduction would be lost as
+a result. ADCs, balanced audio, current sensing, and electrocardiography (ECG) machines are some of the many
+applications that utilize the benefits of instrumentation amplifiers.</p>
+<figure class="align-center" id="id8">
+<img alt="../_images/inst_apps_2.png" src="../_images/inst_apps_2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: More Instrumentation amplifier circuits <a class="footnote-reference brackets" href="#id4" id="id3">1</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
-<dt class="label" id="id1"><span class="brackets">1</span></dt>
-<dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
-<a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
-[Accessed: 17-Oct-2022].</p>
+<dt class="label" id="id4"><span class="brackets">1</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>“INA128 Datasheet,” Analog | Embedded Processing | Semiconductor Company | ti.com. [Online]. Available:
+<a class="reference external" href="https://www.ti.com/lit/ds/symlink/ina128.pdf">https://www.ti.com/lit/ds/symlink/ina128.pdf</a>. [Accessed: 13-Mar-2023].</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>P. Horowitz and W. Hill, “Chapter 5: Precision Circuits,” in The Art of Electronics, New York: Cambridge
+University Press, 2022.</p>
 </dd>
 </dl>
+</section>
 </section>
 
 
@@ -104,7 +147,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="active_filters.html" class="btn btn-neutral float-left" title="Active Filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_conversion.html" class="btn btn-neutral float-right" title="Data Conversion: ADC and DAC Theory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="linear_regulators.html" class="btn btn-neutral float-right" title="Linear Regulators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

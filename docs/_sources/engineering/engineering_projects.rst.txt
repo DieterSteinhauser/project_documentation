@@ -8,6 +8,7 @@ Engineering Projects
    condenser_microphone
    ultrasonic_theremin
    pico_devboard
+   linear_power_supply
 
 
 

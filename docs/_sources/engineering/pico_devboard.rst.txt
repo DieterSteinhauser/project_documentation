@@ -1,8 +1,11 @@
-Raspberry Pico Development board V1
+Raspberry Pico Development board
 ====================================================
+
+
 
 Date: 12/2022
 
+Revision: 1
 
 .. figure:: devboard/dev_board_assembled.jpg
   :align: center

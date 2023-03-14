@@ -14,6 +14,7 @@ Engineering Reference and Theory
    op_amp
    active_filters
    instrument_amps
+   linear_regulators
 
 
 .. toctree::

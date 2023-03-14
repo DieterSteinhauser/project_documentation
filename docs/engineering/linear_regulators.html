@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear Regulators &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Conversion: ADC and DAC Theory" href="data_conversion.html" />
+    <link rel="prev" title="Instrumentation Amplifiers" href="instrument_amps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Linear Regulators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#theory">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#constant-current-source">Constant Current Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adjustable-voltage-source">Adjustable Voltage Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-hints">Application Hints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Linear Regulators</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/linear_regulators.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linear-regulators">
+<h1>Linear Regulators<a class="headerlink" href="#linear-regulators" title="Permalink to this headline"></a></h1>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<p>Linear regulators are basic 3-terminal devices used to maintain a constant regulated voltage <a class="footnote-reference brackets" href="#id12" id="id1">2</a>. A regulating
+circuit employs a transistor operating with negative feedback to produce the desired output <a class="footnote-reference brackets" href="#id15" id="id2">5</a>. A regulators
+transistor operates as a variable series resistance from the input voltage to the output voltage, with the remainder
+of energy being dissipated as heat [3].  Linear regulators are considered inefficient devices for this reason.
+However, linear regulators are excellent at creating a specific voltage with minimal noise. Their output
+characteristics, implementation simplicity, and adjustability make them useful devices.</p>
+<figure class="align-center" id="id16">
+<img alt="../_images/fixed_out_app.png" src="../_images/fixed_out_app.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Fixed Output Regulator configuration for an LM7805 <a class="footnote-reference brackets" href="#id14" id="id3">4</a>.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Regulators may have a fixed voltage or adjustable voltage. Some regulators even allow for both depending on the
+circuit configuration. Fixed regulators often have a voltage divider between the output pin and the adjust/ground
+pin on the device, setting the output voltage of the regulator. The same can be done externally to an adjustable
+regulator to set the output voltage within the device operating range. For example, the LD1085 comes as a fixed
+and adjustable depending on the use case.</p>
+<figure class="align-center" id="id17">
+<img alt="../_images/regulator_app.png" src="../_images/regulator_app.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Fixed and Adjustable Regulator configuration for an LD1085 <a class="footnote-reference brackets" href="#id11" id="id4">1</a>.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A given regulator has a limited operation region. The lower boundary is determined by the reference voltage of the
+device. Often, this can be represented as a Zener diode in the simplified schematic. However, on chip it is more
+likely a bandgap reference is employed for better performance over a variety of temperatures. The reason it is
+called a bandgap reference comes from the fact it uses the bandgap of silicon (about 1.22 eV – electron volts)
+to generate a very constant voltage (~1.25V) with respect to temperature. This 1.25V reference is used for error
+correction of the device. The op-amp performs error correction based on the reference voltage and negative
+feedback from the device output.</p>
+<figure class="align-center" id="id18">
+<img alt="../_images/lm317_equivalent.png" src="../_images/lm317_equivalent.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3: Simplified circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id15" id="id5">5</a>.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The upper limit of output is dictated by the input voltage minus the dropout voltage of the device.
+Dropout voltage varies between devices and leads to a category of regulators called low dropout or LDO regulators.
+On the LM317, voltage dropout is determined by the voltage drops over Q1, Q2, and the current limit resistor (R_CL)
+with Q3. If we assume each drop from base to emitter of these BJT’s is 0.7V, then there is approximately 2.1V dropout
+from the device. When checking the electrical characteristics of the LM317 datasheet, we can see our quick analysis is
+correct as the dropout is 2V <a class="footnote-reference brackets" href="#id13" id="id6">3</a>. The Current limit resistor and Q3 operate as the devices current limiting protection.
+It is also worthwhile to realize that the potential difference between the output and adjust pin is equivalent to the
+reference voltage (~1.25V), as they are connected via the virtual short of the error amplifier. Because of these
+properties, linear regulators like the LM317 can be thought of as power transistors. And have a variety of uses
+outside of strict voltage regulation <a class="footnote-reference brackets" href="#id15" id="id7">5</a>.</p>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<section id="constant-current-source">
+<h3>Constant Current Source<a class="headerlink" href="#constant-current-source" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id19">
+<img alt="../_images/current_source.png" src="../_images/current_source.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4: Constant current source circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id13" id="id8">3</a>.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A constant current source can be made with a linear regulator when a single limit resistor is placed between the output
+and adjust pins. Because the potential difference between output and adjust pin is always equivalent to the reference
+voltage, output current is set by the series resistance.</p>
+</section>
+<section id="adjustable-voltage-source">
+<h3>Adjustable Voltage Source<a class="headerlink" href="#adjustable-voltage-source" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id20">
+<img alt="../_images/lm317_typical_app.png" src="../_images/lm317_typical_app.png" />
+<figcaption>
+<p><span class="caption-text">Figure 5: Typical application circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id13" id="id9">3</a>.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A constant voltage source made using adjustable resistors allows for a variety of voltage outputs. Capacitors are
+employed to improve ripple rejection of the output by stabilizing various DC voltage points. Diodes can be added
+to provide low impedance paths for current if the input voltage is turned off.  This protects against capacitors
+discharging into the adjust and output pins, potentially harming the device.</p>
+</section>
+<section id="application-hints">
+<h3>Application Hints<a class="headerlink" href="#application-hints" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id21">
+<img alt="../_images/regulator_app_hints.png" src="../_images/regulator_app_hints.png" />
+<figcaption>
+<p><span class="caption-text">Figure 6: Further applications of an adjustable regulator <a class="footnote-reference brackets" href="#id15" id="id10">5</a>.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>“LD1085 Datasheet: 3A low drop positive voltage regulator - adjustable and fixed,” ST Microelectronics.
+[Online]. Available: <a class="reference external" href="https://www.st.com/resource/en/datasheet/ld1085.pdf">https://www.st.com/resource/en/datasheet/ld1085.pdf</a>. [Accessed: 10-Mar-2023].</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>“Linear Regulator,” Wikipedia, 03-Mar-2023. [Online]. Available: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_regulator">https://en.wikipedia.org/wiki/Linear_regulator</a>.
+[Accessed: 10-Mar-2023].</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">3</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id8">2</a>,<a href="#id9">3</a>)</span></dt>
+<dd><p>“LM317 3-terminal adjustable regulator - Texas Instruments.” [Online].
+Available: <a class="reference external" href="https://www.ti.com/lit/ds/symlink/lm317.pdf">https://www.ti.com/lit/ds/symlink/lm317.pdf</a>. [Accessed: 10-Mar-2023].</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
+<dd><p>“LM78XX, LM78XXA - 3-terminal 1 a positive voltage regulator,” Fairchild Semiconductors. [Online].
+Available: <a class="reference external" href="https://www.mouser.com/datasheet/2/149/LM7812-461970.pdf">https://www.mouser.com/datasheet/2/149/LM7812-461970.pdf</a>. [Accessed: 10-Mar-2023].</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">5</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id5">2</a>,<a href="#id7">3</a>,<a href="#id10">4</a>)</span></dt>
+<dd><p>P. Horowitz and W. Hill, “Chapter 9: Voltage Regulation and Power Conversion,” in The Art of Electronics,
+New York: Cambridge University Press, 2022.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="instrument_amps.html" class="btn btn-neutral float-left" title="Instrumentation Amplifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_conversion.html" class="btn btn-neutral float-right" title="Data Conversion: ADC and DAC Theory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

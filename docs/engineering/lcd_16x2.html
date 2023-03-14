@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
@@ -89,17 +90,199 @@
              
   <section id="x2-lcd-display">
 <h1>16x2 LCD Display<a class="headerlink" href="#x2-lcd-display" title="Permalink to this headline"></a></h1>
+<figure class="align-center" id="id3">
+<img alt="../_images/lcd_i2c.png" src="../_images/lcd_i2c.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: 16x2 LCD Display with I2C Driver.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>LCD Displays can be configured for I2C or Parallel communication with a microcontroller.
 When configured with an I2C driver, much of the following is abstracted away for the user. Contrast, brightness, and
 pinouts are much less complicated in this approach at the cost of price and speed.</p>
+<figure class="align-center" id="id4">
+<img alt="../_images/lcd.png" src="../_images/lcd.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: 16x2 LCD Display without I2C Driver.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>Using parallel communication, the LCD is wired to the microcontroller with either four-bit or
 eight bit communication <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. A potentiometer should be connected for contrast control of the LCD, and a 500 ohm
 resistor for brightness control. If the user desires adaptive brightness control, a photoresistor and 1k-ohm
 resistor can be connected in parallel.</p>
+<figure class="align-center" id="id5">
+<img alt="../_images/lcd_pinout.png" src="../_images/lcd_pinout.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: 16x2 LCD Display Pinout</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>Using 4-bit parallel communication, a nibble of data is sent to the display simultaneously. 8-bit parallel will
 communicate a full byte simultaneously. Regardless of method, a full byte of data is then sent to the device
 in a process called bit-banging. This splits a byte of data to send two nibbles in series for 4-bit communication,
 ordered by the upper four bits and then the lower four bits.</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/lcd_nibble_wiring.png" src="../_images/lcd_nibble_wiring.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Wiring for parallel nibble communication.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Parallel Nibble LCD Driver</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1">#--------------------------------------------------</span>
+ <span class="c1">#       PARALLEL LCD FUNCTIONS</span>
+ <span class="c1">#       ======================</span>
+ <span class="c1">#</span>
+ <span class="c1"># These functions initialize and control the LCD</span>
+ <span class="c1">#</span>
+ <span class="c1"># Author: Dogan Ibrahim</span>
+ <span class="c1"># File  : LCD</span>
+ <span class="c1"># Date  : August, 2021</span>
+ <span class="c1">#--------------------------------------------------</span>
+ <span class="c1"># Modified by Dieter Steinhauser</span>
+ <span class="c1">#--------------------------------------------------</span>
+ <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+ <span class="kn">import</span> <span class="nn">utime</span>
+
+ <span class="c1"># ----------------------</span>
+ <span class="n">LCD_CMD</span> <span class="o">=</span> <span class="mi">0</span>
+ <span class="n">LCD_DATA</span> <span class="o">=</span> <span class="mi">1</span>
+ <span class="c1"># ----------------------</span>
+
+ <span class="c1"># GPIO Wiring</span>
+ <span class="c1"># ----------------------</span>
+
+
+ <span class="n">EN</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">RS</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">D4</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">D5</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">D6</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">D7</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">PORT</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+ <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+
+ <span class="c1"># Methods</span>
+ <span class="c1"># ----------------------</span>
+
+ <span class="k">def</span> <span class="nf">Configure</span><span class="p">():</span>
+
+     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">PORT</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_strobe</span><span class="p">():</span>
+
+     <span class="n">EN</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">EN</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+
+     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">c</span>
+     <span class="k">else</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+     <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+         <span class="n">b</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&amp;</span> <span class="mi">1</span>
+         <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+         <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+     <span class="n">RS</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+     <span class="n">lcd_strobe</span><span class="p">()</span>
+
+     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">c</span>
+     <span class="k">else</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+         <span class="n">b</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&amp;</span> <span class="mi">1</span>
+         <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+         <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+     <span class="n">RS</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+     <span class="n">lcd_strobe</span><span class="p">()</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">RS</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_clear</span><span class="p">():</span>
+
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_home</span><span class="p">():</span>
+
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x02</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_cursor_blink</span><span class="p">():</span>
+
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0D</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_cursor_on</span><span class="p">():</span>
+
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0E</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_cursor_off</span><span class="p">():</span>
+
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_puts</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+
+     <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">lcd_putch</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+ <span class="k">def</span> <span class="nf">lcd_putch</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+
+     <span class="n">lcd_write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_goto</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+     <span class="n">c</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span>
+     <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">address</span> <span class="o">=</span> <span class="mi">0</span>
+     <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+         <span class="n">address</span> <span class="o">=</span> <span class="mh">0x40</span>
+     <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+         <span class="n">address</span> <span class="o">=</span> <span class="mh">0x14</span>
+     <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+         <span class="n">address</span> <span class="o">=</span> <span class="mh">0x54</span>
+     <span class="n">address</span> <span class="o">=</span> <span class="n">address</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="mi">1</span>
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x80</span> <span class="o">|</span> <span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">lcd_init</span><span class="p">():</span>
+
+     <span class="n">Configure</span><span class="p">()</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+         <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+     <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">lcd_strobe</span><span class="p">()</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+     <span class="n">lcd_strobe</span><span class="p">()</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+     <span class="n">lcd_strobe</span><span class="p">()</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+     <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+     <span class="n">lcd_strobe</span><span class="p">()</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x28</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x08</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x06</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+     <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+ <span class="c1">#================= END OF LCD FUNCTIONS =======================</span>
+</pre></div>
+</div>
+</div>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

@@ -48,12 +48,16 @@
 <li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Passive Components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#capacitors">Capacitors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#coupling-and-decoupling-bypass">Coupling and Decoupling (Bypass)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coupling">Coupling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decoupling-and-bypass">Decoupling and Bypass</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parallel-and-series-capacitors">Parallel and Series Capacitors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#time-domain-rc-circuit">Time Domain RC circuit</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#inductors">Inductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inductors">Inductors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#transformers">Transformers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
@@ -62,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
@@ -105,7 +110,7 @@
 of roles such as filters, timers, short term energy sources, or even to separate DC and AC signals.</p>
 <p>Capacitors are essentially two conductive metal plates surrounding a non-conducting region or dielectric.
 The metal plates have an area <strong>A</strong>, a distance between <strong>d</strong>, and a dielectric permittivity <strong>ε</strong>. A capacitor of C
-Farads with V volts across it’s terminals has Q coulombs stored on a plate and -Q on the other <a class="footnote-reference brackets" href="#id10" id="id1">1</a></p>
+Farads with V volts across it’s terminals has Q coulombs stored on a plate and -Q on the other <a class="footnote-reference brackets" href="#id16" id="id1">3</a></p>
 <div class="math notranslate nohighlight">
 \[C = \frac{Q}{V} = \epsilon_0\frac{A}{d}\]</div>
 <p>By taking the derivative of the above equation, you can see that current through a capacitor is equal to the capacitance
@@ -113,23 +118,54 @@ times the derivative of voltage with respect to time. Capacitors resist change i
 filtering, bypassing, and coupling.</p>
 <div class="math notranslate nohighlight">
 \[(Q)dt = (CV)dt = I = C\frac{dV}{dt}\]</div>
-<section id="coupling-and-decoupling-bypass">
-<h3>Coupling and Decoupling (Bypass)<a class="headerlink" href="#coupling-and-decoupling-bypass" title="Permalink to this headline"></a></h3>
+<section id="coupling">
+<h3>Coupling<a class="headerlink" href="#coupling" title="Permalink to this headline"></a></h3>
 <p>Consider having an Ideal DC voltage of 5V with no change over time, this would mean that the dV/dt term would be zero,
 making current through the capacitor zero. This essentially creates an open circuit for a DC or low frequency signals.
 An alternating signal of higher frequency would be allowed to pass, creating a nonzero dV/dt term and therefore current.
 When a capacitor is used in a signal path, this is called blocking or <strong>coupling</strong>. This can be used to block a DC
-voltage from one part of a circuit to another <a class="footnote-reference brackets" href="#id10" id="id2">1</a>.</p>
+voltage from one part of a circuit to another <a class="footnote-reference brackets" href="#id16" id="id2">3</a>.</p>
+</section>
+<section id="decoupling-and-bypass">
+<h3>Decoupling and Bypass<a class="headerlink" href="#decoupling-and-bypass" title="Permalink to this headline"></a></h3>
 <p>Alternatively, when a Capacitor is placed from a DC node to ground, this is referred to as a <strong>decoupling</strong> or
-<strong>bypass</strong> capacitor <a class="footnote-reference brackets" href="#id11" id="id3">2</a>, <a class="footnote-reference brackets" href="#id12" id="id4">3</a>. Decoupling and bypass capacitors have slightly different reasons for use, but are practically
-synonymous. A bypass capacitor prioritizes removal of unwanted high frequency ripple and noise from a node on the
-circuit since it acts as low impedance (a short) for high frequencies. Decoupling avoids AC ripple, noise, and overall voltage
-discontinuities. Capacitors used for decoupling are generally next to a device or IC to clean up voltage used for
-power or reference.</p>
+<strong>bypass</strong> capacitor <a class="footnote-reference brackets" href="#id17" id="id3">4</a>, <a class="footnote-reference brackets" href="#id18" id="id4">5</a>. Decoupling and bypass capacitors have slightly different reasons for use, but are
+practically synonymous. A bypass capacitor prioritizes removal of unwanted high frequency noise from a node on the
+circuit since it acts as low impedance (a short) for high frequencies. Bypass caps may also create an RC filter.</p>
+<p>Decoupling usually avoids AC ripple, noise, and overall voltage discontinuities that can occur in a voltage rail.
+Capacitors used for decoupling are generally next to a device or IC to clean up voltage used for power or reference.
+In the application of decoupling, a capacitor is added to remove voltage ripple caused by a transient current load.
+If you have a microprocessor that suddenly requires a surge in current, an decoupling capacitor will minimize voltage
+ripple based on the current required, time of the surge, and capacitance.</p>
+<figure class="align-center" id="id19">
+<img alt="../_images/capacitor_equ.png" src="../_images/capacitor_equ.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Decoupling capacitor equation for minimizing voltage ripple caused byt a transient current <a class="footnote-reference brackets" href="#id15" id="id5">2</a>.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="application-note-rectification-filtering">
+<h4>Application Note: Rectification Filtering<a class="headerlink" href="#application-note-rectification-filtering" title="Permalink to this headline"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After rectification, filtering capacitors must be applied to create steadier DC voltages. Filtered voltages are
+around the potential seen at the peak of rectifier output with ripple caused by capacitor charging and discharging.
+Large capacitances are needed at this step to reduce voltage ripple under transient loads. The larger the capacitance
+of the decoupling capacitor, the smaller the output voltage ripple under steady load. This is because the decoupling
+capacitors act as energy storage during the charging phase, and an energy source during the discharging phase.
+Using the decoupling capacitor formula along with device operation specifications, a capacitance suitable to the
+use case can be determined.</p>
+<figure class="align-center" id="id20">
+<img alt="../_images/rectifier_and_filter.png" src="../_images/rectifier_and_filter.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1:Filtered output of a full bridge rectifier <a class="footnote-reference brackets" href="#id14" id="id6">1</a>.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="parallel-and-series-capacitors">
 <h3>Parallel and Series Capacitors<a class="headerlink" href="#parallel-and-series-capacitors" title="Permalink to this headline"></a></h3>
-<p>Capacitors in parallel have the sum of their individual capacitances <a class="footnote-reference brackets" href="#id10" id="id5">1</a>.</p>
+<p>Capacitors in parallel have the sum of their individual capacitances <a class="footnote-reference brackets" href="#id16" id="id7">3</a>.</p>
 <div class="math notranslate nohighlight">
 \[C_{tot} = C_1 + C_2 + C_3 + ...\]</div>
 <p>Capacitors in series have formulas similar to resistors in parallel.</p>
@@ -140,10 +176,10 @@ power or reference.</p>
 </section>
 <section id="time-domain-rc-circuit">
 <h3>Time Domain RC circuit<a class="headerlink" href="#time-domain-rc-circuit" title="Permalink to this headline"></a></h3>
-<figure class="align-center" id="id13">
+<figure class="align-center" id="id21">
 <img alt="../_images/rc_charging_circuit.png" src="../_images/rc_charging_circuit.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: RC Charging and Discharging Circuit <a class="footnote-reference brackets" href="#id10" id="id6">1</a>.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: RC Charging and Discharging Circuit <a class="footnote-reference brackets" href="#id16" id="id8">3</a>.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Given an RC circuit, a time constant will be created as the product of the resistance and capacitance.</p>
@@ -152,16 +188,16 @@ power or reference.</p>
 <p>RC circuit charging and discharging occurs at an exponential decay based on the time constant. This is most easily seen
 in discharging, where the output voltage is the initial voltage times the exponential decay function of time. In the
 case of charging, the output is equal to the final voltage times the inverse of the exponential decay function of time.</p>
-<figure class="align-center" id="id14">
+<figure class="align-center" id="id22">
 <img alt="../_images/rc_discharging.png" src="../_images/rc_discharging.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Voltage over time of circuit discharging. <a class="footnote-reference brackets" href="#id10" id="id7">1</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Voltage over time of circuit discharging. <a class="footnote-reference brackets" href="#id16" id="id9">3</a>.</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id15">
+<figure class="align-center" id="id23">
 <img alt="../_images/rc_charging.png" src="../_images/rc_charging.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Voltage over time of circuit charging. <a class="footnote-reference brackets" href="#id10" id="id8">1</a>.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 1: Voltage over time of circuit charging. <a class="footnote-reference brackets" href="#id16" id="id10">3</a>.</span><a class="headerlink" href="#id23" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -169,30 +205,52 @@ case of charging, the output is equal to the final voltage times the inverse of 
 <section id="inductors">
 <h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline"></a></h2>
 <p>Similar to Capacitors, Inductors are passive components that store energy in a circuit. However, Inductors store energy
-in the magnetic field. and the rate of current change in an inductor is proportional to the voltage across it <a class="footnote-reference brackets" href="#id10" id="id9">1</a>.
+in the magnetic field. and the rate of current change in an inductor is proportional to the voltage across it <a class="footnote-reference brackets" href="#id16" id="id11">3</a>.
 The unit for inductance (L) is called Henrys H.</p>
 <div class="math notranslate nohighlight">
 \[V = L\frac{dI}{dt}\]</div>
 <p>Real life inductors have a variety of non-idealities which makes most cases favor the more ideal capacitor. That being
 said, inductors have interesting applications.</p>
+<section id="transformers">
+<h3>Transformers<a class="headerlink" href="#transformers" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id24">
+<img alt="../_images/transformer.png" src="../_images/transformer.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Ideal transformer model and equations. <a class="footnote-reference brackets" href="#id14" id="id12">1</a>.</span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A transformer consists of two coupled inductors, often called primary and secondary windings. While both windings
+are electrically isolated, they can transfer energy through the magnetic field. An AC voltage applied to the primary
+winding will appear on the secondary proportional to the turns ratio between the windings. Current is inversely
+proportional to the turns ratio. Power is mostly conserved, as transformers are incredibly efficient. Power
+transformers are often used to step down voltages from a household 120AC outlet to a more useful voltage level <a class="footnote-reference brackets" href="#id16" id="id13">3</a>.</p>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
-<dt class="label" id="id10"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id5">3</a>,<a href="#id6">4</a>,<a href="#id7">5</a>,<a href="#id8">6</a>,<a href="#id9">7</a>)</span></dt>
+<dt class="label" id="id14"><span class="brackets">1</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id12">2</a>)</span></dt>
+<dd><p>F. T. Ulaby, M. M. Maharbiz, and C. Furse, “7-12 Application Note: Power-Supply Circuits,” in Circuit analysis
+and Design, Ann Arbor, MI: Michigan Publishing, 2018, pp. 432–437.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p>M. I. Montrose, “Chapter 3: Bypassing and Decoupling,” in Printed circuit board design techniques for
+EMC Compliance: A handbook for designers, Wiley IEEE Press Imprint, 2000, p. 70.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id7">3</a>,<a href="#id8">4</a>,<a href="#id9">5</a>,<a href="#id10">6</a>,<a href="#id11">7</a>,<a href="#id13">8</a>)</span></dt>
 <dd><ol class="upperalpha simple" start="16">
 <li><p>Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.</p></li>
 </ol>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
 <dd><p>“What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
 [Online]. Available: <a class="reference external" href="https://www.electronicshub.org/bypass-capacitor-tutorial/">https://www.electronicshub.org/bypass-capacitor-tutorial/</a>. [Accessed:
 27-Aug-2022].</p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
 <dd><p>“What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
 <a class="reference external" href="http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html">http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html</a>.
 [Accessed: 27-Aug-2022].</p>
 </dd>
 </dl>
+</section>
 </section>
 </section>
 

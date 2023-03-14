@@ -51,6 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
@@ -88,6 +89,12 @@
              
   <section id="ultrasonic-sensors">
 <h1>Ultrasonic Sensors<a class="headerlink" href="#ultrasonic-sensors" title="Permalink to this headline"></a></h1>
+<figure class="align-center" id="id4">
+<img alt="../_images/SR04.png" src="../_images/SR04.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: HC-SR04 Ultrasonic Sensor module.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>The HC-SR04 is an Ultrasonic sensor module that uses sonar to determine distance of
 objects similar to echolocation seen in animals like bats or dolphins <a class="footnote-reference brackets" href="#id3" id="id1">1</a>. It is rated for distances
 of 2cm to 400cm and can provide high accuracy within this range. The sensors have four
@@ -99,12 +106,62 @@ the Echo pin, waiting for a high signal from the receiver, indicating the return
 The time between the rising and falling edge of the Echo pin can be used to calculate distance
 based on the speed of sound, 343 m/s. Based on the distances calculated from each sensor, we
 can modify output sound data.</p>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id5">
 <img alt="../_images/image028.png" src="../_images/image028.png" />
 <figcaption>
-<p><span class="caption-text">Figure 19: Ultrasonic sensor timing diagram <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Figure 2: Ultrasonic sensor timing diagram <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Ultrasonic Sensor Driver</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># -----------------------------------------</span>
+ <span class="c1">#           ULTRASONIC SENSORS</span>
+ <span class="c1"># -----------------------------------------</span>
+
+
+ <span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+ <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">ticks_us</span><span class="p">,</span> <span class="n">sleep_us</span>
+
+ <span class="c1"># Ultrasonic sensor pins</span>
+ <span class="c1"># ----------------------------</span>
+ <span class="n">us0_trig</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">us0_echo</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+ <span class="n">us1_trig</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+ <span class="n">us1_echo</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">get_distance_u0</span><span class="p">():</span>
+
+     <span class="c1"># send the trigger wave</span>
+     <span class="n">us0_trig</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">sleep_us</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+     <span class="n">us0_trig</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+     <span class="c1"># listen for the return echo</span>
+     <span class="k">while</span> <span class="n">us0_echo</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">start</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+     <span class="k">while</span> <span class="n">us0_echo</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+         <span class="n">stop</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+
+     <span class="k">return</span> <span class="p">((</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.0343</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+ <span class="k">def</span> <span class="nf">get_distance_u1</span><span class="p">():</span>
+     <span class="k">global</span> <span class="n">us1_distance</span>
+
+     <span class="c1"># send the trigger wave</span>
+     <span class="n">us1_trig</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">sleep_us</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+     <span class="n">us1_trig</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+     <span class="c1"># listen for the return echo</span>
+     <span class="k">while</span> <span class="n">us1_echo</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">start</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+     <span class="k">while</span> <span class="n">us1_echo</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+         <span class="n">stop</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+
+     <span class="k">return</span> <span class="p">((</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.0343</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>

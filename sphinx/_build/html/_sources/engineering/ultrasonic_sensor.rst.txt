@@ -1,6 +1,11 @@
 Ultrasonic Sensors
 =====================================
 
+.. figure:: reference/SR04.png
+  :align: center
+
+  Figure 1: HC-SR04 Ultrasonic Sensor module.
+
 The HC-SR04 is an Ultrasonic sensor module that uses sonar to determine distance of
 objects similar to echolocation seen in animals like bats or dolphins [1]_. It is rated for distances
 of 2cm to 400cm and can provide high accuracy within this range. The sensors have four
@@ -17,7 +22,57 @@ can modify output sound data.
 .. figure:: theremin_images/image028.png
   :align: center
 
-  Figure 19: Ultrasonic sensor timing diagram [1]_.
+  Figure 2: Ultrasonic sensor timing diagram [1]_.
+
+
+.. code-block:: python
+   :caption: Ultrasonic Sensor Driver
+
+    # -----------------------------------------
+    #           ULTRASONIC SENSORS
+    # -----------------------------------------
+
+
+    from machine import Pin
+    from utime import ticks_us, sleep_us
+
+    # Ultrasonic sensor pins
+    # ----------------------------
+    us0_trig = Pin(6, Pin.OUT)
+    us0_echo = Pin(7, Pin.IN)
+    us1_trig = Pin(8, Pin.OUT)
+    us1_echo = Pin(9, Pin.IN)
+
+    def get_distance_u0():
+
+        # send the trigger wave
+        us0_trig(1)
+        sleep_us(10)
+        us0_trig(0)
+
+        # listen for the return echo
+        while us0_echo.value() == 0:
+            start = ticks_us()
+        while us0_echo.value() == 1:
+            stop = ticks_us()
+
+        return ((stop - start) * 0.0343) / 2
+
+    def get_distance_u1():
+        global us1_distance
+
+        # send the trigger wave
+        us1_trig(1)
+        sleep_us(10)
+        us1_trig(0)
+
+        # listen for the return echo
+        while us1_echo.value() == 0:
+            start = ticks_us()
+        while us1_echo.value() == 1:
+            stop = ticks_us()
+
+        return ((stop - start) * 0.0343) / 2
 
 
 **References**
