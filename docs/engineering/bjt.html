@@ -47,12 +47,20 @@
 <li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BJTs Bipolar Junction Transistors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#theory">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#voltage-reference-vbe-multiplier">Voltage Reference - VBE Multiplier</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_apps.html">Circuit Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
@@ -90,6 +98,25 @@
              
   <section id="bjts-bipolar-junction-transistors">
 <h1>BJTs Bipolar Junction Transistors<a class="headerlink" href="#bjts-bipolar-junction-transistors" title="Permalink to this headline"></a></h1>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<section id="voltage-reference-vbe-multiplier">
+<h3>Voltage Reference - VBE Multiplier<a class="headerlink" href="#voltage-reference-vbe-multiplier" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id3">
+<img alt="../_images/vbe_multiplier.png" src="../_images/vbe_multiplier.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Rubber Diode VBE multiplier.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>For a simple reference voltage, a VBE multiplier (or rubber diode) can be implemented to regulate the output voltage
+to a consistent level for voltage reference. A Zener regulator or negative linear regulator could also be implemented.
+However, I found this circuit to be a good middle ground between linear performance and operating configurability.
+The rubber diode exploits a BJT’s VBE drop and voltage divider properties to set a voltage reference for small
+loads. This circuit is nice because it is both simple like a Zener regulator but configurable in its voltage
+output, similar to a linear regulator IC.</p>
 <p><strong>References</strong></p>
 <dl class="footnote brackets">
 <dt class="label" id="id1"><span class="brackets">1</span></dt>
@@ -102,6 +129,8 @@ pp. 60–73.</p>
 Cambridge University Press, 2022.</p>
 </dd>
 </dl>
+</section>
+</section>
 </section>
 
 

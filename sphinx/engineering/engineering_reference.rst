@@ -15,6 +15,7 @@ Engineering Reference and Theory
    active_filters
    instrument_amps
    linear_regulators
+   circuit_apps
 
 
 .. toctree::

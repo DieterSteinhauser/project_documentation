@@ -22,6 +22,38 @@ noise ratio of the input stage and diminishes reliance on U3 for common mode rej
 Applications
 *******************
 
+Current Sensing
+------------------------
+
+.. figure:: power_supply/ina_low_current_sense.png
+  :align: center
+
+  Figure 1: Low-side current sensing with Instrumentation amplifier and equation [3]_.
+
+Instrumentation amplifiers are prime candidates for current sensing devices for their low noise, high impedance,
+and high gain properties. Shunt current sensing requires observing a differential voltage across a known resistance
+somewhere within a circuit loop. Using Ohm’s law and the gain of the instrumentation amplifier, you can easily
+calculate current through the known shunt resistance. The configurable gain of the instrumentation amplifier
+makes the circuit versatile for a variety of shunt resistances. The high input impedance also allows for very
+small currents to be measured [1].
+
+.. figure:: power_supply/high_side_sensing.png
+  :align: center
+
+  Figure 1: High-side current sensing with a differential amplifier [3]_.
+
+Generally, a sense resistor is connected between the load and ground for low-side sensing, or between the supply
+and load for high-side sensing. There are advantages and disadvantages to both high and low side current sensing.
+Low side sensing is easier to implement, inexpensive, and can be implemented with a single-ended configuration.
+However, this setup removes direct access to ground and cannot sense shorts. High-side current sensing fixes
+issues seen from the previous method but creates entirely new ones in the process. Sensing from the high
+side no longer disconnects ground and allows for short circuit detection. However, the device will be working
+at higher potentials and can have a significant voltage swing depending on the load and source voltage.
+
+
+
+Further applications
+------------------------
 
 .. figure:: reference/inst_apps_1.png
   :align: center
@@ -47,3 +79,7 @@ applications that utilize the benefits of instrumentation amplifiers.
 
 .. [2] P. Horowitz and W. Hill, “Chapter 5: Precision Circuits,” in The Art of Electronics, New York: Cambridge
     University Press, 2022.
+
+.. [3] “Current Sensing with  Different Types of  Amplifiers,” Current sense amplifiers | TI.com, 05-Jun-2020.
+    [Online]. Available: https://www.ti.com/video/series/ti-precision-labs-current-sense-amplifiers.html.
+    [Accessed: 14-Mar-2023].
