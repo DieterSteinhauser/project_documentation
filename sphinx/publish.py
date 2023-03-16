@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from shutil import copy, copy2, copytree, rmtree
 
+
 def copy_and_overwrite(from_path, to_path):
 
     if os.path.exists(to_path):
@@ -15,7 +16,7 @@ home_dir = sphinx_dir.parent
 build_dir = sphinx_dir.joinpath('_build')
 html_dir = build_dir.joinpath('html')
 docs_dir = home_dir.joinpath('docs')
-
+jekyll = docs_dir.joinpath('.nojekyll')
 
 # print(sphinx_dir)
 # print(home_dir)
@@ -23,6 +24,10 @@ docs_dir = home_dir.joinpath('docs')
 # print(docs_dir)
 
 copy_and_overwrite(html_dir, docs_dir)
+
+with open(jekyll, 'w', encoding='utf-8') as f:
+    f.write('')
+
 
 print()
 print("--------------- Documentation Published ---------------")
