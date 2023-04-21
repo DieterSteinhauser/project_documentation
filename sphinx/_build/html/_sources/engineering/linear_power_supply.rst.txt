@@ -89,12 +89,6 @@ shutoff switch for the SMPS.
 
   Figure 18: Pico Power-chain and the implemented method of external supply [8]_.
 
-SD Card Reader
-------------------
-
-An SD card reader has been added via SPI [16]_. This permits the user to incorporate data collection over time via
-sensors and ADC readings. These data readings can be written to text or csv files on a SD card for post test analysis.
-
 Inputs and Outputs
 ---------------------
 

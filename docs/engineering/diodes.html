@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Project Documentation 1.0 documentation</title>
+  <title>Diodes &mdash; Project Documentation 1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -15,6 +15,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,12 +39,55 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Diodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#theory">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diode-types">Diode Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rectifier-diodes">Rectifier Diodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switching-diodes">Switching Diodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fast-recovery-diodes">Fast Recovery Diodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schottky-diodes">Schottky Diodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zener-diodes">Zener Diodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#light-emitting-diodes">Light Emitting Diodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#photodiodes">Photodiodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#half-wave-rectifier">Half-Wave Rectifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#full-bridge-rectifier">Full-Bridge Rectifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#three-phase-rectifier">Three Phase Rectifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#voltage-doubling">Voltage Doubling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#voltage-limiting">Voltage Limiting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#voltage-clamping">Voltage Clamping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inductor-flyback">Inductor Flyback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#voltage-regulation-reference">Voltage Regulation/Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_apps.html">Circuit Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -61,7 +105,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
-      <li>&lt;no title&gt;</li>
+      <li>Diodes</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/diodes.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -71,7 +115,253 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="diodes">
+<h1>Diodes<a class="headerlink" href="#diodes" title="Permalink to this headline"></a></h1>
+<figure class="align-center" id="id4">
+<img alt="engineering/reference/diode_splash.png" src="engineering/reference/diode_splash.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: General Purpose Diode.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id5">
+<img alt="../_images/ideal_diode.png" src="../_images/ideal_diode.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Ideal Diode I/V characteristics [1].</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Diodes are nonlinear devices that operate as electrical ‘check valves’ by allowing current flow in one direction
+and blocking current flow in the other direction. An ideal diode would behave as a short circuit when forward biased,
+and an open current when reverse biased. While real diodes cannot match the ideal diode exactly, diodes perform close
+enough to ideal for many applications with some caveats. Forward bias, Reverse bias, and the Breakdown region showcase
+their own non-idealities, which can be seen in the figure below.</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/diode_iv.png" src="../_images/diode_iv.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Realistic Diode I/V characteristics with scale changed for detail expression [1].</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the Forward Bias region, Diodes exponentially increase the current conducted based on applied voltage.
+A forward voltage applied to a diode is required to conduct current, and is often assumed to be ~0.7V. Current through
+the diode is based on a diodes physical parameters and temperature, giving constant of Is and Vt respectively.
+Vt is approximately 25mV at 25 °C</p>
+<div class="math notranslate nohighlight">
+\[I(v&gt;0)= I_{s} (e^{\frac{V_f}{V_{T}}} - 1)\]</div>
+<div class="math notranslate nohighlight">
+\[V_{T} = \frac{kT}{q}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For most purposes, applying the forward voltage of a diode will conduct enough current to be considered “ON”,
+knowing the exact current allowed through a diode is not often needed and the current equation is truly just an
+approximation. What is important is to understand that there is a region between zero and the forward voltage
+threshold that allows a trickle of current before full conduction. It should also be known that if the circuit could
+be current limited if the applied forward voltage is not high enough.</p>
+</div>
+<p>In the Reverse Bias region, current can ‘leak’ backwards based on the saturation current Is. While this value
+is small, should still be considered for precision circuits. Current leakage becomes worse with respect to the negative
+voltage applied and rising temperature. Leakage continues until the diode breakdown voltage Vzk is reached, leading to
+a spike in reverse current. Vzk refers to the voltage of the Zener Knee, a useful parameter when working with zener
+diodes.</p>
+<div class="math notranslate nohighlight">
+\[I(v&lt;0)= -I_{s}\]</div>
+</section>
+<section id="diode-types">
+<h2>Diode Types<a class="headerlink" href="#diode-types" title="Permalink to this headline"></a></h2>
+<section id="rectifier-diodes">
+<h3>Rectifier Diodes<a class="headerlink" href="#rectifier-diodes" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id7">
+<img alt="../_images/rectifier_diode.png" src="../_images/rectifier_diode.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A Common Rectifier Diode.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Rectifier Diodes are general purpose diodes used for common rectification tasks. They often support higher
+voltages (&lt; 1000V) and currents (&lt; 5A) at the expense of more leakage current and junction capacitance. Rectifier
+diodes often need a forward voltage of 0.7 to 1.5V. This is generally acceptable since the use case is often 120V-AC
+adapters for household power.</p>
+<p>Common Rectifier Diodes include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1N400X Series (1A)</p></li>
+<li><p>1N539X Series (1.5A)</p></li>
+<li><p>1N540X Series (3A)</p></li>
+<li><p>RL20X Series  (2A)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="switching-diodes">
+<h3>Switching Diodes<a class="headerlink" href="#switching-diodes" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id8">
+<img alt="../_images/switching_diode.png" src="../_images/switching_diode.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A Common Switching Diode.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Switching diodes were originally designed for small-signal circuits requiring fast switching speeds. They support a
+variety of voltage levels (&lt; 100V) with low current (&lt; 300mA). Switching diodes are more often employed in logic-level circuits,
+and a fast recovery time compared to general rectifiers. Switching diodes also have more typical forward voltages,
+with values ranging from 0.6 to 1V</p>
+<p>Common Switching Diodes include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1N914</p></li>
+<li><p>1N4148 (newer 1N914)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fast-recovery-diodes">
+<h3>Fast Recovery Diodes<a class="headerlink" href="#fast-recovery-diodes" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id9">
+<img alt="../_images/fast_diode.png" src="../_images/fast_diode.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A Common Fast Recovery Diode.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Fast recovery diodes combine elements of general purpose rectifier diodes and switching diodes. Fast recovery diodes
+often tolerate high voltage (&lt; 1000V) and current (&lt; 3A) much like a rectifier diode, but can operate at high speeds
+similar to a switching diode. This suits Fast Recovery Diodes to Switching power applications that Schottky diodes
+cannot withstand.</p>
+<p>Common Fast Recovery Diodes include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>FR10X (1A)</p></li>
+<li><p>FR20X (2A)</p></li>
+<li><p>UF400X (1A)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="schottky-diodes">
+<h3>Schottky Diodes<a class="headerlink" href="#schottky-diodes" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id10">
+<img alt="../_images/schottky_diode.png" src="../_images/schottky_diode.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A Common Schottky Diode.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Schottky diodes are designed for small forward voltages (~0.1-0.5V) at the expense of lower breakdown thresholds and increased
+leakage. Maximum voltage tolerances range from 20 to 40V with comparable current to a general rectifier (~1-3A).
+Schottky diodes also have fast response for high frequency applications. This makes schottky diodes suited well for
+general use cases with low power and for switching applications like a DC-DC converter. Schottky diodes can even
+outperform switching diodes and fast recovery diodes in switching recovery time.</p>
+<p>Common Schottky Diodes include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1N581X (1A)</p></li>
+<li><p>1N582X (2-3A)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="zener-diodes">
+<h3>Zener Diodes<a class="headerlink" href="#zener-diodes" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id11">
+<img alt="../_images/zener_diode.png" src="../_images/zener_diode.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A Common Zener Diode.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Zener Diodes are diodes designed to operate in the reverse breakdown region. For this reason, they are used in voltage
+regulation, reference, and clamping circuits. Zener diodes often have a maximum power rating coupled with a
+Zener voltage and a maximum regulator current.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Zener Diodes have relatively stable performance in the 5V+ range. A Zener
+diode made for a lesser voltage will have significant variance in it’s output. <a class="footnote-reference brackets" href="#id3" id="id1">2</a></p>
+</div>
+<p>Common Zener Diodes include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1N47XX (1W)</p></li>
+<li><p>1N75XA (0.5W)</p></li>
+<li><p>1N7522XB (0.5W)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="light-emitting-diodes">
+<h3>Light Emitting Diodes<a class="headerlink" href="#light-emitting-diodes" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id12">
+<img alt="../_images/led.png" src="../_images/led.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A Common LED.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>LED’s are diodes that emit light when current flows through it. The color of emitted light corresponds to the
+semiconductors bandgap. Different semiconductors produce various colors and require different forward voltages to
+operate. Light intensity directly corresponds to the current flowing through it.</p>
+<figure class="align-center" id="id13">
+<img alt="../_images/led_colors.png" src="../_images/led_colors.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: LED Forward Voltage by Color.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="photodiodes">
+<h3>Photodiodes<a class="headerlink" href="#photodiodes" title="Permalink to this headline"></a></h3>
+<p>Photodiodes are diodes that conduct when light is absorbed.</p>
+</section>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<section id="half-wave-rectifier">
+<h3>Half-Wave Rectifier<a class="headerlink" href="#half-wave-rectifier" title="Permalink to this headline"></a></h3>
+</section>
+<section id="full-bridge-rectifier">
+<h3>Full-Bridge Rectifier<a class="headerlink" href="#full-bridge-rectifier" title="Permalink to this headline"></a></h3>
+<figure class="align-center" id="id14">
+<img alt="../_images/full_bridge_rectifier.png" src="../_images/full_bridge_rectifier.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: A full wave bridge rectifier.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A full bridge rectifier is a commonly configured circuit with four diodes in a diamond pattern, such that current is
+consistently flowing across the two terminals in the same direction during both the negative and positive cycle of the
+AC waveform. This creates a rectified waveform, essentially taking the magnitude of the input waveform. Although
+sometimes negligible, there is a small voltage loss that occurs through a full bridge rectifier, equivalent to two
+forward voltage drops (~1.4V). This means output peak voltage is equivalent to the input peak voltage minus the voltage
+drop seen at the rectifier. Losses can be minimized by using a rectifier IC or specific diodes that meet the
+specifications of the project.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="passive_components.html#application-note-rectification-filtering"><span class="std std-ref">Application Note: Rectification Filtering</span></a></p>
+</div>
+</section>
+<section id="three-phase-rectifier">
+<h3>Three Phase Rectifier<a class="headerlink" href="#three-phase-rectifier" title="Permalink to this headline"></a></h3>
+</section>
+<section id="voltage-doubling">
+<h3>Voltage Doubling<a class="headerlink" href="#voltage-doubling" title="Permalink to this headline"></a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="circuit_apps.html#charge-pumps"><span class="std std-ref">Charge Pumps</span></a></p>
+</div>
+</section>
+<section id="voltage-limiting">
+<h3>Voltage Limiting<a class="headerlink" href="#voltage-limiting" title="Permalink to this headline"></a></h3>
+</section>
+<section id="voltage-clamping">
+<h3>Voltage Clamping<a class="headerlink" href="#voltage-clamping" title="Permalink to this headline"></a></h3>
+</section>
+<section id="inductor-flyback">
+<h3>Inductor Flyback<a class="headerlink" href="#inductor-flyback" title="Permalink to this headline"></a></h3>
+</section>
+<section id="voltage-regulation-reference">
+<h3>Voltage Regulation/Reference<a class="headerlink" href="#voltage-regulation-reference" title="Permalink to this headline"></a></h3>
+<p><strong>References</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets">1</span></dt>
+<dd><p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 4: Diodes” in Microelectronic circuits,
+New York, NY: Oxford University Press, 2021,
+pp. 175–230.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>P. Horowitz and W. Hill, “Chapter 1: Foundations” in The Art of Electronics, New York:
+Cambridge University Press, 2022.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
 
            </div>
           </div>

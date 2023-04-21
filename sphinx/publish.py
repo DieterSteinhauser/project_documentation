@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
-from shutil import copy, copy2, copytree, rmtree
+from shutil import copytree, rmtree
+import subprocess
+from time import sleep
 
 
 def copy_and_overwrite(from_path, to_path):
@@ -23,15 +25,40 @@ jekyll = docs_dir.joinpath('.nojekyll')
 # print(html_dir)
 # print(docs_dir)
 
+print()
+print("---------------- Process Started ----------------")
+print()
+
+process = subprocess.Popen(['make', 'clean'], shell=True)
+process.wait()
+sleep(0.5)
+
+print()
+print("---------------- Documentation Cleaned ----------------")
+print()
+
+process = subprocess.Popen(['make', 'html'], shell=True)
+process.wait()
+sleep(0.5)
+
+
+print()
+print("----------------- Documentation Made -----------------")
+print()
+
+print('Publishing Documentation')
+
 copy_and_overwrite(html_dir, docs_dir)
 
 with open(jekyll, 'w', encoding='utf-8') as f:
     f.write('')
-
 
 print()
 print("--------------- Documentation Published ---------------")
 print()
 
 
+print('Ready to Push to Git')
 
+
+# -------------------------------------------------
