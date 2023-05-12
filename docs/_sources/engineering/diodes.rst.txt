@@ -227,7 +227,7 @@ Voltage Clamping
 Inductor Flyback
 ----------------------------
 
-Voltage Regulation/Reference
+Zener Regulation
 -------------------------------
 
 

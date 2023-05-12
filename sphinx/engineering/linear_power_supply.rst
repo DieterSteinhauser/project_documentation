@@ -8,22 +8,17 @@ Revision: 1
 .. figure:: power_supply/power_supply.jpg
   :align: center
 
-  Figure 42: Finished Linear power supply.
-
-
+  Figure 1: Finished Linear power supply.
 
 *******************
 Introduction
 *******************
 
-The Raspberry Pico is a powerful and inexpensive microcontroller that can be used for a variety of projects.
-However, the Raspberry Pi Foundation prioritized factors of size, efficiency, and cost when creating the board.
-This leaves certain drawbacks of the microcontroller that are well documented in the Pico datasheet [15]_.
-In this project, I aim to solve a few minor inconveniences of the Pico's design and create a development board better
-suited to approaching projects. Fixes include a reset button, an off switch for the onboard SMPS,
-LDO voltage regulators, and better ADC performance. Additionally, Parallel 16x2 LCD display, two 10-bit DAC channels,
-and SD card R/W capability are added to allow the development board to act as a drop in test bench for relaying or saving
-information.
+The purpose and goals of this project are to become familiar with linear power supply design, prepare engineers to
+transform, regulate, and rectify power for future projects, and create a critical tool for any engineer’s lab.
+Power transformation, AC to DC rectification, and voltage regulation are key components for practically every
+electrical project. With this project, we aim to design a 20V/3A linear power supply with adjustable voltage
+and current limiting capability. We also aim to create a precise voltmeter and ammeter to relay status of the supply.
 
 ******************
 Methods
@@ -35,115 +30,265 @@ Methods
 
     * :ref:`Transformers`
     * :ref:`Full-Bridge Rectifier`
+    * :ref:`Decoupling and Bypass`
     * :ref:`Application Note: Rectification Filtering`
+    * :ref:`Zener Regulation`
     * :ref:`Linear Regulators`
+    * :ref:`Instrumentation Amplifiers`
+    * :ref:`Charge Pumps`
+    * :ref:`Voltage Reference - VBE Multiplier`
     * :ref:`Raspberry Pico Microcontroller`
     * :ref:`Data Conversion: ADC and DAC Theory`
-    * :ref:`Instrumentation Amplifiers`
     * :ref:`16x2 LCD Display`
 
 
-ADC Configuration
+Project Overview
 ------------------
 
-Since the ADC in on the Raspberry Pico, initial setup of the ADC can easily be achieved using the ADC section of the
-Pico Software Development Kit (SDK) [16]. This provides the engineer with a simple and straightforward introduction
-on taking ADC readings. However, the 12-bit ADC onboard the Pico is not great by any means. This is due to the
-switching power regulator on the Pico. As a result of switching signal noise, the onboard voltage reference for
-the ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy [15]. The datasheet
-gives suggestions on improvement of the ADC readings. An External reference voltage may be used, the R7 resistor
-can be removed, or issues can be mitigated in averaging and offset code. I chose a different route entirely, by
-adding bypass capacitors to the reference voltage and ADC input pins for filtering and smoothing. Adding bypass
-capacitors to the reference voltage and ADC input pins can also improve filtering and smoothing at the cost of
-a larger circuit footprint.
+This linear power supply aims to provide up to 20 volts at 3 amps. The design employs linear regulators to minimize
+noise of the output, adjust voltage, and a current limit for the device. The power supply will need to be monitored
+for the output current and voltage. A Raspberry Pico will be employed for taking voltage and current measurements and
+displaying them on an LCD for the user. LED indicators, reverse polarity protection, and output enable switch are also
+added for a better user interface. A fuse will also be used for the safety of the user and the device.
 
-.. figure:: devboard/adc_ref.png
+
+Introduction to AC/DC Linear Power Supply
+----------------------------------------------
+
+.. figure:: power_supply/supply_abstract.png
   :align: center
 
-  Figure 18: Pico ADC reference circuit [13]_.
+  Figure 2: Fig 7-35 of Circuit Analysis and Design [1]_. Block diagram of a basic AC-DC linear power supply.
 
 
-For this project, I did everything I could to isolate the ADC reference for the best possible readings.
-Essentially, I have added a separate 3.3V linear regulator specifically for the ADC reference. To use this reference
-voltage without digital operation or SMPS noise, I have removed the R7 resistor that connects the Pico’s 3.3V source
-to the ADC reference. This method heavily isolates the ADC reference. It is potentially overkill, but I was interested
-in seeing how the device would perform. Driving the Pico via a 3.3V LDO feeds the ADC reference through a lowpass
-filter onboard. This creates a significant improvement from ADC SMPS measurements.
+An AC to DC converter can be broken up into multiple stages. An AC input usually needs transformation of the existing
+power to step up or down voltage to the desired range of operation. In our case, 120V wall power needs to be stepped
+down by a factor of six to eight before use in the rest of our circuit. This will bring the AC voltage of the
+secondary between 15 and 20V, ready for rectification from AC to DC. A full bridge rectifier is employed to have
+current flow in the same direction for each half cycle of AC wave. A rectified wave would then require filter
+components for reducing voltage swing. Capacitors are employed to store change and mitigate this voltage swing
+but a separate step for regulation is required. Regulation can be accomplished using multiple methods, primarily
+using voltage regulator IC’s or Zener diodes in reverse breakdown.
 
-Power Regulation and Filtering
---------------------------------
+.. figure:: power_supply/simple_supply_circuit.png
+  :align: center
 
-To supply power to the system, I chose to use the LDL1117 5V and 3.3V low-dropout regulators.
-This allows for a 9-12V DC source to supply the devices without much overhead. This provided
-a smooth 5V and 3.3V source for most components, with local decoupling capacitors where needed.
+  Figure 3: Fig 7-40 of Circuit Analysis and Design [1]_.  A complete circuit of a basic power supply. This design
+  employs a Zener diode regulator.
 
-In addition to the 5V source, I powered the Raspberry Pico via the VSYS node to activate
-the device and use the 3.3V Switching Mode Power Supply (SMPS). This was done using a
-Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB [13]_.
-The Pico power-chain is good because the SMPS is efficient, but noise on the output causes
-problems with other systems like the ADC [13]_, [14]_. As a result, I byapassed the SMPS entirely by incorporating a
-shutoff switch for the SMPS.
+
+Power Supply Circuit Design
+------------------------------
+
+.. figure:: power_supply/block_diagram_drawio.png
+  :align: center
+
+  Figure 4: Hardware Block Diagram of the Linear Power Supply.
+
+The circuit implements the general systems shown in the block diagram. From the AC outlet, a fuse and switch connect
+mains voltage to the device for operation. The Flat-Pak 16V transformer (FP16-3000) which can deliver 48VA of power.
+This device is perhaps one of the most limiting factors of the supply. I anticipate 22.6V peak-to-peak voltage from a
+115V AC circuit, which may not be enough for a 20V output after regulation. This will be followed by a RS603M full
+bridge rectifier, with a forward voltage drop of 1.1V. Two 2200uF capacitors follow the rectifier for filtering,
+providing a raw DC voltage around 21.5V to the following circuit stages.
+
+.. figure:: power_supply/input_stage.png
+  :align: center
+
+  Figure 5: Input voltage conditioning Stage.
+
+The rectified voltage is passed into the Constant Current Constant Voltage (CCCV) stage for output conditioning.
+Both stages center around a LD1085 linear regulator IC, which has a 30V rating a can supply 3A of current. The constant
+current stage uses a selection of switchable series resistances to determine the current limit of following stage.
+Both output and adjust pins are bypassed for better noise performance but comes at the cost of storing and possibly
+supplying more energy during a transient spike from the load.
+
+
+The constant voltage stage allows for switching between a selection of fixed voltage outputs and an adjustable output.
+Given there is no current limiting occurring, the device should provide 1.25V to about 20V. The output’s upper
+boundary is limited by the dropout voltage over both linear regulators, forward voltage of the rectifier, output of
+the transformer, and the AC voltage seen at the plug. The supply should comfortably hit
+20V on the output under moderate loads, however bottlenecks may be encountered for worst case scenarios. Again, each
+terminal of the LD1085 is bypassed for noise performance. Diodes are incorporated for protection purposes on each
+regulator and will provide a discharge path for capacitors on the adjust and output pins when the device is turned off.
+An output enable switch, reverse polarity diode, and a LED is employed for output safety and interaction.
+
+.. figure:: power_supply/cccv_stage.png
+  :align: center
+
+  Figure 5: Constant Current-Constant Voltage Stage with reverse polarity protection.
+
+.. Warning:: There are some flaws with the constant current circuit as depicted. Decoupling capacitors on the output and
+   adjust pins of the constant current regulator cause current spikes from various operations. the short circuit
+   implemented originally was removed in favor of a 0.33ohm resistor providing the same effect as before. Finally, to
+   reduce transient uncertainty when switching between Rlim resistors, A 10kOhm resistor was added in parallel to Rlim.
+
+   If you attempt to recreate this constant current circuit, remove the decoupling capacitors, short circuit condition,
+   and add a high resistance in parallel to Rlim.
+
+The output of the CCCV then feeds into the measurement circuitry for observation and user interaction.
+A 0.1 Ohm shunt resistor is added for high side current sensing. This was done with the INA128 which should have
+no problem observing the dynamic range of the power supply. The current can be no more than 3 amps as set by
+both the transformer and the regulators. This circuit observe currents in the full operation range and imposes
+minimal voltage loss on the output. A 100W rated shunt is used for safety during a short circuit condition. A gain
+of 10 is applied to make the output voltage functionally equivalent to the observed current over the shunt resistor.
+This means that a 0-3V output can easily be read by a 3.3V ADC. The output voltage is observed through a resistor
+divider that similarly creates a 0-3V output for ADC readings. The ratio of loss from the divider is inverted and
+applied back to the sensed ADC value in software to relay the correct output voltage.
+
+.. figure:: power_supply/monitor_stage.png
+  :align: center
+
+  Figure 5: Input voltage conditioning Stage.
+
+The INA128 used for current readings has a 36V operation range and requires about 2V of offset from each rail to
+operate effectively. The device will be supplied by both the rectified voltage and a negative reference voltage.
+This is because the rectified voltage should be approximately 2 to 3V higher than the output of the voltage regulator,
+giving enough room for higher voltage measurements. However, the device must also output on the 0-3V range.
+To do this effectively, a negative voltage reference must be made to supply an offset from the lower rail of
+operation. A negative voltage rail around -3 to -7V is sufficient. This was done using a negative voltage charge
+pump that feeds a VBE multiplier, giving a nice output reference. The INA128 will only draw about 1mA of current
+from this rail, so a charge pump is fine for this purpose.
+
+.. figure:: power_supply/negative_ref.png
+  :align: center
+
+  Figure 5: Negative voltage charge pump with Vbe multiplier output.
+
+Pico Setup
+------------------------------
+
+To supply power to the measurement devices, I chose a combination of regulators power the sensor devices.
+This provided a smooth 5V and 3.3V source for most components, with local decoupling capacitors where needed.
+The LM7805 is a prime candidate for 5V regulation as its implementation is simple, only requiring two capacitors
+on the Vin and Vout. The 7805 is also tolerant to the range of voltage seen after rectification.
+
+.. figure:: reference/fixed_out_app.png
+  :align: center
+
+  Figure 1: Fixed Output Regulator configuration for an LM7805.
+
+In addition to the 5V source, I powered the Raspberry Pico via 3.3V regulators. Two 3.3V rails were also developed
+using LT1086 regulators, also in a fixed configuration. One regulator was connected directly to the 3.3V rail,
+while the other was connected to the ADC reference.
+
 
 .. figure:: theremin_images/figure18.png
   :align: center
 
-  Figure 18: Pico Power-chain and the implemented method of external supply [8]_.
+  Figure 2: Pico Power-chain.
 
-Inputs and Outputs
----------------------
 
-A physical reset button was added to the development board to interrupt the RUN pin on the Pico. When this pin is
-connected to ground, the device will shut off. To insure proper reset, hold the reset button for 3 seconds. This will
-guarantee that the Pico has been discharged. The Pico has a full array of female headers for easy pinout access and
-another for seating the pico onboard. Pinout names have been added to the silkscreen simplify development.
+ADC Configuration
+------------------------------
 
+.. figure:: devboard/adc_ref.png
+  :align: center
+
+  Figure 18: Pico ADC reference circuit.
+
+For this project, I did everything I could to isolate the ADC reference for the best possible readings. Essentially,
+I have added a separate 3.3V linear regulator specifically for the ADC reference. To use this reference voltage
+without digital operation or SMPS noise, I have removed the R7 resistor that connects the Pico’s 3.3V source to the
+ADC reference. This method heavily isolates the ADC reference. It is potentially overkill, but I was interested in
+seeing how the device would perform.
+
+Pico Software
+------------------------------
+
+.. figure:: power_supply/microcontroller_software_drawio.png
+  :align: center
+
+  Figure 4: Hardware Block Diagram of the Linear Power Supply.
+
+The Pico has a relatively simple program loop, A few systems such as the LCD and ADC are initialized on startup,
+then continuous readings from both ADC channels are taken for interpretation. Each channel has offset removed,
+becomes averaged over several samples, and scaled if necessary. Then the data is printed onto the LCD screen for
+interpretation. There are a few edge cases regarding the output being off, an open circuit, and a short circuit.
+In these situations, the LCD relays the situation to the user based on interpreted ADC data.
 
 Schematic and PCB Design
 -------------------------
 
-.. figure:: devboard/devboard_schematic1.png
+All previously mentioned components must be compiled into a schematic design for wiring structure and PCB design.
+Bypass and decoupling capacitors are added to the board for several reasons. First, capacitors can be used on power
+headers to avoid voltage spikes and removing AC ripple on DC power. Small ceramic caps offer low series resistance and
+react fast but have a difficult time dealing with substantial amounts of charge over long periods. Polarized
+electrolytic capacitors usually have a much higher capacitance, and in conjunction with smaller ceramic capacitors,
+effectively clean DC voltage. In larger schematics and PCB’s, we are not always able to position circuits
+near bypass capacitors. Therefore, small decoupling capacitors are recommended for placement near a circuit
+subsection to help clean AC ripple from DC voltages.
+
+Once the schematic was populated with all necessary circuit components, the PCB was updated with all schematic
+components for board layout. A general layout of parts was done before resizing the board outline to find the most
+effective use of space. When all components have found their relative placement, routing traces for components using
+auto-routing tools or manually is required. I chose to auto-route, followed with manual edits to correct some trace
+routes. I found 100mil routes were sufficient for this circuit. Copper pours are also recommended for adding a
+ground layer to the PCB, further simplifying routing design.
+
+.. figure:: power_supply/schematic1.png
   :align: center
 
-  Figure 22: Devboard schematic page 1 of 2.
+  Figure 22: Power Supply schematic page 1 of 2.
 
-.. figure:: devboard/devboard_schematic2.png
+.. figure:: power_supply/schematic2.png
   :align: center
 
-  Figure 23: Devboard schematic page 2 of 2.
+  Figure 23: Power Supply schematic page 2 of 2.
 
-.. figure:: devboard/dev_board_top_altium.png
+.. figure:: power_supply/altium_pcb_top.png
   :align: center
 
-  Figure 24: Top side of Devboard PCB layout.
+  Figure 24: Top side of Power Supply PCB layout.
 
-.. figure:: devboard/dev_board_bottom_altium.png
+.. figure:: power_supply/altium_pcb_bottom.png
   :align: center
 
-  Figure 24: Bottom side of Devboard PCB layout.
+  Figure 24: Bottom side of Power Supply PCB layout.
 
 Bill Of Materials
 ---------------------
 
 .. csv-table:: Bill Of Materials
-   :file: devboard/BillOfMaterials.csv
+   :file: power_supply/BillOfMaterials.csv
 
 
 ******************
 Results
 ******************
 
-The schematic of the circuit and PCB turned out well, with minimal errors. The
-assembled PCB was easy to debug because of its plentiful headers employed in the diagram.
-Also, using female headers for the ultrasonic sensors, LCD, DIP packages, and potentiometers
-aided debug and ensured that any errors in design could be more easily fixed if the PCB was
-routed wrong. Thankfully, there were no design breaking errors in this circuit, and most
-components worked immediately after installation.
+The schematic of the circuit and PCB turned out fine, with a few errors that were fixable. The
+assembled PCB was easy to debug because of its plentiful headers employed in the diagram. Thankfully,
+there were no design breaking errors in this circuit, and most components worked immediately after installation.
 
-.. figure:: devboard/dev_board_assembled.jpg
+.. figure:: power_supply/assembled_board.jpg
   :align: center
 
-  Figure 42: Raspberry Pico Development Board
+  Figure 42: Power Supply Board.
 
+Flaws and Oversights
+---------------------
+
+There were a few things that I messed up in designing the board, but acknowledging them is a good practice as lessons
+are learned and further revisions could be optimized. In terms of some minor design issues, I went overkill on a
+series of parts. the Raspberry Pico's powerchain is excessive but works wonderfully. I could have easily removed one
+of the 3.3V regulators and relied on the Pico's internal SMPS fed from the 7805 for operation. This doesn't affect the
+ADC since the reference is isolated from removing the R7 resistor. Using a linear regulator for an ADC reference was
+also overkill, and a LM385, TL431, or some other voltage reference could have been used to cut costs a bit. That being
+said, this powerchain worked wonderfully and provided very clean measurements.
+
+In addition, I completely over-specified the shunt resistor needed for current sensing. I employed a 100W resistor
+thinking that the total power of the device could deliver 20V/3A = 60W during a short circuit condition. However, I
+neglected to see that the entire short circuit wire would act as a resistor and that the power dissipated on a
+resistance is equal to I*I*R or about 1W in my design. this is without mentioning any limiting or thermal shutdown that
+would occur.
+
+Some more serious design errors included incorrectly wiring the instrumentation amplifier. This caused the device to
+read negative values and therefore send useless data to the ADC for current readings. Since I chose to use an IC riser,
+This was easily worked around using some wire wrapping. Some header ports were also too small for wires and made
+connecting the front panel difficult. The most egregious error was from designing the constant current regulator with
+decoupling capacitors and without a parallel limit resistor. These too factors led to the destruction of a handful of
+regulator IC's from current spikes.
 
 Power
 ---------------------
@@ -166,6 +311,8 @@ with as little as 10mV ripple on both sources.
 
   Figure 29: 5V and 3.3V source observed on the oscilloscope, both from a 20mV div.
 
+Conclusion
+---------------------
 
 
 ******************
@@ -175,21 +322,14 @@ Appendix
 LCD.py
 ---------------------
 
-    .. literalinclude:: devboard/LCD.py
+    .. literalinclude:: power_supply/LCD.py
        :language: python
        :linenos:
 
-sdcard.py
+main.py
 ---------------------
 
-    .. literalinclude:: devboard/sdcard.py
-       :language: python
-       :linenos:
-
-test.py
----------------------
-
-    .. literalinclude:: devboard/test.py
+    .. literalinclude:: power_supply/test.py
        :language: python
        :linenos:
 
@@ -197,37 +337,6 @@ test.py
 References
 ******************
 
-
-.. [2] “What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
-    [Online]. Available: https://www.electronicshub.org/bypass-capacitor-tutorial/. [Accessed:
-    27-Aug-2022].
-
-.. [10] “Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
-    https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf.
-    [Accessed: 17-Oct-2022].
-
-.. [13] “Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
-    https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf. [Accessed: 15-Nov-2022].
-
-.. [14] “Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
-    https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf. [Accessed: 15-
-    Nov-2022].
-
-.. [15] “RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
-    https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf. [Accessed: 14-Nov-2022].
-
-.. [16] “Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
-    https://en.wikipedia.org/wiki/Serial_Peripheral_Interface. [Accessed: 19-Oct-2022].
-
-.. [17] “Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
-    https://www.crystalfontz.com/controllers/Sitronix/ST7066U/438. [Accessed: 03-Oct2022].
-
-.. [18] “What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
-    http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html.
-    [Accessed: 27-Aug-2022].
-
-
-
-
-
+.. [1] F. T. Ulaby, M. M. Maharbiz, and C. Furse, “7-12 Application Note: Power-Supply Circuits,” in Circuit analysis
+   and Design, Ann Arbor, MI: Michigan Publishing, 2018, pp. 432–437.
 
