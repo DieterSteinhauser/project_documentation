@@ -290,29 +290,14 @@ connecting the front panel difficult. The most egregious error was from designin
 decoupling capacitors and without a parallel limit resistor. These too factors led to the destruction of a handful of
 regulator IC's from current spikes.
 
-Power
----------------------
-
-The power regulation and filtering produced a 5V and 3.3V source with minimal noise, observed
-with as little as 10mV ripple on both sources.
-
-.. figure:: devboard/powerchain.jpg
-  :align: center
-
-  Figure 27: Power regulation system on the PCB
-
-.. figure:: devboard/scope_power.png
-  :align: center
-
-  Figure 28: 5V and 3.3V source observed on the oscilloscope.
-
-.. figure:: devboard/scope_power_zoom.png
-  :align: center
-
-  Figure 29: 5V and 3.3V source observed on the oscilloscope, both from a 20mV div.
 
 Conclusion
 ---------------------
+
+Overall, This project has been insightful and a useful addition to my workbench. While there were some design faults,
+all errors were fixable and operation has not been impacted. Creating a linear power supply is a great way to introduce
+power electronics to engineers and provide utility to the engineer for future projects. This device performed well at
+providing power and realistic measurements to the user.
 
 
 ******************
