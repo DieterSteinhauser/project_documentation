@@ -314,7 +314,7 @@ LCD.py
 main.py
 ---------------------
 
-    .. literalinclude:: power_supply/test.py
+    .. literalinclude:: power_supply/main.py
        :language: python
        :linenos:
 

@@ -177,7 +177,7 @@ employs a Zener diode regulator.</span><a class="headerlink" href="#id6" title="
 <section id="power-supply-circuit-design">
 <h3>Power Supply Circuit Design<a class="headerlink" href="#power-supply-circuit-design" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id7">
-<img alt="engineering/power_supply/block_diagram_drawio.png" src="engineering/power_supply/block_diagram_drawio.png" />
+<img alt="../_images/block_diagram_drawio.png" src="../_images/block_diagram_drawio.png" />
 <figcaption>
 <p><span class="caption-text">Figure 4: Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
@@ -291,7 +291,7 @@ seeing how the device would perform.</p>
 <section id="pico-software">
 <h3>Pico Software<a class="headerlink" href="#pico-software" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id15">
-<img alt="engineering/power_supply/microcontroller_software_drawio.png" src="engineering/power_supply/microcontroller_software_drawio.png" />
+<img alt="../_images/microcontroller_software_drawio.png" src="../_images/microcontroller_software_drawio.png" />
 <figcaption>
 <p><span class="caption-text">Figure 4: Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
 </figcaption>
@@ -820,7 +820,263 @@ providing power and realistic measurements to the user.</p>
 <section id="main-py">
 <h3>main.py<a class="headerlink" href="#main-py" title="Permalink to this headline"></a></h3>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  2</span><span class="c1">#                 NOTES </span>
+<span class="linenos">  3</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  4</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  5</span><span class="sd">Dieter Steinhauser</span>
+<span class="linenos">  6</span><span class="sd">12/2022</span>
+<span class="linenos">  7</span><span class="sd">PicoPAD Test Script</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 12</span><span class="c1">#               IMPORTS</span>
+<span class="linenos"> 13</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="kn">from</span> <span class="nn">LCD</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 16</span><span class="c1"># import _thread</span>
+<span class="linenos"> 17</span><span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">sleep_ms</span><span class="p">,</span> <span class="n">sleep_us</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="linenos"> 18</span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">Timer</span><span class="p">,</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">freq</span>
+<span class="linenos"> 19</span><span class="c1"># import gc</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 22</span><span class="c1">#         CONSTANTS/VARIABLES</span>
+<span class="linenos"> 23</span><span class="c1"># -----------------------------------------   </span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="c1"># ------------------</span>
+<span class="linenos"> 26</span><span class="n">REFRESH_RATE</span> <span class="o">=</span> <span class="mi">360</span> <span class="c1"># Frequency in Hz</span>
+<span class="linenos"> 27</span><span class="n">REFRESH_PERIOD</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">/</span> <span class="n">REFRESH_RATE</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># delay in milliseconds</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="c1"># ------------------</span>
+<span class="linenos"> 30</span><span class="n">UPY_BIT_RES</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="linenos"> 31</span><span class="n">ADC_REF</span> <span class="o">=</span> <span class="mf">3.3</span>
+<span class="linenos"> 32</span><span class="n">VOLT_PER_BIT</span> <span class="o">=</span> <span class="n">ADC_REF</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">UPY_BIT_RES</span><span class="p">)</span> <span class="c1"># ADC recieves in 2 byte packets and micropython automagically fixes it.</span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span><span class="c1"># ------------------</span>
+<span class="linenos"> 35</span><span class="n">DAC_REF</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="linenos"> 36</span><span class="n">DC_OFFSET</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 37</span><span class="n">DC_OFFSET_RES</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">DC_OFFSET</span> <span class="o">/</span> <span class="n">DAC_REF</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">UPY_BIT_RES</span><span class="p">))</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="c1"># ------------------</span>
+<span class="linenos"> 40</span><span class="n">FREQ_MAX</span> <span class="o">=</span> <span class="mi">160</span>
+<span class="linenos"> 41</span><span class="n">FREQ_MIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 42</span><span class="n">AMP_MAX</span> <span class="o">=</span> <span class="n">DAC_REF</span>
+<span class="linenos"> 43</span><span class="n">AMP_MIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span><span class="n">MAX_DIST_US0</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="linenos"> 46</span><span class="n">MAX_DIST_US1</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span><span class="c1"># -------------------------------------------------------------</span>
+<span class="linenos"> 50</span><span class="c1">#           INITIALIZATION</span>
+<span class="linenos"> 51</span><span class="c1"># -------------------------------------------------------------</span>
+<span class="linenos"> 52</span>
+<span class="linenos"> 53</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 54</span><span class="c1">#           SYSTEM CLOCK</span>
+<span class="linenos"> 55</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 56</span>
+<span class="linenos"> 57</span><span class="n">UNDERCLOCK</span> <span class="o">=</span> <span class="mi">30_000_000</span>
+<span class="linenos"> 58</span><span class="n">DEFAULT_SYS_CLK</span> <span class="o">=</span> <span class="mi">125_000_000</span>
+<span class="linenos"> 59</span><span class="n">STABLE_OVERCLOCK</span> <span class="o">=</span> <span class="mi">270_000_000</span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span><span class="c1"># Pico can go up to 270MHz before needing to flash to the eeprom directly.</span>
+<span class="linenos"> 62</span><span class="n">system_clock</span> <span class="o">=</span> <span class="n">DEFAULT_SYS_CLK</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="c1"># if the system clock is not the default, apply the clock speed.</span>
+<span class="linenos"> 65</span><span class="k">if</span> <span class="n">system_clock</span> <span class="o">!=</span>  <span class="n">DEFAULT_SYS_CLK</span><span class="p">:</span>
+<span class="linenos"> 66</span>    <span class="n">freq</span><span class="p">(</span><span class="n">system_clock</span><span class="p">)</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span><span class="c1"># print(f&#39;Clock: {freq()/1e6}MHz&#39;)</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 71</span><span class="c1">#               PINOUT</span>
+<span class="linenos"> 72</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span><span class="c1"># LCD Pins handled in LCD.py</span>
+<span class="linenos"> 75</span><span class="c1"># ----------------------------</span>
+<span class="linenos"> 76</span><span class="c1"># EN = Pin(0, Pin.OUT)</span>
+<span class="linenos"> 77</span><span class="c1"># RS = Pin(1, Pin.OUT)</span>
+<span class="linenos"> 78</span><span class="c1"># D7 = Pin(2, Pin.OUT)</span>
+<span class="linenos"> 79</span><span class="c1"># D6 = Pin(3, Pin.OUT)</span>
+<span class="linenos"> 80</span><span class="c1"># D5 = Pin(4, Pin.OUT)</span>
+<span class="linenos"> 81</span><span class="c1"># D4 = Pin(5, Pin.OUT)</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span><span class="c1"># Ultrasonic sensor pins handled in sensors.py</span>
+<span class="linenos"> 84</span><span class="c1"># ----------------------------</span>
+<span class="linenos"> 85</span><span class="c1"># us0_trig = Pin(6, Pin.OUT)</span>
+<span class="linenos"> 86</span><span class="c1"># us0_echo = Pin(7, Pin.IN)</span>
+<span class="linenos"> 87</span><span class="c1"># us1_trig = Pin(8, Pin.OUT)</span>
+<span class="linenos"> 88</span><span class="c1"># us1_echo = Pin(9, Pin.IN)</span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="c1"># Switches</span>
+<span class="linenos"> 91</span><span class="c1"># ----------------------------</span>
+<span class="linenos"> 92</span><span class="c1"># sw0 = Pin(10, Pin.IN, Pin.PULL_DOWN)</span>
+<span class="linenos"> 93</span><span class="c1"># sw1 = Pin(11, Pin.IN, Pin.PULL_DOWN)</span>
+<span class="linenos"> 94</span><span class="c1"># sw2 = Pin(12, Pin.IN, Pin.PULL_DOWN)</span>
+<span class="linenos"> 95</span><span class="c1"># sw3 = Pin(13, Pin.IN, Pin.PULL_DOWN)</span>
+<span class="linenos"> 96</span><span class="c1"># switch_pins = [sw0, sw1, sw2, sw3]</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span><span class="c1"># LEDs</span>
+<span class="linenos"> 99</span><span class="c1"># ----------------------------</span>
+<span class="linenos">100</span><span class="c1"># led0 = Pin(14, Pin.OUT)</span>
+<span class="linenos">101</span><span class="c1"># led1 = Pin(15, Pin.OUT)</span>
+<span class="linenos">102</span><span class="n">led_onboard</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="linenos">103</span><span class="n">output_en</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="linenos">104</span><span class="c1"># led_pins = [led0, led1, led_onboard]</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span><span class="c1"># SPI handled by the Hardware in spi_config.py</span>
+<span class="linenos">107</span><span class="c1"># ----------------------------</span>
+<span class="linenos">108</span><span class="c1"># miso = Pin(16, Pin.IN)</span>
+<span class="linenos">109</span><span class="c1"># cs = Pin(17, Pin.OUT, value=1)</span>
+<span class="linenos">110</span><span class="c1"># mosi = Pin(18, Pin.OUT)</span>
+<span class="linenos">111</span><span class="c1"># sck = Pin(19, Pin.OUT)</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span><span class="c1"># Buttons</span>
+<span class="linenos">114</span><span class="c1"># ----------------------------</span>
+<span class="linenos">115</span><span class="c1"># button0 = Pin(20, Pin.IN)</span>
+<span class="linenos">116</span><span class="c1"># button1 = Pin(21, Pin.IN)</span>
+<span class="linenos">117</span><span class="c1"># button2 = Pin(22, Pin.IN)</span>
+<span class="linenos">118</span><span class="c1"># button3 = Pin(28, Pin.IN)</span>
+<span class="linenos">119</span><span class="c1"># button_pins = [button0, button1, button2, button3]</span>
+<span class="linenos">120</span>
+<span class="linenos">121</span><span class="c1"># ADC</span>
+<span class="linenos">122</span><span class="c1"># ----------------------------</span>
+<span class="linenos">123</span><span class="c1"># adc0 = ADC(26) # Connect to GP26, which is channel 0</span>
+<span class="linenos">124</span><span class="c1"># adc1 = ADC(27) # Connect to GP27, which is channel 1</span>
+<span class="linenos">125</span>
+<span class="linenos">126</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">127</span><span class="c1">#           LCD</span>
+<span class="linenos">128</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">129</span><span class="n">lcd_init</span><span class="p">()</span>
+<span class="linenos">130</span><span class="n">lcd_clear</span><span class="p">()</span>
+<span class="linenos">131</span><span class="c1"># lcd_cursor_on()</span>
+<span class="linenos">132</span><span class="c1"># lcd_cursor_blink()</span>
+<span class="linenos">133</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">134</span><span class="c1">#           ADC</span>
+<span class="linenos">135</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">136</span><span class="n">adc1</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span> <span class="c1"># Connect to GP26, which is channel 0</span>
+<span class="linenos">137</span><span class="n">adc0</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span> <span class="c1"># Connect to GP27, which is channel 1</span>
+<span class="linenos">138</span><span class="c1"># adc2 = machine.ADC(28) # Connect to GP28, which is channel 2</span>
+<span class="linenos">139</span><span class="c1"># adc_reading = adc0.read_u16() * VOLT_PER_BIT # read and report the ADC reading</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">142</span><span class="c1">#           SD CARD VIA SPI</span>
+<span class="linenos">143</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">144</span><span class="c1"># </span>
+<span class="linenos">145</span><span class="c1"># import sdcard</span>
+<span class="linenos">146</span><span class="c1"># import os</span>
+<span class="linenos">147</span><span class="c1"># import uos</span>
+<span class="linenos">148</span><span class="c1"># </span>
+<span class="linenos">149</span><span class="c1"># # Assign chip select (CS) pin (and start it high)</span>
+<span class="linenos">150</span><span class="c1"># cs = Pin(20, machine.Pin.OUT)</span>
+<span class="linenos">151</span><span class="c1"># </span>
+<span class="linenos">152</span><span class="c1"># # Intialize SPI peripheral (start with 1 MHz)</span>
+<span class="linenos">153</span><span class="c1"># spi = machine.SPI(0,</span>
+<span class="linenos">154</span><span class="c1">#                   baudrate=1000000,</span>
+<span class="linenos">155</span><span class="c1">#                   polarity=0,</span>
+<span class="linenos">156</span><span class="c1">#                   phase=0,</span>
+<span class="linenos">157</span><span class="c1">#                   bits=8,</span>
+<span class="linenos">158</span><span class="c1">#                   firstbit=machine.SPI.MSB,</span>
+<span class="linenos">159</span><span class="c1">#                   sck=Pin(18),</span>
+<span class="linenos">160</span><span class="c1">#                   mosi=Pin(19),</span>
+<span class="linenos">161</span><span class="c1">#                   miso=Pin(16))</span>
+<span class="linenos">162</span><span class="c1"># </span>
+<span class="linenos">163</span><span class="c1"># # Initialize SD card</span>
+<span class="linenos">164</span><span class="c1"># sd = sdcard.SDCard(spi, cs)</span>
+<span class="linenos">165</span><span class="c1"># </span>
+<span class="linenos">166</span><span class="c1"># vfs = uos.VfsFat(sd)</span>
+<span class="linenos">167</span><span class="c1"># uos.mount(vfs, &quot;/sd&quot;)</span>
+<span class="linenos">168</span><span class="c1"># </span>
+<span class="linenos">169</span><span class="c1"># # Create a file and write something to it</span>
+<span class="linenos">170</span><span class="c1"># file = open(&quot;/sd/test01.txt&quot;, &quot;w&quot;)</span>
+<span class="linenos">171</span><span class="c1"># </span>
+<span class="linenos">172</span><span class="c1"># with open(&quot;/sd/test01.txt&quot;, &quot;w&quot;) as file:</span>
+<span class="linenos">173</span><span class="c1">#     file.write(&quot;Hello, SD World!\r\n&quot;)</span>
+<span class="linenos">174</span><span class="c1">#     file.write(&quot;This is a test\r\n&quot;)</span>
+<span class="linenos">175</span><span class="c1"># </span>
+<span class="linenos">176</span><span class="c1"># # Open the file we just created and read from it</span>
+<span class="linenos">177</span><span class="c1"># with open(&quot;/sd/test01.txt&quot;, &quot;r&quot;) as file:</span>
+<span class="linenos">178</span><span class="c1">#     data = file.read()</span>
+<span class="linenos">179</span><span class="c1">#     print(data)</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">182</span><span class="c1">#           PROCESS 1: IO</span>
+<span class="linenos">183</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">184</span>
+<span class="linenos">185</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">186</span>
+<span class="linenos">187</span>    <span class="n">splash</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">188</span>    <span class="c1"># Display the splash screen on startup.</span>
+<span class="linenos">189</span>    <span class="k">if</span> <span class="n">splash</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">190</span>        <span class="n">led_onboard</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">191</span>        <span class="n">lcd_puts</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Linear Supply   &#39;</span><span class="p">)</span>
+<span class="linenos">192</span>        <span class="n">lcd_goto</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">193</span>        <span class="n">lcd_puts</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;20V/3A Dieter S.&#39;</span><span class="p">)</span>
+<span class="linenos">194</span>        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">195</span>        <span class="n">lcd_home</span><span class="p">()</span>
+<span class="linenos">196</span>        <span class="n">lcd_clear</span><span class="p">()</span>
+<span class="linenos">197</span>        <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+<span class="linenos">198</span>        
+<span class="linenos">199</span>    <span class="n">list_length</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="linenos">200</span>    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">201</span>    <span class="n">current_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">202</span>    <span class="n">voltage_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">203</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">204</span>
+<span class="linenos">205</span>        <span class="c1"># read ADC</span>
+<span class="linenos">206</span>        <span class="c1"># -----------------------------------------</span>
+<span class="linenos">207</span>        
+<span class="linenos">208</span>        <span class="n">adc0_reading</span> <span class="o">=</span> <span class="p">(</span><span class="n">adc0</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">VOLT_PER_BIT</span><span class="p">)</span>
+<span class="linenos">209</span>        <span class="n">adc1_reading</span> <span class="o">=</span> <span class="p">(</span><span class="n">adc1</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">*</span> <span class="n">VOLT_PER_BIT</span><span class="p">)</span>
+<span class="linenos">210</span>        
+<span class="linenos">211</span>        <span class="n">voltage</span> <span class="o">=</span> <span class="p">(</span><span class="n">adc1_reading</span> <span class="o">-</span> <span class="mf">0.010</span><span class="p">)</span> <span class="o">*</span> <span class="mf">7.2962</span>
+<span class="linenos">212</span>        <span class="n">current</span> <span class="o">=</span> <span class="p">(</span><span class="n">adc0_reading</span> <span class="o">-</span> <span class="mf">0.010</span><span class="p">)</span>
+<span class="linenos">213</span>
+<span class="linenos">214</span>        <span class="n">current_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+<span class="linenos">215</span>        <span class="n">voltage_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">voltage</span><span class="p">)</span>
+<span class="linenos">216</span>        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">217</span>        
+<span class="linenos">218</span>        <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="n">list_length</span><span class="p">:</span>
+<span class="linenos">219</span>            
+<span class="linenos">220</span> 
+<span class="linenos">221</span>            <span class="n">current</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">current_list</span><span class="p">)</span><span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_list</span><span class="p">)</span>
+<span class="linenos">222</span>            <span class="n">voltage</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">voltage_list</span><span class="p">)</span><span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">voltage_list</span><span class="p">)</span>
+<span class="linenos">223</span>            
+<span class="linenos">224</span>            <span class="n">current</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">225</span>            <span class="n">voltage</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">226</span>
+<span class="linenos">227</span>            <span class="k">if</span> <span class="n">current</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">228</span>                <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">229</span>
+<span class="linenos">230</span>            <span class="k">if</span> <span class="n">voltage</span> <span class="o">&lt;</span> <span class="mf">0.9</span><span class="p">:</span>
+<span class="linenos">231</span>                <span class="n">voltage</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">232</span>                <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">233</span>                <span class="n">output_en</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">234</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">235</span>                <span class="n">output_en</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">236</span>                
+<span class="linenos">237</span>            <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">238</span>            <span class="n">current_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">239</span>            <span class="n">voltage_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">240</span>            
+<span class="linenos">241</span>            <span class="n">lcd_home</span><span class="p">()</span>
+<span class="linenos">242</span>            <span class="n">lcd_puts</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s1">A       &#39;</span><span class="p">)</span>
+<span class="linenos">243</span>            <span class="n">lcd_goto</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">244</span>            <span class="n">lcd_puts</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;V: </span><span class="si">{</span><span class="n">voltage</span><span class="si">}</span><span class="s1">V       &#39;</span><span class="p">)</span>
+<span class="linenos">245</span>            
+<span class="linenos">246</span>        <span class="c1"># toggle onboard LED for System speed status and refresh delay</span>
+<span class="linenos">247</span>        <span class="c1"># -----------------------------------------</span>
+<span class="linenos">248</span>        <span class="n">led_onboard</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+<span class="linenos">249</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">REFRESH_PERIOD</span><span class="p">)</span>
+<span class="linenos">250</span>        <span class="c1"># gc.collect()</span>
+<span class="linenos">251</span>
+<span class="linenos">252</span>
+<span class="linenos">253</span>
+<span class="linenos">254</span>
+</pre></div>
+</div>
+</div></blockquote>
 </section>
 </section>
 <section id="references">
