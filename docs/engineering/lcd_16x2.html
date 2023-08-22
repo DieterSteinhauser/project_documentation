@@ -146,16 +146,6 @@ ordered by the upper four bits and then the lower four bits.</p>
 <span class="kn">import</span> <span class="nn">utime</span>
 
 <span class="c1"># -----------------------------------------</span>
-<span class="c1">#          CONSTANTS AND VARIABLES</span>
-<span class="c1"># -----------------------------------------</span>
-
-<span class="c1"># CONSTANTS</span>
-<span class="c1"># ----------------------</span>
-
-<span class="n">LCD_CMD</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">LCD_DATA</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="c1"># -----------------------------------------</span>
 <span class="c1">#                 LCD Class:</span>
 <span class="c1"># -----------------------------------------</span>
 
@@ -163,8 +153,6 @@ ordered by the upper four bits and then the lower four bits.</p>
 <span class="k">class</span> <span class="nc">LCD</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;The LCD class is meant to abstract the LCD driver further and streamline development.&quot;&quot;&quot;</span>
 
-    <span class="n">CMD_MODE</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">DATA_MODE</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">reg_select_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_pins</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Object initialization&quot;&quot;&quot;</span>

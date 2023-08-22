@@ -56,16 +56,6 @@ ordered by the upper four bits and then the lower four bits.
    import utime
 
    # -----------------------------------------
-   #          CONSTANTS AND VARIABLES
-   # -----------------------------------------
-
-   # CONSTANTS
-   # ----------------------
-
-   LCD_CMD = 0
-   LCD_DATA = 1
-
-   # -----------------------------------------
    #                 LCD Class:
    # -----------------------------------------
 
@@ -73,8 +63,6 @@ ordered by the upper four bits and then the lower four bits.
    class LCD:
        """The LCD class is meant to abstract the LCD driver further and streamline development."""
 
-       CMD_MODE = 0
-       DATA_MODE = 1
 
        def __init__(self, enable_pin: int, reg_select_pin: int, data_pins: list) -> None:
            """Object initialization"""
