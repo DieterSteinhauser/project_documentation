@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diodes &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -28,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -85,6 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
 </ul>
 </li>
@@ -103,9 +109,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
-      <li>Diodes</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
+      <li class="breadcrumb-item active">Diodes</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/diodes.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -116,19 +122,19 @@
            <div itemprop="articleBody">
              
   <section id="diodes">
-<h1>Diodes<a class="headerlink" href="#diodes" title="Permalink to this headline"></a></h1>
+<h1>Diodes<a class="headerlink" href="#diodes" title="Link to this heading"></a></h1>
 <figure class="align-center" id="id4">
 <img alt="engineering/reference/diode_splash.png" src="engineering/reference/diode_splash.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: General Purpose Diode.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">General Purpose Diode.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<h2>Theory<a class="headerlink" href="#theory" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id5">
 <img alt="../_images/ideal_diode.png" src="../_images/ideal_diode.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Ideal Diode I/V characteristics [1].</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Ideal Diode I/V characteristics [1].</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Diodes are nonlinear devices that operate as electrical ‘check valves’ by allowing current flow in one direction
@@ -139,7 +145,7 @@ their own non-idealities, which can be seen in the figure below.</p>
 <figure class="align-center" id="id6">
 <img alt="../_images/diode_iv.png" src="../_images/diode_iv.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Realistic Diode I/V characteristics with scale changed for detail expression [1].</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Realistic Diode I/V characteristics with scale changed for detail expression [1].</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>In the Forward Bias region, Diodes exponentially increase the current conducted based on applied voltage.
@@ -167,13 +173,13 @@ diodes.</p>
 \[I(v&lt;0)= -I_{s}\]</div>
 </section>
 <section id="diode-types">
-<h2>Diode Types<a class="headerlink" href="#diode-types" title="Permalink to this headline"></a></h2>
+<h2>Diode Types<a class="headerlink" href="#diode-types" title="Link to this heading"></a></h2>
 <section id="rectifier-diodes">
-<h3>Rectifier Diodes<a class="headerlink" href="#rectifier-diodes" title="Permalink to this headline"></a></h3>
+<h3>Rectifier Diodes<a class="headerlink" href="#rectifier-diodes" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id7">
 <img alt="../_images/rectifier_diode.png" src="../_images/rectifier_diode.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A Common Rectifier Diode.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A Common Rectifier Diode.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Rectifier Diodes are general purpose diodes used for common rectification tasks. They often support higher
@@ -191,11 +197,11 @@ adapters for household power.</p>
 </div></blockquote>
 </section>
 <section id="switching-diodes">
-<h3>Switching Diodes<a class="headerlink" href="#switching-diodes" title="Permalink to this headline"></a></h3>
+<h3>Switching Diodes<a class="headerlink" href="#switching-diodes" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id8">
 <img alt="../_images/switching_diode.png" src="../_images/switching_diode.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A Common Switching Diode.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A Common Switching Diode.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Switching diodes were originally designed for small-signal circuits requiring fast switching speeds. They support a
@@ -211,11 +217,11 @@ with values ranging from 0.6 to 1V</p>
 </div></blockquote>
 </section>
 <section id="fast-recovery-diodes">
-<h3>Fast Recovery Diodes<a class="headerlink" href="#fast-recovery-diodes" title="Permalink to this headline"></a></h3>
+<h3>Fast Recovery Diodes<a class="headerlink" href="#fast-recovery-diodes" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id9">
 <img alt="../_images/fast_diode.png" src="../_images/fast_diode.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A Common Fast Recovery Diode.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A Common Fast Recovery Diode.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Fast recovery diodes combine elements of general purpose rectifier diodes and switching diodes. Fast recovery diodes
@@ -232,11 +238,11 @@ cannot withstand.</p>
 </div></blockquote>
 </section>
 <section id="schottky-diodes">
-<h3>Schottky Diodes<a class="headerlink" href="#schottky-diodes" title="Permalink to this headline"></a></h3>
+<h3>Schottky Diodes<a class="headerlink" href="#schottky-diodes" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id10">
 <img alt="../_images/schottky_diode.png" src="../_images/schottky_diode.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A Common Schottky Diode.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A Common Schottky Diode.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Schottky diodes are designed for small forward voltages (~0.1-0.5V) at the expense of lower breakdown thresholds and increased
@@ -253,11 +259,11 @@ outperform switching diodes and fast recovery diodes in switching recovery time.
 </div></blockquote>
 </section>
 <section id="zener-diodes">
-<h3>Zener Diodes<a class="headerlink" href="#zener-diodes" title="Permalink to this headline"></a></h3>
+<h3>Zener Diodes<a class="headerlink" href="#zener-diodes" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id11">
 <img alt="../_images/zener_diode.png" src="../_images/zener_diode.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A Common Zener Diode.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A Common Zener Diode.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Zener Diodes are diodes designed to operate in the reverse breakdown region. For this reason, they are used in voltage
@@ -266,7 +272,7 @@ Zener voltage and a maximum regulator current.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Zener Diodes have relatively stable performance in the 5V+ range. A Zener
-diode made for a lesser voltage will have significant variance in it’s output. <a class="footnote-reference brackets" href="#id3" id="id1">2</a></p>
+diode made for a lesser voltage will have significant variance in it’s output. <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 </div>
 <p>Common Zener Diodes include:</p>
 <blockquote>
@@ -278,11 +284,11 @@ diode made for a lesser voltage will have significant variance in it’s output.
 </div></blockquote>
 </section>
 <section id="light-emitting-diodes">
-<h3>Light Emitting Diodes<a class="headerlink" href="#light-emitting-diodes" title="Permalink to this headline"></a></h3>
+<h3>Light Emitting Diodes<a class="headerlink" href="#light-emitting-diodes" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id12">
 <img alt="../_images/led.png" src="../_images/led.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A Common LED.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A Common LED.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>LED’s are diodes that emit light when current flows through it. The color of emitted light corresponds to the
@@ -291,26 +297,26 @@ operate. Light intensity directly corresponds to the current flowing through it.
 <figure class="align-center" id="id13">
 <img alt="../_images/led_colors.png" src="../_images/led_colors.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: LED Forward Voltage by Color.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">LED Forward Voltage by Color.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="photodiodes">
-<h3>Photodiodes<a class="headerlink" href="#photodiodes" title="Permalink to this headline"></a></h3>
+<h3>Photodiodes<a class="headerlink" href="#photodiodes" title="Link to this heading"></a></h3>
 <p>Photodiodes are diodes that conduct when light is absorbed.</p>
 </section>
 </section>
 <section id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
 <section id="half-wave-rectifier">
-<h3>Half-Wave Rectifier<a class="headerlink" href="#half-wave-rectifier" title="Permalink to this headline"></a></h3>
+<h3>Half-Wave Rectifier<a class="headerlink" href="#half-wave-rectifier" title="Link to this heading"></a></h3>
 </section>
 <section id="full-bridge-rectifier">
-<h3>Full-Bridge Rectifier<a class="headerlink" href="#full-bridge-rectifier" title="Permalink to this headline"></a></h3>
+<h3>Full-Bridge Rectifier<a class="headerlink" href="#full-bridge-rectifier" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id14">
 <img alt="../_images/full_bridge_rectifier.png" src="../_images/full_bridge_rectifier.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: A full wave bridge rectifier.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p><span class="caption-text">A full wave bridge rectifier.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>A full bridge rectifier is a commonly configured circuit with four diodes in a diamond pattern, such that current is
@@ -326,38 +332,40 @@ specifications of the project.</p>
 </div>
 </section>
 <section id="three-phase-rectifier">
-<h3>Three Phase Rectifier<a class="headerlink" href="#three-phase-rectifier" title="Permalink to this headline"></a></h3>
+<h3>Three Phase Rectifier<a class="headerlink" href="#three-phase-rectifier" title="Link to this heading"></a></h3>
 </section>
 <section id="voltage-doubling">
-<h3>Voltage Doubling<a class="headerlink" href="#voltage-doubling" title="Permalink to this headline"></a></h3>
+<h3>Voltage Doubling<a class="headerlink" href="#voltage-doubling" title="Link to this heading"></a></h3>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="circuit_apps.html#charge-pumps"><span class="std std-ref">Charge Pumps</span></a></p>
 </div>
 </section>
 <section id="voltage-limiting">
-<h3>Voltage Limiting<a class="headerlink" href="#voltage-limiting" title="Permalink to this headline"></a></h3>
+<h3>Voltage Limiting<a class="headerlink" href="#voltage-limiting" title="Link to this heading"></a></h3>
 </section>
 <section id="voltage-clamping">
-<h3>Voltage Clamping<a class="headerlink" href="#voltage-clamping" title="Permalink to this headline"></a></h3>
+<h3>Voltage Clamping<a class="headerlink" href="#voltage-clamping" title="Link to this heading"></a></h3>
 </section>
 <section id="inductor-flyback">
-<h3>Inductor Flyback<a class="headerlink" href="#inductor-flyback" title="Permalink to this headline"></a></h3>
+<h3>Inductor Flyback<a class="headerlink" href="#inductor-flyback" title="Link to this heading"></a></h3>
 </section>
 <section id="zener-regulation">
-<h3>Zener Regulation<a class="headerlink" href="#zener-regulation" title="Permalink to this headline"></a></h3>
+<h3>Zener Regulation<a class="headerlink" href="#zener-regulation" title="Link to this heading"></a></h3>
 <p><strong>References</strong></p>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets">1</span></dt>
-<dd><p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 4: Diodes” in Microelectronic circuits,
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 4: Diodes” in Microelectronic circuits,
 New York, NY: Oxford University Press, 2021,
 pp. 175–230.</p>
-</dd>
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
-<dd><p>P. Horowitz and W. Hill, “Chapter 1: Foundations” in The Art of Electronics, New York:
+</aside>
+<aside class="footnote brackets" id="id3" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<p>P. Horowitz and W. Hill, “Chapter 1: Foundations” in The Art of Electronics, New York:
 Cambridge University Press, 2022.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 </section>

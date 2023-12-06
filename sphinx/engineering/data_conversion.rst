@@ -19,7 +19,7 @@ the ADC, introducing small errors into the signal as noise.
 .. figure:: theremin_images/image002.png
   :align: center
 
-  Figure 1: Quantization of an Analog to Digital Converter on a sine wave.
+  Quantization of an Analog to Digital Converter on a sine wave.
 
 Resolution and reference voltages of an ADC produces quantization errors within the
 amplitude domain of a signal, where the sample rate of an ADC produces quantization errors
@@ -37,7 +37,7 @@ Signal noise can significantly reduce the effective number of bits to which an A
   :width: 400
   :align: center
 
-  Figure 2: ADC formulas.
+  ADC formulas.
 
 Sample rate of an ADC produces quantization errors within the time domain of the
 signal. The sampling rate of an ADC should ideally greater than twice the highest frequency
@@ -64,7 +64,7 @@ reference voltage to return the ideal output voltage.
   :width: 400
   :align: center
 
-  Figure 3: DAC formulas.
+  DAC formulas.
 
 DAC’s have some non-idealities in the form of differential and integral non-linearity,
 which characterize the difference between two adjacent code values and the difference in the

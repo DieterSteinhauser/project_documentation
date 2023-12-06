@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solutions to Introductory Projects &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,11 +81,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../programming_projects.html">Programming Projects</a> &raquo;</li>
-          <li><a href="fundamentals_tree.html">Fundamentals of Python</a> &raquo;</li>
-          <li><a href="projects.html">Projects and Solutions</a> &raquo;</li>
-      <li>Solutions to Introductory Projects</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../programming_projects.html">Programming Projects</a></li>
+          <li class="breadcrumb-item"><a href="fundamentals_tree.html">Fundamentals of Python</a></li>
+          <li class="breadcrumb-item"><a href="projects.html">Projects and Solutions</a></li>
+      <li class="breadcrumb-item active">Solutions to Introductory Projects</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/programming/python_fundamentals/intro_solutions.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,9 +96,9 @@
            <div itemprop="articleBody">
              
   <section id="solutions-to-introductory-projects">
-<h1>Solutions to Introductory Projects<a class="headerlink" href="#solutions-to-introductory-projects" title="Permalink to this headline"></a></h1>
+<h1>Solutions to Introductory Projects<a class="headerlink" href="#solutions-to-introductory-projects" title="Link to this heading"></a></h1>
 <section id="hello-world-solution">
-<h2>Hello World Solution<a class="headerlink" href="#hello-world-solution" title="Permalink to this headline"></a></h2>
+<h2>Hello World Solution<a class="headerlink" href="#hello-world-solution" title="Link to this heading"></a></h2>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
 <span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
@@ -109,7 +114,7 @@
 <span class="linenos">12</span>
 <span class="linenos">13</span>
 <span class="linenos">14</span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;World&#39;</span><span class="p">):</span>
-<span class="linenos">15</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">16</span><span class="sd">    Python method that says hello to a target</span>
 <span class="linenos">17</span>
 <span class="linenos">18</span><span class="sd">    :param target: A target to direct your greeting. Defaults to &#39;World&#39; if target is not specified</span>
@@ -139,7 +144,7 @@
 </div></blockquote>
 </section>
 <section id="weight-calculator-solution">
-<h2>Weight Calculator Solution<a class="headerlink" href="#weight-calculator-solution" title="Permalink to this headline"></a></h2>
+<h2>Weight Calculator Solution<a class="headerlink" href="#weight-calculator-solution" title="Link to this heading"></a></h2>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
 <span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
@@ -166,7 +171,7 @@
 <span class="linenos">23</span>
 <span class="linenos">24</span>
 <span class="linenos">25</span><span class="k">def</span> <span class="nf">print_weights</span><span class="p">(</span><span class="n">mass</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">26</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">27</span><span class="sd">    Print the weights of the object on each planet for a given mass.</span>
 <span class="linenos">28</span>
 <span class="linenos">29</span><span class="sd">    :param mass: mass of the object</span>
@@ -176,7 +181,7 @@
 <span class="linenos">33</span><span class="sd">    &quot;&quot;&quot;</span>
 <span class="linenos">34</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is your weight on each planet:&#39;</span><span class="p">)</span>
 <span class="linenos">35</span>    <span class="k">for</span> <span class="n">planet</span><span class="p">,</span> <span class="n">force</span> <span class="ow">in</span> <span class="n">planet_forces</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="linenos">36</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">force</span><span class="o">*</span><span class="n">mass</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">Kg&#39;</span><span class="p">)</span>
+<span class="linenos">36</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">force</span><span class="o">*</span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">Kg&#39;</span><span class="p">)</span>
 <span class="linenos">37</span>
 <span class="linenos">38</span><span class="c1"># ---------------------------------------------------------</span>
 <span class="linenos">39</span><span class="c1">#                          MAIN</span>
@@ -195,7 +200,7 @@
 </div></blockquote>
 </section>
 <section id="fibonacci-sequence-solution">
-<h2>Fibonacci Sequence Solution<a class="headerlink" href="#fibonacci-sequence-solution" title="Permalink to this headline"></a></h2>
+<h2>Fibonacci Sequence Solution<a class="headerlink" href="#fibonacci-sequence-solution" title="Link to this heading"></a></h2>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
 <span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
@@ -213,7 +218,7 @@
 <span class="linenos">14</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
-<span class="linenos">17</span>    <span class="sd">&quot;&quot;&quot;Calculates the fibonacci number of a given index&quot;&quot;&quot;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the fibonacci number of a given index&quot;&quot;&quot;</span>
 <span class="linenos">18</span>
 <span class="linenos">19</span>    <span class="c1"># if we have already computed this index, return it.</span>
 <span class="linenos">20</span>    <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
@@ -225,7 +230,7 @@
 <span class="linenos">26</span>
 <span class="linenos">27</span>
 <span class="linenos">28</span><span class="k">def</span> <span class="nf">fibonacci_list</span><span class="p">(</span><span class="n">max_index</span><span class="p">):</span>
-<span class="linenos">29</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">29</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">30</span><span class="sd">    Method that implements the fibonacci sequence to a given value</span>
 <span class="linenos">31</span>
 <span class="linenos">32</span><span class="sd">    :param max_index: the maximum of the for loop for the fibonacci sequence.</span>
@@ -254,7 +259,7 @@
 </div></blockquote>
 </section>
 <section id="fizz-buzz-solution">
-<h2>Fizz Buzz Solution<a class="headerlink" href="#fizz-buzz-solution" title="Permalink to this headline"></a></h2>
+<h2>Fizz Buzz Solution<a class="headerlink" href="#fizz-buzz-solution" title="Link to this heading"></a></h2>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ---------------------------------------------------------</span>
 <span class="linenos"> 2</span><span class="c1">#                          NOTES</span>
@@ -270,7 +275,7 @@
 <span class="linenos">12</span>
 <span class="linenos">13</span>
 <span class="linenos">14</span><span class="k">def</span> <span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">max_index</span><span class="p">):</span>
-<span class="linenos">15</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">16</span><span class="sd">    Method that implements the fizzbuzz problem</span>
 <span class="linenos">17</span>
 <span class="linenos">18</span><span class="sd">    :param max_index: the maximum of the for loop for fizzbuzz.</span>

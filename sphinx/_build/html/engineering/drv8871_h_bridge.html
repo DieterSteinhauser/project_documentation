@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRV8871 H-Bridge &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ultrasonic Sensors" href="ultrasonic_sensor.html" />
+    <link rel="prev" title="16x2 LCD Display" href="lcd_16x2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diodes.html">Diodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_apps.html">Circuit Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DRV8871 H-Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871"><code class="docutils literal notranslate"><span class="pre">DRV8871</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.HIGH"><code class="docutils literal notranslate"><span class="pre">DRV8871.HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.LOW"><code class="docutils literal notranslate"><span class="pre">DRV8871.LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.MAX_PWM_FREQ"><code class="docutils literal notranslate"><span class="pre">DRV8871.MAX_PWM_FREQ</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.backward"><code class="docutils literal notranslate"><span class="pre">DRV8871.backward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.brake"><code class="docutils literal notranslate"><span class="pre">DRV8871.brake()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.coast"><code class="docutils literal notranslate"><span class="pre">DRV8871.coast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.forward"><code class="docutils literal notranslate"><span class="pre">DRV8871.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.full_backward"><code class="docutils literal notranslate"><span class="pre">DRV8871.full_backward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.full_forward"><code class="docutils literal notranslate"><span class="pre">DRV8871.full_forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pico_power_management.DRV8871.DRV8871.status"><code class="docutils literal notranslate"><span class="pre">DRV8871.status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
+      <li class="breadcrumb-item active">DRV8871 H-Bridge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/drv8871_h_bridge.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="drv8871-h-bridge">
+<h1>DRV8871 H-Bridge<a class="headerlink" href="#drv8871-h-bridge" title="Link to this heading"></a></h1>
+<figure class="align-center" id="id5">
+<img alt="../_images/drv8871.jpg" src="../_images/drv8871.jpg" />
+<figcaption>
+<p><span class="caption-text">DRV8871 Breakout Board from Adafruit</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The DRV8871 is a CMOS H-Bridge Driver IC manufactured by Texas Instruments. These boards are commonly available in
+Breakouts by Adafruit and other manufacturers. The DRV8871 is a versatile H-Bridge driver that can operate between
+6.5V and 45V and supply up to 3.6A <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Control of the DRV8871 can occur with both 3.3V and 5V logic with static
+and PWM control schemes [5]. Current limiting is determined by an external resistor, enabling overcurrent protection
+on the device. This specification proves useful for a wide variety of circuits and particularly motor controls.</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/h_bridge_control.png" src="../_images/h_bridge_control.png" />
+<figcaption>
+<p><span class="caption-text">DRV8871 H-Bridge Control Table <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<img alt="../_images/h_bridge_control.png" src="../_images/h_bridge_control.png" />
+<figcaption>
+<p><span class="caption-text">DRV8871 H-Bridge current paths <a class="footnote-reference brackets" href="#id4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>I developed a micro python driver for the DRV8871 that allows for PWM control of the H-bridge using two GPIO pins
+from a micropython enabled microprocessor such as the raspberry pico. Given correct wiring, the microprocessor can
+control the flow of current and the duty cycle to which it is pulsed. As a result, a developer can easily command
+the H-bridge into a forward, reverse, coast, or brake state. Users can also determine the duty cycle for which the
+system should be active and if the H-bridge reverts to a braking or coasting state when off.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pico_power_management.DRV8871.</span></span><span class="sig-name descname"><span class="pre">DRV8871</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pwm_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">65535</span></em><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.HIGH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.LOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.MAX_PWM_FREQ">
+<span class="sig-name descname"><span class="pre">MAX_PWM_FREQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200000</span></em><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.MAX_PWM_FREQ" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.backward">
+<span class="sig-name descname"><span class="pre">backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.backward" title="Link to this definition"></a></dt>
+<dd><p>Set the device in a backward state.
+Duty Cycle of backward power is controlled by PWM ON time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duty</strong> (<em>int</em><em> | </em><em>float</em>) – Duty Cycle of backward power given on a scale of 0 to 100, defaults to 5.</p></li>
+<li><p><strong>coast</strong> (<em>bool</em>) – Determines the alternate state of operation. Either Coast (True) or Brake (False). Defaults to True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.brake">
+<span class="sig-name descname"><span class="pre">brake</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.brake" title="Link to this definition"></a></dt>
+<dd><p>Set the device to stop abruptly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.coast">
+<span class="sig-name descname"><span class="pre">coast</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.coast" title="Link to this definition"></a></dt>
+<dd><p>Set the device to coast.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.forward" title="Link to this definition"></a></dt>
+<dd><p>Set the device in a forward state.
+Duty Cycle of forward power is controlled by PWM ON time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duty</strong> (<em>int</em><em> | </em><em>float</em>) – Duty Cycle of forward power given on a scale of 0 to 100, defaults to 5.</p></li>
+<li><p><strong>coast</strong> (<em>bool</em>) – Determines the alternate state of operation. Either Coast (True) or Brake (False). Defaults to True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.full_backward">
+<span class="sig-name descname"><span class="pre">full_backward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.full_backward" title="Link to this definition"></a></dt>
+<dd><p>Set the device in a full backward state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.full_forward">
+<span class="sig-name descname"><span class="pre">full_forward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.full_forward" title="Link to this definition"></a></dt>
+<dd><p>Set the device in a full forward state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.DRV8871.DRV8871.status">
+<span class="sig-name descname"><span class="pre">status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.DRV8871.DRV8871.status" title="Link to this definition"></a></dt>
+<dd><p>Query the status of the H-bridge controls.</p>
+<p>NOTE: we cannot read the H-Bridge’s status directly, rather this method returns the status of the associated pins and PWM system.</p>
+</dd></dl>
+
+</dd></dl>
+
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  2</span><span class="c1">#                 NOTES </span>
+<span class="linenos">  3</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="c1"># Dieter Steinhauser</span>
+<span class="linenos">  6</span><span class="c1"># 11/2023</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="c1"># DRV8871 H-Bridge Motor Controller driver.</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 12</span><span class="c1">#               IMPORTS</span>
+<span class="linenos"> 13</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="linenos"> 16</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos"> 17</span><span class="kn">from</span> <span class="nn">src.pico_power_management.helpers</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 18</span><span class="c1"># from helpers import *</span>
+<span class="linenos"> 19</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 20</span><span class="c1">#                Class:</span>
+<span class="linenos"> 21</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span><span class="n">desc</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos"> 25</span><span class="s2">The DRV8871 output consists of four N-channel MOSFETs that are designed to drive high current. They are</span>
+<span class="linenos"> 26</span><span class="s2">controlled by the two logic inputs IN1 and IN2.</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span><span class="s2">IN1 IN2 OUT1, OUT2 DESCRIPTION</span>
+<span class="linenos"> 29</span><span class="s2">0   0   HI-Z  HI-Z  Coast, H=bridge disabled to High-Z</span>
+<span class="linenos"> 30</span><span class="s2">0   1   L     H     Reverse (current OUT2-&gt;OUT1)</span>
+<span class="linenos"> 31</span><span class="s2">1   0   H     L     Forward (current OUT1-&gt;OUT2)</span>
+<span class="linenos"> 32</span><span class="s2">1   1   L     L     Brake, Low side slow decay.</span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="s2">The inputs can be set to static voltages for 100</span><span class="si">% d</span><span class="s2">uty cycle drive, or they can be pulse-width modulated (PWM)</span>
+<span class="linenos"> 36</span><span class="s2">for variable motor speed. When using PWM, it typically works best to switch between driving and braking. For</span>
+<span class="linenos"> 37</span><span class="s2">example, to drive a motor forward with 50</span><span class="si">% o</span><span class="s2">f its max RPM, IN1 = 1 and IN2 = 0 during the driving period, and</span>
+<span class="linenos"> 38</span><span class="s2">IN1 = 1 and IN2 = 1 during the other period. Alternatively, the coast mode (IN1 = 0, IN2 = 0) for fast current</span>
+<span class="linenos"> 39</span><span class="s2">decay is also available. The input pins can be powered before VM is applied.</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span><span class="k">class</span> <span class="nc">DRV8871</span><span class="p">:</span>
+<span class="linenos"> 45</span>    
+<span class="linenos"> 46</span>    <span class="n">MAX_PWM_FREQ</span> <span class="o">=</span> <span class="mi">200_000</span>
+<span class="linenos"> 47</span>    <span class="n">HIGH</span> <span class="o">=</span> <span class="mi">65535</span>
+<span class="linenos"> 48</span>    <span class="n">LOW</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 49</span>    
+<span class="linenos"> 50</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">,</span> <span class="n">pwm_freq</span><span class="o">=</span><span class="mi">100_000</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 51</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Object initialization for DRV8871. Follow device initialization and adds register information to object&quot;&quot;&quot;</span>
+<span class="linenos"> 52</span>        
+<span class="linenos"> 53</span>        <span class="c1"># Throw errors for incorrect values.</span>
+<span class="linenos"> 54</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="s1">&#39;in1&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Pin</span><span class="p">))</span>
+<span class="linenos"> 55</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span> <span class="s1">&#39;in2&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Pin</span><span class="p">))</span> 
+<span class="linenos"> 56</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">pwm_freq</span><span class="p">,</span> <span class="s1">&#39;pwm_freq&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<span class="linenos"> 59</span>            <span class="n">check_range</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="s1">&#39;in1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+<span class="linenos"> 60</span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<span class="linenos"> 61</span>            <span class="n">check_range</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span> <span class="s1">&#39;in2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span>        <span class="n">check_range</span><span class="p">(</span><span class="n">pwm_freq</span><span class="p">,</span> <span class="s1">&#39;pwm_freq&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MAX_PWM_FREQ</span><span class="p">)</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span>        <span class="c1"># assign the object variables</span>
+<span class="linenos"> 66</span>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>  <span class="o">=</span> <span class="n">name</span>
+<span class="linenos"> 67</span>        <span class="bp">self</span><span class="o">.</span><span class="n">pwm_freq</span> <span class="o">=</span> <span class="n">pwm_freq</span>
+<span class="linenos"> 68</span>        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">desc</span> <span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">description</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span>        <span class="c1"># Create Pin Objects</span>
+<span class="linenos"> 71</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">in1</span>
+<span class="linenos"> 72</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">in2</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>        <span class="c1"># Create PWM channels with the Pins</span>
+<span class="linenos"> 75</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in1</span><span class="p">)</span>
+<span class="linenos"> 76</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">pwm_freq</span><span class="p">)</span>
+<span class="linenos"> 77</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos"> 78</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in2</span><span class="p">)</span>
+<span class="linenos"> 79</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">pwm_freq</span><span class="p">)</span>
+<span class="linenos"> 80</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span>    <span class="k">def</span> <span class="nf">full_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 83</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the device in a full forward state.&quot;&quot;&quot;</span>
+<span class="linenos"> 84</span>
+<span class="linenos"> 85</span>        <span class="c1"># Set IN2 Low then IN1 High.</span>
+<span class="linenos"> 86</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos"> 87</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">)</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>    <span class="k">def</span> <span class="nf">full_backward</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 90</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the device in a full backward state.&quot;&quot;&quot;</span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span>        <span class="c1"># Set IN1 Low then IN2 High.</span>
+<span class="linenos"> 93</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos"> 94</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">)</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duty</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">coast</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 98</span><span class="sd">        Set the device in a forward state. </span>
+<span class="linenos"> 99</span><span class="sd">        Duty Cycle of forward power is controlled by PWM ON time.</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="sd">        :param duty: Duty Cycle of forward power given on a scale of 0 to 100, defaults to 5.</span>
+<span class="linenos">102</span><span class="sd">        :type duty: int | float</span>
+<span class="linenos">103</span><span class="sd">        :param coast: Determines the alternate state of operation. Either Coast (True) or Brake (False). Defaults to True.</span>
+<span class="linenos">104</span><span class="sd">        :type coast: bool</span>
+<span class="linenos">105</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">106</span>        <span class="c1"># Throw errors for incorrect values</span>
+<span class="linenos">107</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">duty</span><span class="p">,</span> <span class="s1">&#39;duty&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+<span class="linenos">108</span>        <span class="n">check_range</span><span class="p">(</span><span class="n">duty</span><span class="p">,</span> <span class="s1">&#39;duty&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">109</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">coast</span><span class="p">,</span> <span class="s1">&#39;coast&#39;</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> 
+<span class="linenos">110</span>
+<span class="linenos">111</span>        <span class="k">if</span> <span class="n">coast</span><span class="p">:</span> <span class="c1"># Alternates between forward and coast</span>
+<span class="linenos">112</span>            
+<span class="linenos">113</span>            <span class="c1"># Start PWM at the desired Duty Cycle</span>
+<span class="linenos">114</span>            <span class="n">duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">duty</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">115</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos">116</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span>        <span class="k">else</span><span class="p">:</span> <span class="c1"># Alternates between forward and Brake</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span>            <span class="c1"># Start PWM at the desired Duty Cycle</span>
+<span class="linenos">121</span>            <span class="n">duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="mi">100</span><span class="o">-</span><span class="n">duty</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">122</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>
+<span class="linenos">123</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">)</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span>    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duty</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">coast</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos">126</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">127</span><span class="sd">        Set the device in a backward state. </span>
+<span class="linenos">128</span><span class="sd">        Duty Cycle of backward power is controlled by PWM ON time.</span>
+<span class="linenos">129</span>
+<span class="linenos">130</span><span class="sd">        :param duty: Duty Cycle of backward power given on a scale of 0 to 100, defaults to 5.</span>
+<span class="linenos">131</span><span class="sd">        :type duty: int | float</span>
+<span class="linenos">132</span><span class="sd">        :param coast: Determines the alternate state of operation. Either Coast (True) or Brake (False). Defaults to True.</span>
+<span class="linenos">133</span><span class="sd">        :type coast: bool</span>
+<span class="linenos">134</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">135</span>        <span class="c1"># Throw errors for incorrect values</span>
+<span class="linenos">136</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">duty</span><span class="p">,</span> <span class="s1">&#39;duty&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+<span class="linenos">137</span>        <span class="n">check_range</span><span class="p">(</span><span class="n">duty</span><span class="p">,</span> <span class="s1">&#39;duty&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">138</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">coast</span><span class="p">,</span> <span class="s1">&#39;coast&#39;</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> 
+<span class="linenos">139</span>
+<span class="linenos">140</span>        <span class="k">if</span> <span class="n">coast</span><span class="p">:</span> <span class="c1"># Alternates between forward and coast</span>
+<span class="linenos">141</span>            
+<span class="linenos">142</span>            <span class="c1"># Start PWM at the desired Duty Cycle</span>
+<span class="linenos">143</span>            <span class="n">duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">duty</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">144</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos">145</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>
+<span class="linenos">146</span>
+<span class="linenos">147</span>        <span class="k">else</span><span class="p">:</span> <span class="c1"># Alternates between forward and Brake</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span>            <span class="c1"># Start PWM at the desired Duty Cycle</span>
+<span class="linenos">150</span>            <span class="n">duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="mi">100</span><span class="o">-</span><span class="n">duty</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">151</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>
+<span class="linenos">152</span>            <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">)</span>
+<span class="linenos">153</span>
+<span class="linenos">154</span>    <span class="k">def</span> <span class="nf">coast</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">155</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the device to coast. &quot;&quot;&quot;</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span>        <span class="c1"># Set the device to coast</span>
+<span class="linenos">158</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos">159</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">)</span>
+<span class="linenos">160</span>
+<span class="linenos">161</span>    <span class="k">def</span> <span class="nf">brake</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">162</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the device to stop abruptly. &quot;&quot;&quot;</span>
+<span class="linenos">163</span>
+<span class="linenos">164</span>        <span class="c1"># Set the device to brake</span>
+<span class="linenos">165</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">)</span>
+<span class="linenos">166</span>        <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">)</span>
+<span class="linenos">167</span>
+<span class="linenos">168</span>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">169</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">170</span><span class="sd">        Query the status of the H-bridge controls.</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span><span class="sd">        NOTE: we cannot read the H-Bridge&#39;s status directly, rather this method returns the status of the associated pins and PWM system.</span>
+<span class="linenos">173</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">174</span>        <span class="n">return_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">175</span>        <span class="n">in1_duty</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">()</span> 
+<span class="linenos">176</span>        <span class="n">in2_duty</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">()</span> 
+<span class="linenos">177</span>
+<span class="linenos">178</span>        <span class="c1"># IN1 IN2 OUT1, OUT2 DESCRIPTION</span>
+<span class="linenos">179</span>        <span class="c1"># 0   0   HI-Z  HI-Z  Coast, H=bridge disabled to High-Z</span>
+<span class="linenos">180</span>        <span class="c1"># 0   1   L     H     Reverse (current OUT2-&gt;OUT1)</span>
+<span class="linenos">181</span>        <span class="c1"># 1   0   H     L     Forward (current OUT1-&gt;OUT2)</span>
+<span class="linenos">182</span>        <span class="c1"># 1   1   L     L     Brake, Low side slow decay.</span>
+<span class="linenos">183</span>
+<span class="linenos">184</span>        <span class="n">state</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">185</span>        <span class="n">off_state</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">186</span>        <span class="n">effective_duty</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">187</span>
+<span class="linenos">188</span>        <span class="c1"># Based on the Pin setup, determine the status of the system</span>
+<span class="linenos">189</span>        <span class="k">if</span> <span class="n">in1_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span> <span class="ow">and</span> <span class="n">in2_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">:</span>
+<span class="linenos">190</span>            <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;BRAKE&quot;</span>
+<span class="linenos">191</span>            <span class="n">off_state</span> <span class="o">=</span> <span class="s1">&#39;BRAKE&#39;</span>
+<span class="linenos">192</span>        
+<span class="linenos">193</span>        <span class="k">elif</span> <span class="n">in1_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span> <span class="ow">and</span> <span class="n">in2_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">:</span>
+<span class="linenos">194</span>            <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;COAST&#39;</span>
+<span class="linenos">195</span>            <span class="n">off_state</span> <span class="o">=</span> <span class="s1">&#39;COAST&#39;</span>
+<span class="linenos">196</span>
+<span class="linenos">197</span>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span> <span class="o">&lt;=</span> <span class="n">in1_duty</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span> <span class="ow">and</span> <span class="n">in2_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">:</span>
+<span class="linenos">198</span>            <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;BACKWARD&#39;</span>
+<span class="linenos">199</span>            <span class="n">off_state</span> <span class="o">=</span> <span class="s1">&#39;BRAKE&#39;</span>
+<span class="linenos">200</span>            <span class="n">effective_duty</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span> <span class="n">in1_duty</span> <span class="o">/</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">201</span>
+<span class="linenos">202</span>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span> <span class="o">&lt;=</span> <span class="n">in2_duty</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span> <span class="ow">and</span> <span class="n">in1_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">:</span>
+<span class="linenos">203</span>            <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;REVERSE&#39;</span>
+<span class="linenos">204</span>            <span class="n">off_state</span> <span class="o">=</span> <span class="s1">&#39;COAST&#39;</span>
+<span class="linenos">205</span>            <span class="n">effective_duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span> <span class="n">in2_duty</span> <span class="o">/</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">206</span>
+<span class="linenos">207</span>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span> <span class="o">&lt;=</span> <span class="n">in2_duty</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span> <span class="ow">and</span> <span class="n">in1_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span><span class="p">:</span>
+<span class="linenos">208</span>            <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;FORWARD&#39;</span>
+<span class="linenos">209</span>            <span class="n">off_state</span> <span class="o">=</span> <span class="s1">&#39;BRAKE&#39;</span>
+<span class="linenos">210</span>            <span class="n">effective_duty</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span> <span class="n">in2_duty</span> <span class="o">/</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">211</span>
+<span class="linenos">212</span>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span> <span class="o">&lt;=</span> <span class="n">in1_duty</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HIGH</span> <span class="ow">and</span> <span class="n">in2_duty</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOW</span><span class="p">:</span>
+<span class="linenos">213</span>            <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;FORWARD&#39;</span>
+<span class="linenos">214</span>            <span class="n">off_state</span> <span class="o">=</span> <span class="s1">&#39;COAST&#39;</span>
+<span class="linenos">215</span>            <span class="n">effective_duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span> <span class="n">in1_duty</span> <span class="o">/</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="linenos">216</span>
+<span class="linenos">217</span>        <span class="n">in1_pwm</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FREQ&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">in1_pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(),</span> <span class="s1">&#39;DUTY&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span> <span class="n">in1_duty</span> <span class="o">/</span> <span class="mi">65535</span><span class="p">)}</span>
+<span class="linenos">218</span>        <span class="n">in2_pwm</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FREQ&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">in2_pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(),</span> <span class="s1">&#39;DUTY&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span> <span class="n">in2_duty</span> <span class="o">/</span> <span class="mi">65535</span><span class="p">)}</span>
+<span class="linenos">219</span>
+<span class="linenos">220</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;in1_pwm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">in1_pwm</span>
+<span class="linenos">221</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;in2_pwm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">in2_pwm</span>
+<span class="linenos">222</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;effective_duty&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">effective_duty</span>
+<span class="linenos">223</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+<span class="linenos">224</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;off_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">off_state</span>
+<span class="linenos">225</span>        <span class="k">return</span> <span class="n">return_dict</span>
+<span class="linenos">226</span>    
+<span class="linenos">227</span>
+<span class="linenos">228</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">229</span>
+<span class="linenos">230</span>    <span class="n">drv</span> <span class="o">=</span> <span class="n">DRV8871</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Motor Driver&#39;</span><span class="p">,</span> <span class="n">in1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">),</span> <span class="n">in2</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
+<span class="linenos">231</span>    
+<span class="linenos">232</span>    <span class="n">test</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">233</span>    <span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+<span class="linenos">234</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;testing&#39;</span><span class="p">)</span>
+<span class="linenos">235</span>        <span class="n">drv</span><span class="o">.</span><span class="n">full_forward</span><span class="p">()</span>
+<span class="linenos">236</span>        <span class="nb">print</span><span class="p">(</span><span class="n">drv</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="linenos">237</span>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">238</span>        <span class="n">drv</span><span class="o">.</span><span class="n">brake</span><span class="p">()</span>
+<span class="linenos">239</span>        <span class="nb">print</span><span class="p">(</span><span class="n">drv</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="linenos">240</span>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">241</span>        <span class="n">drv</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">242</span>        <span class="nb">print</span><span class="p">(</span><span class="n">drv</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="linenos">243</span>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">244</span>        <span class="n">drv</span><span class="o">.</span><span class="n">coast</span><span class="p">()</span>
+<span class="linenos">245</span>        <span class="nb">print</span><span class="p">(</span><span class="n">drv</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="linenos">246</span>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">247</span>        <span class="n">drv</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="n">coast</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">248</span>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">249</span>        <span class="n">drv</span><span class="o">.</span><span class="n">brake</span><span class="p">()</span>
+<span class="linenos">250</span>        <span class="nb">print</span><span class="p">(</span><span class="n">drv</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="linenos">251</span>        
+<span class="linenos">252</span>        
+<span class="linenos">253</span>
+<span class="linenos">254</span>        
+<span class="linenos">255</span>
+<span class="linenos">256</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">257</span><span class="c1">#              END OF FILE</span>
+<span class="linenos">258</span><span class="c1"># -----------------------------------------</span>
+</pre></div>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>)</span>
+<p>Texas Instruments. “DRV8871 3.6-A Brushed DC Motor Driver with Internal Current.” [Online].
+Available: [www.ti.com/lit/ds/symlink/drv8871.pdf].</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lcd_16x2.html" class="btn btn-neutral float-left" title="16x2 LCD Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ultrasonic_sensor.html" class="btn btn-neutral float-right" title="Ultrasonic Sensors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Circuit Applications &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,6 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
 </ul>
 </li>
@@ -81,9 +87,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
-      <li>Circuit Applications</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
+      <li class="breadcrumb-item active">Circuit Applications</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/circuit_apps.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,28 +100,65 @@
            <div itemprop="articleBody">
              
   <section id="circuit-applications">
-<h1>Circuit Applications<a class="headerlink" href="#circuit-applications" title="Permalink to this headline"></a></h1>
+<h1>Circuit Applications<a class="headerlink" href="#circuit-applications" title="Link to this heading"></a></h1>
 <section id="charge-pumps">
-<h2>Charge Pumps<a class="headerlink" href="#charge-pumps" title="Permalink to this headline"></a></h2>
-<figure class="align-center" id="id1">
+<h2>Charge Pumps<a class="headerlink" href="#charge-pumps" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id3">
 <img alt="../_images/pos_charge_pump.png" src="../_images/pos_charge_pump.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Positive voltage charge pump.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Positive voltage charge pump.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>A charge pump is a circuit that uses a periodic signal and diodes to force charge buildup on a capacitor.
 While this is an effective way to store an energy potential, the voltage will approach the peak-to-peak voltage
 unless dissipated on a load or regulated. The size of the capacitors and the frequency of the input waveform
 will determine the time it takes for the circuit to charge.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id4">
 <img alt="../_images/neg_charge_pump.png" src="../_images/neg_charge_pump.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: Negative voltage charge pump.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Negative voltage charge pump.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Negative voltage rails are often needed for reference voltages and are a useful addition to many circuit designs.
 An easy approach for low current applications could rely on a negative charge pump.</p>
+<p>An H-bridge is a circuit configuration consisting of four transistors, primarily MOSFETs or BJTs configured in an
+H pattern. Each side of an H-bridge has a complementary set of transistors where only one transistor on each side
+is active at a given time. If two transistors on one side are on, a short circuit will occur as the attached
+transistor try and source and sink as much current as possible. During normal operation, current flows through
+an attached device in one of two directions.</p>
+<figure class="align-center" id="id5">
+<img alt="../_images/h_bridge.png" src="../_images/h_bridge.png" />
+<figcaption>
+<p><span class="caption-text">H-Bridge circuit and current paths [1].</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The circuit essentially acts as an alternating set of switches so that the current flow or polarity may be swapped
+on a device. H-bridges are commonly used for motor drivers because of their ability to swap polarity, allowing
+forward and reverse motion control. Braking and coasting configurations are also available for abrupt or natural
+decaying stops respectively. H-Bridge circuits can be made discretely or be found in integrated packages often
+with driver circuitry included. Driver circuitry simplifies the process of controlling an H-bridge and insures
+safe operation. Often, H-bridge drivers only require static digital values or a PWM signal to change the
+average voltage and current applied.</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/discrete_h_bridge_driver.png" src="../_images/discrete_h_bridge_driver.png" />
+<figcaption>
+<p><span class="caption-text">Discrete H-bridge driver solution [2].</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <p><strong>References</strong></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id1" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Texas Instruments. “DRV8871 3.6-A Brushed DC Motor Driver with Internal Current.” [Online].
+Available: [www.ti.com/lit/ds/symlink/drv8871.pdf].</p>
+</aside>
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<ol class="upperalpha simple" start="16">
+<li><p>Horowitz and W. Hill, “The Art of Electronics.” Cambridge University Press, 2022.</p></li>
+</ol>
+</aside>
+</aside>
 </section>
 </section>
 

@@ -17,7 +17,7 @@ characteristics, implementation simplicity, and adjustability make them useful d
 .. figure:: reference/fixed_out_app.png
   :align: center
 
-  Figure 1: Fixed Output Regulator configuration for an LM7805 [4]_.
+  Fixed Output Regulator configuration for an LM7805 [4]_.
 
 Regulators may have a fixed voltage or adjustable voltage. Some regulators even allow for both depending on the
 circuit configuration. Fixed regulators often have a voltage divider between the output pin and the adjust/ground
@@ -29,7 +29,7 @@ and adjustable depending on the use case.
 .. figure:: reference/regulator_app.png
   :align: center
 
-  Figure 2: Fixed and Adjustable Regulator configuration for an LD1085 [1]_.
+  Fixed and Adjustable Regulator configuration for an LD1085 [1]_.
 
 A given regulator has a limited operation region. The lower boundary is determined by the reference voltage of the
 device. Often, this can be represented as a Zener diode in the simplified schematic. However, on chip it is more
@@ -42,7 +42,7 @@ feedback from the device output.
 .. figure:: reference/lm317_equivalent.png
   :align: center
 
-  Figure 3: Simplified circuit diagram of the LM317 regulator [5]_.
+  Simplified circuit diagram of the LM317 regulator [5]_.
 
 
 The upper limit of output is dictated by the input voltage minus the dropout voltage of the device.
@@ -68,7 +68,7 @@ Constant Current Source
 .. figure:: reference/current_source.png
   :align: center
 
-  Figure 4: Constant current source circuit diagram of the LM317 regulator [3]_.
+  Constant current source circuit diagram of the LM317 regulator [3]_.
 
 A constant current source can be made with a linear regulator when a single limit resistor is placed between the output
 and adjust pins. Because the potential difference between output and adjust pin is always equivalent to the reference
@@ -80,7 +80,7 @@ Adjustable Voltage Source
 .. figure:: reference/lm317_typical_app.png
   :align: center
 
-  Figure 5: Typical application circuit diagram of the LM317 regulator [3]_.
+  Typical application circuit diagram of the LM317 regulator [3]_.
 
 
 A constant voltage source made using adjustable resistors allows for a variety of voltage outputs. Capacitors are
@@ -95,7 +95,7 @@ Application Hints
 .. figure:: reference/regulator_app_hints.png
   :align: center
 
-  Figure 6: Further applications of an adjustable regulator [5]_.
+  Further applications of an adjustable regulator [5]_.
 
 
 **References**

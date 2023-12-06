@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PiHole Ad Blocking and PiVPN Remote Network Access &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,9 +80,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="rpi_projects.html">Raspberry Pi Projects</a> &raquo;</li>
-      <li>PiHole Ad Blocking and PiVPN Remote Network Access</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="rpi_projects.html">Raspberry Pi Projects</a></li>
+      <li class="breadcrumb-item active">PiHole Ad Blocking and PiVPN Remote Network Access</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/rpi/pivpn.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,11 +93,11 @@
            <div itemprop="articleBody">
              
   <section id="pihole-ad-blocking-and-pivpn-remote-network-access">
-<h1>PiHole Ad Blocking and PiVPN Remote Network Access<a class="headerlink" href="#pihole-ad-blocking-and-pivpn-remote-network-access" title="Permalink to this headline"></a></h1>
+<h1>PiHole Ad Blocking and PiVPN Remote Network Access<a class="headerlink" href="#pihole-ad-blocking-and-pivpn-remote-network-access" title="Link to this heading"></a></h1>
 <section id="preface">
-<h2>Preface<a class="headerlink" href="#preface" title="Permalink to this headline"></a></h2>
+<h2>Preface<a class="headerlink" href="#preface" title="Link to this heading"></a></h2>
 <section id="setup-materials">
-<h3>Setup Materials<a class="headerlink" href="#setup-materials" title="Permalink to this headline"></a></h3>
+<h3>Setup Materials<a class="headerlink" href="#setup-materials" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Raspberry Pi 4 8GB</p></li>
 <li><p>sandisk 32 GB micro SD</p></li>
@@ -102,20 +107,20 @@
 </ul>
 </section>
 <section id="imager-software">
-<h3>Imager Software<a class="headerlink" href="#imager-software" title="Permalink to this headline"></a></h3>
+<h3>Imager Software<a class="headerlink" href="#imager-software" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Raspberry Pi Imager</p></li>
 <li><p>Imager software like Etcher or win32DiskImager (backup image of drive for after install)</p></li>
 </ul>
 </section>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline"></a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
 <p>I install both of these programs onto the same Pi for safe browsing from anywhere in the world.
 This also allow for greater home network usage expanding utility of network attached storage, Plex Servers,
 and secure communication to remote desktops and devices.</p>
 </section>
 <section id="pi-first-time-setup">
-<h3>Pi First time Setup<a class="headerlink" href="#pi-first-time-setup" title="Permalink to this headline"></a></h3>
+<h3>Pi First time Setup<a class="headerlink" href="#pi-first-time-setup" title="Link to this heading"></a></h3>
 <p>Turn on and follow the prompts. Connect the pi to over ethernet if possible,
 otherwise connect to wifi. skip updates and go to the terminal.</p>
 <p>Update the Raspberry Pi.</p>
@@ -179,14 +184,14 @@ add a layer of protection and uniqueness.</p>
 </section>
 </section>
 <section id="pihole-setup">
-<h2>PiHole Setup<a class="headerlink" href="#pihole-setup" title="Permalink to this headline"></a></h2>
+<h2>PiHole Setup<a class="headerlink" href="#pihole-setup" title="Link to this heading"></a></h2>
 <p>PiHole is a relatively easy setup, I recommend doing it with an attached display.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -sSL https://install.pi-hole.net | bash</span>
 </pre></div>
 </div>
 </section>
 <section id="pivpn-setup">
-<h2>PiVPN Setup<a class="headerlink" href="#pivpn-setup" title="Permalink to this headline"></a></h2>
+<h2>PiVPN Setup<a class="headerlink" href="#pivpn-setup" title="Link to this heading"></a></h2>
 <p>PiVPN is slightly more difficult to setup than the PiHole, but is mostly complex due to the networking involved.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

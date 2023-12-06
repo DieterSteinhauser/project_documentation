@@ -7,7 +7,7 @@ Date: 11/2022
 .. figure:: theremin_images/image054.jpg
   :align: center
 
-  Figure 42: Ultrasonic Theremin in its case.
+  Ultrasonic Theremin in its case.
 
 
 
@@ -60,7 +60,7 @@ also has a timer with four alarms, a Real-Time-Counter (RTC), and sixteen Pulse-
 .. figure:: theremin_images/image001.png
   :align: center
 
-  Figure 1: Raspberry Pico Pinout [13]_.
+  Raspberry Pico Pinout [13]_.
 
 
 ADC Theory
@@ -77,7 +77,7 @@ the ADC, introducing small errors into the signal as noise.
 .. figure:: theremin_images/image002.png
   :align: center
 
-  Figure 2: Quantization of an Analog to Digital Converter on a sine wave.
+  Quantization of an Analog to Digital Converter on a sine wave.
 
 Resolution and reference voltages of an ADC produces quantization errors within the
 amplitude domain of a signal, where the sample rate of an ADC produces quantization errors
@@ -95,7 +95,7 @@ Signal noise can significantly reduce the effective number of bits to which an A
   :width: 400
   :align: center
 
-  Figure 3: ADC formulas.
+  ADC formulas.
 
 Sample rate of an ADC produces quantization errors within the time domain of the
 signal. The sampling rate of an ADC should ideally greater than twice the highest frequency
@@ -130,7 +130,7 @@ transmitted from the master device, while MISO is the data received from the mas
 .. figure:: theremin_images/image004.png
   :align: center
 
-  Figure 4: SPI configuration for a two-device system [16]_.
+  SPI configuration for a two-device system [16]_.
 
 SPI can incorporate multiple slave devices by connecting data and clock lines,
 individually accessing a slave device by using a dedicated chip select line for each device as seen
@@ -184,7 +184,7 @@ reference voltage to return the ideal output voltage.
   :width: 400
   :align: center
 
-  Figure 7: DAC formulas.
+  DAC formulas.
 
 DAC’s have some non-idealities in the form of differential and integral non-linearity,
 which characterize the difference between two adjacent code values and the difference in the
@@ -206,7 +206,7 @@ the bottom right corner of the Pico Pinout [13]_.
 .. figure:: theremin_images/image008.png
   :align: center
 
-  Figure 8: Timing Diagram of LTC1661 SPI communication [10]_
+  Timing Diagram of LTC1661 SPI communication [10]_
 
 Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
@@ -216,7 +216,7 @@ would be applicable for continuously changing voltage on output A and B respecti
 .. figure:: theremin_images/image009.png
   :align: center
 
-  Figure 9: SPI communication Sequence for the LTC1661 [10]_.
+  SPI communication Sequence for the LTC1661 [10]_.
 
 In our program, we must parse the data for every transmission so that a word packet sent will
 have the format seen in figure 9. The LTC1661 sends the command, then splits the data bits
@@ -236,7 +236,7 @@ gain and infinite Gain Bandwidth (GBW).
 .. figure:: theremin_images/figure10.png
   :align: center
 
-  Figure 10: Anatomy of an Op-Amp and Ideal Op-Amp Equations [1]_.
+  Anatomy of an Op-Amp and Ideal Op-Amp Equations [1]_.
 
 Using an infinite open-loop gain is limiting, as the output voltage signal would become
 saturated immediately. This could be useful in a comparator circuit. However, for most purposes
@@ -248,12 +248,12 @@ the negative feedback loop.
 .. figure:: theremin_images/figure11.png
   :align: center
 
-  Figure 11: Inverting Op-Amp configuration and voltage gain equation [1]_.
+  Inverting Op-Amp configuration and voltage gain equation [1]_.
 
 .. figure:: theremin_images/figure12.png
   :align: center
 
-  Figure 12: Non-inverting Op-Amp configuration and voltage gain equation [1]_.
+  Non-inverting Op-Amp configuration and voltage gain equation [1]_.
 
 Non-idealities of real-life Op-Amps will also affect the circuit, the most influential of which is
 determined by a given IC’s strengths and weaknesses. A notable non-ideality can be seen in gain
@@ -266,12 +266,12 @@ much wider bandwidth.
 .. figure:: theremin_images/image021.png
   :align: center
 
-  Figure 13: LM741 Frequency response in open and closed loop configurations [7]_.
+  LM741 Frequency response in open and closed loop configurations [7]_.
 
 .. figure:: theremin_images/image022.png
   :align: center
 
-  Figure 14: Gain Bandwidth formula [7]_.
+  Gain Bandwidth formula [7]_.
 
 Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
 Output voltage can become saturated due to voltage gain exceeding the supply rails. Current
@@ -293,7 +293,7 @@ implements passive and active filters in multiple filter configurations.
 .. figure:: theremin_images/image023.png
   :align: center
 
-  Figure 15: First order filter table with active and passive applications [1]_.
+  First order filter table with active and passive applications [1]_.
 
 Audio Amplifier Configuration
 ------------------------------
@@ -307,7 +307,7 @@ recommended by the datasheet.
 .. figure:: theremin_images/image024.png
   :align: center
 
-  Figure 16: LM386 Wiring Diagram for a gain of 20 [9]_.
+  LM386 Wiring Diagram for a gain of 20 [9]_.
 
 
 Power Regulation and Filtering
@@ -323,7 +323,7 @@ capacitors out of an abundance of safety and a desire for a highly filtered powe
 .. figure:: theremin_images/image025.png
   :align: center
 
-  Figure 17: LM2940 LDO Wiring Diagram [8]_.
+  LM2940 LDO Wiring Diagram [8]_.
 
 In addition to the 5V source, I powered the Raspberry Pico via the VSYS node to activate
 the device and use the 3.3V Switching Mode Power Supply (SMPS). This was done using a
@@ -335,7 +335,7 @@ source as well.
 .. figure:: theremin_images/figure18.png
   :align: center
 
-  Figure 18: Pico Power-chain and the implemented method of external supply [8]_.
+  Pico Power-chain and the implemented method of external supply [8]_.
 
 
 Inputs and Outputs
@@ -372,7 +372,7 @@ can modify output sound data.
 .. figure:: theremin_images/image028.png
   :align: center
 
-  Figure 19: Ultrasonic sensor timing diagram [6]_.
+  Ultrasonic sensor timing diagram [6]_.
 
 
 LCD Configuration
@@ -410,7 +410,7 @@ of Status LEDs indicate continuous operation by toggling and display on reset of
 .. figure:: theremin_images/image029.png
   :align: center
 
-  Figure 20: Hardware Block Diagram of the Theremin Circuit.
+  Hardware Block Diagram of the Theremin Circuit.
 
 A single processor flow was employed for reliability and simplicity. To help speed up
 operations, a generous overclock was applied, setting the system clock to 270MHz. The Pico
@@ -436,7 +436,7 @@ instrument use.
 .. figure:: theremin_images/image030.png
   :align: center
 
-  Figure 21: Software Block Diagram of the Theremin Circuit.
+  Software Block Diagram of the Theremin Circuit.
 
 Schematic and PCB Design
 -------------------------
@@ -467,17 +467,17 @@ routes. I implemented a Ground and 5V layer using the copper pours.
 .. figure:: theremin_images/image031.png
   :align: center
 
-  Figure 22: Ultrasonic Theremin schematic page 1 of 2.
+  Ultrasonic Theremin schematic page 1 of 2.
 
 .. figure:: theremin_images/image032.png
   :align: center
 
-  Figure 23: Ultrasonic Theremin schematic page 2 of 2.
+  Ultrasonic Theremin schematic page 2 of 2.
 
 .. figure:: theremin_images/image033.png
   :align: center
 
-  Figure 24: Top side of Ultrasonic Theremin PCB layout.
+  Top side of Ultrasonic Theremin PCB layout.
 
 
 Bill Of Materials
@@ -501,12 +501,12 @@ components worked immediately after installation.
 .. figure:: theremin_images/image034.png
   :align: center
 
-  Figure 25: Empty Theremin Circuit PCB.
+  Empty Theremin Circuit PCB.
 
 .. figure:: theremin_images/image036.jpg
   :align: center
 
-  Figure 26: Populated Theremin Circuit PCB.
+  Populated Theremin Circuit PCB.
 
 Power
 ---------------------
@@ -519,17 +519,17 @@ ripple observed on the device pin. This is a slight improvement on the unfiltere
 .. figure:: theremin_images/image037.jpg
   :align: center
 
-  Figure 27: Power regulation system on the PCB
+  Power regulation system on the PCB
 
 .. figure:: theremin_images/image038.png
   :align: center
 
-  Figure 28: 5V source observed on the oscilloscope.
+  5V source observed on the oscilloscope.
 
 .. figure:: theremin_images/image039.png
   :align: center
 
-  Figure 29: 3.3V source observed on the oscilloscope.
+  3.3V source observed on the oscilloscope.
 
 Audio
 ---------------------
@@ -546,27 +546,27 @@ Without Speaker Load
 .. figure:: theremin_images/audio.jpg
   :align: center
 
-  Figure 30: Audio output system.
+  Audio output system.
 
 .. figure:: theremin_images/image040.png
   :align: center
 
-  Figure 31: Sine wave output of the Audio Amplifier without speaker load.
+  Sine wave output of the Audio Amplifier without speaker load.
 
 .. figure:: theremin_images/image041.png
   :align: center
 
-  Figure 32: Square wave output of the Audio Amplifier without speaker load.
+  Square wave output of the Audio Amplifier without speaker load.
 
 .. figure:: theremin_images/image042.png
   :align: center
 
-  Figure 33: Triangle wave output of the Audio Amplifier without speaker load.
+  Triangle wave output of the Audio Amplifier without speaker load.
 
 .. figure:: theremin_images/image043.png
   :align: center
 
-  Figure 34: Sawtooth wave output of the Audio Amplifier without speaker load.
+  Sawtooth wave output of the Audio Amplifier without speaker load.
 
 With Speaker Load
 *********************
@@ -580,22 +580,22 @@ sensors when sampling.
 .. figure:: theremin_images/image044.png
   :align: center
 
-  Figure 35: Sine wave output of the Audio Amplifier with speaker load.
+  Sine wave output of the Audio Amplifier with speaker load.
 
 .. figure:: theremin_images/image045.png
   :align: center
 
-  Figure 36: Square wave output of the Audio Amplifier with speaker load.
+  Square wave output of the Audio Amplifier with speaker load.
 
 .. figure:: theremin_images/image046.png
   :align: center
 
-  Figure 37: Triangle wave output of the Audio Amplifier with speaker load.
+  Triangle wave output of the Audio Amplifier with speaker load.
 
 .. figure:: theremin_images/image047.png
   :align: center
 
-  Figure 38: Sawtooth wave output of the Audio Amplifier with speaker load.
+  Sawtooth wave output of the Audio Amplifier with speaker load.
 
 
 Interface and Display
@@ -614,28 +614,28 @@ sensors detect, and a waveform switch is selected.
 .. figure:: theremin_images/figure39.png
   :align: center
 
-  Figure 39: Splash screen on system reset.
+  Splash screen on system reset.
 
 .. figure:: theremin_images/figure40.png
   :align: center
 
-  Figure 40: Home screen with waveform selection, frequency, and amplitude readings.
+  Home screen with waveform selection, frequency, and amplitude readings.
 
 .. figure:: theremin_images/figure41.png
   :align: center
 
-  Figure 41: Amplitude and frequency boundary menu.
+  Amplitude and frequency boundary menu.
 
 .. figure:: theremin_images/image054.jpg
   :align: center
 
-  Figure 42: Ultrasonic Theremin in its case.
+  Ultrasonic Theremin in its case.
 
 
 .. figure:: theremin_images/image055.jpg
   :align: center
 
-  Figure 43: Close up of the ultrasonic theremin in its case.
+  Close up of the ultrasonic theremin in its case.
 
 
 

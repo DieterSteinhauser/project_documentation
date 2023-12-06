@@ -34,7 +34,7 @@ KCL: Kirchhoff's current law
 .. figure:: reference/kcl.png
   :align: center
 
-  Figure 1: KCL in a circuit node.
+  KCL in a circuit node.
 
 
 The sum of currents into a point is equal to the sum of currents out of the point. KCL can be used for
@@ -50,7 +50,7 @@ KVL: Kirchhoff's voltage law
 .. figure:: reference/kvl.png
   :align: center
 
-  Figure 2: KVL seen in a circuit.
+  KVL seen in a circuit.
 
 
 The sum of voltage differences around a closed circuit is zero. Any parallel circuit will see the same potential
@@ -75,7 +75,7 @@ Series and Parallel
 .. figure:: reference/series_and_parallel.png
   :align: center
 
-  Figure 3: Series and Parallel resistors [1]_.
+  Series and Parallel resistors [1]_.
 
 
 
@@ -98,7 +98,7 @@ original size. Voltage dividers do this predictably and consistently.
 .. figure:: reference/voltage_divider.png
   :align: center
 
-  Figure 4: A voltage divider circuit [1]_.
+  A voltage divider circuit [1]_.
 
 
 
@@ -116,7 +116,7 @@ Kirchhoff's laws, and ohm's law, you can deduce the Thevenin equivalent circuit.
 .. figure:: reference/thevenin_equivalent.png
   :align: center
 
-  Figure 4: A Thevenin equivalent circuit for a voltage divider circuit [1]_.
+  A Thevenin equivalent circuit for a voltage divider circuit.
 
 
 Norton’s theorem states that any two terminal network of resistors and voltage sources can be represented as an
@@ -130,7 +130,7 @@ Kirchhoff's laws, and ohm's law, you can deduce the Norton equivalent circuit.
 .. figure:: reference/norton_equivalent.png
   :align: center
 
-  Figure 4: A Norton equivalent circuit for a voltage divider circuit [1]_.
+  A Norton equivalent circuit for a voltage divider circuit.
 
 
 Decibel Representation
@@ -154,4 +154,5 @@ When representing voltage in decibel notation, the following equations are used.
 **References**
 
 
-.. [1] P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.
+.. [1]  P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics,
+        New York: Cambridge University Press, 2022.

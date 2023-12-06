@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linear Power Supply &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -65,7 +70,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#appendix">Appendix</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#lcd-py">LCD.py</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#main-py">main.py</a></li>
 </ul>
 </li>
@@ -90,9 +94,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="engineering_projects.html">Engineering Projects</a> &raquo;</li>
-      <li>Linear Power Supply</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_projects.html">Engineering Projects</a></li>
+      <li class="breadcrumb-item active">Linear Power Supply</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/linear_power_supply.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,17 +107,17 @@
            <div itemprop="articleBody">
              
   <section id="linear-power-supply">
-<h1>Linear Power Supply<a class="headerlink" href="#linear-power-supply" title="Permalink to this headline"></a></h1>
+<h1>Linear Power Supply<a class="headerlink" href="#linear-power-supply" title="Link to this heading"></a></h1>
 <p>Date: 3/2023</p>
 <p>Revision: 1</p>
 <figure class="align-center" id="id4">
 <img alt="../_images/power_supply.jpg" src="../_images/power_supply.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Finished Linear power supply.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Finished Linear power supply.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>The purpose and goals of this project are to become familiar with linear power supply design, prepare engineers to
 transform, regulate, and rectify power for future projects, and create a critical tool for any engineer’s lab.
 Power transformation, AC to DC rectification, and voltage regulation are key components for practically every
@@ -121,7 +125,7 @@ electrical project. With this project, we aim to design a 20V/3A linear power su
 and current limiting capability. We also aim to create a precise voltmeter and ammeter to relay status of the supply.</p>
 </section>
 <section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline"></a></h2>
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>This project draws from numerous engineering concepts. For general reference and theory, concepts and
@@ -143,7 +147,7 @@ are revisited.</p>
 </ul>
 </div>
 <section id="project-overview">
-<h3>Project Overview<a class="headerlink" href="#project-overview" title="Permalink to this headline"></a></h3>
+<h3>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h3>
 <p>This linear power supply aims to provide up to 20 volts at 3 amps. The design employs linear regulators to minimize
 noise of the output, adjust voltage, and a current limit for the device. The power supply will need to be monitored
 for the output current and voltage. A Raspberry Pico will be employed for taking voltage and current measurements and
@@ -151,11 +155,11 @@ displaying them on an LCD for the user. LED indicators, reverse polarity protect
 added for a better user interface. A fuse will also be used for the safety of the user and the device.</p>
 </section>
 <section id="introduction-to-ac-dc-linear-power-supply">
-<h3>Introduction to AC/DC Linear Power Supply<a class="headerlink" href="#introduction-to-ac-dc-linear-power-supply" title="Permalink to this headline"></a></h3>
+<h3>Introduction to AC/DC Linear Power Supply<a class="headerlink" href="#introduction-to-ac-dc-linear-power-supply" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id5">
 <img alt="../_images/supply_abstract.png" src="../_images/supply_abstract.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: Fig 7-35 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id1">1</a>. Block diagram of a basic AC-DC linear power supply.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 7-35 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Block diagram of a basic AC-DC linear power supply.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>An AC to DC converter can be broken up into multiple stages. An AC input usually needs transformation of the existing
@@ -169,17 +173,17 @@ using voltage regulator IC’s or Zener diodes in reverse breakdown.</p>
 <figure class="align-center" id="id6">
 <img alt="../_images/simple_supply_circuit.png" src="../_images/simple_supply_circuit.png" />
 <figcaption>
-<p><span class="caption-text">Figure 3: Fig 7-40 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.  A complete circuit of a basic power supply. This design
-employs a Zener diode regulator.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fig 7-40 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.  A complete circuit of a basic power supply. This design
+employs a Zener diode regulator.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="power-supply-circuit-design">
-<h3>Power Supply Circuit Design<a class="headerlink" href="#power-supply-circuit-design" title="Permalink to this headline"></a></h3>
+<h3>Power Supply Circuit Design<a class="headerlink" href="#power-supply-circuit-design" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id7">
 <img alt="../_images/block_diagram_drawio.png" src="../_images/block_diagram_drawio.png" />
 <figcaption>
-<p><span class="caption-text">Figure 4: Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The circuit implements the general systems shown in the block diagram. From the AC outlet, a fuse and switch connect
@@ -191,7 +195,7 @@ providing a raw DC voltage around 21.5V to the following circuit stages.</p>
 <figure class="align-center" id="id8">
 <img alt="../_images/input_stage.png" src="../_images/input_stage.png" />
 <figcaption>
-<p><span class="caption-text">Figure 5: Input voltage conditioning Stage.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Input voltage conditioning Stage.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The rectified voltage is passed into the Constant Current Constant Voltage (CCCV) stage for output conditioning.
@@ -210,7 +214,7 @@ An output enable switch, reverse polarity diode, and a LED is employed for outpu
 <figure class="align-center" id="id9">
 <img alt="../_images/cccv_stage.png" src="../_images/cccv_stage.png" />
 <figcaption>
-<p><span class="caption-text">Figure 5: Constant Current-Constant Voltage Stage with reverse polarity protection.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Constant Current-Constant Voltage Stage with reverse polarity protection.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition warning">
@@ -234,7 +238,7 @@ applied back to the sensed ADC value in software to relay the correct output vol
 <figure class="align-center" id="id10">
 <img alt="../_images/monitor_stage.png" src="../_images/monitor_stage.png" />
 <figcaption>
-<p><span class="caption-text">Figure 5: Input voltage conditioning Stage.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Input voltage conditioning Stage.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The INA128 used for current readings has a 36V operation range and requires about 2V of offset from each rail to
@@ -248,12 +252,12 @@ from this rail, so a charge pump is fine for this purpose.</p>
 <figure class="align-center" id="id11">
 <img alt="../_images/negative_ref.png" src="../_images/negative_ref.png" />
 <figcaption>
-<p><span class="caption-text">Figure 5: Negative voltage charge pump with Vbe multiplier output.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Negative voltage charge pump with Vbe multiplier output.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="pico-setup">
-<h3>Pico Setup<a class="headerlink" href="#pico-setup" title="Permalink to this headline"></a></h3>
+<h3>Pico Setup<a class="headerlink" href="#pico-setup" title="Link to this heading"></a></h3>
 <p>To supply power to the measurement devices, I chose a combination of regulators power the sensor devices.
 This provided a smooth 5V and 3.3V source for most components, with local decoupling capacitors where needed.
 The LM7805 is a prime candidate for 5V regulation as its implementation is simple, only requiring two capacitors
@@ -261,7 +265,7 @@ on the Vin and Vout. The 7805 is also tolerant to the range of voltage seen afte
 <figure class="align-center" id="id12">
 <img alt="../_images/fixed_out_app.png" src="../_images/fixed_out_app.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Fixed Output Regulator configuration for an LM7805.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Fixed Output Regulator configuration for an LM7805.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>In addition to the 5V source, I powered the Raspberry Pico via 3.3V regulators. Two 3.3V rails were also developed
@@ -270,16 +274,16 @@ while the other was connected to the ADC reference.</p>
 <figure class="align-center" id="id13">
 <img alt="../_images/figure18.png" src="../_images/figure18.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: Pico Power-chain.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Pico Power-chain.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="adc-configuration">
-<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Permalink to this headline"></a></h3>
+<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id14">
 <img alt="../_images/adc_ref.png" src="../_images/adc_ref.png" />
 <figcaption>
-<p><span class="caption-text">Figure 18: Pico ADC reference circuit.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Pico ADC reference circuit.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>For this project, I did everything I could to isolate the ADC reference for the best possible readings. Essentially,
@@ -289,11 +293,11 @@ ADC reference. This method heavily isolates the ADC reference. It is potentially
 seeing how the device would perform.</p>
 </section>
 <section id="pico-software">
-<h3>Pico Software<a class="headerlink" href="#pico-software" title="Permalink to this headline"></a></h3>
+<h3>Pico Software<a class="headerlink" href="#pico-software" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id15">
 <img alt="../_images/microcontroller_software_drawio.png" src="../_images/microcontroller_software_drawio.png" />
 <figcaption>
-<p><span class="caption-text">Figure 4: Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The Pico has a relatively simple program loop, A few systems such as the LCD and ADC are initialized on startup,
@@ -303,7 +307,7 @@ interpretation. There are a few edge cases regarding the output being off, an op
 In these situations, the LCD relays the situation to the user based on interpreted ADC data.</p>
 </section>
 <section id="schematic-and-pcb-design">
-<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Permalink to this headline"></a></h3>
+<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Link to this heading"></a></h3>
 <p>All previously mentioned components must be compiled into a schematic design for wiring structure and PCB design.
 Bypass and decoupling capacitors are added to the board for several reasons. First, capacitors can be used on power
 headers to avoid voltage spikes and removing AC ripple on DC power. Small ceramic caps offer low series resistance and
@@ -321,45 +325,45 @@ ground layer to the PCB, further simplifying routing design.</p>
 <figure class="align-center" id="id16">
 <img alt="../_images/schematic1.png" src="../_images/schematic1.png" />
 <figcaption>
-<p><span class="caption-text">Figure 22: Power Supply schematic page 1 of 2.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Power Supply schematic page 1 of 2.</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id17">
 <img alt="../_images/schematic2.png" src="../_images/schematic2.png" />
 <figcaption>
-<p><span class="caption-text">Figure 23: Power Supply schematic page 2 of 2.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Power Supply schematic page 2 of 2.</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id18">
 <img alt="../_images/altium_pcb_top.png" src="../_images/altium_pcb_top.png" />
 <figcaption>
-<p><span class="caption-text">Figure 24: Top side of Power Supply PCB layout.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Top side of Power Supply PCB layout.</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id19">
 <img alt="../_images/altium_pcb_bottom.png" src="../_images/altium_pcb_bottom.png" />
 <figcaption>
-<p><span class="caption-text">Figure 24: Bottom side of Power Supply PCB layout.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Bottom side of Power Supply PCB layout.</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="bill-of-materials">
-<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Permalink to this headline"></a></h3>
+<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Link to this heading"></a></h3>
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline"></a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
 <p>The schematic of the circuit and PCB turned out fine, with a few errors that were fixable. The
 assembled PCB was easy to debug because of its plentiful headers employed in the diagram. Thankfully,
 there were no design breaking errors in this circuit, and most components worked immediately after installation.</p>
 <figure class="align-center" id="id20">
 <img alt="../_images/assembled_board.jpg" src="../_images/assembled_board.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 42: Power Supply Board.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Power Supply Board.</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="flaws-and-oversights">
-<h3>Flaws and Oversights<a class="headerlink" href="#flaws-and-oversights" title="Permalink to this headline"></a></h3>
+<h3>Flaws and Oversights<a class="headerlink" href="#flaws-and-oversights" title="Link to this heading"></a></h3>
 <p>There were a few things that I messed up in designing the board, but acknowledging them is a good practice as lessons
 are learned and further revisions could be optimized. In terms of some minor design issues, I went overkill on a
 series of parts. the Raspberry Pico’s powerchain is excessive but works wonderfully. I could have easily removed one
@@ -380,7 +384,7 @@ decoupling capacitors and without a parallel limit resistor. These too factors l
 regulator IC’s from current spikes.</p>
 </section>
 <section id="conclusion">
-<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline"></a></h3>
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h3>
 <p>Overall, This project has been insightful and a useful addition to my workbench. While there were some design faults,
 all errors were fixable and operation has not been impacted. Creating a linear power supply is a great way to introduce
 power electronics to engineers and provide utility to the engineer for future projects. This device performed well at
@@ -388,437 +392,9 @@ providing power and realistic measurements to the user.</p>
 </section>
 </section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline"></a></h2>
-<section id="lcd-py">
-<h3>LCD.py<a class="headerlink" href="#lcd-py" title="Permalink to this headline"></a></h3>
-<blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">  2</span><span class="c1">#                 NOTES </span>
-<span class="linenos">  3</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">  4</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">  5</span><span class="sd">Dieter Steinhauser</span>
-<span class="linenos">  6</span><span class="sd">5/2023</span>
-<span class="linenos">  7</span><span class="sd">Parallel LCD functions, Configured for 4-bit communication.</span>
-<span class="linenos">  8</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">  9</span>
-<span class="linenos"> 10</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 11</span><span class="c1">#               IMPORTS</span>
-<span class="linenos"> 12</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 13</span>
-<span class="linenos"> 14</span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="linenos"> 15</span><span class="kn">import</span> <span class="nn">utime</span>
-<span class="linenos"> 16</span>
-<span class="linenos"> 17</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 18</span><span class="c1">#          CONSTANTS AND VARIABLES</span>
-<span class="linenos"> 19</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 20</span>
-<span class="linenos"> 21</span><span class="c1"># CONSTANTS</span>
-<span class="linenos"> 22</span><span class="c1"># ----------------------</span>
-<span class="linenos"> 23</span>
-<span class="linenos"> 24</span><span class="n">LCD_CMD</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos"> 25</span><span class="n">LCD_DATA</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos"> 26</span>
-<span class="linenos"> 27</span><span class="c1"># ----------------------</span>
-<span class="linenos"> 28</span><span class="c1"># GPIO Wiring: Legacy Structure</span>
-<span class="linenos"> 29</span><span class="c1"># ----------------------</span>
-<span class="linenos"> 30</span>
-<span class="linenos"> 31</span><span class="n">EN</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># Enable Pin</span>
-<span class="linenos"> 32</span><span class="n">RS</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># Register Select</span>
-<span class="linenos"> 33</span>
-<span class="linenos"> 34</span><span class="n">PINS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  
-<span class="linenos"> 35</span><span class="c1"># Pin numbers for the upper nibble, does the below assignment in configure method.</span>
-<span class="linenos"> 36</span><span class="c1"># D4 = Pin(2, Pin.OUT)</span>
-<span class="linenos"> 37</span><span class="c1"># D5 = Pin(3, Pin.OUT)</span>
-<span class="linenos"> 38</span><span class="c1"># D6 = Pin(4, Pin.OUT)</span>
-<span class="linenos"> 39</span><span class="c1"># D7 = Pin(5, Pin.OUT)</span>
-<span class="linenos"> 40</span> 
-<span class="linenos"> 41</span><span class="c1"># list that gets populated with pinout objects for data line.</span>
-<span class="linenos"> 42</span><span class="n">DATA_BUS</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 45</span><span class="c1">#                 METHODS</span>
-<span class="linenos"> 46</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 47</span>
-<span class="linenos"> 48</span><span class="k">def</span> <span class="nf">Configure</span><span class="p">():</span>
-<span class="linenos"> 49</span>    <span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list&quot;&quot;&quot;</span>
-<span class="linenos"> 50</span>
-<span class="linenos"> 51</span>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos"> 52</span>       <span class="n">DATA_BUS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">PINS</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
-<span class="linenos"> 53</span>
-<span class="linenos"> 54</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 55</span>
-<span class="linenos"> 56</span><span class="k">def</span> <span class="nf">lcd_strobe</span><span class="p">():</span>
-<span class="linenos"> 57</span>    <span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
-<span class="linenos"> 58</span>
-<span class="linenos"> 59</span>    <span class="n">EN</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos"> 60</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos"> 61</span>
-<span class="linenos"> 62</span>    <span class="n">EN</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos"> 63</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos"> 64</span>
-<span class="linenos"> 65</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 66</span> 
-<span class="linenos"> 67</span><span class="k">def</span> <span class="nf">lcd_write</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
-<span class="linenos"> 68</span>    <span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
-<span class="linenos"> 69</span>
-<span class="linenos"> 70</span>    <span class="c1"># determine if writing a command or data</span>
-<span class="linenos"> 71</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">command</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">ord</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-<span class="linenos"> 72</span>
-<span class="linenos"> 73</span>    <span class="c1"># need upper nibble for first loop. lower nibble can use data directly.</span>
-<span class="linenos"> 74</span>    <span class="n">upper</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
-<span class="linenos"> 75</span>    
-<span class="linenos"> 76</span>    <span class="c1"># write the upper nibble</span>
-<span class="linenos"> 77</span>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos"> 78</span>        <span class="n">bit</span> <span class="o">=</span> <span class="n">upper</span> <span class="o">&amp;</span> <span class="mi">1</span>
-<span class="linenos"> 79</span>        <span class="n">DATA_BUS</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
-<span class="linenos"> 80</span>        <span class="n">upper</span> <span class="o">=</span> <span class="n">upper</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
-<span class="linenos"> 81</span>
-<span class="linenos"> 82</span>    <span class="c1"># strobe the LCD, sending the nibble</span>
-<span class="linenos"> 83</span>    <span class="n">RS</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
-<span class="linenos"> 84</span>    <span class="n">lcd_strobe</span><span class="p">()</span>
-<span class="linenos"> 85</span>
-<span class="linenos"> 86</span>    <span class="c1"># write the lower nibble</span>
-<span class="linenos"> 87</span>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos"> 88</span>        <span class="n">bit</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&amp;</span> <span class="mi">1</span>
-<span class="linenos"> 89</span>        <span class="n">DATA_BUS</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
-<span class="linenos"> 90</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
-<span class="linenos"> 91</span>
-<span class="linenos"> 92</span>    <span class="c1"># Strobe the LCD, sending the nibble </span>
-<span class="linenos"> 93</span>    <span class="n">RS</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
-<span class="linenos"> 94</span>    <span class="n">lcd_strobe</span><span class="p">()</span>
-<span class="linenos"> 95</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos"> 96</span>    <span class="n">RS</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos"> 97</span>
-<span class="linenos"> 98</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos"> 99</span>
-<span class="linenos">100</span><span class="k">def</span> <span class="nf">lcd_clear</span><span class="p">():</span>
-<span class="linenos">101</span>    <span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
-<span class="linenos">102</span>
-<span class="linenos">103</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">104</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">105</span>
-<span class="linenos">106</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">107</span>
-<span class="linenos">108</span><span class="k">def</span> <span class="nf">lcd_home</span><span class="p">():</span>
-<span class="linenos">109</span>    <span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
-<span class="linenos">110</span>
-<span class="linenos">111</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x02</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">112</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">113</span>
-<span class="linenos">114</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">115</span>
-<span class="linenos">116</span>
-<span class="linenos">117</span><span class="k">def</span> <span class="nf">lcd_cursor_blink</span><span class="p">():</span>
-<span class="linenos">118</span>    <span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
-<span class="linenos">119</span>
-<span class="linenos">120</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0D</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">121</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">122</span>
-<span class="linenos">123</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">124</span>
-<span class="linenos">125</span><span class="k">def</span> <span class="nf">lcd_cursor_on</span><span class="p">():</span>
-<span class="linenos">126</span>    <span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
-<span class="linenos">127</span>
-<span class="linenos">128</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0E</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">129</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">130</span>
-<span class="linenos">131</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">132</span>
-<span class="linenos">133</span><span class="k">def</span> <span class="nf">lcd_cursor_off</span><span class="p">():</span>
-<span class="linenos">134</span>    <span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
-<span class="linenos">135</span>
-<span class="linenos">136</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">137</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">138</span>
-<span class="linenos">139</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">140</span>
-<span class="linenos">141</span><span class="k">def</span> <span class="nf">lcd_puts</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-<span class="linenos">142</span>    <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
-<span class="linenos">143</span>
-<span class="linenos">144</span>    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
-<span class="linenos">145</span>       <span class="n">lcd_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="linenos">146</span>
-<span class="linenos">147</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">148</span>
-<span class="linenos">149</span><span class="k">def</span> <span class="nf">lcd_putch</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-<span class="linenos">150</span>    <span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
-<span class="linenos">151</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="linenos">152</span>
-<span class="linenos">153</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">154</span>
-<span class="linenos">155</span><span class="k">def</span> <span class="nf">lcd_goto</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
-<span class="linenos">156</span>    
-<span class="linenos">157</span>    
-<span class="linenos">158</span>    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">159</span>        <span class="n">address</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">160</span>
-<span class="linenos">161</span>    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="linenos">162</span>        <span class="n">address</span> <span class="o">=</span> <span class="mh">0x40</span>
-<span class="linenos">163</span>
-<span class="linenos">164</span>    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<span class="linenos">165</span>        <span class="n">address</span> <span class="o">=</span> <span class="mh">0x14</span>
-<span class="linenos">166</span>
-<span class="linenos">167</span>    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<span class="linenos">168</span>        <span class="n">address</span> <span class="o">=</span> <span class="mh">0x54</span>
-<span class="linenos">169</span>
-<span class="linenos">170</span>    <span class="n">address</span> <span class="o">=</span> <span class="n">address</span> <span class="o">+</span> <span class="n">column</span>
-<span class="linenos">171</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x80</span> <span class="o">|</span> <span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">172</span>
-<span class="linenos">173</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">174</span>
-<span class="linenos">175</span><span class="k">def</span> <span class="nf">lcd_init</span><span class="p">():</span>
-<span class="linenos">176</span>    
-<span class="linenos">177</span>    <span class="c1"># Configure the pins of the device.</span>
-<span class="linenos">178</span>    <span class="n">Configure</span><span class="p">()</span>
-<span class="linenos">179</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-<span class="linenos">180</span>
-<span class="linenos">181</span>    <span class="c1"># clear values on data bus.</span>
-<span class="linenos">182</span>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos">183</span>        <span class="n">DATA_BUS</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">184</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="linenos">185</span>
-<span class="linenos">186</span>    <span class="c1"># initialization sequence.</span>
-<span class="linenos">187</span>    <span class="n">DATA_BUS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">188</span>    <span class="n">DATA_BUS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">189</span>    <span class="n">lcd_strobe</span><span class="p">()</span>
-<span class="linenos">190</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">191</span>
-<span class="linenos">192</span>    <span class="n">lcd_strobe</span><span class="p">()</span>
-<span class="linenos">193</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">194</span>
-<span class="linenos">195</span>    <span class="n">lcd_strobe</span><span class="p">()</span>
-<span class="linenos">196</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">197</span>
-<span class="linenos">198</span>    <span class="n">DATA_BUS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">199</span>    <span class="n">lcd_strobe</span><span class="p">()</span>
-<span class="linenos">200</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">201</span>
-<span class="linenos">202</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x28</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">203</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">204</span>
-<span class="linenos">205</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x08</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">206</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">207</span>
-<span class="linenos">208</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">209</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">210</span>
-<span class="linenos">211</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x06</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">212</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">213</span>
-<span class="linenos">214</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">215</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">216</span>
-<span class="linenos">217</span>
-<span class="linenos">218</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">219</span><span class="c1">#                 LCD Class:</span>
-<span class="linenos">220</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">221</span>
-<span class="linenos">222</span>
-<span class="linenos">223</span><span class="k">class</span> <span class="nc">LCD</span><span class="p">:</span>
-<span class="linenos">224</span>    <span class="sd">&quot;&quot;&quot;The LCD class is meant to abstract the LCD driver further and streamline development.&quot;&quot;&quot;</span>
-<span class="linenos">225</span>
-<span class="linenos">226</span>    <span class="n">CMD_MODE</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">227</span>    <span class="n">DATA_MODE</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">228</span>
-<span class="linenos">229</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">reg_select_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_pins</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">230</span>        <span class="sd">&quot;&quot;&quot;Object initialization&quot;&quot;&quot;</span>
-<span class="linenos">231</span>
-<span class="linenos">232</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">enable_pin</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="linenos">233</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reg_select_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">reg_select_pin</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="linenos">234</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_data_pins</span> <span class="o">=</span> <span class="n">data_pins</span>
-<span class="linenos">235</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="linenos">236</span>        
-<span class="linenos">237</span>        <span class="c1"># Configure the pins of the device.</span>
-<span class="linenos">238</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_configure</span><span class="p">()</span>
-<span class="linenos">239</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-<span class="linenos">240</span>
-<span class="linenos">241</span>    <span class="c1"># -----------------------------------------    </span>
-<span class="linenos">242</span>
-<span class="linenos">243</span>    <span class="k">def</span> <span class="nf">_configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">244</span>        <span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list. &quot;&quot;&quot;</span>
-<span class="linenos">245</span>
-<span class="linenos">246</span>        <span class="c1"># Configure the pins of the device.</span>
-<span class="linenos">247</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_pins</span><span class="p">:</span>
-<span class="linenos">248</span>            <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
-<span class="linenos">249</span>
-<span class="linenos">250</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">251</span>
-<span class="linenos">252</span>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">253</span>        <span class="sd">&quot;&quot;&quot;Initializes the LCD for communication.&quot;&quot;&quot;</span>
-<span class="linenos">254</span>
-<span class="linenos">255</span>        <span class="c1"># clear values on data bus.</span>
-<span class="linenos">256</span>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos">257</span>            <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">258</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="linenos">259</span>
-<span class="linenos">260</span>        <span class="c1"># initialization sequence.</span>
-<span class="linenos">261</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">262</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">263</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe</span><span class="p">()</span>
-<span class="linenos">264</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">265</span>
-<span class="linenos">266</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe</span><span class="p">()</span>
-<span class="linenos">267</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">268</span>
-<span class="linenos">269</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe</span><span class="p">()</span>
-<span class="linenos">270</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">271</span>
-<span class="linenos">272</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">273</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe</span><span class="p">()</span>
-<span class="linenos">274</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">275</span>
-<span class="linenos">276</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x28</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">277</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">278</span>
-<span class="linenos">279</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x08</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">280</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">281</span>
-<span class="linenos">282</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">283</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">284</span>
-<span class="linenos">285</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x06</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">286</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">287</span>
-<span class="linenos">288</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">289</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">290</span>
-<span class="linenos">291</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">292</span>
-<span class="linenos">293</span>    <span class="k">def</span> <span class="nf">strobe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">294</span>        <span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
-<span class="linenos">295</span>
-<span class="linenos">296</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">297</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">298</span>
-<span class="linenos">299</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">300</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">301</span>
-<span class="linenos">302</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">303</span>    
-<span class="linenos">304</span>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
-<span class="linenos">305</span>        <span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
-<span class="linenos">306</span>
-<span class="linenos">307</span>        <span class="c1"># determine if writing a command or data</span>
-<span class="linenos">308</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">command</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">ord</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-<span class="linenos">309</span>
-<span class="linenos">310</span>        <span class="c1"># need upper nibble for first loop. lower nibble can use data directly.</span>
-<span class="linenos">311</span>        <span class="n">upper</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
-<span class="linenos">312</span>        
-<span class="linenos">313</span>        <span class="c1"># write the upper nibble</span>
-<span class="linenos">314</span>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos">315</span>            <span class="n">bit</span> <span class="o">=</span> <span class="n">upper</span> <span class="o">&amp;</span> <span class="mi">1</span>
-<span class="linenos">316</span>            <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
-<span class="linenos">317</span>            <span class="n">upper</span> <span class="o">=</span> <span class="n">upper</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
-<span class="linenos">318</span>
-<span class="linenos">319</span>        <span class="c1"># strobe the LCD, sending the nibble</span>
-<span class="linenos">320</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reg_select_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
-<span class="linenos">321</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe</span><span class="p">()</span>
-<span class="linenos">322</span>
-<span class="linenos">323</span>        <span class="c1"># write the lower nibble</span>
-<span class="linenos">324</span>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="linenos">325</span>            <span class="n">bit</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&amp;</span> <span class="mi">1</span>
-<span class="linenos">326</span>            <span class="bp">self</span><span class="o">.</span><span class="n">data_bus</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
-<span class="linenos">327</span>            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
-<span class="linenos">328</span>
-<span class="linenos">329</span>        <span class="c1"># Strobe the LCD, sending the nibble </span>
-<span class="linenos">330</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reg_select_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
-<span class="linenos">331</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe</span><span class="p">()</span>
-<span class="linenos">332</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">333</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reg_select_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">334</span>
-<span class="linenos">335</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">336</span>
-<span class="linenos">337</span>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">338</span>        <span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
-<span class="linenos">339</span>
-<span class="linenos">340</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">341</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">342</span>
-<span class="linenos">343</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">344</span>
-<span class="linenos">345</span>    <span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">346</span>        <span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
-<span class="linenos">347</span>
-<span class="linenos">348</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x02</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">349</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">350</span>
-<span class="linenos">351</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">352</span>
-<span class="linenos">353</span>
-<span class="linenos">354</span>    <span class="k">def</span> <span class="nf">blink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">355</span>        <span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
-<span class="linenos">356</span>
-<span class="linenos">357</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0D</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">358</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">359</span>
-<span class="linenos">360</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">361</span>
-<span class="linenos">362</span>    <span class="k">def</span> <span class="nf">cursor_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">363</span>        <span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
-<span class="linenos">364</span>
-<span class="linenos">365</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0E</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">366</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">367</span>
-<span class="linenos">368</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">369</span>
-<span class="linenos">370</span>    <span class="k">def</span> <span class="nf">cursor_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">371</span>        <span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
-<span class="linenos">372</span>
-<span class="linenos">373</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">374</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">375</span>
-<span class="linenos">376</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">377</span>
-<span class="linenos">378</span>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-<span class="linenos">379</span>        <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
-<span class="linenos">380</span>
-<span class="linenos">381</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
-<span class="linenos">382</span>            <span class="bp">self</span><span class="o">.</span><span class="n">_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="linenos">383</span>
-<span class="linenos">384</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">385</span>
-<span class="linenos">386</span>    <span class="k">def</span> <span class="nf">_putch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-<span class="linenos">387</span>        <span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
-<span class="linenos">388</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="linenos">389</span>
-<span class="linenos">390</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">391</span>
-<span class="linenos">392</span>    <span class="k">def</span> <span class="nf">_puts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-<span class="linenos">393</span>        <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
-<span class="linenos">394</span>
-<span class="linenos">395</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
-<span class="linenos">396</span>            <span class="bp">self</span><span class="o">.</span><span class="n">_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="linenos">397</span>
-<span class="linenos">398</span>
-<span class="linenos">399</span>    <span class="c1"># -----------------------------------------</span>
-<span class="linenos">400</span>    <span class="k">def</span> <span class="nf">go_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
-<span class="linenos">401</span>        
-<span class="linenos">402</span>        
-<span class="linenos">403</span>        <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">404</span>            <span class="n">address</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">405</span>
-<span class="linenos">406</span>        <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="linenos">407</span>            <span class="n">address</span> <span class="o">=</span> <span class="mh">0x40</span>
-<span class="linenos">408</span>
-<span class="linenos">409</span>        <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<span class="linenos">410</span>            <span class="n">address</span> <span class="o">=</span> <span class="mh">0x14</span>
-<span class="linenos">411</span>
-<span class="linenos">412</span>        <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<span class="linenos">413</span>            <span class="n">address</span> <span class="o">=</span> <span class="mh">0x54</span>
-<span class="linenos">414</span>
-<span class="linenos">415</span>        <span class="n">address</span> <span class="o">=</span> <span class="n">address</span> <span class="o">+</span> <span class="n">column</span>
-<span class="linenos">416</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x80</span> <span class="o">|</span> <span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos">417</span>
-<span class="linenos">418</span> 
-<span class="linenos">419</span><span class="c1"># -----------------------------------------</span>
-<span class="linenos">420</span><span class="c1">#              END OF FILE</span>
-<span class="linenos">421</span><span class="c1"># -----------------------------------------</span>
-</pre></div>
-</div>
-</div></blockquote>
-</section>
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
 <section id="main-py">
-<h3>main.py<a class="headerlink" href="#main-py" title="Permalink to this headline"></a></h3>
+<h3>main.py<a class="headerlink" href="#main-py" title="Link to this heading"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -1080,13 +656,15 @@ providing power and realistic measurements to the user.</p>
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
-<dd><p>F. T. Ulaby, M. M. Maharbiz, and C. Furse, “7-12 Application Note: Power-Supply Circuits,” in Circuit analysis
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>F. T. Ulaby, M. M. Maharbiz, and C. Furse, “7-12 Application Note: Power-Supply Circuits,” in Circuit analysis
 and Design, Ann Arbor, MI: Michigan Publishing, 2018, pp. 432–437.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 

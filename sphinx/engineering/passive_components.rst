@@ -48,7 +48,7 @@ ripple based on the current required, time of the surge, and capacitance.
 .. figure:: reference/capacitor_equ.png
   :align: center
 
-  Figure 1: Decoupling capacitor equation for minimizing voltage ripple caused byt a transient current [2]_.
+  Decoupling capacitor equation for minimizing voltage ripple caused byt a transient current [2]_.
 
 Application Note: Rectification Filtering
 *******************************************
@@ -66,7 +66,7 @@ Application Note: Rectification Filtering
     .. figure:: reference/rectifier_and_filter.png
       :align: center
 
-      Figure 1:Filtered output of a full bridge rectifier [1]_.
+      Filtered output of a full bridge rectifier [1]_.
 
 
 
@@ -89,7 +89,7 @@ Time Domain RC circuit
 .. figure:: reference/rc_charging_circuit.png
   :align: center
 
-  Figure 1: RC Charging and Discharging Circuit [3]_.
+  RC Charging and Discharging Circuit [3]_.
 
 Given an RC circuit, a time constant will be created as the product of the resistance and capacitance.
 
@@ -102,12 +102,12 @@ case of charging, the output is equal to the final voltage times the inverse of 
 .. figure:: reference/rc_discharging.png
   :align: center
 
-  Figure 1: Voltage over time of circuit discharging. [3]_.
+  Voltage over time of circuit discharging. [3]_.
 
 .. figure:: reference/rc_charging.png
   :align: center
 
-  Figure 1: Voltage over time of circuit charging. [3]_.
+  Voltage over time of circuit charging. [3]_.
 
 
 ******************
@@ -131,7 +131,7 @@ Transformers
 .. figure:: reference/transformer.png
   :align: center
 
-  Figure 1: Ideal transformer model and equations. [1]_.
+  Ideal transformer model and equations. [1]_.
 
 
 A transformer consists of two coupled inductors, often called primary and secondary windings. While both windings
@@ -150,7 +150,8 @@ transformers are often used to step down voltages from a household 120AC outlet 
 .. [2] M. I. Montrose, “Chapter 3: Bypassing and Decoupling,” in Printed circuit board design techniques for
     EMC Compliance: A handbook for designers, Wiley IEEE Press Imprint, 2000, p. 70.
 
-.. [3] P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York: Cambridge University Press, 2022.
+.. [3]  P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics, New York:
+        Cambridge University Press, 2022.
 
 .. [4] “What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
     [Online]. Available: https://www.electronicshub.org/bypass-capacitor-tutorial/. [Accessed:

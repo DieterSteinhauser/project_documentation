@@ -35,7 +35,7 @@ plates, changing the capacitance and therefore the voltage across the capacitor.
 .. figure:: fet_mic_images/image001.png
   :align: center
 
-  Figure 1: Capacitor physics equations.
+  Capacitor physics equations.
 
 Electret diaphragms can be a thin metal, or mylar covered with a metal coating. A gold coating is often found in
 high-end equipment due to its corrosion resistivity. The TSB-2555 capsule has a Nickel coating and is adequate for
@@ -50,7 +50,7 @@ can range from values from 12V to 48V.
 .. figure:: fet_mic_images/image002.png
   :align: center
 
-  Figure 2: Electret Capsule anatomy and wiring diagram.
+  Electret Capsule anatomy and wiring diagram.
 
 Unlike most electret capsules, the TSB-2555 Electret capsule does not have an internal JFET, similar to the one
 seen on the right-hand side of figure 2. Therefore, we must include this component in our circuitry to develop a signal.
@@ -66,12 +66,12 @@ there is a link to the disassembly and testing of the TSB-2555 in the appendix.
 .. figure:: fet_mic_images/image003.png
   :align: center
 
-  Figure 3: Input section of the circuit. Electret Capsule JFET wiring diagram.
+  Input section of the circuit. Electret Capsule JFET wiring diagram.
 
 .. figure:: fet_mic_images/image004.png
   :align: center
 
-  Figure 4: Time constant and cutoff frequency equation.
+  Time constant and cutoff frequency equation.
 
 The 1M potentiometer that is connected to the 1Gigaohm resistor applies tuning this filter by adding resistance in
 series to the development of the signal.Identical load resistors are applied to the source and drain of the FET,
@@ -82,7 +82,7 @@ to this. Signals are then sent to the BJT’s through coupling and smoothing cap
 .. figure:: fet_mic_images/image005.png
   :align: center
 
-  Figure 5: Microphone input stage. A focus on the identical 2.4k load resistors and AC coupling/smoothing capacitors.
+  Microphone input stage. A focus on the identical 2.4k load resistors and AC coupling/smoothing capacitors.
 
 Output and Signal Transmission
 --------------------------------
@@ -94,7 +94,7 @@ to the Pre-amp or audio interface. As expected with a BJT, there is about a 0.7V
 .. figure:: fet_mic_images/image006.png
   :align: center
 
-  Figure 6: Microphone output stage. A focus on the lowpass filters and the Bipolar BJT’s setup in an emitter follower configuration.
+  Microphone output stage. A focus on the lowpass filters and the Bipolar BJT’s setup in an emitter follower configuration.
 
 Power
 ------------------
@@ -111,7 +111,7 @@ limiting noise on the DC voltage.
 .. figure:: fet_mic_images/image007.png
   :align: center
 
-  Figure 7: Microphone power stage. A focus on the Zener regulator and RC filters.
+  Microphone power stage. A focus on the Zener regulator and RC filters.
 
 
 ******************
@@ -146,7 +146,7 @@ After this, unscrew the existing board and set the chassis aside.
 .. figure:: fet_mic_images/XLR_female.png
   :align: center
 
-  Figure 9: Female XLR jack connections.
+  Female XLR jack connections.
 
 PCB Soldering
 ------------------
@@ -157,7 +157,7 @@ any order.
 .. figure:: fet_mic_images/image011.png
   :align: center
 
-  Figure 11: Microphone Schematic and component table for creation of a Printed Circuit Board.
+  Microphone Schematic and component table for creation of a Printed Circuit Board.
 
 ******************
 Results

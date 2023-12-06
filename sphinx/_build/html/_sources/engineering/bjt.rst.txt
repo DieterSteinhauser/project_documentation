@@ -15,7 +15,7 @@ Voltage Reference - VBE Multiplier
 .. figure:: reference/vbe_multiplier.png
   :align: center
 
-  Figure 1: Rubber Diode VBE multiplier.
+  Rubber Diode VBE multiplier.
 
 For a simple reference voltage, a VBE multiplier (or rubber diode) can be implemented to regulate the output voltage
 to a consistent level for voltage reference. A Zener regulator or negative linear regulator could also be implemented.

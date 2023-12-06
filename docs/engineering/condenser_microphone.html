@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Condenser Microphone Workshop &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -87,9 +92,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="engineering_projects.html">Engineering Projects</a> &raquo;</li>
-      <li>Condenser Microphone Workshop</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_projects.html">Engineering Projects</a></li>
+      <li class="breadcrumb-item active">Condenser Microphone Workshop</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/condenser_microphone.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -100,15 +105,15 @@
            <div itemprop="articleBody">
              
   <section id="condenser-microphone-workshop">
-<h1>Condenser Microphone Workshop<a class="headerlink" href="#condenser-microphone-workshop" title="Permalink to this headline"></a></h1>
+<h1>Condenser Microphone Workshop<a class="headerlink" href="#condenser-microphone-workshop" title="Link to this heading"></a></h1>
 <figure class="align-center" id="id1">
 <img alt="../_images/image021.png" src="../_images/image021.png" />
 <figcaption>
-<p><span class="caption-text">Finished Microphone.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Finished Microphone.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="introduction-and-objectives">
-<h2>Introduction and Objectives<a class="headerlink" href="#introduction-and-objectives" title="Permalink to this headline"></a></h2>
+<h2>Introduction and Objectives<a class="headerlink" href="#introduction-and-objectives" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>The purpose of this project is to</dt><dd><ol class="arabic simple">
 <li><p>explain electronic circuit concepts relating to FET’s and BJT’s</p></li>
@@ -122,9 +127,9 @@
 internals of a donor microphone, Soldering circuit components to the microphone, testing, and tuning.</p>
 </section>
 <section id="design-theory">
-<h2>Design Theory<a class="headerlink" href="#design-theory" title="Permalink to this headline"></a></h2>
+<h2>Design Theory<a class="headerlink" href="#design-theory" title="Link to this heading"></a></h2>
 <section id="microphone-capsule-and-jfet">
-<h3>Microphone Capsule and JFET<a class="headerlink" href="#microphone-capsule-and-jfet" title="Permalink to this headline"></a></h3>
+<h3>Microphone Capsule and JFET<a class="headerlink" href="#microphone-capsule-and-jfet" title="Link to this heading"></a></h3>
 <p>A condenser microphone operates with a device called an electret capsule. Electrets act very similar to a capacitor,
 giving condenser microphones the alternate name of capacitor microphones. Capsules have a fixed backplate side and a
 diaphragm side that can vibrate due to sound waves. This vibration causes a difference in the distance between the
@@ -132,7 +137,7 @@ plates, changing the capacitance and therefore the voltage across the capacitor.
 <figure class="align-center" id="id2">
 <img alt="../_images/image001.png" src="../_images/image001.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Capacitor physics equations.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Capacitor physics equations.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Electret diaphragms can be a thin metal, or mylar covered with a metal coating. A gold coating is often found in
@@ -147,7 +152,7 @@ can range from values from 12V to 48V.</p>
 <figure class="align-center" id="id3">
 <img alt="../_images/image002.png" src="../_images/image002.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2: Electret Capsule anatomy and wiring diagram.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Electret Capsule anatomy and wiring diagram.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Unlike most electret capsules, the TSB-2555 Electret capsule does not have an internal JFET, similar to the one
@@ -163,13 +168,13 @@ there is a link to the disassembly and testing of the TSB-2555 in the appendix.<
 <figure class="align-center" id="id4">
 <img alt="../_images/image003.png" src="../_images/image003.png" />
 <figcaption>
-<p><span class="caption-text">Figure 3: Input section of the circuit. Electret Capsule JFET wiring diagram.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Input section of the circuit. Electret Capsule JFET wiring diagram.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id5">
 <img alt="../_images/image0041.png" src="../_images/image0041.png" />
 <figcaption>
-<p><span class="caption-text">Figure 4: Time constant and cutoff frequency equation.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Time constant and cutoff frequency equation.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The 1M potentiometer that is connected to the 1Gigaohm resistor applies tuning this filter by adding resistance in
@@ -180,24 +185,24 @@ to this. Signals are then sent to the BJT’s through coupling and smoothing cap
 <figure class="align-center" id="id6">
 <img alt="../_images/image0051.png" src="../_images/image0051.png" />
 <figcaption>
-<p><span class="caption-text">Figure 5: Microphone input stage. A focus on the identical 2.4k load resistors and AC coupling/smoothing capacitors.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Microphone input stage. A focus on the identical 2.4k load resistors and AC coupling/smoothing capacitors.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="output-and-signal-transmission">
-<h3>Output and Signal Transmission<a class="headerlink" href="#output-and-signal-transmission" title="Permalink to this headline"></a></h3>
+<h3>Output and Signal Transmission<a class="headerlink" href="#output-and-signal-transmission" title="Link to this heading"></a></h3>
 <p>The output stage is composed of passive lowpass filters on the XLR signal wires.Two PNP BJT’s compose emitter
 followers for buffered outputs to the XLR connector. These BJT’s provide low output impedance for transmission
 to the Pre-amp or audio interface. As expected with a BJT, there is about a 0.7V DC drop across the base and emitter.</p>
 <figure class="align-center" id="id7">
 <img alt="../_images/image0061.png" src="../_images/image0061.png" />
 <figcaption>
-<p><span class="caption-text">Figure 6: Microphone output stage. A focus on the lowpass filters and the Bipolar BJT’s setup in an emitter follower configuration.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Microphone output stage. A focus on the lowpass filters and the Bipolar BJT’s setup in an emitter follower configuration.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="power">
-<h3>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h3>
+<h3>Power<a class="headerlink" href="#power" title="Link to this heading"></a></h3>
 <p>The power stage of the circuit takes the phantom power potential of the XLR. XLR transmits balanced analog signals
 in a differential mode. This means that the signals pins XLR 2 and 3 are equal and opposite waves, with a DC offset
 equal to the Phantom power voltage. Equal 100k resistors then act as a voltage averaging mechanism to isolate the DC
@@ -209,15 +214,15 @@ limiting noise on the DC voltage.</p>
 <figure class="align-center" id="id8">
 <img alt="../_images/image007.png" src="../_images/image007.png" />
 <figcaption>
-<p><span class="caption-text">Figure 7: Microphone power stage. A focus on the Zener regulator and RC filters.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Microphone power stage. A focus on the Zener regulator and RC filters.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="assembly">
-<h2>Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline"></a></h2>
+<h2>Assembly<a class="headerlink" href="#assembly" title="Link to this heading"></a></h2>
 <section id="capsule-swap">
-<h3>Capsule Swap<a class="headerlink" href="#capsule-swap" title="Permalink to this headline"></a></h3>
+<h3>Capsule Swap<a class="headerlink" href="#capsule-swap" title="Link to this heading"></a></h3>
 <p>Start disassembly by unscrewing the microphone bottom to reveal the internal components.
 Remove the two screws that connect the capsule wire shield to the chassis to reveal the electret capsule.
 Unsolder the connecting wire of the existing capsule. After, unscrew the capsule holder to remove the capsule from the
@@ -232,7 +237,7 @@ Resolder the existing capsule wires to the new electret capsule, with the signal
 tab of the capsule and the ground wire going to the edge of the capsule.</p>
 </section>
 <section id="pcb-swap">
-<h3>PCB Swap<a class="headerlink" href="#pcb-swap" title="Permalink to this headline"></a></h3>
+<h3>PCB Swap<a class="headerlink" href="#pcb-swap" title="Link to this heading"></a></h3>
 <p>Unsolder the wire ends that are attached to the existing board. Start with the capsule wires,
 then work your way down to the XLR wires. Some boards label the XLR wire ends, others do not,
 so to best connect your XLR jack to the new board, compare the XLR connections to the figures below
@@ -241,47 +246,47 @@ After this, unscrew the existing board and set the chassis aside.</p>
 <figure class="align-center" id="id9">
 <img alt="../_images/XLR_female.png" src="../_images/XLR_female.png" />
 <figcaption>
-<p><span class="caption-text">Figure 9: Female XLR jack connections.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Female XLR jack connections.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="pcb-soldering">
-<h3>PCB Soldering<a class="headerlink" href="#pcb-soldering" title="Permalink to this headline"></a></h3>
+<h3>PCB Soldering<a class="headerlink" href="#pcb-soldering" title="Link to this heading"></a></h3>
 <p>Solder the new components to the PCB. I recommend Soldering All Passive components first but it could be done in
 any order.</p>
 <figure class="align-center" id="id10">
 <img alt="../_images/image011.png" src="../_images/image011.png" />
 <figcaption>
-<p><span class="caption-text">Figure 11: Microphone Schematic and component table for creation of a Printed Circuit Board.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Microphone Schematic and component table for creation of a Printed Circuit Board.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline"></a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id11">
 <img alt="../_images/image023.jpg" src="../_images/image023.jpg" />
 <figcaption>
-<p><span class="caption-text">Finished Microphone.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Finished Microphone.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id12">
 <img alt="../_images/image022.jpg" src="../_images/image022.jpg" />
 <figcaption>
-<p><span class="caption-text">Reverse side of the Finished Microphone.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Reverse side of the Finished Microphone.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline"></a></h2>
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
 <section id="parts-list">
-<h3>Parts List<a class="headerlink" href="#parts-list" title="Permalink to this headline"></a></h3>
+<h3>Parts List<a class="headerlink" href="#parts-list" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://www.mouser.com/ProjectManager/ProjectDetail.aspx?State=EDIT&amp;ProjectGUID=f74b44ec-a300-4a63-ad8d-b5751556b5cd">Mouser active and passive parts</a></p>
 <p><a class="reference external" href="https://www.amazon.com/ZINGYOU-Condenser-Microphone-Cardioid-Recording/dp/B075MX6SGX/ref=sr_1_13?crid=1U0EWKZ1UK6IE&amp;dchild=1&amp;keywords=bm+800+microphone&amp;qid=1635268936&amp;sprefix=bm800%2Caps%2C83&amp;sr=8-13">Base microphone for shell ~$15-30 (search for BM800 on Amazon)</a></p>
 <p><a class="reference external" href="https://www.jlielectronics.com/microphone-capsules/jli-2555bxz3-gp/">TSB-2555B electret capsule $13 plus shipping</a></p>
 </section>
 <section id="audio-interface-recommendations">
-<h3>Audio Interface Recommendations<a class="headerlink" href="#audio-interface-recommendations" title="Permalink to this headline"></a></h3>
+<h3>Audio Interface Recommendations<a class="headerlink" href="#audio-interface-recommendations" title="Link to this heading"></a></h3>
 <blockquote>
 <div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -295,7 +300,7 @@ You will need a Female to Male XLR cable as well.</p>
 <p><a class="reference external" href="https://www.sweetwater.com/store/detail/SSL2Plus--solid-state-logic-ssl2-usb-audio-interface">SSL2</a></p>
 </section>
 <section id="reference-material">
-<h3>Reference Material<a class="headerlink" href="#reference-material" title="Permalink to this headline"></a></h3>
+<h3>Reference Material<a class="headerlink" href="#reference-material" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://mynewmicrophone.com/what-is-a-condenser-microphone-detailed-answer-examples/">What is a condenser microphone?</a></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Microphone">Microphone wikipedia page</a></p>
 <p><a class="reference external" href="http://www.audioimprov.com/AudioImprov/Mics/Entries/2015/4/23_Basic_FET_Microphone_Circuits.html">Basic FET microphone circuits</a></p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Engineering Reference and Theory &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -60,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
 </ul>
 </li>
@@ -78,8 +84,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Engineering Reference and Theory</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Engineering Reference and Theory</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/engineering_reference.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,7 +96,7 @@
            <div itemprop="articleBody">
              
   <section id="engineering-reference-and-theory">
-<h1>Engineering Reference and Theory<a class="headerlink" href="#engineering-reference-and-theory" title="Permalink to this headline"></a></h1>
+<h1>Engineering Reference and Theory<a class="headerlink" href="#engineering-reference-and-theory" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Analog Engineering:</span></p>
 <ul>
@@ -202,6 +208,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="communication_protocols.html#spi-serial-peripheral-interface">SPI - Serial Peripheral Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html#i2c-inter-integrated-circuit">I2C - Inter-Integrated Circuit</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a><ul>
@@ -213,7 +220,42 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD"><code class="docutils literal notranslate"><span class="pre">LCD</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.CMD_MODE"><code class="docutils literal notranslate"><span class="pre">LCD.CMD_MODE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.DATA_MODE"><code class="docutils literal notranslate"><span class="pre">LCD.DATA_MODE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.blink"><code class="docutils literal notranslate"><span class="pre">LCD.blink()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.clear"><code class="docutils literal notranslate"><span class="pre">LCD.clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.cursor_off"><code class="docutils literal notranslate"><span class="pre">LCD.cursor_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.cursor_on"><code class="docutils literal notranslate"><span class="pre">LCD.cursor_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.go_to"><code class="docutils literal notranslate"><span class="pre">LCD.go_to()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.home"><code class="docutils literal notranslate"><span class="pre">LCD.home()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.init"><code class="docutils literal notranslate"><span class="pre">LCD.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.print"><code class="docutils literal notranslate"><span class="pre">LCD.print()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.strobe"><code class="docutils literal notranslate"><span class="pre">LCD.strobe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lcd_16x2.html#src.pico_devboard.LCD.LCD.write"><code class="docutils literal notranslate"><span class="pre">LCD.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871"><code class="docutils literal notranslate"><span class="pre">DRV8871</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.HIGH"><code class="docutils literal notranslate"><span class="pre">DRV8871.HIGH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.LOW"><code class="docutils literal notranslate"><span class="pre">DRV8871.LOW</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.MAX_PWM_FREQ"><code class="docutils literal notranslate"><span class="pre">DRV8871.MAX_PWM_FREQ</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.backward"><code class="docutils literal notranslate"><span class="pre">DRV8871.backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.brake"><code class="docutils literal notranslate"><span class="pre">DRV8871.brake()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.coast"><code class="docutils literal notranslate"><span class="pre">DRV8871.coast()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.forward"><code class="docutils literal notranslate"><span class="pre">DRV8871.forward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.full_backward"><code class="docutils literal notranslate"><span class="pre">DRV8871.full_backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.full_forward"><code class="docutils literal notranslate"><span class="pre">DRV8871.full_forward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="drv8871_h_bridge.html#src.pico_power_management.DRV8871.DRV8871.status"><code class="docutils literal notranslate"><span class="pre">DRV8871.status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html#code">Code</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
 </ul>
 </div>

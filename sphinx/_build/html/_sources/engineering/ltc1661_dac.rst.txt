@@ -9,7 +9,7 @@ rising edge of the clock.  The maximum baud rate of the LTC1661 is 10MHz [2]_.
 .. figure:: theremin_images/image008.png
   :align: center
 
-  Figure 1: Timing Diagram of LTC1661 SPI communication [2]_
+  Timing Diagram of LTC1661 SPI communication [2]_
 
 Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
@@ -19,7 +19,7 @@ would be applicable for continuously changing voltage on output A and B respecti
 .. figure:: theremin_images/image009.png
   :align: center
 
-  Figure 2: SPI communication Sequence for the LTC1661 [2]_.
+  SPI communication Sequence for the LTC1661 [2]_.
 
 In our program, we must parse the data for every transmission so that a word packet sent will
 have the format seen in figure 2. The LTC1661 sends the command, then splits the data bits

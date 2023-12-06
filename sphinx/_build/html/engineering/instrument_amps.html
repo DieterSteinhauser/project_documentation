@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instrumentation Amplifiers &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -68,6 +73,7 @@
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
 </ul>
 </li>
@@ -86,9 +92,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
-      <li>Instrumentation Amplifiers</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
+      <li class="breadcrumb-item active">Instrumentation Amplifiers</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/instrument_amps.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -99,13 +105,13 @@
            <div itemprop="articleBody">
              
   <section id="instrumentation-amplifiers">
-<h1>Instrumentation Amplifiers<a class="headerlink" href="#instrumentation-amplifiers" title="Permalink to this headline"></a></h1>
+<h1>Instrumentation Amplifiers<a class="headerlink" href="#instrumentation-amplifiers" title="Link to this heading"></a></h1>
 <section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<h2>Theory<a class="headerlink" href="#theory" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id9">
 <img alt="../_images/instrumentation_amp.png" src="../_images/instrumentation_amp.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: The classic instrumentation amplifier circuit <a class="footnote-reference brackets" href="#id7" id="id1">2</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">The classic instrumentation amplifier circuit <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Instrumentation Amplifiers (INA) are an improvement on the differential amplifier for applications needing high input
@@ -116,13 +122,13 @@ of the system is 1. High CMRR and low noise is only available when a large gain 
 noise ratio of the input stage and diminishes reliance on U3 for common mode rejection.</p>
 </section>
 <section id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
 <section id="current-sensing">
-<h3>Current Sensing<a class="headerlink" href="#current-sensing" title="Permalink to this headline"></a></h3>
+<h3>Current Sensing<a class="headerlink" href="#current-sensing" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id10">
 <img alt="../_images/ina_low_current_sense.png" src="../_images/ina_low_current_sense.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Low-side current sensing with Instrumentation amplifier and equation <a class="footnote-reference brackets" href="#id8" id="id2">3</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Low-side current sensing with Instrumentation amplifier and equation <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Instrumentation amplifiers are prime candidates for current sensing devices for their low noise, high impedance,
@@ -134,7 +140,7 @@ small currents to be measured [1].</p>
 <figure class="align-center" id="id11">
 <img alt="../_images/high_side_sensing.png" src="../_images/high_side_sensing.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: High-side current sensing with a differential amplifier <a class="footnote-reference brackets" href="#id8" id="id3">3</a>.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">High-side current sensing with a differential amplifier <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Generally, a sense resistor is connected between the load and ground for low-side sensing, or between the supply
@@ -146,11 +152,11 @@ side no longer disconnects ground and allows for short circuit detection. Howeve
 at higher potentials and can have a significant voltage swing depending on the load and source voltage.</p>
 </section>
 <section id="further-applications">
-<h3>Further applications<a class="headerlink" href="#further-applications" title="Permalink to this headline"></a></h3>
+<h3>Further applications<a class="headerlink" href="#further-applications" title="Link to this heading"></a></h3>
 <figure class="align-center" id="id12">
 <img alt="../_images/inst_apps_1.png" src="../_images/inst_apps_1.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Applications of the INA128 Instrumentation Amplifier <a class="footnote-reference brackets" href="#id6" id="id4">1</a>.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Applications of the INA128 Instrumentation Amplifier <a class="footnote-reference brackets" href="#id6" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Instrumentation amplifiers are fantastic devices for applications requiring observation of a signal without
@@ -161,25 +167,30 @@ applications that utilize the benefits of instrumentation amplifiers.</p>
 <figure class="align-center" id="id13">
 <img alt="../_images/inst_apps_2.png" src="../_images/inst_apps_2.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: More Instrumentation amplifier circuits <a class="footnote-reference brackets" href="#id6" id="id5">1</a>.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">More Instrumentation amplifier circuits <a class="footnote-reference brackets" href="#id6" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p><strong>References</strong></p>
-<dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets">1</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id5">2</a>)</span></dt>
-<dd><p>“INA128 Datasheet,” Analog | Embedded Processing | Semiconductor Company | ti.com. [Online]. Available:
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id6" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
+<p>“INA128 Datasheet,” Analog | Embedded Processing | Semiconductor Company | ti.com. [Online]. Available:
 <a class="reference external" href="https://www.ti.com/lit/ds/symlink/ina128.pdf">https://www.ti.com/lit/ds/symlink/ina128.pdf</a>. [Accessed: 13-Mar-2023].</p>
-</dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
-<dd><p>P. Horowitz and W. Hill, “Chapter 5: Precision Circuits,” in The Art of Electronics, New York: Cambridge
+</aside>
+<aside class="footnote brackets" id="id7" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<p>P. Horowitz and W. Hill, “Chapter 5: Precision Circuits,” in The Art of Electronics, New York: Cambridge
 University Press, 2022.</p>
-</dd>
-<dt class="label" id="id8"><span class="brackets">3</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
-<dd><p>“Current Sensing with  Different Types of  Amplifiers,” Current sense amplifiers | TI.com, 05-Jun-2020.
+</aside>
+<aside class="footnote brackets" id="id8" role="note">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>“Current Sensing with  Different Types of  Amplifiers,” Current sense amplifiers | TI.com, 05-Jun-2020.
 [Online]. Available: <a class="reference external" href="https://www.ti.com/video/series/ti-precision-labs-current-sense-amplifiers.html">https://www.ti.com/video/series/ti-precision-labs-current-sense-amplifiers.html</a>.
 [Accessed: 14-Mar-2023].</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 </section>

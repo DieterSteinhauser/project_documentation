@@ -19,7 +19,7 @@ also has a timer with four alarms, a Real-Time-Counter (RTC), and sixteen Pulse-
 .. figure:: theremin_images/image001.png
   :align: center
 
-  Figure 1: Raspberry Pico Pinout [1]_.
+  Raspberry Pico Pinout [1]_.
 
 ***********************************
 ADC Configuration
@@ -67,7 +67,7 @@ problems with other systems like the ADC [1]_, [2]_.
 .. figure:: theremin_images/figure18.png
   :align: center
 
-  Figure 2: Pico Power-chain and the implemented method of external supply [1]_.
+  Pico Power-chain and the implemented method of external supply [1]_.
 
 ***********************************
 Changing Clock Speeds

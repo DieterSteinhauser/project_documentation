@@ -15,7 +15,7 @@ gain and infinite Gain Bandwidth (GBW).
 .. figure:: theremin_images/figure10.png
   :align: center
 
-  Figure 1: Anatomy of an Op-Amp and Ideal Op-Amp Equations [1]_.
+  Anatomy of an Op-Amp and Ideal Op-Amp Equations [1]_.
 
 Using an infinite open-loop gain is limiting, as the output voltage signal would become
 saturated immediately. This could be useful in a comparator circuit. However, for most purposes
@@ -27,12 +27,12 @@ the negative feedback loop.
 .. figure:: theremin_images/figure11.png
   :align: center
 
-  Figure 2: Inverting Op-Amp configuration and voltage gain equation [1]_.
+  Inverting Op-Amp configuration and voltage gain equation [1]_.
 
 .. figure:: theremin_images/figure12.png
   :align: center
 
-  Figure 3: Non-inverting Op-Amp configuration and voltage gain equation [1]_.
+  Non-inverting Op-Amp configuration and voltage gain equation [1]_.
 
 
 ***********************
@@ -50,12 +50,12 @@ much wider bandwidth.
 .. figure:: theremin_images/image021.png
   :align: center
 
-  Figure 4: LM741 Frequency response in open and closed loop configurations [3]_.
+  LM741 Frequency response in open and closed loop configurations [3]_.
 
 .. figure:: theremin_images/image022.png
   :align: center
 
-  Figure 5: Gain Bandwidth formula [3]_.
+  Gain Bandwidth formula [3]_.
 
 Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
 Output voltage can become saturated due to voltage gain exceeding the supply rails. Current
@@ -68,6 +68,19 @@ require a faster rate than the IC can permit.
 Applications
 ******************
 
+.. figure:: reference/difference_amplifier_matched.png
+  :align: center
+
+  Figure 9: Simple difference amplifier with matched resistors [4]_
+
+Difference Amplifiers are simple way to find the difference between two voltages, also known as a voltage subtractor.
+An output voltage is created that is proportional to the difference between two voltages. If all resistors are the
+same value, then the circuit is considered a unity gain differential amplifier and the output voltage is equal to
+the difference between the input voltages. An important note of this circuit is that the output can be positive or
+negative with respect to the reference or ground. Depending on the circuit, a dual supply may be needed, or the
+reference point may need to be offset. Either of these approaches could be used to capture negative values of the
+voltage difference observed.
+
 **References**
 
 .. [1] A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
@@ -79,3 +92,7 @@ Applications
 
 .. [3] I. Poole, “OP AMP frequency response & gain bandwidth product,” Electronics Notes, 30-
     Nov-2021. [Online]. Available: https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php. [Accessed: 31-Oct-2022].
+
+.. [4] P. Horowitz and W. Hill, "The Art of Electronics." Cambridge University Press, 2022.
+
+

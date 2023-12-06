@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nextcloud Personal Cloud Storage &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -88,9 +93,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="rpi_projects.html">Raspberry Pi Projects</a> &raquo;</li>
-      <li>Nextcloud Personal Cloud Storage</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="rpi_projects.html">Raspberry Pi Projects</a></li>
+      <li class="breadcrumb-item active">Nextcloud Personal Cloud Storage</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/rpi/nextcloud.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,11 +106,11 @@
            <div itemprop="articleBody">
              
   <section id="nextcloud-personal-cloud-storage">
-<h1>Nextcloud Personal Cloud Storage<a class="headerlink" href="#nextcloud-personal-cloud-storage" title="Permalink to this headline"></a></h1>
+<h1>Nextcloud Personal Cloud Storage<a class="headerlink" href="#nextcloud-personal-cloud-storage" title="Link to this heading"></a></h1>
 <section id="preface">
-<h2>Preface<a class="headerlink" href="#preface" title="Permalink to this headline"></a></h2>
+<h2>Preface<a class="headerlink" href="#preface" title="Link to this heading"></a></h2>
 <section id="setup-materials">
-<h3>Setup Materials<a class="headerlink" href="#setup-materials" title="Permalink to this headline"></a></h3>
+<h3>Setup Materials<a class="headerlink" href="#setup-materials" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Raspberry Pi 4 8GB</p></li>
 <li><p>WD Passport 2TB</p></li>
@@ -116,7 +121,7 @@
 </ul>
 </section>
 <section id="imager-software">
-<h3>Imager Software<a class="headerlink" href="#imager-software" title="Permalink to this headline"></a></h3>
+<h3>Imager Software<a class="headerlink" href="#imager-software" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Raspberry Pi Imager 1.4 (older version for compatibility)</p></li>
 <li><p>Raspberry Pi Imager 1.7 (newest at time of writing, has bootloader images)</p></li>
@@ -124,7 +129,7 @@
 </ul>
 </section>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline"></a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
 <p>A straightforward setup would be a large microSD card or an USB mass storage device.
 If you choose to use mass storage, you will need to get the USB bootloader from the official
 Raspberry Pi Imager. After imaging a SD card with the bootloader, entering it into the pi and powering
@@ -155,7 +160,7 @@ using piVPN and piHole for secure network access.</p>
 </div>
 </section>
 <section id="useful-links">
-<h3>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline"></a></h3>
+<h3>Useful Links<a class="headerlink" href="#useful-links" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.nextcloud.com/">Nextcloud Docs</a></p></li>
 <li><p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-nextcloud-server/">Manual Install Help</a></p></li>
@@ -167,13 +172,13 @@ using piVPN and piHole for secure network access.</p>
 </section>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>you can install all of this while using the raspberry pi as your desktop,
 however I recommend using an app like PuTTy to secure shell (SSH) into the pi.
 This allows you to remote into the pi from another computer on the network using the
 Pi’s Local IP address.</p>
 <section id="pi-first-time-setup">
-<h3>Pi First time Setup<a class="headerlink" href="#pi-first-time-setup" title="Permalink to this headline"></a></h3>
+<h3>Pi First time Setup<a class="headerlink" href="#pi-first-time-setup" title="Link to this heading"></a></h3>
 <p>Turn on and follow the prompts. Connect the pi to over ethernet if possible,
 otherwise connect to wifi. skip updates and go to the terminal.</p>
 <p>Update the Raspberry Pi.</p>
@@ -218,15 +223,12 @@ dependent on your Router but look for DCHP settings or Static IP.</p>
 </div>
 </section>
 <section id="installing-packages">
-<h3>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline"></a></h3>
+<h3>Installing Packages<a class="headerlink" href="#installing-packages" title="Link to this heading"></a></h3>
 <p>Install apache, once installed if you go to the pi’s IP you will see the default apache webpage.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install apache2 mariadb-server libapache2-mod-php</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Easy and Compatible Method</strong></p></td>
 </tr>
@@ -257,16 +259,13 @@ dependent on your Router but look for DCHP settings or Static IP.</p>
 </div>
 </section>
 <section id="nextcloud-installation">
-<h3>Nextcloud installation<a class="headerlink" href="#nextcloud-installation" title="Permalink to this headline"></a></h3>
+<h3>Nextcloud installation<a class="headerlink" href="#nextcloud-installation" title="Link to this heading"></a></h3>
 <p>go to the html directory apache webfolder and install the latest version of nextcloud.
 note, this puts the nextcloud web software in html, directory needs to be refernenced later.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /var/www/html</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Easy and Compatible Method</strong></p></td>
 </tr>
@@ -290,7 +289,7 @@ note, this puts the nextcloud web software in html, directory needs to be refern
 </table>
 </section>
 <section id="nextcloud-permissions">
-<h3>Nextcloud Permissions<a class="headerlink" href="#nextcloud-permissions" title="Permalink to this headline"></a></h3>
+<h3>Nextcloud Permissions<a class="headerlink" href="#nextcloud-permissions" title="Link to this heading"></a></h3>
 <p>Create a data directory for nextcloud to operate in, this is where all cloud data is stored.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mkdir -p /var/www/nextcloud/data</span>
 </pre></div>
@@ -305,7 +304,7 @@ note, this puts the nextcloud web software in html, directory needs to be refern
 </div>
 </section>
 <section id="mysql-database">
-<h3>mySQL database<a class="headerlink" href="#mysql-database" title="Permalink to this headline"></a></h3>
+<h3>mySQL database<a class="headerlink" href="#mysql-database" title="Link to this heading"></a></h3>
 <p>create a mySQL database for the data to be stored in. follow all prompts in installation.
 sudo apt install mariadb-server # done when installing apache at beginning.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mysql_secure_installation</span>
@@ -333,7 +332,7 @@ sudo apt install mariadb-server # done when installing apache at beginning.</p>
 </div>
 </section>
 <section id="have-apache-find-nextcloud">
-<h3>Have Apache find Nextcloud<a class="headerlink" href="#have-apache-find-nextcloud" title="Permalink to this headline"></a></h3>
+<h3>Have Apache find Nextcloud<a class="headerlink" href="#have-apache-find-nextcloud" title="Link to this heading"></a></h3>
 <p>create a file with all of our changes for apache access to nextcloud.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo nano /etc/apache2/sites-avacdilable/nextcloud.conf</span>
 </pre></div>
@@ -363,7 +362,7 @@ After reloading apache, the nextcloud page should be available.</p>
 </section>
 </section>
 <section id="enter-nextcloud">
-<h2>Enter Nextcloud<a class="headerlink" href="#enter-nextcloud" title="Permalink to this headline"></a></h2>
+<h2>Enter Nextcloud<a class="headerlink" href="#enter-nextcloud" title="Link to this heading"></a></h2>
 <p>Go to <a class="reference external" href="http://IP/nextcloud">http://IP/nextcloud</a> to see service’s webpage.</p>
 <p>Create an admin account.</p>
 <p>point the data directory to the directory we made earlier. <strong>/var/www/nextcloud/data</strong> if you did not change it.</p>
@@ -371,7 +370,7 @@ After reloading apache, the nextcloud page should be available.</p>
 earlier in the mySQL section</p>
 <p>Viola!</p>
 <section id="add-external-storage">
-<h3>Add External Storage<a class="headerlink" href="#add-external-storage" title="Permalink to this headline"></a></h3>
+<h3>Add External Storage<a class="headerlink" href="#add-external-storage" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://forum.endeavouros.com/t/tutorial-how-to-permanently-mount-external-internal-drives-in-linux/18688">mounting drives</a></p>
 <p>Using the above link, mount the drive to the device. Give permissions to the storage device using the following.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo chown -R www-data:www-data /path/to/localdir</span>
@@ -390,7 +389,7 @@ for more information.</p>
 </div>
 </section>
 <section id="remove-warnings-in-nextcloud-security">
-<h3>Remove Warnings in Nextcloud Security<a class="headerlink" href="#remove-warnings-in-nextcloud-security" title="Permalink to this headline"></a></h3>
+<h3>Remove Warnings in Nextcloud Security<a class="headerlink" href="#remove-warnings-in-nextcloud-security" title="Link to this heading"></a></h3>
 <p>Change the php memory limit and output buffering.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">navigate to /etc/php/&lt;version/&gt;apache2/</span>
 <span class="go">sudo nano php.ini</span>
@@ -402,7 +401,7 @@ repeat in /etc/php/&lt;version/&gt;cli/</p>
 </section>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <p>Do you see the apache webpage on the IP?
 If not restart apache service or reinstall.</p>
 <p><strong>403 Error - Forbidden:</strong></p>

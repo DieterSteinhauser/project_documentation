@@ -10,7 +10,7 @@ Revision: 1
 .. figure:: devboard/dev_board_assembled.jpg
   :align: center
 
-  Figure 42: Raspberry Pico Development Board
+  Raspberry Pico Development Board
 
 
 

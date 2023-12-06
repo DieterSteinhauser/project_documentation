@@ -9,7 +9,7 @@ Theory
 .. figure:: reference/instrumentation_amp.png
   :align: center
 
-  Figure 1: The classic instrumentation amplifier circuit [2]_.
+  The classic instrumentation amplifier circuit [2]_.
 
 Instrumentation Amplifiers (INA) are an improvement on the differential amplifier for applications needing high input
 impedance, gain, CMRR, and low noise. They work on the principle of taking an existing differential amplifier and
@@ -28,7 +28,7 @@ Current Sensing
 .. figure:: power_supply/ina_low_current_sense.png
   :align: center
 
-  Figure 1: Low-side current sensing with Instrumentation amplifier and equation [3]_.
+  Low-side current sensing with Instrumentation amplifier and equation [3]_.
 
 Instrumentation amplifiers are prime candidates for current sensing devices for their low noise, high impedance,
 and high gain properties. Shunt current sensing requires observing a differential voltage across a known resistance
@@ -40,7 +40,7 @@ small currents to be measured [1].
 .. figure:: power_supply/high_side_sensing.png
   :align: center
 
-  Figure 1: High-side current sensing with a differential amplifier [3]_.
+  High-side current sensing with a differential amplifier [3]_.
 
 Generally, a sense resistor is connected between the load and ground for low-side sensing, or between the supply
 and load for high-side sensing. There are advantages and disadvantages to both high and low side current sensing.
@@ -58,7 +58,7 @@ Further applications
 .. figure:: reference/inst_apps_1.png
   :align: center
 
-  Figure 1: Applications of the INA128 Instrumentation Amplifier [1]_.
+  Applications of the INA128 Instrumentation Amplifier [1]_.
 
 Instrumentation amplifiers are fantastic devices for applications requiring observation of a signal without
 disturbing it. However, they are costly devices compared to a typical op-amp, and the INA circuit is hard to
@@ -69,7 +69,7 @@ applications that utilize the benefits of instrumentation amplifiers.
 .. figure:: reference/inst_apps_2.png
   :align: center
 
-  Figure 1: More Instrumentation amplifier circuits [1]_.
+  More Instrumentation amplifier circuits [1]_.
 
 
 **References**

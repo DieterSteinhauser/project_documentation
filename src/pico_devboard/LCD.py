@@ -12,7 +12,8 @@ Parallel LCD functions, Configured for 4-bit communication.
 # -----------------------------------------
 
 from machine import Pin
-import utime
+import time
+utime = time
 
 # -----------------------------------------
 #          CONSTANTS AND VARIABLES
@@ -227,7 +228,16 @@ class LCD:
     DATA_MODE = 1
 
     def __init__(self, enable_pin: int, reg_select_pin: int, data_pins: list) -> None:
-        """Object initialization"""
+        """
+        Object initialization.
+
+        :param enable_pin: integer value of the enable pin desired.
+        :type enable_pin: int
+        :param reg_select_pin: integer value of the reg_select pin desired.
+        :type reg_select_pin: int
+        :param data_pins: list of integer values for the data pins desired in communication.
+        :type data_pins: list[int]
+        """
 
         self.enable_pin = Pin(enable_pin, Pin.OUT)
         self.reg_select_pin = Pin(reg_select_pin, Pin.OUT)
@@ -291,7 +301,9 @@ class LCD:
     # -----------------------------------------
 
     def strobe(self):
-        """Flashes the enable line and provides wait period."""
+        """
+        Flashes the enable line and provides wait period.
+        """
 
         self.enable_pin.value(1)
         utime.sleep_ms(1)
@@ -302,7 +314,15 @@ class LCD:
     # -----------------------------------------
     
     def write(self, command, mode):
-        """Sends data to the LCD module. """
+        """
+        Sends data to the LCD module.
+
+        :param command: Information packet being sent to the LCD.
+        :type command: str
+        :param mode: Mode of operation for the LCD, either command mode (1) or data mode (0)
+        :type mode: int
+        :return: None
+        """
 
         # determine if writing a command or data
         data = command if mode == 0 else ord(command)
@@ -335,7 +355,11 @@ class LCD:
     # -----------------------------------------
 
     def clear(self):
-        """Clear the LCD Screen."""
+        """
+        Clears the LCD Screen.
+
+        Good to perform on occasion but produces flashing on screen when triggered consistently.
+        """
 
         self.write(0x01, 0)
         utime.sleep_ms(5)
@@ -343,7 +367,11 @@ class LCD:
     # -----------------------------------------
 
     def home(self):
-        """Return the Cursor to the starting position."""
+        """
+        Return the Cursor to the starting position.
+
+        Functionally the same as using the go_to function and specifying (0, 0) coordinates.
+        """
 
         self.write(0x02, 0)
         utime.sleep_ms(5)
@@ -352,7 +380,9 @@ class LCD:
 
 
     def blink(self):
-        """Have the cursor start blinking."""
+        """
+        Have the cursor start blinking.
+        """
 
         self.write(0x0D, 0)
         utime.sleep_ms(1)
@@ -360,7 +390,9 @@ class LCD:
     # -----------------------------------------
 
     def cursor_on(self):
-        """Have the cursor on, Good for debugging."""
+        """
+        Have the cursor on, Good for debugging.
+        """
 
         self.write(0x0E, 0)
         utime.sleep_ms(1)
@@ -368,7 +400,9 @@ class LCD:
     # -----------------------------------------
 
     def cursor_off(self):
-        """Turn the cursor off."""
+        """
+        Turn the cursor off.
+        """
 
         self.write(0x0C, 0)
         utime.sleep_ms(1)
@@ -376,7 +410,15 @@ class LCD:
     # -----------------------------------------
 
     def print(self, string):
-        """Write a string on to the LCD."""
+        """
+        Write a string on to the LCD.
+
+        Wrapper of the string function with more descriptive naming.
+
+        :param string: String desired to be written.
+        :type string: str
+
+        """
 
         for element in string:
             self._putch(element)
@@ -384,22 +426,42 @@ class LCD:
     # -----------------------------------------
 
     def _putch(self, c):
-        """Write a character on to the LCD."""
+        """
+        Write a character on to the LCD.
+
+        Protected because the method is less intuitive compared to the print.
+
+        :param c: ASCII character.
+        :type c: str
+        :return: None
+        """
         self.write(c, 1)
 
     # -----------------------------------------
 
     def _puts(self, string):
-        """Write a string on to the LCD."""
+        """
+        Write a string on to the LCD.
+
+        :param string: String desired to be written.
+        :type string: str
+        :return: None
+        """
 
         for element in string:
             self._putch(element)
 
-
     # -----------------------------------------
     def go_to(self, column, row):
-        
-        
+        """
+        Move the cursor to a specific column and row.
+
+        :param column: Column index, 0-15. May be higher on different size LCDs
+        :type column: int
+        :param row: Row index, 0-1. May be higher on different size LCDs
+        :type row: int
+        :return: None
+        """
         if row == 0:
             address = 0
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Conversion: ADC and DAC Theory &mdash; Project Documentation 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Project Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -64,6 +69,7 @@
 <li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
 </ul>
 </li>
@@ -82,9 +88,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
-      <li>Data Conversion: ADC and DAC Theory</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
+      <li class="breadcrumb-item active">Data Conversion: ADC and DAC Theory</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/data_conversion.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,19 +101,19 @@
            <div itemprop="articleBody">
              
   <section id="data-conversion-adc-and-dac-theory">
-<h1>Data Conversion: ADC and DAC Theory<a class="headerlink" href="#data-conversion-adc-and-dac-theory" title="Permalink to this headline"></a></h1>
+<h1>Data Conversion: ADC and DAC Theory<a class="headerlink" href="#data-conversion-adc-and-dac-theory" title="Link to this heading"></a></h1>
 <section id="adc-analog-to-digital-conversion">
-<h2>ADC - Analog to Digital Conversion<a class="headerlink" href="#adc-analog-to-digital-conversion" title="Permalink to this headline"></a></h2>
+<h2>ADC - Analog to Digital Conversion<a class="headerlink" href="#adc-analog-to-digital-conversion" title="Link to this heading"></a></h2>
 <p>Analog to Digital Converters are the primary method of capturing analog data using a
 microcontroller. ADC’s capture analog signals such as sound or light waveforms and convert
 them to a digital signal for processing of information. An ADC takes continuous magnitude data
-from a continuous time domain into discrete magnitude data in a discrete time domain <a class="footnote-reference brackets" href="#id3" id="id1">1</a>. The
+from a continuous time domain into discrete magnitude data in a discrete time domain <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The
 conversion quantizes the signal based on the resolution, reference voltages, and sample rate of
 the ADC, introducing small errors into the signal as noise.</p>
 <figure class="align-center" id="id5">
 <img alt="../_images/image0021.png" src="../_images/image0021.png" />
 <figcaption>
-<p><span class="caption-text">Figure 1: Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Resolution and reference voltages of an ADC produces quantization errors within the
@@ -124,7 +130,7 @@ Signal noise can significantly reduce the effective number of bits to which an A
 <figure class="align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/image0031.png"><img alt="../_images/image0031.png" src="../_images/image0031.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">Figure 2: ADC formulas.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">ADC formulas.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Sample rate of an ADC produces quantization errors within the time domain of the
@@ -134,10 +140,10 @@ filter to the ADC input, removing frequencies above half of the sampling frequen
 Oversampling is also commonly employed as it can reduce noise and improve bit-depth.</p>
 </section>
 <section id="dac-digital-to-analog-conversion">
-<h2>DAC - Digital to Analog Conversion<a class="headerlink" href="#dac-digital-to-analog-conversion" title="Permalink to this headline"></a></h2>
+<h2>DAC - Digital to Analog Conversion<a class="headerlink" href="#dac-digital-to-analog-conversion" title="Link to this heading"></a></h2>
 <p>A Digital to Analog Converter operates on much of the same principles of an ADC but in
 reverse. DAC’s take a digital code that is within the resolution range of the device and output an
-analog waveform. Uses for DAC’s are often found in creating audio and video signals <a class="footnote-reference brackets" href="#id4" id="id2">2</a>. A
+analog waveform. Uses for DAC’s are often found in creating audio and video signals <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. A
 DAC will have a singular or pair of voltage references and a bit resolution for characterizing the
 precision and range of the output waveform. An output voltage can be calculated by dividing a
 given code by the number of discrete values the DAC can produce. This is then multiplied by the
@@ -145,23 +151,25 @@ reference voltage to return the ideal output voltage.</p>
 <figure class="align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/image0071.png"><img alt="../_images/image0071.png" src="../_images/image0071.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">Figure 3: DAC formulas.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">DAC formulas.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>DAC’s have some non-idealities in the form of differential and integral non-linearity,
 which characterize the difference between two adjacent code values and the difference in the
 transfer characteristic, respectively.</p>
 <p><strong>References</strong></p>
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>“Analog-to-digital converter,” Wikipedia, 09-Oct-2022. [Online]. Available:
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>“Analog-to-digital converter,” Wikipedia, 09-Oct-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">https://en.wikipedia.org/wiki/Analog-to-digital_converter</a>. [Accessed: 19-Oct-2022].</p>
-</dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>“Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
+</aside>
+<aside class="footnote brackets" id="id4" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>“Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">https://en.wikipedia.org/wiki/Digital-to-analog_converter</a>. [Accessed: 19-Oct-2022].</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 

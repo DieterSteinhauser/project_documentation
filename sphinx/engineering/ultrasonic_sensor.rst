@@ -4,7 +4,7 @@ Ultrasonic Sensors
 .. figure:: reference/SR04.png
   :align: center
 
-  Figure 1: HC-SR04 Ultrasonic Sensor module.
+  HC-SR04 Ultrasonic Sensor module.
 
 The HC-SR04 is an Ultrasonic sensor module that uses sonar to determine distance of
 objects similar to echolocation seen in animals like bats or dolphins [1]_. It is rated for distances
@@ -22,7 +22,7 @@ can modify output sound data.
 .. figure:: theremin_images/image028.png
   :align: center
 
-  Figure 2: Ultrasonic sensor timing diagram [1]_.
+  Ultrasonic sensor timing diagram [1]_.
 
 
 .. code-block:: python

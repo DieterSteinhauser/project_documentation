@@ -14,7 +14,7 @@ implements passive and active filters in multiple filter configurations.
 .. figure:: theremin_images/image023.png
   :align: center
 
-  Figure 1: First order filter table with active and passive applications [1]_.
+  First order filter table with active and passive applications [1]_.
 
 
 
@@ -31,7 +31,7 @@ transition region between the passband and the stopband.
 .. figure:: reference/filter_response.png
   :align: center
 
-  Figure 2: Magnitude Response and Step Response of Butterworth, Bessel, and Chebyshev filters [3]_.
+  Magnitude Response and Step Response of Butterworth, Bessel, and Chebyshev filters [3]_.
 
 
 Response of the Chebyshev filter has a steeper attenuation
@@ -56,7 +56,7 @@ if gain accuracy is important, a unity-gain filter is used, and the quality fact
 .. figure:: reference/sallen_key.png
   :align: center
 
-  Figure 3: Sallen-Key Filter Configurations  [3]_.
+  Sallen-Key Filter Configurations  [3]_.
 
 
 Filter Realization: Multiple Feedback Configuration
@@ -72,7 +72,7 @@ be employed to avoid output signal inversion.
 .. figure:: reference/multiple_feedback.png
   :align: center
 
-  Figure 4: Multiple Feedback Filter Configurations [6].  [3]_.
+  Multiple Feedback Filter Configurations [6].  [3]_.
 
 **References**
 
@@ -83,7 +83,6 @@ be employed to avoid output signal inversion.
 
 .. [2] “FilterPro™ user's Guide - Ti.com,” Texas Instruments, Feb-2011. [Online]. Available:
     https://www.ti.com/lit/an/sbfa001b/sbfa001b.pdf. [Accessed: 14-Nov-2022].
-
 
 .. [3] H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
     Newnes, 2008.

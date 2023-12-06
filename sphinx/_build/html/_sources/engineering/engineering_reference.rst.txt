@@ -27,6 +27,7 @@ Engineering Reference and Theory
    raspberry_pico
    ltc1661_dac
    lcd_16x2
+   drv8871_h_bridge
    ultrasonic_sensor
 
 

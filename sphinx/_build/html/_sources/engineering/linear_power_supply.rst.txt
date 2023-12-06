@@ -8,7 +8,7 @@ Revision: 1
 .. figure:: power_supply/power_supply.jpg
   :align: center
 
-  Figure 1: Finished Linear power supply.
+  Finished Linear power supply.
 
 *******************
 Introduction
@@ -58,7 +58,7 @@ Introduction to AC/DC Linear Power Supply
 .. figure:: power_supply/supply_abstract.png
   :align: center
 
-  Figure 2: Fig 7-35 of Circuit Analysis and Design [1]_. Block diagram of a basic AC-DC linear power supply.
+  Fig 7-35 of Circuit Analysis and Design [1]_. Block diagram of a basic AC-DC linear power supply.
 
 
 An AC to DC converter can be broken up into multiple stages. An AC input usually needs transformation of the existing
@@ -73,7 +73,7 @@ using voltage regulator IC’s or Zener diodes in reverse breakdown.
 .. figure:: power_supply/simple_supply_circuit.png
   :align: center
 
-  Figure 3: Fig 7-40 of Circuit Analysis and Design [1]_.  A complete circuit of a basic power supply. This design
+  Fig 7-40 of Circuit Analysis and Design [1]_.  A complete circuit of a basic power supply. This design
   employs a Zener diode regulator.
 
 
@@ -83,7 +83,7 @@ Power Supply Circuit Design
 .. figure:: power_supply/block_diagram_drawio.png
   :align: center
 
-  Figure 4: Hardware Block Diagram of the Linear Power Supply.
+  Hardware Block Diagram of the Linear Power Supply.
 
 The circuit implements the general systems shown in the block diagram. From the AC outlet, a fuse and switch connect
 mains voltage to the device for operation. The Flat-Pak 16V transformer (FP16-3000) which can deliver 48VA of power.
@@ -95,7 +95,7 @@ providing a raw DC voltage around 21.5V to the following circuit stages.
 .. figure:: power_supply/input_stage.png
   :align: center
 
-  Figure 5: Input voltage conditioning Stage.
+  Input voltage conditioning Stage.
 
 The rectified voltage is passed into the Constant Current Constant Voltage (CCCV) stage for output conditioning.
 Both stages center around a LD1085 linear regulator IC, which has a 30V rating a can supply 3A of current. The constant
@@ -116,7 +116,7 @@ An output enable switch, reverse polarity diode, and a LED is employed for outpu
 .. figure:: power_supply/cccv_stage.png
   :align: center
 
-  Figure 5: Constant Current-Constant Voltage Stage with reverse polarity protection.
+  Constant Current-Constant Voltage Stage with reverse polarity protection.
 
 .. Warning:: There are some flaws with the constant current circuit as depicted. Decoupling capacitors on the output and
    adjust pins of the constant current regulator cause current spikes from various operations. the short circuit
@@ -139,7 +139,7 @@ applied back to the sensed ADC value in software to relay the correct output vol
 .. figure:: power_supply/monitor_stage.png
   :align: center
 
-  Figure 5: Input voltage conditioning Stage.
+  Input voltage conditioning Stage.
 
 The INA128 used for current readings has a 36V operation range and requires about 2V of offset from each rail to
 operate effectively. The device will be supplied by both the rectified voltage and a negative reference voltage.
@@ -153,7 +153,7 @@ from this rail, so a charge pump is fine for this purpose.
 .. figure:: power_supply/negative_ref.png
   :align: center
 
-  Figure 5: Negative voltage charge pump with Vbe multiplier output.
+  Negative voltage charge pump with Vbe multiplier output.
 
 Pico Setup
 ------------------------------
@@ -166,7 +166,7 @@ on the Vin and Vout. The 7805 is also tolerant to the range of voltage seen afte
 .. figure:: reference/fixed_out_app.png
   :align: center
 
-  Figure 1: Fixed Output Regulator configuration for an LM7805.
+  Fixed Output Regulator configuration for an LM7805.
 
 In addition to the 5V source, I powered the Raspberry Pico via 3.3V regulators. Two 3.3V rails were also developed
 using LT1086 regulators, also in a fixed configuration. One regulator was connected directly to the 3.3V rail,
@@ -176,7 +176,7 @@ while the other was connected to the ADC reference.
 .. figure:: theremin_images/figure18.png
   :align: center
 
-  Figure 2: Pico Power-chain.
+  Pico Power-chain.
 
 
 ADC Configuration
@@ -185,7 +185,7 @@ ADC Configuration
 .. figure:: devboard/adc_ref.png
   :align: center
 
-  Figure 18: Pico ADC reference circuit.
+  Pico ADC reference circuit.
 
 For this project, I did everything I could to isolate the ADC reference for the best possible readings. Essentially,
 I have added a separate 3.3V linear regulator specifically for the ADC reference. To use this reference voltage
@@ -199,7 +199,7 @@ Pico Software
 .. figure:: power_supply/microcontroller_software_drawio.png
   :align: center
 
-  Figure 4: Hardware Block Diagram of the Linear Power Supply.
+  Hardware Block Diagram of the Linear Power Supply.
 
 The Pico has a relatively simple program loop, A few systems such as the LCD and ADC are initialized on startup,
 then continuous readings from both ADC channels are taken for interpretation. Each channel has offset removed,
@@ -229,22 +229,22 @@ ground layer to the PCB, further simplifying routing design.
 .. figure:: power_supply/schematic1.png
   :align: center
 
-  Figure 22: Power Supply schematic page 1 of 2.
+  Power Supply schematic page 1 of 2.
 
 .. figure:: power_supply/schematic2.png
   :align: center
 
-  Figure 23: Power Supply schematic page 2 of 2.
+  Power Supply schematic page 2 of 2.
 
 .. figure:: power_supply/altium_pcb_top.png
   :align: center
 
-  Figure 24: Top side of Power Supply PCB layout.
+  Top side of Power Supply PCB layout.
 
 .. figure:: power_supply/altium_pcb_bottom.png
   :align: center
 
-  Figure 24: Bottom side of Power Supply PCB layout.
+  Bottom side of Power Supply PCB layout.
 
 Bill Of Materials
 ---------------------
@@ -264,7 +264,7 @@ there were no design breaking errors in this circuit, and most components worked
 .. figure:: power_supply/assembled_board.jpg
   :align: center
 
-  Figure 42: Power Supply Board.
+  Power Supply Board.
 
 Flaws and Oversights
 ---------------------
@@ -303,13 +303,6 @@ providing power and realistic measurements to the user.
 ******************
 Appendix
 ******************
-
-LCD.py
----------------------
-
-    .. literalinclude:: power_supply/LCD.py
-       :language: python
-       :linenos:
 
 main.py
 ---------------------

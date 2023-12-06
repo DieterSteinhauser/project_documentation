@@ -4,7 +4,7 @@ Diodes
 .. figure:: reference/diode_splash.png
   :align: center
 
-  Figure 1: General Purpose Diode.
+  General Purpose Diode.
 
 
 
@@ -15,7 +15,7 @@ Theory
 .. figure:: reference/ideal_diode.png
   :align: center
 
-  Figure 1: Ideal Diode I/V characteristics [1].
+  Ideal Diode I/V characteristics [1].
 
 Diodes are nonlinear devices that operate as electrical 'check valves' by allowing current flow in one direction
 and blocking current flow in the other direction. An ideal diode would behave as a short circuit when forward biased,
@@ -26,7 +26,7 @@ their own non-idealities, which can be seen in the figure below.
 .. figure:: reference/diode_iv.png
   :align: center
 
-  Figure 1: Realistic Diode I/V characteristics with scale changed for detail expression [1].
+  Realistic Diode I/V characteristics with scale changed for detail expression [1].
 
 In the Forward Bias region, Diodes exponentially increase the current conducted based on applied voltage.
 A forward voltage applied to a diode is required to conduct current, and is often assumed to be ~0.7V. Current through
@@ -61,7 +61,7 @@ Rectifier Diodes
 .. figure:: reference/rectifier_diode.png
   :align: center
 
-  Figure 1: A Common Rectifier Diode.
+  A Common Rectifier Diode.
 
 
 Rectifier Diodes are general purpose diodes used for common rectification tasks. They often support higher
@@ -83,7 +83,7 @@ Switching Diodes
 .. figure:: reference/switching_diode.png
   :align: center
 
-  Figure 1: A Common Switching Diode.
+  A Common Switching Diode.
 
 Switching diodes were originally designed for small-signal circuits requiring fast switching speeds. They support a
 variety of voltage levels (< 100V) with low current (< 300mA). Switching diodes are more often employed in logic-level circuits,
@@ -102,7 +102,7 @@ Fast Recovery Diodes
 .. figure:: reference/fast_diode.png
   :align: center
 
-  Figure 1: A Common Fast Recovery Diode.
+  A Common Fast Recovery Diode.
 
 Fast recovery diodes combine elements of general purpose rectifier diodes and switching diodes. Fast recovery diodes
 often tolerate high voltage (< 1000V) and current (< 3A) much like a rectifier diode, but can operate at high speeds
@@ -121,7 +121,7 @@ Schottky Diodes
 .. figure:: reference/schottky_diode.png
   :align: center
 
-  Figure 1: A Common Schottky Diode.
+  A Common Schottky Diode.
 
 Schottky diodes are designed for small forward voltages (~0.1-0.5V) at the expense of lower breakdown thresholds and increased
 leakage. Maximum voltage tolerances range from 20 to 40V with comparable current to a general rectifier (~1-3A).
@@ -140,7 +140,7 @@ Zener Diodes
 .. figure:: reference/zener_diode.png
   :align: center
 
-  Figure 1: A Common Zener Diode.
+  A Common Zener Diode.
 
 Zener Diodes are diodes designed to operate in the reverse breakdown region. For this reason, they are used in voltage
 regulation, reference, and clamping circuits. Zener diodes often have a maximum power rating coupled with a
@@ -163,7 +163,7 @@ Light Emitting Diodes
 .. figure:: reference/led.png
   :align: center
 
-  Figure 1: A Common LED.
+  A Common LED.
 
 LED's are diodes that emit light when current flows through it. The color of emitted light corresponds to the
 semiconductors bandgap. Different semiconductors produce various colors and require different forward voltages to
@@ -172,7 +172,7 @@ operate. Light intensity directly corresponds to the current flowing through it.
 .. figure:: reference/led_colors.png
   :align: center
 
-  Figure 1: LED Forward Voltage by Color.
+  LED Forward Voltage by Color.
 
 
 
@@ -196,7 +196,7 @@ Full-Bridge Rectifier
 .. figure:: power_supply/full_bridge_rectifier.png
   :align: center
 
-  Figure 1: A full wave bridge rectifier.
+  A full wave bridge rectifier.
 
 A full bridge rectifier is a commonly configured circuit with four diodes in a diamond pattern, such that current is
 consistently flowing across the two terminals in the same direction during both the negative and positive cycle of the

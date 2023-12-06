@@ -1,8 +1,0 @@
-Voltage Regulators
-=====================================
-
-
-
-**References**
-
-
