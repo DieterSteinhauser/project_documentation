@@ -1,0 +1,19 @@
+TCA9548 I2C Switch Driver
+====================================================
+
+.. figure:: reference/TCA9548.jpg
+  :align: center
+
+  TCA9548 Breakout Board from Adafruit
+
+.. autoclass:: src.pico_power_management.TCA9548.TCA9548
+   :members:
+   :undoc-members:
+
+
+Code
+--------------------------
+
+.. literalinclude:: ../../src/pico_power_management/tca9548.py
+   :language: python
+   :linenos:

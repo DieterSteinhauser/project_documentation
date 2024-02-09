@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TCA9548 I2C Switch Driver &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TPS55288 DC/DC Buck-Boost I2C Driver" href="tps55288.html" />
+    <link rel="prev" title="I2C Device Class" href="i2c_device.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diodes.html">Diodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_apps.html">Circuit Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery_monitor.html">Battery Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TCA9548 I2C Switch Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>TCA9548 I2C Switch Driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/tca9548.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tca9548-i2c-switch-driver">
+<h1>TCA9548 I2C Switch Driver<a class="headerlink" href="#tca9548-i2c-switch-driver" title="Permalink to this headline"></a></h1>
+<figure class="align-center" id="id1">
+<img alt="../_images/TCA9548.jpg" src="../_images/TCA9548.jpg" />
+<figcaption>
+<p><span class="caption-text">TCA9548 Breakout Board from Adafruit</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pico_power_management.TCA9548.</span></span><span class="sig-name descname"><span class="pre">TCA9548</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i2c_bus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.CHANNELS">
+<span class="sig-name descname"><span class="pre">CHANNELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7)</span></em><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.CHANNELS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.DEFAULT_ADDR">
+<span class="sig-name descname"><span class="pre">DEFAULT_ADDR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">112</span></em><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.DEFAULT_ADDR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.I2C_MAX_FREQ">
+<span class="sig-name descname"><span class="pre">I2C_MAX_FREQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400000</span></em><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.I2C_MAX_FREQ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.I2C_MIN_FREQ">
+<span class="sig-name descname"><span class="pre">I2C_MIN_FREQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100000</span></em><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.I2C_MIN_FREQ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.NUM_CHANNELS">
+<span class="sig-name descname"><span class="pre">NUM_CHANNELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.NUM_CHANNELS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.all_channels_status">
+<span class="sig-name descname"><span class="pre">all_channels_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.all_channels_status" title="Permalink to this definition"></a></dt>
+<dd><p>Query the status of all channels</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.channel_status">
+<span class="sig-name descname"><span class="pre">channel_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.channel_status" title="Permalink to this definition"></a></dt>
+<dd><p>Query the status of a channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>channel</strong> (<em>int</em>) – Channel number, must be within 0 and 7.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.disable_all_channels">
+<span class="sig-name descname"><span class="pre">disable_all_channels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.disable_all_channels" title="Permalink to this definition"></a></dt>
+<dd><p>Turn all channels off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.disable_channel">
+<span class="sig-name descname"><span class="pre">disable_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.disable_channel" title="Permalink to this definition"></a></dt>
+<dd><p>Turn the specified channel off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>channel</strong> (<em>int</em>) – Channel number, must be within 0 and 7.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.enable_all_channels">
+<span class="sig-name descname"><span class="pre">enable_all_channels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.enable_all_channels" title="Permalink to this definition"></a></dt>
+<dd><p>Turn all channels on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.TCA9548.TCA9548.enable_channel">
+<span class="sig-name descname"><span class="pre">enable_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.TCA9548.TCA9548.enable_channel" title="Permalink to this definition"></a></dt>
+<dd><p>Turn the specified channel on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>channel</strong> (<em>int</em>) – Channel number, must be within 0 and 7.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  2</span><span class="c1">#                 NOTES </span>
+<span class="linenos">  3</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  4</span><span class="c1"># </span>
+<span class="linenos">  5</span><span class="c1"># Dieter Steinhauser</span>
+<span class="linenos">  6</span><span class="c1"># 11/2023</span>
+<span class="linenos">  7</span><span class="c1"># TCA9548 I2C Driver</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 10</span><span class="c1">#               IMPORTS</span>
+<span class="linenos"> 11</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="n">desc</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos"> 14</span><span class="s2">The TCA9548A device has eight bidirectional translating switches that can be controlled throughthe I2C bus. The SCL/SDA upstream pair fans out to</span>
+<span class="linenos"> 15</span><span class="s2">eight downstream pairs, or channels. Any individual SCn/SDn channel or combination of channels can be selected, determined by the contents of the</span>
+<span class="linenos"> 16</span><span class="s2">programmable control register. These downstream channels can be used to resolve I2C slave address conflicts. For example, if eight identical digital</span>
+<span class="linenos"> 17</span><span class="s2">temperature sensors are needed in the application, one sensor can be connected at each channel: 0-7.</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span><span class="s2">The TCA9548A has a standard bidirectional I2C interface that is controlled by a master device in order to beconfigured or read the status of this device. Each slave on the I2C </span>
+<span class="linenos"> 20</span><span class="s2">bus has a specific device address to differentiate between other slave devices that are on the same I2C bus. Many slave devices require configuration upon startup to set the </span>
+<span class="linenos"> 21</span><span class="s2">behavior of the device. This is typically done when the master accesses internal register maps of the slave, which have unique register addresses. </span>
+<span class="linenos"> 22</span><span class="s2">A device can have one or multiple registers where data is stored, written, or read.</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="linenos"> 27</span><span class="kn">from</span> <span class="nn">src.pico_power_management.i2c_device</span> <span class="kn">import</span> <span class="n">Device</span>
+<span class="linenos"> 28</span><span class="kn">from</span> <span class="nn">src.pico_power_management.helpers</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 29</span><span class="c1"># from i2c_device import Device</span>
+<span class="linenos"> 30</span><span class="c1"># from helpers import *</span>
+<span class="linenos"> 31</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 32</span><span class="c1">#                Class:</span>
+<span class="linenos"> 33</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="k">class</span> <span class="nc">TCA9548</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span>    <span class="n">I2C_MIN_FREQ</span> <span class="o">=</span> <span class="mi">100_000</span>
+<span class="linenos"> 38</span>    <span class="n">I2C_MAX_FREQ</span> <span class="o">=</span> <span class="mi">400_000</span>
+<span class="linenos"> 39</span>    <span class="n">DEFAULT_ADDR</span> <span class="o">=</span> <span class="mh">0x70</span> <span class="c1"># The address is determined by the A2-A0 external pins, allowing 8 different addresses. All are grounded in our circuit.</span>
+<span class="linenos"> 40</span>    <span class="c1"># ALT_ADDR = 0x75 # The address is determined by the A2-A0 external pins, allowing 8 different addresses.</span>
+<span class="linenos"> 41</span>    <span class="n">CHANNELS</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="linenos"> 42</span>    <span class="n">NUM_CHANNELS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">CHANNELS</span><span class="p">)</span>
+<span class="linenos"> 43</span>    
+<span class="linenos"> 44</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">i2c_bus</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 45</span>        <span class="sd">&quot;&quot;&quot;Object initialization for TCA9548. Follow device initialization and adds register information to object&quot;&quot;&quot;</span>
+<span class="linenos"> 46</span>        <span class="n">description</span> <span class="o">=</span> <span class="n">desc</span> <span class="k">if</span> <span class="n">desc</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">description</span>
+<span class="linenos"> 47</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">i2c_bus</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>        
+<span class="linenos"> 50</span>    <span class="k">def</span> <span class="nf">enable_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+<span class="linenos"> 51</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 52</span><span class="sd">        Turn the specified channel on.</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span><span class="sd">        :param channel: Channel number, must be within 0 and 7.</span>
+<span class="linenos"> 55</span><span class="sd">        :type channel: int</span>
+<span class="linenos"> 56</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos"> 57</span>        <span class="c1"># Throw an error for incorrect channel value</span>
+<span class="linenos"> 58</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 59</span>        <span class="n">check_range</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span>        <span class="c1"># perform a read modify write cycle</span>
+<span class="linenos"> 62</span>        <span class="n">write_data</span> <span class="o">=</span> <span class="n">read_modify</span><span class="p">(</span><span class="n">read_data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">modify_data</span><span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">channel</span><span class="p">),</span> <span class="n">bit_mask</span><span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">channel</span><span class="p">))</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span>        <span class="c1"># write to the device</span>
+<span class="linenos"> 65</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">write_data</span><span class="p">)</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>    <span class="k">def</span> <span class="nf">disable_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+<span class="linenos"> 69</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 70</span><span class="sd">        Turn the specified channel off.</span>
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span><span class="sd">        :param channel: Channel number, must be within 0 and 7.</span>
+<span class="linenos"> 73</span><span class="sd">        :type channel: int</span>
+<span class="linenos"> 74</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span>        <span class="c1"># Throw an error for incorrect channel value</span>
+<span class="linenos"> 77</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 78</span>        <span class="n">check_range</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span>        <span class="c1"># perform a read modify write cycle</span>
+<span class="linenos"> 81</span>        <span class="n">write_data</span> <span class="o">=</span> <span class="n">read_modify</span><span class="p">(</span><span class="n">read_data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">modify_data</span><span class="o">=</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;&lt;</span> <span class="n">channel</span><span class="p">),</span> <span class="n">bit_mask</span><span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">channel</span><span class="p">))</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span>        <span class="c1"># write to the device</span>
+<span class="linenos"> 84</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">write_data</span><span class="p">)</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span>    <span class="k">def</span> <span class="nf">channel_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+<span class="linenos"> 88</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 89</span><span class="sd">        Query the status of a channel.</span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span><span class="sd">        :param channel: Channel number, must be within 0 and 7.</span>
+<span class="linenos"> 92</span><span class="sd">        :type channel: int</span>
+<span class="linenos"> 93</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos"> 94</span>        <span class="c1"># Throw an error for incorrect channel value</span>
+<span class="linenos"> 95</span>        <span class="n">check_type</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 96</span>        <span class="n">check_range</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span>        <span class="c1"># read the status of the channel</span>
+<span class="linenos"> 99</span>        <span class="n">status</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">channel</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">100</span>        <span class="k">return</span> <span class="n">status</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span>    <span class="k">def</span> <span class="nf">enable_all_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">104</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">105</span><span class="sd">        Turn all channels on.</span>
+<span class="linenos">106</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">107</span>        <span class="c1"># write to the device</span>
+<span class="linenos">108</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0xFF</span><span class="p">)</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span>    <span class="k">def</span> <span class="nf">disable_all_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">112</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">113</span><span class="sd">        Turn all channels off.</span>
+<span class="linenos">114</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">115</span>        <span class="c1"># write to the device</span>
+<span class="linenos">116</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span>
+<span class="linenos">119</span>    <span class="k">def</span> <span class="nf">all_channels_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">120</span>        <span class="sd">&quot;&quot;&quot;Query the status of all channels&quot;&quot;&quot;</span>
+<span class="linenos">121</span>        <span class="n">return_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">122</span>        <span class="n">read_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">123</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH7&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">124</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">125</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">126</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">127</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">128</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">129</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">130</span>        <span class="n">return_dict</span><span class="p">[</span><span class="s1">&#39;CH0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">read_data</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span>
+<span class="linenos">131</span>        <span class="k">return</span> <span class="n">return_dict</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span>
+<span class="linenos">134</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">135</span>    <span class="n">i2c_bus</span> <span class="o">=</span>  <span class="n">I2C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
+<span class="linenos">136</span>    <span class="n">tca</span> <span class="o">=</span>  <span class="n">TCA9548</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;TCA9548&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x70</span><span class="p">,</span> <span class="n">i2c_bus</span><span class="o">=</span><span class="n">i2c_bus</span><span class="p">)</span>
+<span class="linenos">137</span>    <span class="n">devices</span> <span class="o">=</span> <span class="n">tca</span><span class="o">.</span><span class="n">i2c_bus</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="linenos">138</span>    <span class="n">hex_addr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">hex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">]</span>
+<span class="linenos">139</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Seen device addresses: </span><span class="si">{</span><span class="n">hex_addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">140</span>    
+<span class="linenos">141</span>    <span class="n">test</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">142</span>    <span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+<span class="linenos">143</span>        
+<span class="linenos">144</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channels Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">all_channels_status</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">145</span>        <span class="n">tca</span><span class="o">.</span><span class="n">enable_all_channels</span><span class="p">()</span>
+<span class="linenos">146</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channels Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">all_channels_status</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">147</span>        <span class="n">tca</span><span class="o">.</span><span class="n">disable_all_channels</span><span class="p">()</span>
+<span class="linenos">148</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channels Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">all_channels_status</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">149</span>        
+<span class="linenos">150</span>        <span class="n">tca</span><span class="o">.</span><span class="n">enable_channel</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">151</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channels Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">all_channels_status</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">152</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">channel_status</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">153</span>        <span class="n">tca</span><span class="o">.</span><span class="n">disable_channel</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">154</span>        
+<span class="linenos">155</span>        <span class="n">tca</span><span class="o">.</span><span class="n">enable_channel</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">156</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channels Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">all_channels_status</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">157</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">channel_status</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">158</span>        <span class="n">tca</span><span class="o">.</span><span class="n">disable_channel</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">159</span>        
+<span class="linenos">160</span>        <span class="n">tca</span><span class="o">.</span><span class="n">enable_channel</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">161</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channels Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">all_channels_status</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">162</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel Status: </span><span class="si">{</span><span class="n">tca</span><span class="o">.</span><span class="n">channel_status</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">163</span>        <span class="n">tca</span><span class="o">.</span><span class="n">disable_channel</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">164</span>        
+<span class="linenos">165</span>        
+<span class="linenos">166</span>
+<span class="linenos">167</span>        
+<span class="linenos">168</span>
+<span class="linenos">169</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">170</span><span class="c1">#              END OF FILE</span>
+<span class="linenos">171</span><span class="c1"># -----------------------------------------</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="i2c_device.html" class="btn btn-neutral float-left" title="I2C Device Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tps55288.html" class="btn btn-neutral float-right" title="TPS55288 DC/DC Buck-Boost I2C Driver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

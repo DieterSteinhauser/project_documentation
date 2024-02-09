@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operational Amplifiers &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -72,6 +67,11 @@
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery_monitor.html">Battery Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tca9548.html">TCA9548 I2C Switch Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
 </ul>
 </li>
 </ul>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
-      <li class="breadcrumb-item active">Operational Amplifiers</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Operational Amplifiers</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/op_amp.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,9 +102,9 @@
            <div itemprop="articleBody">
              
   <section id="operational-amplifiers">
-<h1>Operational Amplifiers<a class="headerlink" href="#operational-amplifiers" title="Link to this heading"></a></h1>
+<h1>Operational Amplifiers<a class="headerlink" href="#operational-amplifiers" title="Permalink to this headline"></a></h1>
 <section id="ideal-op-amp">
-<h2>Ideal Op-Amp<a class="headerlink" href="#ideal-op-amp" title="Link to this heading"></a></h2>
+<h2>Ideal Op-Amp<a class="headerlink" href="#ideal-op-amp" title="Permalink to this headline"></a></h2>
 <p>Operational Amplifiers (Op-Amps) are high-gain voltage amplifiers with differential
 input and a single voltage output. Op-Amps typically have five terminals: An inverting input,
 non-inverting input, an upper supply, a lower supply, and an output. An ideal Op-Amp has an
@@ -114,7 +114,7 @@ gain and infinite Gain Bandwidth (GBW).</p>
 <figure class="align-center" id="id12">
 <img alt="../_images/figure10.png" src="../_images/figure10.png" />
 <figcaption>
-<p><span class="caption-text">Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+<p><span class="caption-text">Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id8" id="id1">1</a>.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Using an infinite open-loop gain is limiting, as the output voltage signal would become
@@ -126,35 +126,35 @@ the negative feedback loop.</p>
 <figure class="align-center" id="id13">
 <img alt="../_images/figure11.png" src="../_images/figure11.png" />
 <figcaption>
-<p><span class="caption-text">Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id8" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+<p><span class="caption-text">Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id8" id="id2">1</a>.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id14">
 <img alt="../_images/figure12.png" src="../_images/figure12.png" />
 <figcaption>
-<p><span class="caption-text">Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text">Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id8" id="id3">1</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="op-amp-non-idealities">
-<h2>Op Amp Non-Idealities<a class="headerlink" href="#op-amp-non-idealities" title="Link to this heading"></a></h2>
+<h2>Op Amp Non-Idealities<a class="headerlink" href="#op-amp-non-idealities" title="Permalink to this headline"></a></h2>
 <p>Non-idealities of real-life Op-Amps will also affect the circuit, the most influential of which is
 determined by a given IC’s strengths and weaknesses. A notable non-ideality can be seen in gain
 bandwidth and subsequent frequency response. Finite GBW/GBP of an Op-Amp produces
 attributes of an active lowpass filter. With the lower cutoff frequency determined by the GBP
-divided by the gain of the circuit <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. As a result, open-loop response often has high gain with
+divided by the gain of the circuit <a class="footnote-reference brackets" href="#id9" id="id4">2</a>. As a result, open-loop response often has high gain with
 very low cutoff frequency. Whereas closed-loop gain will keep gain approximately constant for a
 much wider bandwidth.</p>
 <figure class="align-center" id="id15">
 <img alt="../_images/image0211.png" src="../_images/image0211.png" />
 <figcaption>
-<p><span class="caption-text">LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+<p><span class="caption-text">LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id10" id="id5">3</a>.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id16">
 <img alt="../_images/image022.png" src="../_images/image022.png" />
 <figcaption>
-<p><span class="caption-text">Gain Bandwidth formula <a class="footnote-reference brackets" href="#id10" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">Gain Bandwidth formula <a class="footnote-reference brackets" href="#id10" id="id6">3</a>.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
@@ -165,11 +165,11 @@ is referred to as its slew rate. Op-Amps are slew rate limited at frequencies of
 require a faster rate than the IC can permit.</p>
 </section>
 <section id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
 <figure class="align-center" id="id17">
 <img alt="../_images/difference_amplifier_matched.png" src="../_images/difference_amplifier_matched.png" />
 <figcaption>
-<p><span class="caption-text">Figure 9: Simple difference amplifier with matched resistors <a class="footnote-reference brackets" href="#id11" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 9: Simple difference amplifier with matched resistors <a class="footnote-reference brackets" href="#id11" id="id7">4</a></span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Difference Amplifiers are simple way to find the difference between two voltages, also known as a voltage subtractor.
@@ -180,32 +180,26 @@ negative with respect to the reference or ground. Depending on the circuit, a du
 reference point may need to be offset. Either of these approaches could be used to capture negative values of the
 voltage difference observed.</p>
 <p><strong>References</strong></p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id8" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>)</span>
-<p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
+<dd><p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
 Amplifiers,” in Microelectronic circuits, New York, NY: Oxford University Press, 2021,
 pp. 60–73.</p>
-</aside>
-<aside class="footnote brackets" id="id9" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
-<p>H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p>H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
 Newnes, 2008.</p>
-</aside>
-<aside class="footnote brackets" id="id10" role="note">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id6">2</a>)</span>
-<p>I. Poole, “OP AMP frequency response &amp; gain bandwidth product,” Electronics Notes, 30-
+</dd>
+<dt class="label" id="id10"><span class="brackets">3</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>I. Poole, “OP AMP frequency response &amp; gain bandwidth product,” Electronics Notes, 30-
 Nov-2021. [Online]. Available: <a class="reference external" href="https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php">https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php</a>. [Accessed: 31-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id11" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">4</a><span class="fn-bracket">]</span></span>
-<ol class="upperalpha simple" start="16">
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
+<dd><ol class="upperalpha simple" start="16">
 <li><p>Horowitz and W. Hill, “The Art of Electronics.” Cambridge University Press, 2022.</p></li>
 </ol>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 

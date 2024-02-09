@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Circuit Foundations &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -29,15 +28,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -78,6 +73,11 @@
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery_monitor.html">Battery Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tca9548.html">TCA9548 I2C Switch Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
 </ul>
 </li>
 </ul>
@@ -95,9 +95,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
-      <li class="breadcrumb-item active">Circuit Foundations</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Circuit Foundations</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/circuit_basics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -108,15 +108,15 @@
            <div itemprop="articleBody">
              
   <section id="circuit-foundations">
-<h1>Circuit Foundations<a class="headerlink" href="#circuit-foundations" title="Link to this heading"></a></h1>
+<h1>Circuit Foundations<a class="headerlink" href="#circuit-foundations" title="Permalink to this headline"></a></h1>
 <section id="ohms-law">
-<h2>Ohms Law<a class="headerlink" href="#ohms-law" title="Link to this heading"></a></h2>
+<h2>Ohms Law<a class="headerlink" href="#ohms-law" title="Permalink to this headline"></a></h2>
 <p>In any given circuit, there are values that we want to observe change over time. All of circuits revolves around the
 relationships between these three values.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>Voltage</strong> (<em>V</em>) - The difference in electric potential between two points. It is derived from a joule of work
-needed to move a coulomb of charge through a potential difference of 1 volt. <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Voltage is measured <strong>across</strong>
+needed to move a coulomb of charge through a potential difference of 1 volt. <a class="footnote-reference brackets" href="#id4" id="id1">1</a> Voltage is measured <strong>across</strong>
 components. Voltages can be generated from energy sources, and applying voltages across devices create a current.</p></li>
 <li><p><strong>Current</strong> (<em>I</em>) - The rate of electron flow through a point. 1 Amp is a speed derived from flow of 1 coulomb
 of charge per second. From a practical perspective, current is thought to flow from the higher potential to
@@ -134,11 +134,11 @@ resistance is equivalent to 1 volt supplying 1 Amp of current.</p></li>
 \[V = IR\]</div>
 </section>
 <section id="kcl-kirchhoff-s-current-law">
-<h2>KCL: Kirchhoff’s current law<a class="headerlink" href="#kcl-kirchhoff-s-current-law" title="Link to this heading"></a></h2>
+<h2>KCL: Kirchhoff’s current law<a class="headerlink" href="#kcl-kirchhoff-s-current-law" title="Permalink to this headline"></a></h2>
 <figure class="align-center" id="id5">
 <img alt="../_images/kcl.png" src="../_images/kcl.png" />
 <figcaption>
-<p><span class="caption-text">KCL in a circuit node.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text">KCL in a circuit node.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The sum of currents into a point is equal to the sum of currents out of the point. KCL can be used for
@@ -146,11 +146,11 @@ resistance is equivalent to 1 volt supplying 1 Amp of current.</p></li>
 find voltage drops or resistor values.</p>
 </section>
 <section id="kvl-kirchhoff-s-voltage-law">
-<h2>KVL: Kirchhoff’s voltage law<a class="headerlink" href="#kvl-kirchhoff-s-voltage-law" title="Link to this heading"></a></h2>
+<h2>KVL: Kirchhoff’s voltage law<a class="headerlink" href="#kvl-kirchhoff-s-voltage-law" title="Permalink to this headline"></a></h2>
 <figure class="align-center" id="id6">
 <img alt="../_images/kvl.png" src="../_images/kvl.png" />
 <figcaption>
-<p><span class="caption-text">KVL seen in a circuit.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">KVL seen in a circuit.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The sum of voltage differences around a closed circuit is zero. Any parallel circuit will see the same potential
@@ -159,18 +159,18 @@ used to perform <a class="reference external" href="https://en.wikipedia.org/wik
 parallel and finding the current based on equivalent voltage drops.</p>
 </section>
 <section id="power">
-<h2>Power<a class="headerlink" href="#power" title="Link to this heading"></a></h2>
+<h2>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h2>
 <p>The power supplied or consumed by a circuit is equivalent to the Voltage applied times the Current created. This is
 (Energy / charge) * (charge / time). Power is measured in Watts (W) and is equivalent to 1 Joule per second.</p>
 <div class="math notranslate nohighlight">
 \[P = VI = \frac{V^2}{R} = I^2R\]</div>
 </section>
 <section id="series-and-parallel">
-<h2>Series and Parallel<a class="headerlink" href="#series-and-parallel" title="Link to this heading"></a></h2>
+<h2>Series and Parallel<a class="headerlink" href="#series-and-parallel" title="Permalink to this headline"></a></h2>
 <figure class="align-center" id="id7">
 <img alt="../_images/series_and_parallel.png" src="../_images/series_and_parallel.png" />
 <figcaption>
-<p><span class="caption-text">Series and Parallel resistors <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+<p><span class="caption-text">Series and Parallel resistors <a class="footnote-reference brackets" href="#id4" id="id2">1</a>.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Resistors when placed in series effectively combine their resistance. Series</p>
@@ -181,18 +181,18 @@ parallel and finding the current based on equivalent voltage drops.</p>
 \[R= \frac{R_1 * R_2}{R_1 + R_2}\]</div>
 </section>
 <section id="voltage-dividers">
-<h2>Voltage Dividers<a class="headerlink" href="#voltage-dividers" title="Link to this heading"></a></h2>
+<h2>Voltage Dividers<a class="headerlink" href="#voltage-dividers" title="Permalink to this headline"></a></h2>
 <p>Voltage dividers are a commonly used circuit takes a voltage input and create a voltage output that is a fraction of
 original size. Voltage dividers do this predictably and consistently.</p>
 <figure class="align-center" id="id8">
 <img alt="../_images/voltage_divider.png" src="../_images/voltage_divider.png" />
 <figcaption>
-<p><span class="caption-text">A voltage divider circuit <a class="footnote-reference brackets" href="#id4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">A voltage divider circuit <a class="footnote-reference brackets" href="#id4" id="id3">1</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="thevenin-and-norton-equivalent">
-<h2>Thevenin and Norton Equivalent<a class="headerlink" href="#thevenin-and-norton-equivalent" title="Link to this heading"></a></h2>
+<h2>Thevenin and Norton Equivalent<a class="headerlink" href="#thevenin-and-norton-equivalent" title="Permalink to this headline"></a></h2>
 <p>Thevenin’s theorem states that any two terminal network of resistors and voltage sources can be represented as an
 equivalent single resistor and voltage source in <strong>series</strong>. This can be found by finding the open circuit voltage
 across the two nodes, and the short circuit current that would occur if you shorted the two nodes. From these values,
@@ -204,7 +204,7 @@ Kirchhoff’s laws, and ohm’s law, you can deduce the Thevenin equivalent circ
 <figure class="align-center" id="id9">
 <img alt="../_images/thevenin_equivalent.png" src="../_images/thevenin_equivalent.png" />
 <figcaption>
-<p><span class="caption-text">A Thevenin equivalent circuit for a voltage divider circuit.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">A Thevenin equivalent circuit for a voltage divider circuit.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Norton’s theorem states that any two terminal network of resistors and voltage sources can be represented as an
@@ -218,12 +218,12 @@ Kirchhoff’s laws, and ohm’s law, you can deduce the Norton equivalent circui
 <figure class="align-center" id="id10">
 <img alt="../_images/norton_equivalent.png" src="../_images/norton_equivalent.png" />
 <figcaption>
-<p><span class="caption-text">A Norton equivalent circuit for a voltage divider circuit.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">A Norton equivalent circuit for a voltage divider circuit.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="decibel-representation">
-<h2>Decibel Representation<a class="headerlink" href="#decibel-representation" title="Link to this heading"></a></h2>
+<h2>Decibel Representation<a class="headerlink" href="#decibel-representation" title="Permalink to this headline"></a></h2>
 <p>Relative amplitude of signals are often measured on a logarithmic scale of Decibels (<em>dB</em>). Power in decibel notation
 can be found using the following. Decibel notation is convenient because a difference in 10dB expresses a magnitude of
 change in power. Thus, a 30dBW difference is equivalent to 1000W difference.</p>
@@ -237,14 +237,12 @@ change in power. Thus, a 30dBW difference is equivalent to 1000W difference.</p>
 <div class="math notranslate nohighlight">
 \[\Delta dB = 20\log_{10}{\frac{V_2}{V_1}}\]</div>
 <p><strong>References</strong></p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id4" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>)</span>
-<p>P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics,
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
+<dd><p>P. Horowitz and W. Hill, “Chapter 1: Foundations,” in The Art of Electronics,
 New York: Cambridge University Press, 2022.</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 

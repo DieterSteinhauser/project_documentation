@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raspberry Pico Development board &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -93,9 +88,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_projects.html">Engineering Projects</a></li>
-      <li class="breadcrumb-item active">Raspberry Pico Development board</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_projects.html">Engineering Projects</a> &raquo;</li>
+      <li>Raspberry Pico Development board</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/pico_devboard.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,20 +101,20 @@
            <div itemprop="articleBody">
              
   <section id="raspberry-pico-development-board">
-<h1>Raspberry Pico Development board<a class="headerlink" href="#raspberry-pico-development-board" title="Link to this heading"></a></h1>
+<h1>Raspberry Pico Development board<a class="headerlink" href="#raspberry-pico-development-board" title="Permalink to this headline"></a></h1>
 <p>Date: 12/2022</p>
 <p>Revision: 1</p>
 <figure class="align-center" id="id18">
 <img alt="../_images/dev_board_assembled.jpg" src="../_images/dev_board_assembled.jpg" />
 <figcaption>
-<p><span class="caption-text">Raspberry Pico Development Board</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+<p><span class="caption-text">Raspberry Pico Development Board</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <p>The Raspberry Pico is a powerful and inexpensive microcontroller that can be used for a variety of projects.
 However, the Raspberry Pi Foundation prioritized factors of size, efficiency, and cost when creating the board.
-This leaves certain drawbacks of the microcontroller that are well documented in the Pico datasheet <a class="footnote-reference brackets" href="#id14" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></a>.
+This leaves certain drawbacks of the microcontroller that are well documented in the Pico datasheet <a class="footnote-reference brackets" href="#id14" id="id1">15</a>.
 In this project, I aim to solve a few minor inconveniences of the Pico’s design and create a development board better
 suited to approaching projects. Fixes include a reset button, an off switch for the onboard SMPS,
 LDO voltage regulators, and better ADC performance. Additionally, Parallel 16x2 LCD display, two 10-bit DAC channels,
@@ -127,7 +122,7 @@ and SD card R/W capability are added to allow the development board to act as a 
 information.</p>
 </section>
 <section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>This device focuses on ADCs, DACs, and displays to streamline development of a project.
@@ -142,13 +137,13 @@ are revisited.</p>
 </ul>
 </div>
 <section id="adc-configuration">
-<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Link to this heading"></a></h3>
+<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Permalink to this headline"></a></h3>
 <p>Since the ADC in on the Raspberry Pico, initial setup of the ADC can easily be achieved
-using the ADC section of the Pico Software Development Kit (SDK) <a class="footnote-reference brackets" href="#id13" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. This provides the
+using the ADC section of the Pico Software Development Kit (SDK) <a class="footnote-reference brackets" href="#id13" id="id2">14</a>. This provides the
 engineer with a simple and straightforward introduction on taking ADC readings. However, the
 12-bit ADC onboard the Pico is not great by any means. This is due to the switching power
 regulator on the Pico. As a result of switching signal noise, the onboard voltage reference for the
-ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy <a class="footnote-reference brackets" href="#id12" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.
+ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy <a class="footnote-reference brackets" href="#id12" id="id3">13</a>.
 The datasheet gives suggestions on improvement of the ADC readings. An External reference
 voltage may be used, the R7 resistor can be removed, or issues can be mitigated in averaging and
 offset code. I chose a different route entirely, by adding bypass capacitors to the reference
@@ -156,7 +151,7 @@ voltage and ADC input pins for filtering and smoothing.</p>
 <figure class="align-center" id="id19">
 <img alt="../_images/adc_ref.png" src="../_images/adc_ref.png" />
 <figcaption>
-<p><span class="caption-text">Figure 18: Pico ADC reference circuit <a class="footnote-reference brackets" href="#id12" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 18: Pico ADC reference circuit <a class="footnote-reference brackets" href="#id12" id="id4">13</a>.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The Approach taken in this circuit was to provide an external power source and bypass the SMPS entirely. By incorporating
@@ -167,68 +162,68 @@ occurring on the device. This could be further mitigated by exclusively feeding 
 and removing the R7 resistor on the device. This would disconnect the internal 3.3V rail from the ADC reference entirely.</p>
 </section>
 <section id="power-regulation-and-filtering">
-<h3>Power Regulation and Filtering<a class="headerlink" href="#power-regulation-and-filtering" title="Link to this heading"></a></h3>
+<h3>Power Regulation and Filtering<a class="headerlink" href="#power-regulation-and-filtering" title="Permalink to this headline"></a></h3>
 <p>To supply power to the system, I chose to use the LDL1117 5V and 3.3V low-dropout regulators.
 This allows for a 9-12V DC source to supply the devices without much overhead. This provided
 a smooth 5V and 3.3V source for most components, with local decoupling capacitors where needed.</p>
 <p>In addition to the 5V source, I powered the Raspberry Pico via the VSYS node to activate
 the device and use the 3.3V Switching Mode Power Supply (SMPS). This was done using a
-Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB <a class="footnote-reference brackets" href="#id12" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.
+Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB <a class="footnote-reference brackets" href="#id12" id="id5">13</a>.
 The Pico power-chain is good because the SMPS is efficient, but noise on the output causes
-problems with other systems like the ADC <a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id13" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. As a result, I byapassed the SMPS entirely by incorporating a
+problems with other systems like the ADC <a class="footnote-reference brackets" href="#id12" id="id6">13</a>, <a class="footnote-reference brackets" href="#id13" id="id7">14</a>. As a result, I byapassed the SMPS entirely by incorporating a
 shutoff switch for the SMPS.</p>
 <figure class="align-center" id="id20">
 <img alt="../_images/figure18.png" src="../_images/figure18.png" />
 <figcaption>
-<p><span class="caption-text">Figure 18: Pico Power-chain and the implemented method of external supply <a href="#id29"><span class="problematic" id="id8">[8]_</span></a>.</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 18: Pico Power-chain and the implemented method of external supply <a href="#id29"><span class="problematic" id="id8">[8]_</span></a>.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="sd-card-reader">
-<h3>SD Card Reader<a class="headerlink" href="#sd-card-reader" title="Link to this heading"></a></h3>
-<p>An SD card reader has been added via SPI <a class="footnote-reference brackets" href="#id15" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a>. This permits the user to incorporate data collection over time via
+<h3>SD Card Reader<a class="headerlink" href="#sd-card-reader" title="Permalink to this headline"></a></h3>
+<p>An SD card reader has been added via SPI <a class="footnote-reference brackets" href="#id15" id="id9">16</a>. This permits the user to incorporate data collection over time via
 sensors and ADC readings. These data readings can be written to text or csv files on a SD card for post test analysis.</p>
 </section>
 <section id="inputs-and-outputs">
-<h3>Inputs and Outputs<a class="headerlink" href="#inputs-and-outputs" title="Link to this heading"></a></h3>
+<h3>Inputs and Outputs<a class="headerlink" href="#inputs-and-outputs" title="Permalink to this headline"></a></h3>
 <p>A physical reset button was added to the development board to interrupt the RUN pin on the Pico. When this pin is
 connected to ground, the device will shut off. To insure proper reset, hold the reset button for 3 seconds. This will
 guarantee that the Pico has been discharged. The Pico has a full array of female headers for easy pinout access and
 another for seating the pico onboard. Pinout names have been added to the silkscreen simplify development.</p>
 </section>
 <section id="schematic-and-pcb-design">
-<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Link to this heading"></a></h3>
+<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id21">
 <img alt="../_images/devboard_schematic1.png" src="../_images/devboard_schematic1.png" />
 <figcaption>
-<p><span class="caption-text">Figure 22: Devboard schematic page 1 of 2.</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 22: Devboard schematic page 1 of 2.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id22">
 <img alt="../_images/devboard_schematic2.png" src="../_images/devboard_schematic2.png" />
 <figcaption>
-<p><span class="caption-text">Figure 23: Devboard schematic page 2 of 2.</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 23: Devboard schematic page 2 of 2.</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id23">
 <img alt="../_images/dev_board_top_altium.png" src="../_images/dev_board_top_altium.png" />
 <figcaption>
-<p><span class="caption-text">Figure 24: Top side of Devboard PCB layout.</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 24: Top side of Devboard PCB layout.</span><a class="headerlink" href="#id23" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id24">
 <img alt="../_images/dev_board_bottom_altium.png" src="../_images/dev_board_bottom_altium.png" />
 <figcaption>
-<p><span class="caption-text">Figure 24: Bottom side of Devboard PCB layout.</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 24: Bottom side of Devboard PCB layout.</span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="bill-of-materials">
-<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Link to this heading"></a></h3>
+<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Permalink to this headline"></a></h3>
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline"></a></h2>
 <p>The schematic of the circuit and PCB turned out well, with minimal errors. The
 assembled PCB was easy to debug because of its plentiful headers employed in the diagram.
 Also, using female headers for the ultrasonic sensors, LCD, DIP packages, and potentiometers
@@ -238,37 +233,37 @@ components worked immediately after installation.</p>
 <figure class="align-center" id="id25">
 <img alt="../_images/dev_board_assembled.jpg" src="../_images/dev_board_assembled.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 42: Raspberry Pico Development Board</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 42: Raspberry Pico Development Board</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="power">
-<h3>Power<a class="headerlink" href="#power" title="Link to this heading"></a></h3>
+<h3>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h3>
 <p>The power regulation and filtering produced a 5V and 3.3V source with minimal noise, observed
 with as little as 10mV ripple on both sources.</p>
 <figure class="align-center" id="id26">
 <img alt="../_images/powerchain.jpg" src="../_images/powerchain.jpg" />
 <figcaption>
-<p><span class="caption-text">Figure 27: Power regulation system on the PCB</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 27: Power regulation system on the PCB</span><a class="headerlink" href="#id26" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id27">
 <img alt="../_images/scope_power.png" src="../_images/scope_power.png" />
 <figcaption>
-<p><span class="caption-text">Figure 28: 5V and 3.3V source observed on the oscilloscope.</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 28: 5V and 3.3V source observed on the oscilloscope.</span><a class="headerlink" href="#id27" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id28">
 <img alt="../_images/scope_power_zoom.png" src="../_images/scope_power_zoom.png" />
 <figcaption>
-<p><span class="caption-text">Figure 29: 5V and 3.3V source observed on the oscilloscope, both from a 20mV div.</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 29: 5V and 3.3V source observed on the oscilloscope, both from a 20mV div.</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline"></a></h2>
 <section id="lcd-py">
-<h3>LCD.py<a class="headerlink" href="#lcd-py" title="Link to this heading"></a></h3>
+<h3>LCD.py<a class="headerlink" href="#lcd-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -493,13 +488,13 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">221</span>
 <span class="linenos">222</span>
 <span class="linenos">223</span><span class="k">class</span> <span class="nc">LCD</span><span class="p">:</span>
-<span class="linenos">224</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;The LCD class is meant to abstract the LCD driver further and streamline development.&quot;&quot;&quot;</span>
+<span class="linenos">224</span>    <span class="sd">&quot;&quot;&quot;The LCD class is meant to abstract the LCD driver further and streamline development.&quot;&quot;&quot;</span>
 <span class="linenos">225</span>
 <span class="linenos">226</span>    <span class="n">CMD_MODE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos">227</span>    <span class="n">DATA_MODE</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="linenos">228</span>
 <span class="linenos">229</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">reg_select_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_pins</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">230</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Object initialization&quot;&quot;&quot;</span>
+<span class="linenos">230</span>        <span class="sd">&quot;&quot;&quot;Object initialization&quot;&quot;&quot;</span>
 <span class="linenos">231</span>
 <span class="linenos">232</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">enable_pin</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="linenos">233</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reg_select_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">reg_select_pin</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
@@ -513,7 +508,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">241</span>    <span class="c1"># -----------------------------------------    </span>
 <span class="linenos">242</span>
 <span class="linenos">243</span>    <span class="k">def</span> <span class="nf">_configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">244</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list. &quot;&quot;&quot;</span>
+<span class="linenos">244</span>        <span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list. &quot;&quot;&quot;</span>
 <span class="linenos">245</span>
 <span class="linenos">246</span>        <span class="c1"># Configure the pins of the device.</span>
 <span class="linenos">247</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_pins</span><span class="p">:</span>
@@ -522,7 +517,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">250</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">251</span>
 <span class="linenos">252</span>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">253</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the LCD for communication.&quot;&quot;&quot;</span>
+<span class="linenos">253</span>        <span class="sd">&quot;&quot;&quot;Initializes the LCD for communication.&quot;&quot;&quot;</span>
 <span class="linenos">254</span>
 <span class="linenos">255</span>        <span class="c1"># clear values on data bus.</span>
 <span class="linenos">256</span>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -563,7 +558,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">291</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">292</span>
 <span class="linenos">293</span>    <span class="k">def</span> <span class="nf">strobe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">294</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
+<span class="linenos">294</span>        <span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
 <span class="linenos">295</span>
 <span class="linenos">296</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="linenos">297</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -574,7 +569,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">302</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">303</span>    
 <span class="linenos">304</span>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
-<span class="linenos">305</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
+<span class="linenos">305</span>        <span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
 <span class="linenos">306</span>
 <span class="linenos">307</span>        <span class="c1"># determine if writing a command or data</span>
 <span class="linenos">308</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">command</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">ord</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
@@ -607,7 +602,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">335</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">336</span>
 <span class="linenos">337</span>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">338</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
+<span class="linenos">338</span>        <span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
 <span class="linenos">339</span>
 <span class="linenos">340</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">341</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -615,7 +610,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">343</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">344</span>
 <span class="linenos">345</span>    <span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">346</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
+<span class="linenos">346</span>        <span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
 <span class="linenos">347</span>
 <span class="linenos">348</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x02</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">349</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -624,7 +619,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">352</span>
 <span class="linenos">353</span>
 <span class="linenos">354</span>    <span class="k">def</span> <span class="nf">blink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">355</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
+<span class="linenos">355</span>        <span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
 <span class="linenos">356</span>
 <span class="linenos">357</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0D</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">358</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -632,7 +627,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">360</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">361</span>
 <span class="linenos">362</span>    <span class="k">def</span> <span class="nf">cursor_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">363</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
+<span class="linenos">363</span>        <span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
 <span class="linenos">364</span>
 <span class="linenos">365</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0E</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">366</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -640,7 +635,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">368</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">369</span>
 <span class="linenos">370</span>    <span class="k">def</span> <span class="nf">cursor_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">371</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
+<span class="linenos">371</span>        <span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
 <span class="linenos">372</span>
 <span class="linenos">373</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">374</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -648,7 +643,7 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">376</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">377</span>
 <span class="linenos">378</span>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-<span class="linenos">379</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">379</span>        <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">380</span>
 <span class="linenos">381</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
 <span class="linenos">382</span>            <span class="bp">self</span><span class="o">.</span><span class="n">_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -656,13 +651,13 @@ with as little as 10mV ripple on both sources.</p>
 <span class="linenos">384</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">385</span>
 <span class="linenos">386</span>    <span class="k">def</span> <span class="nf">_putch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-<span class="linenos">387</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">387</span>        <span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">388</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos">389</span>
 <span class="linenos">390</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">391</span>
 <span class="linenos">392</span>    <span class="k">def</span> <span class="nf">_puts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-<span class="linenos">393</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">393</span>        <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">394</span>
 <span class="linenos">395</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
 <span class="linenos">396</span>            <span class="bp">self</span><span class="o">.</span><span class="n">_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -696,7 +691,7 @@ with as little as 10mV ripple on both sources.</p>
 </div></blockquote>
 </section>
 <section id="sdcard-py">
-<h3>sdcard.py<a class="headerlink" href="#sdcard-py" title="Link to this heading"></a></h3>
+<h3>sdcard.py<a class="headerlink" href="#sdcard-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">MicroPython driver for SD cards using SPI bus.</span>
@@ -984,7 +979,7 @@ with as little as 10mV ripple on both sources.</p>
 </div></blockquote>
 </section>
 <section id="test-py">
-<h3>test.py<a class="headerlink" href="#test-py" title="Link to this heading"></a></h3>
+<h3>test.py<a class="headerlink" href="#test-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -1219,55 +1214,45 @@ with as little as 10mV ripple on both sources.</p>
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id10" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<p>“What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets">2</span></dt>
+<dd><p>“What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
 [Online]. Available: <a class="reference external" href="https://www.electronicshub.org/bypass-capacitor-tutorial/">https://www.electronicshub.org/bypass-capacitor-tutorial/</a>. [Accessed:
 27-Aug-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id11" role="note">
-<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
-<p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
+</dd>
+<dt class="label" id="id11"><span class="brackets">10</span></dt>
+<dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
 <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
 [Accessed: 17-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id12" role="note">
-<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id5">3</a>,<a role="doc-backlink" href="#id6">4</a>)</span>
-<p>“Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
+</dd>
+<dt class="label" id="id12"><span class="brackets">13</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>,<a href="#id5">3</a>,<a href="#id6">4</a>)</span></dt>
+<dd><p>“Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
 <a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf</a>. [Accessed: 15-Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id13" role="note">
-<span class="label"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
-<p>“Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
+</dd>
+<dt class="label" id="id13"><span class="brackets">14</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id7">2</a>)</span></dt>
+<dd><p>“Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
 <a class="reference external" href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf">https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf</a>. [Accessed: 15-
 Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id14" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">15</a><span class="fn-bracket">]</span></span>
-<p>“RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id1">15</a></span></dt>
+<dd><p>“RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
 <a class="reference external" href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf</a>. [Accessed: 14-Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id15" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">16</a><span class="fn-bracket">]</span></span>
-<p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id9">16</a></span></dt>
+<dd><p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a>. [Accessed: 19-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id16" role="note">
-<span class="label"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></span>
-<p>“Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
+</dd>
+<dt class="label" id="id16"><span class="brackets">17</span></dt>
+<dd><p>“Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
 <a class="reference external" href="https://www.crystalfontz.com/controllers/Sitronix/ST7066U/438">https://www.crystalfontz.com/controllers/Sitronix/ST7066U/438</a>. [Accessed: 03-Oct2022].</p>
-</aside>
-<aside class="footnote brackets" id="id17" role="note">
-<span class="label"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></span>
-<p>“What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
+</dd>
+<dt class="label" id="id17"><span class="brackets">18</span></dt>
+<dd><p>“What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
 <a class="reference external" href="http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html">http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html</a>.
 [Accessed: 27-Aug-2022].</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 

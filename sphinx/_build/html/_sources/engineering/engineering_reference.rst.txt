@@ -29,6 +29,11 @@ Engineering Reference and Theory
    lcd_16x2
    drv8871_h_bridge
    ultrasonic_sensor
+   battery_monitor
+   helpers
+   i2c_device
+   tca9548
+   tps55288
 
 
 

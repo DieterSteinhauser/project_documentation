@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Battery Monitoring System &mdash; Project Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Helper Functions" href="helpers.html" />
+    <link rel="prev" title="Ultrasonic Sensors" href="ultrasonic_sensor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Project Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpi/rpi_projects.html">Raspberry Pi Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming/programming_projects.html">Programming Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fun/fun_projects.html">Entertainment Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engineering_projects.html">Engineering Projects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="engineering_reference.html">Engineering Reference and Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circuit_basics.html">Circuit Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_components.html">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passive_filters.html">Passive Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diodes.html">Diodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bjt.html">BJTs Bipolar Junction Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fet.html">FETs Field Effect Transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="op_amp.html">Operational Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="active_filters.html">Active Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instrument_amps.html">Instrumentation Amplifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regulators.html">Linear Regulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_apps.html">Circuit Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_conversion.html">Data Conversion: ADC and DAC Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication_protocols.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pico.html">Raspberry Pico Microcontroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltc1661_dac.html">LTC1661 DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Battery Monitoring System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tca9548.html">TCA9548 I2C Switch Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Battery Monitoring System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/engineering/battery_monitor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="battery-monitoring-system">
+<h1>Battery Monitoring System<a class="headerlink" href="#battery-monitoring-system" title="Permalink to this headline"></a></h1>
+<blockquote>
+<div><span class="target" id="module-src.pico_power_management.battery_monitor"></span><dl class="py class">
+<dt class="sig sig-object py" id="src.pico_power_management.battery_monitor.BatteryMonitor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pico_power_management.battery_monitor.</span></span><span class="sig-name descname"><span class="pre">BatteryMonitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capacity_ah</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical_voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical_percentage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge_efficiency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discharge_efficiency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.battery_monitor.BatteryMonitor" title="Permalink to this definition"></a></dt>
+<dd><p>Battery Montioring Class, incorporating methods for determining the state of charge.</p>
+<p>The battery monitor must be changed to best fit the chemistry, voltage, and capacity of the
+attached battery.</p>
+<p>The battery monitoring algorithims are derived from the following article for State of Charge (SoC)
+<a class="reference external" href="https://www.analog.com/en/technical-articles/a-closer-look-at-state-of-charge-and-state-health-estimation-tech.html">https://www.analog.com/en/technical-articles/a-closer-look-at-state-of-charge-and-state-health-estimation-tech.html</a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pico_power_management.battery_monitor.BatteryMonitor.BATTERY_STATES">
+<span class="sig-name descname"><span class="pre">BATTERY_STATES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'CRITICAL':</span> <span class="pre">2,</span> <span class="pre">'ENERGY_SAVER':</span> <span class="pre">1,</span> <span class="pre">'PERFORMANCE':</span> <span class="pre">0}</span></em><a class="headerlink" href="#src.pico_power_management.battery_monitor.BatteryMonitor.BATTERY_STATES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.battery_monitor.BatteryMonitor.initial_state_of_charge">
+<span class="sig-name descname"><span class="pre">initial_state_of_charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.battery_monitor.BatteryMonitor.initial_state_of_charge" title="Permalink to this definition"></a></dt>
+<dd><p>Determines the initial state of charge either from memory or estimation using battery voltage observed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>battery_dict</strong> (<em>dict</em>) – Dictionary of battery values from the poll_adc_channels() method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.battery_monitor.BatteryMonitor.monitor_battery">
+<span class="sig-name descname"><span class="pre">monitor_battery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.battery_monitor.BatteryMonitor.monitor_battery" title="Permalink to this definition"></a></dt>
+<dd><p>Method for monitoring a batteries state of charge using ADC readings and Coulomb counting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>battery_dict</strong> (<em>dict</em>) – Dictionary of battery values from the poll_adc_channels() method.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>State of charge percentage, battery health percentage, and power state.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pico_power_management.battery_monitor.BatteryMonitor.state_of_charge">
+<span class="sig-name descname"><span class="pre">state_of_charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_interval_ms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pico_power_management.battery_monitor.BatteryMonitor.state_of_charge" title="Permalink to this definition"></a></dt>
+<dd><p>Determines the State of Battery Charge using Coulomb Counting. Requires a recent current reading
+from the battery and a time interval between measurements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current</strong> (<em>float</em>) – Current being supplied to/from the battery. Written in Amps. Charging is negative, Supplying is positive.</p></li>
+<li><p><strong>time_interval_ms</strong> (<em>int</em><em> | </em><em>float</em>) – Time interval between measurements in milliseconds</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  2</span><span class="c1">#                 NOTES </span>
+<span class="linenos">  3</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="c1"># Dieter Steinhauser</span>
+<span class="linenos">  6</span><span class="c1"># 11/2023</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="c1"># The Battery we are using is a WEIZE 12V 50Ah LiFePO4, 4 Cells</span>
+<span class="linenos">  9</span><span class="c1"># Max/Full Charge 14.6V, 3.65V/cell</span>
+<span class="linenos"> 10</span><span class="c1"># Nominal Voltage = 12.8V, 3.2V/cell</span>
+<span class="linenos"> 11</span><span class="c1"># Full Discharge = 10V, 2.50V/Cell</span>
+<span class="linenos"> 12</span><span class="c1"># LiFePO4 Voltage Chart, Best estimated while loaded and not charging.</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="c1"># 100% Charging - 3.65V/Cell - 14.6V</span>
+<span class="linenos"> 16</span><span class="c1"># 100% Rest     - 3.40/Cell - 13.6V</span>
+<span class="linenos"> 17</span><span class="c1"># 90%           - 3.35/Cell - 13.4V</span>
+<span class="linenos"> 18</span><span class="c1"># 80%           - 3.32/Cell - 13.3V</span>
+<span class="linenos"> 19</span><span class="c1"># 70%           - 3.30/Cell - 13.2V</span>
+<span class="linenos"> 20</span><span class="c1"># 60%           - 3.27/Cell - 13.1V</span>
+<span class="linenos"> 21</span><span class="c1"># 50%           - 3.26/Cell - 13.0V</span>
+<span class="linenos"> 22</span><span class="c1"># 40%           - 3.25/Cell - 13.0V</span>
+<span class="linenos"> 23</span><span class="c1"># 30%           - 3.22/Cell - 12.9V</span>
+<span class="linenos"> 24</span><span class="c1"># 20%           - 3.20/Cell - 12.8V</span>
+<span class="linenos"> 25</span><span class="c1"># 10%           - 3.00/Cell - 12.0V</span>
+<span class="linenos"> 26</span><span class="c1"># 0%            - 2.50/Cell - 10.0V</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span><span class="c1"># STATES</span>
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span><span class="c1"># Battery Full - MPPT Charging - no load    # Waste State -&gt; Performance State</span>
+<span class="linenos"> 31</span><span class="c1"># Battery Full - MPPT Charging - load       # Performance State</span>
+<span class="linenos"> 32</span><span class="c1"># Battery Full - No MPPT - no load          # Energy Saving State, minor tasks</span>
+<span class="linenos"> 33</span><span class="c1"># Battery Full - No MPPT - load             # Performance State, Minor tasks</span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span><span class="c1"># Battery mid - MPPT Charging - no load     # Energy Saving State, Recharging</span>
+<span class="linenos"> 37</span><span class="c1"># Battery mid - MPPT Charging - load        # Energy Saving State, Recharging / minor tasks</span>
+<span class="linenos"> 38</span><span class="c1"># Battery mid - No MPPT - no load           # Energy Saving State, Depletion</span>
+<span class="linenos"> 39</span><span class="c1"># Battery mid - No MPPT - load              # Unwanted State, Depletion</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="c1"># Battery low - MPPT Charging - no load     # Recovery State, Critical Recharging</span>
+<span class="linenos"> 42</span><span class="c1"># Battery low - MPPT Charging - load        # Recovery State, Critical Recharging</span>
+<span class="linenos"> 43</span><span class="c1"># Battery low - no MPPT - no load           # Recovery State, Critical Depletion</span>
+<span class="linenos"> 44</span><span class="c1"># Battery low - no MPPT - load              # Recovery State, Critical Depletion</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 47</span><span class="c1">#               IMPORTS</span>
+<span class="linenos"> 48</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 53</span><span class="c1">#           METHODS</span>
+<span class="linenos"> 54</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos"> 55</span> 
+<span class="linenos"> 56</span>
+<span class="linenos"> 57</span><span class="k">class</span> <span class="nc">BatteryMonitor</span><span class="p">:</span>
+<span class="linenos"> 58</span>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 59</span><span class="sd">    Battery Montioring Class, incorporating methods for determining the state of charge.</span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span><span class="sd">    The battery monitor must be changed to best fit the chemistry, voltage, and capacity of the</span>
+<span class="linenos"> 62</span><span class="sd">    attached battery.</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="sd">    The battery monitoring algorithims are derived from the following article for State of Charge (SoC)</span>
+<span class="linenos"> 65</span><span class="sd">    https://www.analog.com/en/technical-articles/a-closer-look-at-state-of-charge-and-state-health-estimation-tech.html</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span>    <span class="n">BATTERY_STATES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;PERFORMANCE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ENERGY_SAVER&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;CRITICAL&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span>    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacity_ah</span><span class="p">,</span> <span class="n">max_voltage</span><span class="p">,</span> <span class="n">min_voltage</span><span class="p">,</span> <span class="n">critical_voltage</span><span class="p">,</span> <span class="n">critical_percentage</span><span class="p">,</span> <span class="n">charge_efficiency</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">discharge_efficiency</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos"> 72</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 73</span><span class="sd">        Initialization of the battery monitoring system.</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="sd">        :param capacity_ah: Battery Capacity in Amp Hours</span>
+<span class="linenos"> 76</span><span class="sd">        :type capacity_ah: int | float</span>
+<span class="linenos"> 77</span><span class="sd">        :param max_voltage: Maximum Voltage possible for the battery</span>
+<span class="linenos"> 78</span><span class="sd">        :type max_voltage: int | float</span>
+<span class="linenos"> 79</span><span class="sd">        :param min_voltage: Minimum Voltage possible for the battery</span>
+<span class="linenos"> 80</span><span class="sd">        :type min_voltage: int | float</span>
+<span class="linenos"> 81</span><span class="sd">        :param critical_voltage: Voltage that is deemed the critical point for low power mode.</span>
+<span class="linenos"> 82</span><span class="sd">        :type critical_voltage: int | float</span>
+<span class="linenos"> 83</span><span class="sd">        :param critical_percentage: Percentage that is deemed the critical point for low power mode.</span>
+<span class="linenos"> 84</span><span class="sd">        :type critical_percentage: int | float</span>
+<span class="linenos"> 85</span><span class="sd">        :param charge_efficiency: Efficiency of battery charging, defaults to 1</span>
+<span class="linenos"> 86</span><span class="sd">        :type charge_efficiency: int | float, optional</span>
+<span class="linenos"> 87</span><span class="sd">        :param discharge_efficiency: Efficiency of battery discharging, defaults to 1</span>
+<span class="linenos"> 88</span><span class="sd">        :type discharge_efficiency: int | float, optional</span>
+<span class="linenos"> 89</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos"> 90</span>        
+<span class="linenos"> 91</span>        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_ah</span> <span class="o">=</span> <span class="n">capacity_ah</span> <span class="c1"># battery Capacity in amp hours</span>
+<span class="linenos"> 92</span>        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_mah</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">capacity_ah</span> <span class="c1"># battery Capacity in milliamp hours</span>
+<span class="linenos"> 93</span>        <span class="bp">self</span><span class="o">.</span><span class="n">critical_voltage</span>  <span class="o">=</span> <span class="n">critical_voltage</span>   <span class="c1"># Voltage theshold for low battery in volts</span>
+<span class="linenos"> 94</span>        <span class="bp">self</span><span class="o">.</span><span class="n">critical_percentage</span>  <span class="o">=</span> <span class="n">critical_percentage</span>   <span class="c1"># charge percentage threshold for low battery.</span>
+<span class="linenos"> 95</span>        <span class="bp">self</span><span class="o">.</span><span class="n">max_voltage</span>  <span class="o">=</span> <span class="n">max_voltage</span>  <span class="c1"># Maximum voltage of the battery when charging.</span>
+<span class="linenos"> 96</span>        <span class="bp">self</span><span class="o">.</span><span class="n">min_voltage</span>  <span class="o">=</span> <span class="n">min_voltage</span>  <span class="c1"># minimum voltage of the battery when discharging.</span>
+<span class="linenos"> 97</span>        <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="linenos"> 98</span>        <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span>
+<span class="linenos"> 99</span>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="linenos">100</span>        <span class="bp">self</span><span class="o">.</span><span class="n">depth_of_charge</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">101</span>        <span class="bp">self</span><span class="o">.</span><span class="n">depth_of_discharge</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">102</span>        <span class="bp">self</span><span class="o">.</span><span class="n">charge_cycles</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">103</span>        <span class="bp">self</span><span class="o">.</span><span class="n">discharge_efficiency</span> <span class="o">=</span> <span class="n">discharge_efficiency</span>
+<span class="linenos">104</span>        <span class="bp">self</span><span class="o">.</span><span class="n">charge_efficiency</span> <span class="o">=</span> <span class="n">charge_efficiency</span>
+<span class="linenos">105</span>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+<span class="linenos">106</span>        <span class="bp">self</span><span class="o">.</span><span class="n">peak_charge_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="linenos">107</span>        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BATTERY_STATES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ENERGY_SAVER&#39;</span><span class="p">)</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span>    <span class="k">def</span> <span class="nf">initial_state_of_charge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">battery_dict</span><span class="p">):</span>
+<span class="linenos">110</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">111</span><span class="sd">        Determines the initial state of charge either from memory or estimation using battery voltage observed.</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span><span class="sd">        :param battery_dict: Dictionary of battery values from the poll_adc_channels() method. </span>
+<span class="linenos">114</span><span class="sd">        :type battery_dict: dict</span>
+<span class="linenos">115</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span>        <span class="c1"># default to the last battery SOC saved to memory</span>
+<span class="linenos">118</span>        <span class="c1"># TODO: Read memory and determine the last saved state of charge or recall data from the Beelink via UART</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span>        <span class="c1"># if none are available, try to estimate the SOC using voltage.</span>
+<span class="linenos">121</span>
+<span class="linenos">122</span>        <span class="c1"># parse the battery dictionary</span>
+<span class="linenos">123</span>        <span class="n">battery_current</span> <span class="o">=</span> <span class="n">battery_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;IBAT&quot;</span><span class="p">)</span>
+<span class="linenos">124</span>        <span class="n">battery_voltage</span> <span class="o">=</span> <span class="n">battery_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;VBAT&quot;</span><span class="p">)</span>
+<span class="linenos">125</span>        <span class="n">charge_current</span> <span class="o">=</span> <span class="n">battery_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ICHARGER&quot;</span><span class="p">)</span>
+<span class="linenos">126</span>
+<span class="linenos">127</span>        <span class="c1"># estimate the initial state of charge based on the battery voltage</span>
+<span class="linenos">128</span>        <span class="c1"># calculated linear regression line of the Discharge chart. 95% confidence, Rsquared = 0.6705 for moderate correlation, voltage = 0.02577(charge) + 11.51.</span>
+<span class="linenos">129</span>        <span class="n">charge_percentage</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">((</span><span class="n">battery_voltage</span> <span class="o">-</span> <span class="mf">11.51</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.02577</span><span class="p">)</span> <span class="p">))</span>
+<span class="linenos">130</span>
+<span class="linenos">131</span>        <span class="c1"># edit the class variables.</span>
+<span class="linenos">132</span>        <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">=</span> <span class="n">charge_percentage</span>
+<span class="linenos">133</span>        <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span>
+<span class="linenos">134</span>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+<span class="linenos">135</span>
+<span class="linenos">136</span>            
+<span class="linenos">137</span>
+<span class="linenos">138</span>    <span class="k">def</span> <span class="nf">state_of_charge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">time_interval_ms</span><span class="p">):</span>
+<span class="linenos">139</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">140</span><span class="sd">        Determines the State of Battery Charge using Coulomb Counting. Requires a recent current reading</span>
+<span class="linenos">141</span><span class="sd">        from the battery and a time interval between measurements.</span>
+<span class="linenos">142</span>
+<span class="linenos">143</span><span class="sd">        :param current: Current being supplied to/from the battery. Written in Amps. Charging is negative, Supplying is positive.</span>
+<span class="linenos">144</span><span class="sd">        :type current: float</span>
+<span class="linenos">145</span><span class="sd">        :param time_interval_ms: Time interval between measurements in milliseconds</span>
+<span class="linenos">146</span><span class="sd">        :type time_interval_ms: int | float</span>
+<span class="linenos">147</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">148</span>        <span class="c1"># find the change in charge with respect to time.</span>
+<span class="linenos">149</span>        <span class="c1"># print(time_interval_ms)</span>
+<span class="linenos">150</span>        <span class="n">delta_ah</span> <span class="o">=</span> <span class="n">current</span> <span class="o">*</span> <span class="n">time_interval_ms</span> <span class="o">/</span> <span class="mi">3_600_000</span>
+<span class="linenos">151</span>        <span class="c1"># print(f&#39;delta Ah: {delta_ah}&#39;)</span>
+<span class="linenos">152</span>
+<span class="linenos">153</span>        <span class="c1"># find the percentage change in charge</span>
+<span class="linenos">154</span>        <span class="n">percent_delta</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">delta_ah</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity_ah</span><span class="p">)</span>
+<span class="linenos">155</span>        <span class="c1"># print(f&#39;percent_delta: {percent_delta}&#39;)</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span>        <span class="c1"># Determine difference between charging and discharging efficiency.</span>
+<span class="linenos">158</span>        <span class="n">efficiency</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">discharge_efficiency</span> <span class="k">if</span> <span class="n">current</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_efficiency</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span>        <span class="c1"># TODO: Determine if providing a minimum and maximum charging range here makes sense for DOD.</span>
+<span class="linenos">161</span>        <span class="c1"># print(f&#39;discharge_percentage: {self.discharge_percentage}&#39;)</span>
+<span class="linenos">162</span>        <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span> <span class="o">+</span> <span class="p">(</span><span class="n">efficiency</span> <span class="o">*</span> <span class="n">percent_delta</span><span class="p">)))</span>
+<span class="linenos">163</span>        <span class="c1"># self.discharge_percentage = self.discharge_percentage + (efficiency * percent_delta)</span>
+<span class="linenos">164</span>        <span class="c1"># print(f&#39;discharge_percentage: {self.discharge_percentage}&#39;)</span>
+<span class="linenos">165</span>
+<span class="linenos">166</span>        <span class="c1"># Calculate the State of charge percentage based on the battery health and the discharge percentage.</span>
+<span class="linenos">167</span>        <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span><span class="p">)))</span>
+<span class="linenos">168</span>
+<span class="linenos">169</span>
+<span class="linenos">170</span>    <span class="k">def</span> <span class="nf">monitor_battery</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">battery_dict</span><span class="p">):</span>
+<span class="linenos">171</span>        <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">172</span><span class="sd">        Method for monitoring a batteries state of charge using ADC readings and Coulomb counting.</span>
+<span class="linenos">173</span>
+<span class="linenos">174</span><span class="sd">        :param battery_dict: Dictionary of battery values from the poll_adc_channels() method.</span>
+<span class="linenos">175</span><span class="sd">        :type battery_dict: dict</span>
+<span class="linenos">176</span><span class="sd">        :return: State of charge percentage, battery health percentage, and power state.</span>
+<span class="linenos">177</span><span class="sd">        :rtype: tuple</span>
+<span class="linenos">178</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">179</span>
+<span class="linenos">180</span>        <span class="c1"># parse the battery dictionary</span>
+<span class="linenos">181</span>        <span class="n">battery_current</span> <span class="o">=</span> <span class="n">battery_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;IBAT&quot;</span><span class="p">)</span>
+<span class="linenos">182</span>        <span class="n">battery_voltage</span> <span class="o">=</span> <span class="n">battery_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;VBAT&quot;</span><span class="p">)</span>
+<span class="linenos">183</span>        <span class="n">charge_current</span> <span class="o">=</span> <span class="n">battery_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ICHARGER&quot;</span><span class="p">)</span>
+<span class="linenos">184</span>
+<span class="linenos">185</span>        <span class="c1"># print(f&#39;battery current: {battery_current}&#39;)</span>
+<span class="linenos">186</span>        <span class="c1"># print(f&#39;Charger current: {charge_current}&#39;)</span>
+<span class="linenos">187</span>        <span class="c1"># #print(charge_current)</span>
+<span class="linenos">188</span>
+<span class="linenos">189</span>        <span class="c1"># find the time since the last time the battery monitored function was called.</span>
+<span class="linenos">190</span>        <span class="n">new_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+<span class="linenos">191</span>        <span class="n">time_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">new_time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="linenos">192</span>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">new_time</span>
+<span class="linenos">193</span>        <span class="c1"># scalar being multiplied to reflect the 0.25V:1A ratio</span>
+<span class="linenos">194</span>        <span class="n">battery_current</span> <span class="o">=</span> <span class="p">((</span><span class="n">battery_current</span> <span class="o">-</span> <span class="mf">2.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">195</span>        <span class="n">charge_current</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">charge_current</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">196</span>
+<span class="linenos">197</span>        <span class="c1"># print(f&#39;battery current adjusted: {battery_current}&#39;)</span>
+<span class="linenos">198</span>        <span class="c1"># print(f&#39;Charger current adjusted: {charge_current}&#39;)</span>
+<span class="linenos">199</span>        <span class="c1"># print(f&#39;time elapsed: {time_elapsed}&#39;)</span>
+<span class="linenos">200</span>
+<span class="linenos">201</span>        <span class="c1"># If the battery is charging</span>
+<span class="linenos">202</span>        <span class="k">if</span> <span class="n">battery_current</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">203</span>            
+<span class="linenos">204</span>            <span class="c1"># TODO Measure the smallest accepted current by the battery and change the charge current threshold accordingly.</span>
+<span class="linenos">205</span>            <span class="c1"># if the battery is fully charged, with max voltage achieved and charge current less than 50mA</span>
+<span class="linenos">206</span>            <span class="k">if</span> <span class="p">(</span><span class="n">battery_voltage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_voltage</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.050</span> <span class="o">&lt;</span> <span class="n">battery_current</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+<span class="linenos">207</span>                
+<span class="linenos">208</span>                <span class="c1"># if it has been more than 5 minutes since the last peak charge trigger</span>
+<span class="linenos">209</span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak_charge_time</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak_charge_time</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">):</span>
+<span class="linenos">210</span>                
+<span class="linenos">211</span>                    <span class="c1"># Increment the amount of charge cycles that have occured</span>
+<span class="linenos">212</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">charge_cycles</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">213</span>
+<span class="linenos">214</span>                <span class="c1"># if this is the first time that we have fully charged the battery, calibrate the SoC system.</span>
+<span class="linenos">215</span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_cycles</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">216</span>
+<span class="linenos">217</span>                    <span class="c1"># The Battery is fully charged, calibrate the system to reflect </span>
+<span class="linenos">218</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">219</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="linenos">220</span>
+<span class="linenos">221</span>                <span class="c1"># Set the battery health to the state of charge</span>
+<span class="linenos">222</span>                <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span>
+<span class="linenos">223</span>
+<span class="linenos">224</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">225</span>                <span class="c1"># calculate the state of charge and depth of discharge</span>
+<span class="linenos">226</span>                <span class="bp">self</span><span class="o">.</span><span class="n">state_of_charge</span><span class="p">(</span><span class="n">battery_current</span><span class="p">,</span> <span class="n">time_elapsed</span><span class="p">)</span>
+<span class="linenos">227</span>
+<span class="linenos">228</span>            <span class="c1"># if the battery is at or above the healthy top of the charge or sees large charging current, allow for performance mode.</span>
+<span class="linenos">229</span>            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">health</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">&gt;</span> <span class="mi">70</span> <span class="ow">and</span> <span class="n">charge_current</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">):</span>
+<span class="linenos">230</span>                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BATTERY_STATES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PERFORMANCE&#39;</span><span class="p">)</span>
+<span class="linenos">231</span>
+<span class="linenos">232</span>        <span class="c1"># if the battery is discharging</span>
+<span class="linenos">233</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">234</span>
+<span class="linenos">235</span>            <span class="c1"># if the battery is lower than the discharged battery voltage</span>
+<span class="linenos">236</span>            <span class="k">if</span> <span class="n">battery_voltage</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_voltage</span><span class="p">:</span>
+<span class="linenos">237</span>
+<span class="linenos">238</span>                <span class="c1"># if it has been more than 5 minutes since the last peak charge trigger</span>
+<span class="linenos">239</span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak_charge_time</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak_charge_time</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">):</span>
+<span class="linenos">240</span>                
+<span class="linenos">241</span>                    <span class="c1"># Increment the amount of charge cycles that have occured</span>
+<span class="linenos">242</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">charge_cycles</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">243</span>
+<span class="linenos">244</span>                <span class="c1"># if this is the first time that we have fully charged the battery, calibrate the SoC system.</span>
+<span class="linenos">245</span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_cycles</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">246</span>
+<span class="linenos">247</span>                    <span class="c1"># The Battery is fully discharged, calibrate the system to reflect this.</span>
+<span class="linenos">248</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="linenos">249</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">250</span>
+<span class="linenos">251</span>
+<span class="linenos">252</span>                <span class="c1"># Set the battery health to the depth of discharge</span>
+<span class="linenos">253</span>                <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">discharge_percentage</span>
+<span class="linenos">254</span>
+<span class="linenos">255</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">256</span>                <span class="c1"># calculate the state of charge and depth of discharge</span>
+<span class="linenos">257</span>                <span class="bp">self</span><span class="o">.</span><span class="n">state_of_charge</span><span class="p">(</span><span class="n">battery_current</span><span class="p">,</span> <span class="n">time_elapsed</span><span class="p">)</span>
+<span class="linenos">258</span>
+<span class="linenos">259</span>
+<span class="linenos">260</span>            <span class="c1"># Handle states of low/critical power.</span>
+<span class="linenos">261</span>            <span class="k">if</span> <span class="p">(</span><span class="n">battery_voltage</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">critical_voltage</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">critical_percentage</span><span class="p">):</span>
+<span class="linenos">262</span>                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BATTERY_STATES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRITICAL&#39;</span><span class="p">)</span>
+<span class="linenos">263</span>
+<span class="linenos">264</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">265</span>                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BATTERY_STATES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ENERGY_SAVER&#39;</span><span class="p">)</span>
+<span class="linenos">266</span>
+<span class="linenos">267</span>        <span class="c1"># write significant data to the flash.</span>
+<span class="linenos">268</span>        <span class="c1"># TODO Impelement Flash reading and writing or recalling data from the Beelink via UART</span>
+<span class="linenos">269</span>
+<span class="linenos">270</span>        <span class="c1"># return battery data for UART transmission.</span>
+<span class="linenos">271</span>        <span class="n">bat_monitor_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">272</span>        <span class="n">bat_monitor_dict</span><span class="p">[</span><span class="s1">&#39;CHARGE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">charge_percentage</span>
+<span class="linenos">273</span>        <span class="n">bat_monitor_dict</span><span class="p">[</span><span class="s1">&#39;HEALTH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">health</span>
+<span class="linenos">274</span>        <span class="n">bat_monitor_dict</span><span class="p">[</span><span class="s1">&#39;STATE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+<span class="linenos">275</span>
+<span class="linenos">276</span>        <span class="k">return</span> <span class="n">bat_monitor_dict</span>
+<span class="linenos">277</span>    
+<span class="linenos">278</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">279</span>
+<span class="linenos">280</span>    <span class="n">bm</span> <span class="o">=</span> <span class="n">BatteryMonitor</span><span class="p">(</span><span class="n">capacity_ah</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+<span class="linenos">281</span>                        <span class="n">max_voltage</span> <span class="o">=</span> <span class="mf">14.4</span><span class="p">,</span>
+<span class="linenos">282</span>                        <span class="n">min_voltage</span> <span class="o">=</span> <span class="mf">10.2</span><span class="p">,</span>
+<span class="linenos">283</span>                        <span class="n">critical_voltage</span> <span class="o">=</span> <span class="mf">12.8</span><span class="p">,</span> 
+<span class="linenos">284</span>                        <span class="n">critical_percentage</span><span class="o">=</span> <span class="mi">20</span><span class="p">,</span> 
+<span class="linenos">285</span>                        <span class="n">charge_efficiency</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+<span class="linenos">286</span>                        <span class="n">discharge_efficiency</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="linenos">287</span>    
+<span class="linenos">288</span>
+<span class="linenos">289</span>
+<span class="linenos">290</span>
+<span class="linenos">291</span><span class="c1"># -----------------------------------------</span>
+<span class="linenos">292</span><span class="c1">#         END OF FILE</span>
+<span class="linenos">293</span><span class="c1"># -----------------------------------------  </span>
+<span class="linenos">294</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ultrasonic_sensor.html" class="btn btn-neutral float-left" title="Ultrasonic Sensors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="helpers.html" class="btn btn-neutral float-right" title="Helper Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dieter Steinhauser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

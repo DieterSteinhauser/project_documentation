@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Communication Protocols &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,6 +66,11 @@
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery_monitor.html">Battery Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tca9548.html">TCA9548 I2C Switch Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
 </ul>
 </li>
 </ul>
@@ -88,9 +88,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
-      <li class="breadcrumb-item active">Communication Protocols</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Communication Protocols</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/communication_protocols.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,18 +101,18 @@
            <div itemprop="articleBody">
              
   <section id="communication-protocols">
-<h1>Communication Protocols<a class="headerlink" href="#communication-protocols" title="Link to this heading"></a></h1>
+<h1>Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permalink to this headline"></a></h1>
 <section id="spi-serial-peripheral-interface">
-<h2>SPI - Serial Peripheral Interface<a class="headerlink" href="#spi-serial-peripheral-interface" title="Link to this heading"></a></h2>
+<h2>SPI - Serial Peripheral Interface<a class="headerlink" href="#spi-serial-peripheral-interface" title="Permalink to this headline"></a></h2>
 <p>SPI is a full-duplex serial communication protocol that was created by Motorola in the
-1980’s for high-speed communication in embedded systems <a class="footnote-reference brackets" href="#id7" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The SPI protocol consists of a
+1980’s for high-speed communication in embedded systems <a class="footnote-reference brackets" href="#id7" id="id1">1</a>. The SPI protocol consists of a
 single master device and one or many slave devices. For a simple two device system, A clock
 (SCLK), a chip select (CS), and two data lines (MOSI, MISO) are employed. MOSI is the data
 transmitted from the master device, while MISO is the data received from the master device.</p>
 <figure class="align-center" id="id9">
 <img alt="../_images/image004.png" src="../_images/image004.png" />
 <figcaption>
-<p><span class="caption-text">SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id7" id="id2">1</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>SPI can incorporate multiple slave devices by connecting data and clock lines,
@@ -123,12 +123,16 @@ cooperatively by tying all chip selects to the same line as seen in figure 3. Th
 does not need to be returned from the slave devices and the slave devices are intended to have
 the same output.</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="../_images/image005.png"><img alt="fig5" src="../_images/image005.png" style="width: 320px;" /></a></p></td>
 <td><p><a class="reference internal" href="../_images/image006.png"><img alt="fig6" src="../_images/image006.png" style="width: 320px;" /></a></p></td>
 </tr>
-<tr class="row-even"><td><p><em>SPI independent configuration</em> <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></td>
-<td><p><em>SPI daisy-chained configuration</em> <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></td>
+<tr class="row-even"><td><p><em>SPI independent configuration</em> <a class="footnote-reference brackets" href="#id7" id="id3">1</a>.</p></td>
+<td><p><em>SPI daisy-chained configuration</em> <a class="footnote-reference brackets" href="#id7" id="id4">1</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,7 +148,7 @@ system. In terms of using SPI on a microprocessor, A clock at or below 1MHz is b
 and flywire use.</p>
 </section>
 <section id="i2c-inter-integrated-circuit">
-<h2>I2C - Inter-Integrated Circuit<a class="headerlink" href="#i2c-inter-integrated-circuit" title="Link to this heading"></a></h2>
+<h2>I2C - Inter-Integrated Circuit<a class="headerlink" href="#i2c-inter-integrated-circuit" title="Permalink to this headline"></a></h2>
 <p>I2C is a half-duplex serial communication protocol created by Phillips Semiconductor in the 1980’s for low-speed
 communication in embedded systems. [2] The I2C protocol consists of a serial data line (SDA) and a serial clock line
 (SCL). These serial wires receive weak pull-up resistors to default the communication wire to the logical high
@@ -153,7 +157,7 @@ I2C is half-duplex as data is bidirectional but can only communicate in one dire
 <figure class="align-center" id="id10">
 <img alt="../_images/I2C_controller-target.png" src="../_images/I2C_controller-target.png" />
 <figcaption>
-<p><span class="caption-text">I2C Bus Diagram <a class="footnote-reference brackets" href="#id8" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">I2C Bus Diagram <a class="footnote-reference brackets" href="#id8" id="id5">2</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Interaction between I2C devices utilizes addresses, allowing for multiple master and multiple slave devices.
@@ -164,7 +168,7 @@ each transaction.</p>
 <figure class="align-center" id="id11">
 <img alt="../_images/i2c_comms.png" src="../_images/i2c_comms.png" />
 <figcaption>
-<p><span class="caption-text">Single Byte Write and Read transactions  <a class="footnote-reference brackets" href="#id8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+<p><span class="caption-text">Single Byte Write and Read transactions  <a class="footnote-reference brackets" href="#id8" id="id6">2</a>.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Communication between I2C devices occurs when a master device produces a start signal to initiate communication.
@@ -176,20 +180,16 @@ reading data, another address data frame is sent before the slave device returns
 multi-write transactions can occur where extra data frames are added to the end of transactions for communication
 of larger consecutive amounts of information.</p>
 <p><strong>References</strong></p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id7" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>,<a role="doc-backlink" href="#id4">4</a>)</span>
-<p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>)</span></dt>
+<dd><p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a>. [Accessed: 19-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id8" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id6">2</a>)</span>
-<p>“I2C Communication Protocol.” Wikipedia, Wikimedia Foundation, Oct. 3, 2023. [Online].
+</dd>
+<dt class="label" id="id8"><span class="brackets">2</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>“I2C Communication Protocol.” Wikipedia, Wikimedia Foundation, Oct. 3, 2023. [Online].
 Available: [en.wikipedia.org/wiki/I%C2%B2C]. Accessed: Dec. 2, 2023.</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LTC1661 DAC &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -67,6 +62,11 @@
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery_monitor.html">Battery Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tca9548.html">TCA9548 I2C Switch Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
 </ul>
 </li>
 </ul>
@@ -84,9 +84,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
-      <li class="breadcrumb-item active">LTC1661 DAC</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>LTC1661 DAC</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/ltc1661_dac.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -97,24 +97,24 @@
            <div itemprop="articleBody">
              
   <section id="ltc1661-dac">
-<h1>LTC1661 DAC<a class="headerlink" href="#ltc1661-dac" title="Link to this heading"></a></h1>
+<h1>LTC1661 DAC<a class="headerlink" href="#ltc1661-dac" title="Permalink to this headline"></a></h1>
 <p>The LTC1661 from Linear Technology hosts two 10-bit DAC’s that are addressable via
-SPI <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Communication is configured with the SPI clock idling low and capturing data on the
-rising edge of the clock.  The maximum baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+SPI <a class="footnote-reference brackets" href="#id6" id="id1">1</a>. Communication is configured with the SPI clock idling low and capturing data on the
+rising edge of the clock.  The maximum baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#id7" id="id2">2</a>.</p>
 <figure class="align-center" id="id8">
 <img alt="../_images/image008.png" src="../_images/image008.png" />
 <figcaption>
-<p><span class="caption-text">Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id7" id="id3">2</a></span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
 the primary functionality desired for this module. Knowing this, the commands 0x9 or 0xA
-would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id7" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id7" id="id4">2</a></p>
 <figure class="align-center" id="id9">
 <img alt="../_images/image009.png" src="../_images/image009.png" />
 <figcaption>
-<p><span class="caption-text">SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id7" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id7" id="id5">2</a>.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In our program, we must parse the data for every transmission so that a word packet sent will
@@ -122,20 +122,17 @@ have the format seen in figure 2. The LTC1661 sends the command, then splits the
 between the two bytes, followed by don’t cares to fill the word packet. In an 8-, 12-, or 16-bit
 DAC, less bit manipulation is required.</p>
 <p><strong>References</strong></p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id6" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a>. [Accessed: 19-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id7" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>,<a role="doc-backlink" href="#id5">4</a>)</span>
-<p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
+</dd>
+<dt class="label" id="id7"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>,<a href="#id5">4</a>)</span></dt>
+<dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
 <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
 [Accessed: 17-Oct-2022].</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 
 

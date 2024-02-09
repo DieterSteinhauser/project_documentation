@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linear Regulators &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,6 +71,11 @@
 <li class="toctree-l2"><a class="reference internal" href="lcd_16x2.html">16x2 LCD Display</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drv8871_h_bridge.html">DRV8871 H-Bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic_sensor.html">Ultrasonic Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery_monitor.html">Battery Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c_device.html">I2C Device Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tca9548.html">TCA9548 I2C Switch Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tps55288.html">TPS55288 DC/DC Buck-Boost I2C Driver</a></li>
 </ul>
 </li>
 </ul>
@@ -93,9 +93,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_reference.html">Engineering Reference and Theory</a></li>
-      <li class="breadcrumb-item active">Linear Regulators</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_reference.html">Engineering Reference and Theory</a> &raquo;</li>
+      <li>Linear Regulators</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/linear_regulators.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,11 +106,11 @@
            <div itemprop="articleBody">
              
   <section id="linear-regulators">
-<h1>Linear Regulators<a class="headerlink" href="#linear-regulators" title="Link to this heading"></a></h1>
+<h1>Linear Regulators<a class="headerlink" href="#linear-regulators" title="Permalink to this headline"></a></h1>
 <section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Link to this heading"></a></h2>
-<p>Linear regulators are basic 3-terminal devices used to maintain a constant regulated voltage <a class="footnote-reference brackets" href="#id12" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. A regulating
-circuit employs a transistor operating with negative feedback to produce the desired output <a class="footnote-reference brackets" href="#id15" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. A regulators
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<p>Linear regulators are basic 3-terminal devices used to maintain a constant regulated voltage <a class="footnote-reference brackets" href="#id12" id="id1">2</a>. A regulating
+circuit employs a transistor operating with negative feedback to produce the desired output <a class="footnote-reference brackets" href="#id15" id="id2">5</a>. A regulators
 transistor operates as a variable series resistance from the input voltage to the output voltage, with the remainder
 of energy being dissipated as heat [3].  Linear regulators are considered inefficient devices for this reason.
 However, linear regulators are excellent at creating a specific voltage with minimal noise. Their output
@@ -118,7 +118,7 @@ characteristics, implementation simplicity, and adjustability make them useful d
 <figure class="align-center" id="id16">
 <img alt="../_images/fixed_out_app.png" src="../_images/fixed_out_app.png" />
 <figcaption>
-<p><span class="caption-text">Fixed Output Regulator configuration for an LM7805 <a class="footnote-reference brackets" href="#id14" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">Fixed Output Regulator configuration for an LM7805 <a class="footnote-reference brackets" href="#id14" id="id3">4</a>.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Regulators may have a fixed voltage or adjustable voltage. Some regulators even allow for both depending on the
@@ -129,7 +129,7 @@ and adjustable depending on the use case.</p>
 <figure class="align-center" id="id17">
 <img alt="../_images/regulator_app.png" src="../_images/regulator_app.png" />
 <figcaption>
-<p><span class="caption-text">Fixed and Adjustable Regulator configuration for an LD1085 <a class="footnote-reference brackets" href="#id11" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">Fixed and Adjustable Regulator configuration for an LD1085 <a class="footnote-reference brackets" href="#id11" id="id4">1</a>.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>A given regulator has a limited operation region. The lower boundary is determined by the reference voltage of the
@@ -142,7 +142,7 @@ feedback from the device output.</p>
 <figure class="align-center" id="id18">
 <img alt="../_images/lm317_equivalent.png" src="../_images/lm317_equivalent.png" />
 <figcaption>
-<p><span class="caption-text">Simplified circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id15" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+<p><span class="caption-text">Simplified circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id15" id="id5">5</a>.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The upper limit of output is dictated by the input voltage minus the dropout voltage of the device.
@@ -150,20 +150,20 @@ Dropout voltage varies between devices and leads to a category of regulators cal
 On the LM317, voltage dropout is determined by the voltage drops over Q1, Q2, and the current limit resistor (R_CL)
 with Q3. If we assume each drop from base to emitter of these BJT’s is 0.7V, then there is approximately 2.1V dropout
 from the device. When checking the electrical characteristics of the LM317 datasheet, we can see our quick analysis is
-correct as the dropout is 2V <a class="footnote-reference brackets" href="#id13" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. The Current limit resistor and Q3 operate as the devices current limiting protection.
+correct as the dropout is 2V <a class="footnote-reference brackets" href="#id13" id="id6">3</a>. The Current limit resistor and Q3 operate as the devices current limiting protection.
 It is also worthwhile to realize that the potential difference between the output and adjust pin is equivalent to the
 reference voltage (~1.25V), as they are connected via the virtual short of the error amplifier. Because of these
 properties, linear regulators like the LM317 can be thought of as power transistors. And have a variety of uses
-outside of strict voltage regulation <a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
+outside of strict voltage regulation <a class="footnote-reference brackets" href="#id15" id="id7">5</a>.</p>
 </section>
 <section id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h2>
 <section id="constant-current-source">
-<h3>Constant Current Source<a class="headerlink" href="#constant-current-source" title="Link to this heading"></a></h3>
+<h3>Constant Current Source<a class="headerlink" href="#constant-current-source" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id19">
 <img alt="../_images/current_source.png" src="../_images/current_source.png" />
 <figcaption>
-<p><span class="caption-text">Constant current source circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id13" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+<p><span class="caption-text">Constant current source circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id13" id="id8">3</a>.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>A constant current source can be made with a linear regulator when a single limit resistor is placed between the output
@@ -171,11 +171,11 @@ and adjust pins. Because the potential difference between output and adjust pin 
 voltage, output current is set by the series resistance.</p>
 </section>
 <section id="adjustable-voltage-source">
-<h3>Adjustable Voltage Source<a class="headerlink" href="#adjustable-voltage-source" title="Link to this heading"></a></h3>
+<h3>Adjustable Voltage Source<a class="headerlink" href="#adjustable-voltage-source" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id20">
 <img alt="../_images/lm317_typical_app.png" src="../_images/lm317_typical_app.png" />
 <figcaption>
-<p><span class="caption-text">Typical application circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id13" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+<p><span class="caption-text">Typical application circuit diagram of the LM317 regulator <a class="footnote-reference brackets" href="#id13" id="id9">3</a>.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>A constant voltage source made using adjustable resistors allows for a variety of voltage outputs. Capacitors are
@@ -184,43 +184,36 @@ to provide low impedance paths for current if the input voltage is turned off.  
 discharging into the adjust and output pins, potentially harming the device.</p>
 </section>
 <section id="application-hints">
-<h3>Application Hints<a class="headerlink" href="#application-hints" title="Link to this heading"></a></h3>
+<h3>Application Hints<a class="headerlink" href="#application-hints" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id21">
 <img alt="../_images/regulator_app_hints.png" src="../_images/regulator_app_hints.png" />
 <figcaption>
-<p><span class="caption-text">Further applications of an adjustable regulator <a class="footnote-reference brackets" href="#id15" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+<p><span class="caption-text">Further applications of an adjustable regulator <a class="footnote-reference brackets" href="#id15" id="id10">5</a>.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p><strong>References</strong></p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id11" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
-<p>“LD1085 Datasheet: 3A low drop positive voltage regulator - adjustable and fixed,” ST Microelectronics.
+<dl class="footnote brackets">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>“LD1085 Datasheet: 3A low drop positive voltage regulator - adjustable and fixed,” ST Microelectronics.
 [Online]. Available: <a class="reference external" href="https://www.st.com/resource/en/datasheet/ld1085.pdf">https://www.st.com/resource/en/datasheet/ld1085.pdf</a>. [Accessed: 10-Mar-2023].</p>
-</aside>
-<aside class="footnote brackets" id="id12" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
-<p>“Linear Regulator,” Wikipedia, 03-Mar-2023. [Online]. Available: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_regulator">https://en.wikipedia.org/wiki/Linear_regulator</a>.
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>“Linear Regulator,” Wikipedia, 03-Mar-2023. [Online]. Available: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_regulator">https://en.wikipedia.org/wiki/Linear_regulator</a>.
 [Accessed: 10-Mar-2023].</p>
-</aside>
-<aside class="footnote brackets" id="id13" role="note">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id8">2</a>,<a role="doc-backlink" href="#id9">3</a>)</span>
-<p>“LM317 3-terminal adjustable regulator - Texas Instruments.” [Online].
+</dd>
+<dt class="label" id="id13"><span class="brackets">3</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id8">2</a>,<a href="#id9">3</a>)</span></dt>
+<dd><p>“LM317 3-terminal adjustable regulator - Texas Instruments.” [Online].
 Available: <a class="reference external" href="https://www.ti.com/lit/ds/symlink/lm317.pdf">https://www.ti.com/lit/ds/symlink/lm317.pdf</a>. [Accessed: 10-Mar-2023].</p>
-</aside>
-<aside class="footnote brackets" id="id14" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
-<p>“LM78XX, LM78XXA - 3-terminal 1 a positive voltage regulator,” Fairchild Semiconductors. [Online].
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
+<dd><p>“LM78XX, LM78XXA - 3-terminal 1 a positive voltage regulator,” Fairchild Semiconductors. [Online].
 Available: <a class="reference external" href="https://www.mouser.com/datasheet/2/149/LM7812-461970.pdf">https://www.mouser.com/datasheet/2/149/LM7812-461970.pdf</a>. [Accessed: 10-Mar-2023].</p>
-</aside>
-<aside class="footnote brackets" id="id15" role="note">
-<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id7">3</a>,<a role="doc-backlink" href="#id10">4</a>)</span>
-<p>P. Horowitz and W. Hill, “Chapter 9: Voltage Regulation and Power Conversion,” in The Art of Electronics,
+</dd>
+<dt class="label" id="id15"><span class="brackets">5</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id5">2</a>,<a href="#id7">3</a>,<a href="#id10">4</a>)</span></dt>
+<dd><p>P. Horowitz and W. Hill, “Chapter 9: Voltage Regulation and Power Conversion,” in The Art of Electronics,
 New York: Cambridge University Press, 2022.</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 </section>

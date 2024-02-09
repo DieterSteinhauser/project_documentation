@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ultrasonic Theremin - Junior Design &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -108,9 +103,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_projects.html">Engineering Projects</a></li>
-      <li class="breadcrumb-item active">Ultrasonic Theremin - Junior Design</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_projects.html">Engineering Projects</a> &raquo;</li>
+      <li>Ultrasonic Theremin - Junior Design</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/ultrasonic_theremin.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -121,16 +116,16 @@
            <div itemprop="articleBody">
              
   <section id="ultrasonic-theremin-junior-design">
-<h1>Ultrasonic Theremin - Junior Design<a class="headerlink" href="#ultrasonic-theremin-junior-design" title="Link to this heading"></a></h1>
+<h1>Ultrasonic Theremin - Junior Design<a class="headerlink" href="#ultrasonic-theremin-junior-design" title="Permalink to this headline"></a></h1>
 <p>Date: 11/2022</p>
 <figure class="align-center" id="id64">
 <img alt="../_images/image054.jpg" src="../_images/image054.jpg" />
 <figcaption>
-<p><span class="caption-text">Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id64" title="Link to this image"></a></p>
+<p><span class="caption-text">Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id64" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <p>The Theremin is a musical instrument designed by Leon Theremin in 1928. The device
 operates using two antennas relying on capacitor physics, which sense the position of the
 operator’s hands. One antenna influences the output frequency of the note, while the other
@@ -141,9 +136,9 @@ analog inputs will augment a waveform generator, which creates an audio signal a
 user’s movements, creating a digital instrument.</p>
 </section>
 <section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline"></a></h2>
 <section id="project-overview">
-<h3>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h3>
+<h3>Project Overview<a class="headerlink" href="#project-overview" title="Permalink to this headline"></a></h3>
 <p>The raspberry Pico interfaces with multiple components and generates waveform
 functions for audio output. Ultrasonic sensors detect distance from the users’ hands for frequency
 determination. Status of the device is displayed on an LCD. Switches and Buttons are available
@@ -156,34 +151,34 @@ adapter, as 5V is generated using the LM2940 LDO. This powers most standalone co
 including the Pico. The SMPS on the Pico also generates 3.3V and is filtered for usage in GPIO.</p>
 </section>
 <section id="pico-overview">
-<h3>Pico Overview<a class="headerlink" href="#pico-overview" title="Link to this heading"></a></h3>
+<h3>Pico Overview<a class="headerlink" href="#pico-overview" title="Permalink to this headline"></a></h3>
 <p>The Raspberry Pico is a development board with an RP2040 microcontroller chip. It has
 264KB of SRAM and 2MB of flash memory. Development for the Pico is versatile as the
-platform capable of being programmed in MicroPython, CPython, C, and Rust <a class="footnote-reference brackets" href="#id58" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>. The Pico has
-a dual core processor capable of 133MHz clock speed, set to 125MHz out of the box <a class="footnote-reference brackets" href="#id60" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></a>. There are
+platform capable of being programmed in MicroPython, CPython, C, and Rust <a class="footnote-reference brackets" href="#id58" id="id1">13</a>. The Pico has
+a dual core processor capable of 133MHz clock speed, set to 125MHz out of the box <a class="footnote-reference brackets" href="#id60" id="id2">15</a>. There are
 40 GPIO pins on the board, with SPI, I2C, and UART communication capability. The Pico
 comes equip with a 12-bit 500ksps ADC with 5 channels total. One channel is configured to an
-RP2040 internal temperature sensor, and three are tied to GPIO pins on the Pico <a class="footnote-reference brackets" href="#id59" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. The Pico
+RP2040 internal temperature sensor, and three are tied to GPIO pins on the Pico <a class="footnote-reference brackets" href="#id59" id="id3">14</a>. The Pico
 also has a timer with four alarms, a Real-Time-Counter (RTC), and sixteen Pulse-Width Modulation (PWM) channels</p>
 <figure class="align-center" id="id65">
 <img alt="../_images/image0011.png" src="../_images/image0011.png" />
 <figcaption>
-<p><span class="caption-text">Raspberry Pico Pinout <a class="footnote-reference brackets" href="#id58" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id65" title="Link to this image"></a></p>
+<p><span class="caption-text">Raspberry Pico Pinout <a class="footnote-reference brackets" href="#id58" id="id4">13</a>.</span><a class="headerlink" href="#id65" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="adc-theory">
-<h3>ADC Theory<a class="headerlink" href="#adc-theory" title="Link to this heading"></a></h3>
+<h3>ADC Theory<a class="headerlink" href="#adc-theory" title="Permalink to this headline"></a></h3>
 <p>Analog to Digital Converters are the primary method of capturing analog data using a
 microcontroller. ADC’s capture analog signals such as sound or light waveforms and convert
 them to a digital signal for processing of information. An ADC takes continuous magnitude data
-from a continuous time domain into discrete magnitude data in a discrete time domain <a class="footnote-reference brackets" href="#id48" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. The
+from a continuous time domain into discrete magnitude data in a discrete time domain <a class="footnote-reference brackets" href="#id48" id="id5">3</a>. The
 conversion quantizes the signal based on the resolution, reference voltages, and sample rate of
 the ADC, introducing small errors into the signal as noise.</p>
 <figure class="align-center" id="id66">
 <img alt="../_images/image0021.png" src="../_images/image0021.png" />
 <figcaption>
-<p><span class="caption-text">Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id66" title="Link to this image"></a></p>
+<p><span class="caption-text">Quantization of an Analog to Digital Converter on a sine wave.</span><a class="headerlink" href="#id66" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Resolution and reference voltages of an ADC produces quantization errors within the
@@ -200,7 +195,7 @@ Signal noise can significantly reduce the effective number of bits to which an A
 <figure class="align-center" id="id67">
 <a class="reference internal image-reference" href="../_images/image0031.png"><img alt="../_images/image0031.png" src="../_images/image0031.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">ADC formulas.</span><a class="headerlink" href="#id67" title="Link to this image"></a></p>
+<p><span class="caption-text">ADC formulas.</span><a class="headerlink" href="#id67" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Sample rate of an ADC produces quantization errors within the time domain of the
@@ -210,13 +205,13 @@ filter to the ADC input, removing frequencies above half of the sampling frequen
 Oversampling is also commonly employed as it can reduce noise and improve bit-depth.</p>
 </section>
 <section id="adc-configuration">
-<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Link to this heading"></a></h3>
+<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Permalink to this headline"></a></h3>
 <p>Since the ADC in on the Raspberry Pico, initial setup of the ADC can easily be achieved
-using the ADC section of the Pico Software Development Kit (SDK) <a class="footnote-reference brackets" href="#id59" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. This provides the
+using the ADC section of the Pico Software Development Kit (SDK) <a class="footnote-reference brackets" href="#id59" id="id6">14</a>. This provides the
 engineer with a simple and straightforward introduction on taking ADC readings. However, the
 12-bit ADC onboard the Pico is not great by any means. This is due to the switching power
 regulator on the Pico. As a result of switching signal noise, the onboard voltage reference for the
-ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy <a class="footnote-reference brackets" href="#id58" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.
+ADC is setup in poor conditions. The ADC has a 30mV offset and its signal is quite noisy <a class="footnote-reference brackets" href="#id58" id="id7">13</a>.
 The datasheet gives suggestions on improvement of the ADC readings. An External reference
 voltage may be used, the R7 resistor can be removed, or issues can be mitigated in averaging and
 offset code. I chose a different route entirely, by adding bypass capacitors to the reference
@@ -224,16 +219,16 @@ voltage and ADC input pins for filtering and smoothing. This is enough for the a
 this project.</p>
 </section>
 <section id="spi-theory">
-<h3>SPI Theory<a class="headerlink" href="#spi-theory" title="Link to this heading"></a></h3>
+<h3>SPI Theory<a class="headerlink" href="#spi-theory" title="Permalink to this headline"></a></h3>
 <p>SPI is a full-duplex serial communication protocol that was created by Motorola in the
-1980’s for high-speed communication in embedded systems <a class="footnote-reference brackets" href="#id61" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a>. The SPI protocol consists of a
+1980’s for high-speed communication in embedded systems <a class="footnote-reference brackets" href="#id61" id="id8">16</a>. The SPI protocol consists of a
 single master device and one or many slave devices. For a simple two device system, A clock
 (SCLK), a chip select (CS), and two data lines (MOSI, MISO) are employed. MOSI is the data
 transmitted from the master device, while MISO is the data received from the master device.</p>
 <figure class="align-center" id="id68">
 <img alt="../_images/image004.png" src="../_images/image004.png" />
 <figcaption>
-<p><span class="caption-text">SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id61" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id68" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI configuration for a two-device system <a class="footnote-reference brackets" href="#id61" id="id9">16</a>.</span><a class="headerlink" href="#id68" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>SPI can incorporate multiple slave devices by connecting data and clock lines,
@@ -244,12 +239,16 @@ cooperatively by tying all chip selects to the same line as seen in figure 6. Th
 does not need to be returned from the slave devices and the slave devices are intended to have
 the same output.</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="../_images/image005.png"><img alt="fig5" src="../_images/image005.png" style="width: 320px;" /></a></p></td>
 <td><p><a class="reference internal" href="../_images/image006.png"><img alt="fig6" src="../_images/image006.png" style="width: 320px;" /></a></p></td>
 </tr>
-<tr class="row-even"><td><p><em>Figure 5: SPI independent configuration</em> <a class="footnote-reference brackets" href="#id61" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a>.</p></td>
-<td><p><em>Figure 6: SPI daisy-chained configuration</em> <a class="footnote-reference brackets" href="#id61" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a>.</p></td>
+<tr class="row-even"><td><p><em>Figure 5: SPI independent configuration</em> <a class="footnote-reference brackets" href="#id61" id="id10">16</a>.</p></td>
+<td><p><em>Figure 6: SPI daisy-chained configuration</em> <a class="footnote-reference brackets" href="#id61" id="id11">16</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -265,10 +264,10 @@ system. In terms of using SPI on the Pico, A clock at or below 1MHz is best for 
 and flywire use.</p>
 </section>
 <section id="dac-theory">
-<h3>DAC Theory<a class="headerlink" href="#dac-theory" title="Link to this heading"></a></h3>
+<h3>DAC Theory<a class="headerlink" href="#dac-theory" title="Permalink to this headline"></a></h3>
 <p>A Digital to Analog Converter operates on much of the same principles of an ADC but in
 reverse. DAC’s take a digital code that is within the resolution range of the device and output an
-analog waveform. Uses for DAC’s are often found in creating audio and video signals <a class="footnote-reference brackets" href="#id49" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>. A
+analog waveform. Uses for DAC’s are often found in creating audio and video signals <a class="footnote-reference brackets" href="#id49" id="id12">4</a>. A
 DAC will have a singular or pair of voltage references and a bit resolution for characterizing the
 precision and range of the output waveform. An output voltage can be calculated by dividing a
 given code by the number of discrete values the DAC can produce. This is then multiplied by the
@@ -276,7 +275,7 @@ reference voltage to return the ideal output voltage.</p>
 <figure class="align-center" id="id69">
 <a class="reference internal image-reference" href="../_images/image0071.png"><img alt="../_images/image0071.png" src="../_images/image0071.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">DAC formulas.</span><a class="headerlink" href="#id69" title="Link to this image"></a></p>
+<p><span class="caption-text">DAC formulas.</span><a class="headerlink" href="#id69" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>DAC’s have some non-idealities in the form of differential and integral non-linearity,
@@ -284,30 +283,30 @@ which characterize the difference between two adjacent code values and the diffe
 transfer characteristic, respectively.</p>
 </section>
 <section id="dac-configuration">
-<h3>DAC Configuration<a class="headerlink" href="#dac-configuration" title="Link to this heading"></a></h3>
+<h3>DAC Configuration<a class="headerlink" href="#dac-configuration" title="Permalink to this headline"></a></h3>
 <p>The LTC1661 from Linear Technology hosts two 10-bit DAC’s that are addressable via
-SPI <a class="footnote-reference brackets" href="#id48" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. Communication is configured with the SPI clock idling low and capturing data on the
+SPI <a class="footnote-reference brackets" href="#id48" id="id13">3</a>. Communication is configured with the SPI clock idling low and capturing data on the
 rising edge of the clock. Simple initialization of SPI on the Pico can be seen chapter 3.7 the
-MicroPython SDK <a class="footnote-reference brackets" href="#id59" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. For an in-depth approach to SPI initialization and communication on the
-Pico, the MicroPython documentation for the SPI module proved insightful <a class="footnote-reference brackets" href="#id57" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>. The maximum
-baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#id55" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>. I employed a baud rate of no larger than 8MHz to
+MicroPython SDK <a class="footnote-reference brackets" href="#id59" id="id14">14</a>. For an in-depth approach to SPI initialization and communication on the
+Pico, the MicroPython documentation for the SPI module proved insightful <a class="footnote-reference brackets" href="#id57" id="id15">12</a>. The maximum
+baud rate of the LTC1661 is 10MHz <a class="footnote-reference brackets" href="#id55" id="id16">10</a>. I employed a baud rate of no larger than 8MHz to
 avoid data corruption on the breadboard. However, small distances of SPI connections on the
 final PCB make higher speeds possible. The default SPI pins of the Pico were employed, located
-the bottom right corner of the Pico Pinout <a class="footnote-reference brackets" href="#id58" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.</p>
+the bottom right corner of the Pico Pinout <a class="footnote-reference brackets" href="#id58" id="id17">13</a>.</p>
 <figure class="align-center" id="id70">
 <img alt="../_images/image008.png" src="../_images/image008.png" />
 <figcaption>
-<p><span class="caption-text">Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id55" id="id18" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id70" title="Link to this image"></a></p>
+<p><span class="caption-text">Timing Diagram of LTC1661 SPI communication <a class="footnote-reference brackets" href="#id55" id="id18">10</a></span><a class="headerlink" href="#id70" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Communication with this DAC is slightly more complicated due to the 10-bit resolution
 associated with the device. Commanding the device to write to its internal register and Update is
 the primary functionality desired for this module. Knowing this, the commands 0x9 or 0xA
-would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id55" id="id19" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a></p>
+would be applicable for continuously changing voltage on output A and B respectively <a class="footnote-reference brackets" href="#id55" id="id19">10</a></p>
 <figure class="align-center" id="id71">
 <img alt="../_images/image009.png" src="../_images/image009.png" />
 <figcaption>
-<p><span class="caption-text">SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id55" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id71" title="Link to this image"></a></p>
+<p><span class="caption-text">SPI communication Sequence for the LTC1661 <a class="footnote-reference brackets" href="#id55" id="id20">10</a>.</span><a class="headerlink" href="#id71" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In our program, we must parse the data for every transmission so that a word packet sent will
@@ -316,7 +315,7 @@ between the two bytes, followed by don’t cares to fill the word packet. In an 
 DAC, less bit manipulation is required.</p>
 </section>
 <section id="operational-amplifier-theory">
-<h3>Operational Amplifier Theory<a class="headerlink" href="#operational-amplifier-theory" title="Link to this heading"></a></h3>
+<h3>Operational Amplifier Theory<a class="headerlink" href="#operational-amplifier-theory" title="Permalink to this headline"></a></h3>
 <p>Operational Amplifiers (Op-Amps) are high-gain voltage amplifiers with differential
 input and a single voltage output. Op-Amps typically have five terminals: An inverting input,
 non-inverting input, an upper supply, a lower supply, and an output. An ideal Op-Amp has an
@@ -326,7 +325,7 @@ gain and infinite Gain Bandwidth (GBW).</p>
 <figure class="align-center" id="id72">
 <img alt="../_images/figure10.png" src="../_images/figure10.png" />
 <figcaption>
-<p><span class="caption-text">Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id46" id="id21" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id72" title="Link to this image"></a></p>
+<p><span class="caption-text">Anatomy of an Op-Amp and Ideal Op-Amp Equations <a class="footnote-reference brackets" href="#id46" id="id21">1</a>.</span><a class="headerlink" href="#id72" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Using an infinite open-loop gain is limiting, as the output voltage signal would become
@@ -338,32 +337,32 @@ the negative feedback loop.</p>
 <figure class="align-center" id="id73">
 <img alt="../_images/figure11.png" src="../_images/figure11.png" />
 <figcaption>
-<p><span class="caption-text">Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id46" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id73" title="Link to this image"></a></p>
+<p><span class="caption-text">Inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id46" id="id22">1</a>.</span><a class="headerlink" href="#id73" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id74">
 <img alt="../_images/figure12.png" src="../_images/figure12.png" />
 <figcaption>
-<p><span class="caption-text">Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id46" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id74" title="Link to this image"></a></p>
+<p><span class="caption-text">Non-inverting Op-Amp configuration and voltage gain equation <a class="footnote-reference brackets" href="#id46" id="id23">1</a>.</span><a class="headerlink" href="#id74" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Non-idealities of real-life Op-Amps will also affect the circuit, the most influential of which is
 determined by a given IC’s strengths and weaknesses. A notable non-ideality can be seen in gain
 bandwidth and subsequent frequency response. Finite GBW/GBP of an Op-Amp produces
 attributes of an active lowpass filter. With the lower cutoff frequency determined by the GBP
-divided by the gain of the circuit <a class="footnote-reference brackets" href="#id50" id="id24" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. As a result, open-loop response often has high gain with
+divided by the gain of the circuit <a class="footnote-reference brackets" href="#id50" id="id24">5</a>. As a result, open-loop response often has high gain with
 very low cutoff frequency. Whereas closed-loop gain will keep gain approximately constant for a
 much wider bandwidth.</p>
 <figure class="align-center" id="id75">
 <img alt="../_images/image0211.png" src="../_images/image0211.png" />
 <figcaption>
-<p><span class="caption-text">LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id52" id="id25" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id75" title="Link to this image"></a></p>
+<p><span class="caption-text">LM741 Frequency response in open and closed loop configurations <a class="footnote-reference brackets" href="#id52" id="id25">7</a>.</span><a class="headerlink" href="#id75" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id76">
 <img alt="../_images/image022.png" src="../_images/image022.png" />
 <figcaption>
-<p><span class="caption-text">Gain Bandwidth formula <a class="footnote-reference brackets" href="#id52" id="id26" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id76" title="Link to this image"></a></p>
+<p><span class="caption-text">Gain Bandwidth formula <a class="footnote-reference brackets" href="#id52" id="id26">7</a>.</span><a class="headerlink" href="#id76" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Other non-idealities of Op-Amps are limits on output current, voltage, and slew rate.
@@ -374,7 +373,7 @@ is referred to as its slew rate. Op-Amps are slew rate limited at frequencies of
 require a faster rate than the IC can permit.</p>
 </section>
 <section id="first-order-filter-theory">
-<h3>First-Order Filter Theory<a class="headerlink" href="#first-order-filter-theory" title="Link to this heading"></a></h3>
+<h3>First-Order Filter Theory<a class="headerlink" href="#first-order-filter-theory" title="Permalink to this headline"></a></h3>
 <p>Analog filters are a method of reducing gain of responses at certain frequencies. First-order
 filters implement a singular cutoff frequency while second order filters implement multiple
 cutoff frequencies. Filters can be implemented in active and passive configurations, meaning
@@ -384,53 +383,53 @@ implements passive and active filters in multiple filter configurations.</p>
 <figure class="align-center" id="id77">
 <img alt="../_images/image023.png" src="../_images/image023.png" />
 <figcaption>
-<p><span class="caption-text">First order filter table with active and passive applications <a class="footnote-reference brackets" href="#id46" id="id27" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id77" title="Link to this image"></a></p>
+<p><span class="caption-text">First order filter table with active and passive applications <a class="footnote-reference brackets" href="#id46" id="id27">1</a>.</span><a class="headerlink" href="#id77" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="audio-amplifier-configuration">
-<h3>Audio Amplifier Configuration<a class="headerlink" href="#audio-amplifier-configuration" title="Link to this heading"></a></h3>
+<h3>Audio Amplifier Configuration<a class="headerlink" href="#audio-amplifier-configuration" title="Permalink to this headline"></a></h3>
 <p>The audio amplifier circuit has a simple implementation. The primary goal was creating a
 circuit with 26dB gain (20V/V) using the LM386. This was easily accomplished by referring to
-the LM386 datasheet as they provide applications in section 9 of the document (Figure 16) <a class="footnote-reference brackets" href="#id54" id="id28" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>.
+the LM386 datasheet as they provide applications in section 9 of the document (Figure 16) <a class="footnote-reference brackets" href="#id54" id="id28">9</a>.
 Implementation can be seen on the schematic, Figure 22. I made no changes to the circuit
 recommended by the datasheet.</p>
 <figure class="align-center" id="id78">
 <img alt="../_images/image024.png" src="../_images/image024.png" />
 <figcaption>
-<p><span class="caption-text">LM386 Wiring Diagram for a gain of 20 <a class="footnote-reference brackets" href="#id54" id="id29" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id78" title="Link to this image"></a></p>
+<p><span class="caption-text">LM386 Wiring Diagram for a gain of 20 <a class="footnote-reference brackets" href="#id54" id="id29">9</a>.</span><a class="headerlink" href="#id78" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="power-regulation-and-filtering">
-<h3>Power Regulation and Filtering<a class="headerlink" href="#power-regulation-and-filtering" title="Link to this heading"></a></h3>
+<h3>Power Regulation and Filtering<a class="headerlink" href="#power-regulation-and-filtering" title="Permalink to this headline"></a></h3>
 <p>To supply power to the system, I chose to use the LM2940 5V low-dropout regulator.
 This allows for a 9-12V DC source to supply the devices without much overhead. This provided
 a smooth 5V source for most components, with local decoupling capacitors where needed. The
 LM2940 is a prime candidate for 5V regulation as its implementation is simple, only requiring
-two capacitors on the Vin and Vout <a class="footnote-reference brackets" href="#id53" id="id30" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>. I implemented an array of values for the output
-capacitors out of an abundance of safety and a desire for a highly filtered power source <a class="footnote-reference brackets" href="#id47" id="id31" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id63" id="id32" role="doc-noteref"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></a>.</p>
+two capacitors on the Vin and Vout <a class="footnote-reference brackets" href="#id53" id="id30">8</a>. I implemented an array of values for the output
+capacitors out of an abundance of safety and a desire for a highly filtered power source <a class="footnote-reference brackets" href="#id47" id="id31">2</a>, <a class="footnote-reference brackets" href="#id63" id="id32">18</a>.</p>
 <figure class="align-center" id="id79">
 <img alt="../_images/image025.png" src="../_images/image025.png" />
 <figcaption>
-<p><span class="caption-text">LM2940 LDO Wiring Diagram <a class="footnote-reference brackets" href="#id53" id="id33" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id79" title="Link to this image"></a></p>
+<p><span class="caption-text">LM2940 LDO Wiring Diagram <a class="footnote-reference brackets" href="#id53" id="id33">8</a>.</span><a class="headerlink" href="#id79" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In addition to the 5V source, I powered the Raspberry Pico via the VSYS node to activate
 the device and use the 3.3V Switching Mode Power Supply (SMPS). This was done using a
-Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB <a class="footnote-reference brackets" href="#id58" id="id34" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.
+Schottky diode from 5V to VSYS to avoid backflow when the Pico is plugged in via USB <a class="footnote-reference brackets" href="#id58" id="id34">13</a>.
 The Pico power-chain is good because the SMPS is efficient, but noise on the output causes
-problems with other systems like the ADC <a class="footnote-reference brackets" href="#id58" id="id35" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id59" id="id36" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. As a result, I added bypass capacitors to this
+problems with other systems like the ADC <a class="footnote-reference brackets" href="#id58" id="id35">13</a>, <a class="footnote-reference brackets" href="#id59" id="id36">14</a>. As a result, I added bypass capacitors to this
 source as well.</p>
 <figure class="align-center" id="id80">
 <img alt="../_images/figure18.png" src="../_images/figure18.png" />
 <figcaption>
-<p><span class="caption-text">Pico Power-chain and the implemented method of external supply <a class="footnote-reference brackets" href="#id53" id="id37" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id80" title="Link to this image"></a></p>
+<p><span class="caption-text">Pico Power-chain and the implemented method of external supply <a class="footnote-reference brackets" href="#id53" id="id37">8</a>.</span><a class="headerlink" href="#id80" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="inputs-and-outputs">
-<h3>Inputs and Outputs<a class="headerlink" href="#inputs-and-outputs" title="Link to this heading"></a></h3>
+<h3>Inputs and Outputs<a class="headerlink" href="#inputs-and-outputs" title="Permalink to this headline"></a></h3>
 <p>Buttons, switches, and LEDs are integrated into the design for various controls and
 system status. All inputs are setup in a pull-down configuration. Wave selection is controlled by
 the active switches while both menu selection and software resets are controlled by the buttons.
@@ -443,9 +442,9 @@ the 3.3V source from the SMPS as to not damage GPIO pins on the Pico. They are a
 with 220-ohm resistors to give the LED’s maximum brightness in a safe current range.</p>
 </section>
 <section id="ultrasonic-sensors">
-<h3>Ultrasonic Sensors<a class="headerlink" href="#ultrasonic-sensors" title="Link to this heading"></a></h3>
+<h3>Ultrasonic Sensors<a class="headerlink" href="#ultrasonic-sensors" title="Permalink to this headline"></a></h3>
 <p>The HC-SR04 is an Ultrasonic sensor module that uses sonar to determine distance of
-objects similar to echolocation seen in animals like bats or dolphins <a class="footnote-reference brackets" href="#id51" id="id38" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. It is rated for distances
+objects similar to echolocation seen in animals like bats or dolphins <a class="footnote-reference brackets" href="#id51" id="id38">6</a>. It is rated for distances
 of 2cm to 400cm and can provide high accuracy within this range. The sensors have four
 connections, VCC, Trig, Echo, and GND. The device operates with a 5V supply, while the
 trigger and echo are used to communicate digital data between the sensor and a microcontroller.</p>
@@ -458,25 +457,25 @@ can modify output sound data.</p>
 <figure class="align-center" id="id81">
 <img alt="../_images/image028.png" src="../_images/image028.png" />
 <figcaption>
-<p><span class="caption-text">Ultrasonic sensor timing diagram <a class="footnote-reference brackets" href="#id51" id="id39" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#id81" title="Link to this image"></a></p>
+<p><span class="caption-text">Ultrasonic sensor timing diagram <a class="footnote-reference brackets" href="#id51" id="id39">6</a>.</span><a class="headerlink" href="#id81" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="lcd-configuration">
-<h3>LCD Configuration<a class="headerlink" href="#lcd-configuration" title="Link to this heading"></a></h3>
+<h3>LCD Configuration<a class="headerlink" href="#lcd-configuration" title="Permalink to this headline"></a></h3>
 <p>Configuration of the Crystal Fontz AH1602Z-YYH for parallel communication was a
 major step in setup of this circuit. I chose to use parallel communication to interact with the LCD
 as opposed to SPI or I2C for simplicity and use of previous code. The LCD is wired in parallel to
-the microcontroller with four-bit communication <a class="footnote-reference brackets" href="#id62" id="id40" role="doc-noteref"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></a>. A potentiometer was connected for
+the microcontroller with four-bit communication <a class="footnote-reference brackets" href="#id62" id="id40">17</a>. A potentiometer was connected for
 contrast control of the LCD, and a photoresistor and 1k-ohm resistor was connected in parallel
 for adaptive brightness control. For parallel communication, a nibble of data is sent to the display
 simultaneously. Full bytes of data are then sent to the device in a process called bit-banging. This
 splits a byte of data to send two nibbles in series, communicating the upper four bits and then the
 lower four bits. For wiring of the device, previous lecture slides and LCD driver manual were
-helpful in wiring and debugging issues with contrast and brightness <a class="footnote-reference brackets" href="#id62" id="id41" role="doc-noteref"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></a>.</p>
+helpful in wiring and debugging issues with contrast and brightness <a class="footnote-reference brackets" href="#id62" id="id41">17</a>.</p>
 </section>
 <section id="theremin-circuit-configuration">
-<h3>Theremin Circuit Configuration<a class="headerlink" href="#theremin-circuit-configuration" title="Link to this heading"></a></h3>
+<h3>Theremin Circuit Configuration<a class="headerlink" href="#theremin-circuit-configuration" title="Permalink to this headline"></a></h3>
 <p>The various components are connected in a circuit following the hardware diagram and
 schematics seen below. 9V Power is connected via a barrel jack and regulated to 5V, supplying
 the Pico through a Schottky diode. An LED is also driven by the 5V rail to indicate a power on
@@ -492,7 +491,7 @@ of Status LEDs indicate continuous operation by toggling and display on reset of
 <figure class="align-center" id="id82">
 <img alt="../_images/image029.png" src="../_images/image029.png" />
 <figcaption>
-<p><span class="caption-text">Hardware Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id82" title="Link to this image"></a></p>
+<p><span class="caption-text">Hardware Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id82" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>A single processor flow was employed for reliability and simplicity. To help speed up
@@ -516,24 +515,24 @@ instrument use.</p>
 <figure class="align-center" id="id83">
 <img alt="../_images/image030.png" src="../_images/image030.png" />
 <figcaption>
-<p><span class="caption-text">Software Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id83" title="Link to this image"></a></p>
+<p><span class="caption-text">Software Block Diagram of the Theremin Circuit.</span><a class="headerlink" href="#id83" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="schematic-and-pcb-design">
-<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Link to this heading"></a></h3>
+<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Permalink to this headline"></a></h3>
 <p>All previously mentioned components must be compiled into a schematic design for
 wiring structure and PCB design. Useful tips and tricks for understanding the Altium can be
-learned by watching Professor Stapleton’s videos <a class="footnote-reference brackets" href="#id56" id="id42" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>.</p>
+learned by watching Professor Stapleton’s videos <a class="footnote-reference brackets" href="#id56" id="id42">11</a>.</p>
 <p>The most useful design points are regarding power and capacitor placement. Bypass and
 decoupling capacitors are added to the board for several reasons. First, capacitors can be used on
 power headers to avoid voltage spikes and removing AC ripple on DC power. Small ceramic
 caps offer low series resistance and react fast but have a difficult time dealing with substantial
 amounts of charge over long periods. Polarized electrolytic capacitors usually have a much
 higher capacitance, and in conjunction with smaller ceramic capacitors, effectively clean DC
-voltage <a class="footnote-reference brackets" href="#id47" id="id43" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#id56" id="id44" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>. In larger schematics and PCB’s, we are not always able to position circuits near
+voltage <a class="footnote-reference brackets" href="#id47" id="id43">2</a>, <a class="footnote-reference brackets" href="#id56" id="id44">11</a>. In larger schematics and PCB’s, we are not always able to position circuits near
 bypass capacitors. Therefore, small decoupling capacitors are recommended for placement near a
-circuit subsection to help clean AC ripple from DC voltages <a class="footnote-reference brackets" href="#id47" id="id45" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+circuit subsection to help clean AC ripple from DC voltages <a class="footnote-reference brackets" href="#id47" id="id45">2</a>.</p>
 <p>Once the schematic was populated with all necessary circuit components, the PCB was
 updated with all schematic components for board layout. A general layout of parts was done
 before resizing the board outline to find the most effective use of space. When all components
@@ -545,26 +544,34 @@ routes. I implemented a Ground and 5V layer using the copper pours.</p>
 <figure class="align-center" id="id84">
 <img alt="../_images/image031.png" src="../_images/image031.png" />
 <figcaption>
-<p><span class="caption-text">Ultrasonic Theremin schematic page 1 of 2.</span><a class="headerlink" href="#id84" title="Link to this image"></a></p>
+<p><span class="caption-text">Ultrasonic Theremin schematic page 1 of 2.</span><a class="headerlink" href="#id84" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id85">
 <img alt="../_images/image032.png" src="../_images/image032.png" />
 <figcaption>
-<p><span class="caption-text">Ultrasonic Theremin schematic page 2 of 2.</span><a class="headerlink" href="#id85" title="Link to this image"></a></p>
+<p><span class="caption-text">Ultrasonic Theremin schematic page 2 of 2.</span><a class="headerlink" href="#id85" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id86">
 <img alt="../_images/image033.png" src="../_images/image033.png" />
 <figcaption>
-<p><span class="caption-text">Top side of Ultrasonic Theremin PCB layout.</span><a class="headerlink" href="#id86" title="Link to this image"></a></p>
+<p><span class="caption-text">Top side of Ultrasonic Theremin PCB layout.</span><a class="headerlink" href="#id86" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="bill-of-materials">
-<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Link to this heading"></a></h3>
+<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Permalink to this headline"></a></h3>
 <table class="docutils align-default" id="id87">
-<caption><span class="caption-text">Bill Of Materials</span><a class="headerlink" href="#id87" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Bill Of Materials</span><a class="headerlink" href="#id87" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Name</p></td>
 <td><p>Description</p></td>
@@ -768,7 +775,7 @@ R13, R14, R17, R18</p></td>
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline"></a></h2>
 <p>The schematic of the circuit and PCB turned out well, with minimal errors. The
 assembled PCB was easy to debug because of its plentiful headers employed in the diagram.
 Also, using female headers for the ultrasonic sensors, LCD, DIP packages, and potentiometers
@@ -778,17 +785,17 @@ components worked immediately after installation.</p>
 <figure class="align-center" id="id88">
 <img alt="../_images/image034.png" src="../_images/image034.png" />
 <figcaption>
-<p><span class="caption-text">Empty Theremin Circuit PCB.</span><a class="headerlink" href="#id88" title="Link to this image"></a></p>
+<p><span class="caption-text">Empty Theremin Circuit PCB.</span><a class="headerlink" href="#id88" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id89">
 <img alt="../_images/image036.jpg" src="../_images/image036.jpg" />
 <figcaption>
-<p><span class="caption-text">Populated Theremin Circuit PCB.</span><a class="headerlink" href="#id89" title="Link to this image"></a></p>
+<p><span class="caption-text">Populated Theremin Circuit PCB.</span><a class="headerlink" href="#id89" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="power">
-<h3>Power<a class="headerlink" href="#power" title="Link to this heading"></a></h3>
+<h3>Power<a class="headerlink" href="#power" title="Permalink to this headline"></a></h3>
 <p>The power regulation and filtering produced a 5V source with minimal noise, observed
 with as little as 10mV ripple on the source. Extra filtering on the 3.3V source also seemed
 fruitful but may benefit from a larger array of capacitances to further smooth the ~30-40mV
@@ -796,64 +803,64 @@ ripple observed on the device pin. This is a slight improvement on the unfiltere
 <figure class="align-center" id="id90">
 <img alt="../_images/image037.jpg" src="../_images/image037.jpg" />
 <figcaption>
-<p><span class="caption-text">Power regulation system on the PCB</span><a class="headerlink" href="#id90" title="Link to this image"></a></p>
+<p><span class="caption-text">Power regulation system on the PCB</span><a class="headerlink" href="#id90" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id91">
 <img alt="../_images/image038.png" src="../_images/image038.png" />
 <figcaption>
-<p><span class="caption-text">5V source observed on the oscilloscope.</span><a class="headerlink" href="#id91" title="Link to this image"></a></p>
+<p><span class="caption-text">5V source observed on the oscilloscope.</span><a class="headerlink" href="#id91" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id92">
 <img alt="../_images/image039.png" src="../_images/image039.png" />
 <figcaption>
-<p><span class="caption-text">3.3V source observed on the oscilloscope.</span><a class="headerlink" href="#id92" title="Link to this image"></a></p>
+<p><span class="caption-text">3.3V source observed on the oscilloscope.</span><a class="headerlink" href="#id92" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="audio">
-<h3>Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h3>
+<h3>Audio<a class="headerlink" href="#audio" title="Permalink to this headline"></a></h3>
 <p>The audio system of this circuit had no issue driving the 8-ohm speaker for a variety of
 32-step waveforms. The coarse volume potentiometer helped easily remove clipping from the
 amplifier stage. Frequencies of 160Hz were achievable with system stability. Frequencies up to
 240 were achieved using this audio configuration, however this boost is audio transaction
 demand.</p>
 <section id="without-speaker-load">
-<h4>Without Speaker Load<a class="headerlink" href="#without-speaker-load" title="Link to this heading"></a></h4>
+<h4>Without Speaker Load<a class="headerlink" href="#without-speaker-load" title="Permalink to this headline"></a></h4>
 <figure class="align-center" id="id93">
 <img alt="../_images/audio.jpg" src="../_images/audio.jpg" />
 <figcaption>
-<p><span class="caption-text">Audio output system.</span><a class="headerlink" href="#id93" title="Link to this image"></a></p>
+<p><span class="caption-text">Audio output system.</span><a class="headerlink" href="#id93" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id94">
 <img alt="../_images/image040.png" src="../_images/image040.png" />
 <figcaption>
-<p><span class="caption-text">Sine wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id94" title="Link to this image"></a></p>
+<p><span class="caption-text">Sine wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id94" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id95">
 <img alt="../_images/image041.png" src="../_images/image041.png" />
 <figcaption>
-<p><span class="caption-text">Square wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id95" title="Link to this image"></a></p>
+<p><span class="caption-text">Square wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id95" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id96">
 <img alt="../_images/image042.png" src="../_images/image042.png" />
 <figcaption>
-<p><span class="caption-text">Triangle wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id96" title="Link to this image"></a></p>
+<p><span class="caption-text">Triangle wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id96" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id97">
 <img alt="../_images/image043.png" src="../_images/image043.png" />
 <figcaption>
-<p><span class="caption-text">Sawtooth wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id97" title="Link to this image"></a></p>
+<p><span class="caption-text">Sawtooth wave output of the Audio Amplifier without speaker load.</span><a class="headerlink" href="#id97" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="with-speaker-load">
-<h4>With Speaker Load<a class="headerlink" href="#with-speaker-load" title="Link to this heading"></a></h4>
+<h4>With Speaker Load<a class="headerlink" href="#with-speaker-load" title="Permalink to this headline"></a></h4>
 <p>The audio amplifier with an 8-ohm speaker creates an RC circuit, and adds capacitive
 loading and unloading. Slight hiccupping of the output waveform can also be observed due to
 issues with the python interpreter, as well as variation in frequency/amplitude from ultrasonic
@@ -861,31 +868,31 @@ sensors when sampling.</p>
 <figure class="align-center" id="id98">
 <img alt="../_images/image044.png" src="../_images/image044.png" />
 <figcaption>
-<p><span class="caption-text">Sine wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id98" title="Link to this image"></a></p>
+<p><span class="caption-text">Sine wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id98" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id99">
 <img alt="../_images/image045.png" src="../_images/image045.png" />
 <figcaption>
-<p><span class="caption-text">Square wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id99" title="Link to this image"></a></p>
+<p><span class="caption-text">Square wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id99" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id100">
 <img alt="../_images/image046.png" src="../_images/image046.png" />
 <figcaption>
-<p><span class="caption-text">Triangle wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id100" title="Link to this image"></a></p>
+<p><span class="caption-text">Triangle wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id100" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id101">
 <img alt="../_images/image047.png" src="../_images/image047.png" />
 <figcaption>
-<p><span class="caption-text">Sawtooth wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id101" title="Link to this image"></a></p>
+<p><span class="caption-text">Sawtooth wave output of the Audio Amplifier with speaker load.</span><a class="headerlink" href="#id101" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="interface-and-display">
-<h3>Interface and Display<a class="headerlink" href="#interface-and-display" title="Link to this heading"></a></h3>
+<h3>Interface and Display<a class="headerlink" href="#interface-and-display" title="Permalink to this headline"></a></h3>
 <p>The finished theremin circuit displayed its menu system intuitively. On startup, the splash
 screen displays the project name and system clock, while holding the yellow and onboard LEDs
 high. After the splash screen, the system hits the home screen to display waveform, frequency,
@@ -896,37 +903,37 @@ sensors detect, and a waveform switch is selected.</p>
 <figure class="align-center" id="id102">
 <img alt="../_images/figure39.png" src="../_images/figure39.png" />
 <figcaption>
-<p><span class="caption-text">Splash screen on system reset.</span><a class="headerlink" href="#id102" title="Link to this image"></a></p>
+<p><span class="caption-text">Splash screen on system reset.</span><a class="headerlink" href="#id102" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id103">
 <img alt="../_images/figure40.png" src="../_images/figure40.png" />
 <figcaption>
-<p><span class="caption-text">Home screen with waveform selection, frequency, and amplitude readings.</span><a class="headerlink" href="#id103" title="Link to this image"></a></p>
+<p><span class="caption-text">Home screen with waveform selection, frequency, and amplitude readings.</span><a class="headerlink" href="#id103" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id104">
 <img alt="../_images/figure41.png" src="../_images/figure41.png" />
 <figcaption>
-<p><span class="caption-text">Amplitude and frequency boundary menu.</span><a class="headerlink" href="#id104" title="Link to this image"></a></p>
+<p><span class="caption-text">Amplitude and frequency boundary menu.</span><a class="headerlink" href="#id104" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id105">
 <img alt="../_images/image054.jpg" src="../_images/image054.jpg" />
 <figcaption>
-<p><span class="caption-text">Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id105" title="Link to this image"></a></p>
+<p><span class="caption-text">Ultrasonic Theremin in its case.</span><a class="headerlink" href="#id105" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id106">
 <img alt="../_images/image055.jpg" src="../_images/image055.jpg" />
 <figcaption>
-<p><span class="caption-text">Close up of the ultrasonic theremin in its case.</span><a class="headerlink" href="#id106" title="Link to this image"></a></p>
+<p><span class="caption-text">Close up of the ultrasonic theremin in its case.</span><a class="headerlink" href="#id106" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline"></a></h2>
 <p>Overall, the ultrasonic theremin circuit was a success. It has some minor problems that
 can be solved with small modifications to the PCB or software, but performs its task as expected.
 In terms of the power system, the regulation of the 5V source was excellent, however my
@@ -958,9 +965,9 @@ for improvement leaves potential for a revision of both the circuit and code, al
 use, higher frequencies, and better responsiveness.</p>
 </section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline"></a></h2>
 <section id="lcd-py">
-<h3>LCD.py<a class="headerlink" href="#lcd-py" title="Link to this heading"></a></h3>
+<h3>LCD.py<a class="headerlink" href="#lcd-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -1010,7 +1017,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos"> 46</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos"> 47</span>
 <span class="linenos"> 48</span><span class="k">def</span> <span class="nf">Configure</span><span class="p">():</span>
-<span class="linenos"> 49</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list&quot;&quot;&quot;</span>
+<span class="linenos"> 49</span>    <span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list&quot;&quot;&quot;</span>
 <span class="linenos"> 50</span>
 <span class="linenos"> 51</span>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
 <span class="linenos"> 52</span>       <span class="n">DATA_BUS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">PINS</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
@@ -1018,7 +1025,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos"> 54</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos"> 55</span>
 <span class="linenos"> 56</span><span class="k">def</span> <span class="nf">lcd_strobe</span><span class="p">():</span>
-<span class="linenos"> 57</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
+<span class="linenos"> 57</span>    <span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
 <span class="linenos"> 58</span>
 <span class="linenos"> 59</span>    <span class="n">EN</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="linenos"> 60</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1029,7 +1036,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos"> 65</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos"> 66</span> 
 <span class="linenos"> 67</span><span class="k">def</span> <span class="nf">lcd_write</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
-<span class="linenos"> 68</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
+<span class="linenos"> 68</span>    <span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
 <span class="linenos"> 69</span>
 <span class="linenos"> 70</span>    <span class="c1"># determine if writing a command or data</span>
 <span class="linenos"> 71</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">command</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">ord</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
@@ -1062,7 +1069,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos"> 98</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos"> 99</span>
 <span class="linenos">100</span><span class="k">def</span> <span class="nf">lcd_clear</span><span class="p">():</span>
-<span class="linenos">101</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
+<span class="linenos">101</span>    <span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
 <span class="linenos">102</span>
 <span class="linenos">103</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">104</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1070,7 +1077,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">106</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">107</span>
 <span class="linenos">108</span><span class="k">def</span> <span class="nf">lcd_home</span><span class="p">():</span>
-<span class="linenos">109</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
+<span class="linenos">109</span>    <span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
 <span class="linenos">110</span>
 <span class="linenos">111</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x02</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">112</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1079,7 +1086,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">115</span>
 <span class="linenos">116</span>
 <span class="linenos">117</span><span class="k">def</span> <span class="nf">lcd_cursor_blink</span><span class="p">():</span>
-<span class="linenos">118</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
+<span class="linenos">118</span>    <span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
 <span class="linenos">119</span>
 <span class="linenos">120</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0D</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">121</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1087,7 +1094,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">123</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">124</span>
 <span class="linenos">125</span><span class="k">def</span> <span class="nf">lcd_cursor_on</span><span class="p">():</span>
-<span class="linenos">126</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
+<span class="linenos">126</span>    <span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
 <span class="linenos">127</span>
 <span class="linenos">128</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0E</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">129</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1095,7 +1102,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">131</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">132</span>
 <span class="linenos">133</span><span class="k">def</span> <span class="nf">lcd_cursor_off</span><span class="p">():</span>
-<span class="linenos">134</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
+<span class="linenos">134</span>    <span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
 <span class="linenos">135</span>
 <span class="linenos">136</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">137</span>    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1103,7 +1110,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">139</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">140</span>
 <span class="linenos">141</span><span class="k">def</span> <span class="nf">lcd_puts</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-<span class="linenos">142</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">142</span>    <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">143</span>
 <span class="linenos">144</span>    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
 <span class="linenos">145</span>       <span class="n">lcd_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -1111,7 +1118,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">147</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">148</span>
 <span class="linenos">149</span><span class="k">def</span> <span class="nf">lcd_putch</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-<span class="linenos">150</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">150</span>    <span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">151</span>    <span class="n">lcd_write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos">152</span>
 <span class="linenos">153</span><span class="c1"># -----------------------------------------</span>
@@ -1185,13 +1192,13 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">221</span>
 <span class="linenos">222</span>
 <span class="linenos">223</span><span class="k">class</span> <span class="nc">LCD</span><span class="p">:</span>
-<span class="linenos">224</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;The LCD class is meant to abstract the LCD driver further and streamline development.&quot;&quot;&quot;</span>
+<span class="linenos">224</span>    <span class="sd">&quot;&quot;&quot;The LCD class is meant to abstract the LCD driver further and streamline development.&quot;&quot;&quot;</span>
 <span class="linenos">225</span>
 <span class="linenos">226</span>    <span class="n">CMD_MODE</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos">227</span>    <span class="n">DATA_MODE</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="linenos">228</span>
 <span class="linenos">229</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">reg_select_pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_pins</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">230</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Object initialization&quot;&quot;&quot;</span>
+<span class="linenos">230</span>        <span class="sd">&quot;&quot;&quot;Object initialization&quot;&quot;&quot;</span>
 <span class="linenos">231</span>
 <span class="linenos">232</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">enable_pin</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="linenos">233</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reg_select_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">reg_select_pin</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
@@ -1205,7 +1212,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">241</span>    <span class="c1"># -----------------------------------------    </span>
 <span class="linenos">242</span>
 <span class="linenos">243</span>    <span class="k">def</span> <span class="nf">_configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">244</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list. &quot;&quot;&quot;</span>
+<span class="linenos">244</span>        <span class="sd">&quot;&quot;&quot;Creates the data bus object from the pin list. &quot;&quot;&quot;</span>
 <span class="linenos">245</span>
 <span class="linenos">246</span>        <span class="c1"># Configure the pins of the device.</span>
 <span class="linenos">247</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_pins</span><span class="p">:</span>
@@ -1214,7 +1221,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">250</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">251</span>
 <span class="linenos">252</span>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">253</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the LCD for communication.&quot;&quot;&quot;</span>
+<span class="linenos">253</span>        <span class="sd">&quot;&quot;&quot;Initializes the LCD for communication.&quot;&quot;&quot;</span>
 <span class="linenos">254</span>
 <span class="linenos">255</span>        <span class="c1"># clear values on data bus.</span>
 <span class="linenos">256</span>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -1255,7 +1262,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">291</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">292</span>
 <span class="linenos">293</span>    <span class="k">def</span> <span class="nf">strobe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">294</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
+<span class="linenos">294</span>        <span class="sd">&quot;&quot;&quot;Flashes the enable line and provides wait period.&quot;&quot;&quot;</span>
 <span class="linenos">295</span>
 <span class="linenos">296</span>        <span class="bp">self</span><span class="o">.</span><span class="n">enable_pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="linenos">297</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1266,7 +1273,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">302</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">303</span>    
 <span class="linenos">304</span>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
-<span class="linenos">305</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
+<span class="linenos">305</span>        <span class="sd">&quot;&quot;&quot;Sends data to the LCD module. &quot;&quot;&quot;</span>
 <span class="linenos">306</span>
 <span class="linenos">307</span>        <span class="c1"># determine if writing a command or data</span>
 <span class="linenos">308</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">command</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">ord</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
@@ -1299,7 +1306,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">335</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">336</span>
 <span class="linenos">337</span>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">338</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
+<span class="linenos">338</span>        <span class="sd">&quot;&quot;&quot;Clear the LCD Screen.&quot;&quot;&quot;</span>
 <span class="linenos">339</span>
 <span class="linenos">340</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">341</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1307,7 +1314,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">343</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">344</span>
 <span class="linenos">345</span>    <span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">346</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
+<span class="linenos">346</span>        <span class="sd">&quot;&quot;&quot;Return the Cursor to the starting position.&quot;&quot;&quot;</span>
 <span class="linenos">347</span>
 <span class="linenos">348</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x02</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">349</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1316,7 +1323,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">352</span>
 <span class="linenos">353</span>
 <span class="linenos">354</span>    <span class="k">def</span> <span class="nf">blink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">355</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
+<span class="linenos">355</span>        <span class="sd">&quot;&quot;&quot;Have the cursor start blinking.&quot;&quot;&quot;</span>
 <span class="linenos">356</span>
 <span class="linenos">357</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0D</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">358</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1324,7 +1331,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">360</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">361</span>
 <span class="linenos">362</span>    <span class="k">def</span> <span class="nf">cursor_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">363</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
+<span class="linenos">363</span>        <span class="sd">&quot;&quot;&quot;Have the cursor on, Good for debugging.&quot;&quot;&quot;</span>
 <span class="linenos">364</span>
 <span class="linenos">365</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0E</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">366</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1332,7 +1339,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">368</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">369</span>
 <span class="linenos">370</span>    <span class="k">def</span> <span class="nf">cursor_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="linenos">371</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
+<span class="linenos">371</span>        <span class="sd">&quot;&quot;&quot;Turn the cursor off.&quot;&quot;&quot;</span>
 <span class="linenos">372</span>
 <span class="linenos">373</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos">374</span>        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1340,7 +1347,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">376</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">377</span>
 <span class="linenos">378</span>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-<span class="linenos">379</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">379</span>        <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">380</span>
 <span class="linenos">381</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
 <span class="linenos">382</span>            <span class="bp">self</span><span class="o">.</span><span class="n">_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -1348,13 +1355,13 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">384</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">385</span>
 <span class="linenos">386</span>    <span class="k">def</span> <span class="nf">_putch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-<span class="linenos">387</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">387</span>        <span class="sd">&quot;&quot;&quot;Write a character on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">388</span>        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos">389</span>
 <span class="linenos">390</span>    <span class="c1"># -----------------------------------------</span>
 <span class="linenos">391</span>
 <span class="linenos">392</span>    <span class="k">def</span> <span class="nf">_puts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-<span class="linenos">393</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
+<span class="linenos">393</span>        <span class="sd">&quot;&quot;&quot;Write a string on to the LCD.&quot;&quot;&quot;</span>
 <span class="linenos">394</span>
 <span class="linenos">395</span>        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
 <span class="linenos">396</span>            <span class="bp">self</span><span class="o">.</span><span class="n">_putch</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -1388,7 +1395,7 @@ use, higher frequencies, and better responsiveness.</p>
 </div></blockquote>
 </section>
 <section id="lut-py">
-<h3>LUT.py<a class="headerlink" href="#lut-py" title="Link to this heading"></a></h3>
+<h3>LUT.py<a class="headerlink" href="#lut-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -1479,7 +1486,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos"> 87</span>
 <span class="linenos"> 88</span>
 <span class="linenos"> 89</span><span class="k">class</span> <span class="nc">Waveform</span><span class="p">:</span>
-<span class="linenos"> 90</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to store info on the waveform functions&quot;&quot;&quot;</span>
+<span class="linenos"> 90</span>    <span class="sd">&quot;&quot;&quot;Class to store info on the waveform functions&quot;&quot;&quot;</span>
 <span class="linenos"> 91</span>
 <span class="linenos"> 92</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">switch</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lut</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
 <span class="linenos"> 93</span>        
@@ -1520,7 +1527,7 @@ use, higher frequencies, and better responsiveness.</p>
 </div></blockquote>
 </section>
 <section id="spi-config-py">
-<h3>spi_config.py<a class="headerlink" href="#spi-config-py" title="Link to this heading"></a></h3>
+<h3>spi_config.py<a class="headerlink" href="#spi-config-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos"> 2</span><span class="c1">#          NOTES </span>
@@ -1594,7 +1601,7 @@ use, higher frequencies, and better responsiveness.</p>
 </div></blockquote>
 </section>
 <section id="theremin-py">
-<h3>theremin.py<a class="headerlink" href="#theremin-py" title="Link to this heading"></a></h3>
+<h3>theremin.py<a class="headerlink" href="#theremin-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -1861,7 +1868,7 @@ use, higher frequencies, and better responsiveness.</p>
 <span class="linenos">263</span><span class="n">spi_timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
 <span class="linenos">264</span>
 <span class="linenos">265</span><span class="k">def</span> <span class="nf">spi_timer_tick</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
-<span class="linenos">266</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Process that sends waveform data to the DAC via SPI&quot;&quot;&quot;</span>
+<span class="linenos">266</span>    <span class="sd">&quot;&quot;&quot;Process that sends waveform data to the DAC via SPI&quot;&quot;&quot;</span>
 <span class="linenos">267</span><span class="c1">#     spi_timer.init(freq=frequency*selected_wave.size, mode=Timer.PERIODIC, callback=spi_timer_tick)</span>
 <span class="linenos">268</span>
 <span class="linenos">269</span>    <span class="k">global</span> <span class="n">frequency</span>
@@ -2059,119 +2066,88 @@ use, higher frequencies, and better responsiveness.</p>
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id46" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id21">1</a>,<a role="doc-backlink" href="#id22">2</a>,<a role="doc-backlink" href="#id23">3</a>,<a role="doc-backlink" href="#id27">4</a>)</span>
-<p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id46"><span class="brackets">1</span><span class="fn-backref">(<a href="#id21">1</a>,<a href="#id22">2</a>,<a href="#id23">3</a>,<a href="#id27">4</a>)</span></dt>
+<dd><p>A. S. Sedra, K. C. Smith, T. C. Carusone, and V. Gaudet, “Chapter 2: Operational
 Amplifiers,” in Microelectronic circuits, New York, NY: Oxford University Press, 2021,
 pp. 60–73.</p>
-</aside>
-<aside class="footnote brackets" id="id47" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id31">1</a>,<a role="doc-backlink" href="#id43">2</a>,<a role="doc-backlink" href="#id45">3</a>)</span>
-<p>“What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
+</dd>
+<dt class="label" id="id47"><span class="brackets">2</span><span class="fn-backref">(<a href="#id31">1</a>,<a href="#id43">2</a>,<a href="#id45">3</a>)</span></dt>
+<dd><p>“What is a bypass capacitor? tutorial: Applications,” Electronics Hub, 14-Sep-2021.
 [Online]. Available: <a class="reference external" href="https://www.electronicshub.org/bypass-capacitor-tutorial/">https://www.electronicshub.org/bypass-capacitor-tutorial/</a>. [Accessed:
 27-Aug-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id48" role="note">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id13">2</a>)</span>
-<p>“Analog-to-digital converter,” Wikipedia, 09-Oct-2022. [Online]. Available:
+</dd>
+<dt class="label" id="id48"><span class="brackets">3</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id13">2</a>)</span></dt>
+<dd><p>“Analog-to-digital converter,” Wikipedia, 09-Oct-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">https://en.wikipedia.org/wiki/Analog-to-digital_converter</a>. [Accessed: 19-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id49" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">4</a><span class="fn-bracket">]</span></span>
-<p>“Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
+</dd>
+<dt class="label" id="id49"><span class="brackets"><a class="fn-backref" href="#id12">4</a></span></dt>
+<dd><p>“Digital-to-analog converter,” Wikipedia, 13-Jun-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">https://en.wikipedia.org/wiki/Digital-to-analog_converter</a>. [Accessed: 19-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id50" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">5</a><span class="fn-bracket">]</span></span>
-<p>H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
+</dd>
+<dt class="label" id="id50"><span class="brackets"><a class="fn-backref" href="#id24">5</a></span></dt>
+<dd><p>H. Zumbahlen, “Chapter 8: Analog Filters,” in Linear Circuit Design Handbook, Oxford:
 Newnes, 2008.</p>
-</aside>
-<aside class="footnote brackets" id="id51" role="note">
-<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id38">1</a>,<a role="doc-backlink" href="#id39">2</a>)</span>
-<p>“HC-SR04 User Manual,” Scribd. [Online]. Available:
+</dd>
+<dt class="label" id="id51"><span class="brackets">6</span><span class="fn-backref">(<a href="#id38">1</a>,<a href="#id39">2</a>)</span></dt>
+<dd><p>“HC-SR04 User Manual,” Scribd. [Online]. Available:
 <a class="reference external" href="https://www.scribd.com/document/363064776/HC-SR04-User-Manual">https://www.scribd.com/document/363064776/HC-SR04-User-Manual</a>. [Accessed: 14-
 Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id52" role="note">
-<span class="label"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id25">1</a>,<a role="doc-backlink" href="#id26">2</a>)</span>
-<p>I. Poole, “OP AMP frequency response &amp; gain bandwidth product,” Electronics Notes, 30-
+</dd>
+<dt class="label" id="id52"><span class="brackets">7</span><span class="fn-backref">(<a href="#id25">1</a>,<a href="#id26">2</a>)</span></dt>
+<dd><p>I. Poole, “OP AMP frequency response &amp; gain bandwidth product,” Electronics Notes, 30-
 Nov-2021. [Online]. Available: <a class="reference external" href="https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php">https://www.electronicsnotes.com/articles/analogue_circuits/operational-amplifier-op-amp/gain-bandwidthproduct-frequency-response.php</a>. [Accessed: 31-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id53" role="note">
-<span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id30">1</a>,<a role="doc-backlink" href="#id33">2</a>,<a role="doc-backlink" href="#id37">3</a>)</span>
-<p>“LM2940x 1-a low dropout regulator datasheet (rev. J) -Texas Instruments,” Texas
+</dd>
+<dt class="label" id="id53"><span class="brackets">8</span><span class="fn-backref">(<a href="#id30">1</a>,<a href="#id33">2</a>,<a href="#id37">3</a>)</span></dt>
+<dd><p>“LM2940x 1-a low dropout regulator datasheet (rev. J) -Texas Instruments,” Texas
 Instruments. [Online]. Available:
 <a class="reference external" href="https://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=LM2940C&amp;fileType=pdf&amp;HQS=ti-null-null-alldatasheets-df-ds-null-wwe&amp;DCM=yes">https://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=LM2940C&amp;fileType=pdf&amp;HQS=ti-null-null-alldatasheets-df-ds-null-wwe&amp;DCM=yes</a>. [Accessed: 14-Nov2022].</p>
-</aside>
-<aside class="footnote brackets" id="id54" role="note">
-<span class="label"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id28">1</a>,<a role="doc-backlink" href="#id29">2</a>)</span>
-<p>“LM386,” LM386 data sheet, product information and support | TI.com. [Online].
+</dd>
+<dt class="label" id="id54"><span class="brackets">9</span><span class="fn-backref">(<a href="#id28">1</a>,<a href="#id29">2</a>)</span></dt>
+<dd><p>“LM386,” LM386 data sheet, product information and support | TI.com. [Online].
 Available: <a class="reference external" href="https://www.ti.com/product/LM386">https://www.ti.com/product/LM386</a>. [Accessed: 30-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id55" role="note">
-<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id16">1</a>,<a role="doc-backlink" href="#id18">2</a>,<a role="doc-backlink" href="#id19">3</a>,<a role="doc-backlink" href="#id20">4</a>)</span>
-<p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
+</dd>
+<dt class="label" id="id55"><span class="brackets">10</span><span class="fn-backref">(<a href="#id16">1</a>,<a href="#id18">2</a>,<a href="#id19">3</a>,<a href="#id20">4</a>)</span></dt>
+<dd><p>“Ltc1661 – micropower dual 10-bit DAC in MSOP - Analog Devices.” [Online]. Available:
 <a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/1661fb.pdf</a>.
 [Accessed: 17-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id56" role="note">
-<span class="label"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id42">1</a>,<a role="doc-backlink" href="#id44">2</a>)</span>
-<p>M. Stapleton, “Altium Designer 20 Video Series,” YouTube, 2021. [Online]. Available:
+</dd>
+<dt class="label" id="id56"><span class="brackets">11</span><span class="fn-backref">(<a href="#id42">1</a>,<a href="#id44">2</a>)</span></dt>
+<dd><p>M. Stapleton, “Altium Designer 20 Video Series,” YouTube, 2021. [Online]. Available:
 <a class="reference external" href="https://www.youtube.com/channel/UCutfTyfmz-WB2hYA03RRN5A/featured">https://www.youtube.com/channel/UCutfTyfmz-WB2hYA03RRN5A/featured</a>. [Accessed:
 27-Aug-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id57" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">12</a><span class="fn-bracket">]</span></span>
-<p>“MicroPython documentation,” Overview - MicroPython 1.19.1 documentation, 14-Oct2022. [Online]. Available: <a class="reference external" href="https://docs.micropython.org/en/latest/">https://docs.micropython.org/en/latest/</a>. [Accessed: 19-Oct2022].</p>
-</aside>
-<aside class="footnote brackets" id="id58" role="note">
-<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id7">3</a>,<a role="doc-backlink" href="#id17">4</a>,<a role="doc-backlink" href="#id34">5</a>,<a role="doc-backlink" href="#id35">6</a>)</span>
-<p>“Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
+</dd>
+<dt class="label" id="id57"><span class="brackets"><a class="fn-backref" href="#id15">12</a></span></dt>
+<dd><p>“MicroPython documentation,” Overview - MicroPython 1.19.1 documentation, 14-Oct2022. [Online]. Available: <a class="reference external" href="https://docs.micropython.org/en/latest/">https://docs.micropython.org/en/latest/</a>. [Accessed: 19-Oct2022].</p>
+</dd>
+<dt class="label" id="id58"><span class="brackets">13</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id4">2</a>,<a href="#id7">3</a>,<a href="#id17">4</a>,<a href="#id34">5</a>,<a href="#id35">6</a>)</span></dt>
+<dd><p>“Raspberry Pico Datasheet,” raspberrypi.com. [Online]. Available:
 <a class="reference external" href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf">https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf</a>. [Accessed: 15-Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id59" role="note">
-<span class="label"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id14">3</a>,<a role="doc-backlink" href="#id36">4</a>)</span>
-<p>“Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
+</dd>
+<dt class="label" id="id59"><span class="brackets">14</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id6">2</a>,<a href="#id14">3</a>,<a href="#id36">4</a>)</span></dt>
+<dd><p>“Raspberry Pico python SDK,” raspberrypi.com. [Online]. Available:
 <a class="reference external" href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf">https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf</a>. [Accessed: 15-
 Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id60" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">15</a><span class="fn-bracket">]</span></span>
-<p>“RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
+</dd>
+<dt class="label" id="id60"><span class="brackets"><a class="fn-backref" href="#id2">15</a></span></dt>
+<dd><p>“RP2040 Datasheet,” raspberrypi.com. [Online]. Available:
 <a class="reference external" href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf</a>. [Accessed: 14-Nov-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id61" role="note">
-<span class="label"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id8">1</a>,<a role="doc-backlink" href="#id9">2</a>,<a role="doc-backlink" href="#id10">3</a>,<a role="doc-backlink" href="#id11">4</a>)</span>
-<p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
+</dd>
+<dt class="label" id="id61"><span class="brackets">16</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id9">2</a>,<a href="#id10">3</a>,<a href="#id11">4</a>)</span></dt>
+<dd><p>“Serial peripheral interface,” Wikipedia, 27-Sep-2022. [Online]. Available:
 <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a>. [Accessed: 19-Oct-2022].</p>
-</aside>
-<aside class="footnote brackets" id="id62" role="note">
-<span class="label"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id40">1</a>,<a role="doc-backlink" href="#id41">2</a>)</span>
-<p>“Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
+</dd>
+<dt class="label" id="id62"><span class="brackets">17</span><span class="fn-backref">(<a href="#id40">1</a>,<a href="#id41">2</a>)</span></dt>
+<dd><p>“Sitronix ST7066U - Crystalfontz,” crystalfontz. [Online]. Available:
 <a class="reference external" href="https://www.crystalfontz.com/controllers/Sitronix/ST7066U/438">https://www.crystalfontz.com/controllers/Sitronix/ST7066U/438</a>. [Accessed: 03-Oct2022].</p>
-</aside>
-<aside class="footnote brackets" id="id63" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id32">18</a><span class="fn-bracket">]</span></span>
-<p>“What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
+</dd>
+<dt class="label" id="id63"><span class="brackets"><a class="fn-backref" href="#id32">18</a></span></dt>
+<dd><p>“What is a Bypass Capacitor?,” What is a bypass capacitor? [Online]. Available:
 <a class="reference external" href="http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html">http://www.learningaboutelectronics.com/Articles/What-is-a-bypass-capacitor.html</a>.
 [Accessed: 27-Aug-2022].</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 

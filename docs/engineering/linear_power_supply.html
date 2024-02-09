@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linear Power Supply &mdash; Project Documentation 1.0 documentation</title>
@@ -11,11 +11,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -28,15 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Project Documentation
+            <a href="../index.html" class="icon icon-home"> Project Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -94,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="engineering_projects.html">Engineering Projects</a></li>
-      <li class="breadcrumb-item active">Linear Power Supply</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="engineering_projects.html">Engineering Projects</a> &raquo;</li>
+      <li>Linear Power Supply</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/engineering/linear_power_supply.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,17 +102,17 @@
            <div itemprop="articleBody">
              
   <section id="linear-power-supply">
-<h1>Linear Power Supply<a class="headerlink" href="#linear-power-supply" title="Link to this heading"></a></h1>
+<h1>Linear Power Supply<a class="headerlink" href="#linear-power-supply" title="Permalink to this headline"></a></h1>
 <p>Date: 3/2023</p>
 <p>Revision: 1</p>
 <figure class="align-center" id="id4">
 <img alt="../_images/power_supply.jpg" src="../_images/power_supply.jpg" />
 <figcaption>
-<p><span class="caption-text">Finished Linear power supply.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">Finished Linear power supply.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <p>The purpose and goals of this project are to become familiar with linear power supply design, prepare engineers to
 transform, regulate, and rectify power for future projects, and create a critical tool for any engineer’s lab.
 Power transformation, AC to DC rectification, and voltage regulation are key components for practically every
@@ -125,7 +120,7 @@ electrical project. With this project, we aim to design a 20V/3A linear power su
 and current limiting capability. We also aim to create a precise voltmeter and ammeter to relay status of the supply.</p>
 </section>
 <section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>This project draws from numerous engineering concepts. For general reference and theory, concepts and
@@ -147,7 +142,7 @@ are revisited.</p>
 </ul>
 </div>
 <section id="project-overview">
-<h3>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h3>
+<h3>Project Overview<a class="headerlink" href="#project-overview" title="Permalink to this headline"></a></h3>
 <p>This linear power supply aims to provide up to 20 volts at 3 amps. The design employs linear regulators to minimize
 noise of the output, adjust voltage, and a current limit for the device. The power supply will need to be monitored
 for the output current and voltage. A Raspberry Pico will be employed for taking voltage and current measurements and
@@ -155,11 +150,11 @@ displaying them on an LCD for the user. LED indicators, reverse polarity protect
 added for a better user interface. A fuse will also be used for the safety of the user and the device.</p>
 </section>
 <section id="introduction-to-ac-dc-linear-power-supply">
-<h3>Introduction to AC/DC Linear Power Supply<a class="headerlink" href="#introduction-to-ac-dc-linear-power-supply" title="Link to this heading"></a></h3>
+<h3>Introduction to AC/DC Linear Power Supply<a class="headerlink" href="#introduction-to-ac-dc-linear-power-supply" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id5">
 <img alt="../_images/supply_abstract.png" src="../_images/supply_abstract.png" />
 <figcaption>
-<p><span class="caption-text">Fig 7-35 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Block diagram of a basic AC-DC linear power supply.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text">Fig 7-35 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id1">1</a>. Block diagram of a basic AC-DC linear power supply.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>An AC to DC converter can be broken up into multiple stages. An AC input usually needs transformation of the existing
@@ -173,17 +168,17 @@ using voltage regulator IC’s or Zener diodes in reverse breakdown.</p>
 <figure class="align-center" id="id6">
 <img alt="../_images/simple_supply_circuit.png" src="../_images/simple_supply_circuit.png" />
 <figcaption>
-<p><span class="caption-text">Fig 7-40 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.  A complete circuit of a basic power supply. This design
-employs a Zener diode regulator.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">Fig 7-40 of Circuit Analysis and Design <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.  A complete circuit of a basic power supply. This design
+employs a Zener diode regulator.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="power-supply-circuit-design">
-<h3>Power Supply Circuit Design<a class="headerlink" href="#power-supply-circuit-design" title="Link to this heading"></a></h3>
+<h3>Power Supply Circuit Design<a class="headerlink" href="#power-supply-circuit-design" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id7">
 <img alt="../_images/block_diagram_drawio.png" src="../_images/block_diagram_drawio.png" />
 <figcaption>
-<p><span class="caption-text">Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+<p><span class="caption-text">Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The circuit implements the general systems shown in the block diagram. From the AC outlet, a fuse and switch connect
@@ -195,7 +190,7 @@ providing a raw DC voltage around 21.5V to the following circuit stages.</p>
 <figure class="align-center" id="id8">
 <img alt="../_images/input_stage.png" src="../_images/input_stage.png" />
 <figcaption>
-<p><span class="caption-text">Input voltage conditioning Stage.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+<p><span class="caption-text">Input voltage conditioning Stage.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The rectified voltage is passed into the Constant Current Constant Voltage (CCCV) stage for output conditioning.
@@ -214,7 +209,7 @@ An output enable switch, reverse polarity diode, and a LED is employed for outpu
 <figure class="align-center" id="id9">
 <img alt="../_images/cccv_stage.png" src="../_images/cccv_stage.png" />
 <figcaption>
-<p><span class="caption-text">Constant Current-Constant Voltage Stage with reverse polarity protection.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+<p><span class="caption-text">Constant Current-Constant Voltage Stage with reverse polarity protection.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition warning">
@@ -238,7 +233,7 @@ applied back to the sensed ADC value in software to relay the correct output vol
 <figure class="align-center" id="id10">
 <img alt="../_images/monitor_stage.png" src="../_images/monitor_stage.png" />
 <figcaption>
-<p><span class="caption-text">Input voltage conditioning Stage.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">Input voltage conditioning Stage.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The INA128 used for current readings has a 36V operation range and requires about 2V of offset from each rail to
@@ -252,12 +247,12 @@ from this rail, so a charge pump is fine for this purpose.</p>
 <figure class="align-center" id="id11">
 <img alt="../_images/negative_ref.png" src="../_images/negative_ref.png" />
 <figcaption>
-<p><span class="caption-text">Negative voltage charge pump with Vbe multiplier output.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+<p><span class="caption-text">Negative voltage charge pump with Vbe multiplier output.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="pico-setup">
-<h3>Pico Setup<a class="headerlink" href="#pico-setup" title="Link to this heading"></a></h3>
+<h3>Pico Setup<a class="headerlink" href="#pico-setup" title="Permalink to this headline"></a></h3>
 <p>To supply power to the measurement devices, I chose a combination of regulators power the sensor devices.
 This provided a smooth 5V and 3.3V source for most components, with local decoupling capacitors where needed.
 The LM7805 is a prime candidate for 5V regulation as its implementation is simple, only requiring two capacitors
@@ -265,7 +260,7 @@ on the Vin and Vout. The 7805 is also tolerant to the range of voltage seen afte
 <figure class="align-center" id="id12">
 <img alt="../_images/fixed_out_app.png" src="../_images/fixed_out_app.png" />
 <figcaption>
-<p><span class="caption-text">Fixed Output Regulator configuration for an LM7805.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+<p><span class="caption-text">Fixed Output Regulator configuration for an LM7805.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In addition to the 5V source, I powered the Raspberry Pico via 3.3V regulators. Two 3.3V rails were also developed
@@ -274,16 +269,16 @@ while the other was connected to the ADC reference.</p>
 <figure class="align-center" id="id13">
 <img alt="../_images/figure18.png" src="../_images/figure18.png" />
 <figcaption>
-<p><span class="caption-text">Pico Power-chain.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+<p><span class="caption-text">Pico Power-chain.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="adc-configuration">
-<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Link to this heading"></a></h3>
+<h3>ADC Configuration<a class="headerlink" href="#adc-configuration" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id14">
 <img alt="../_images/adc_ref.png" src="../_images/adc_ref.png" />
 <figcaption>
-<p><span class="caption-text">Pico ADC reference circuit.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text">Pico ADC reference circuit.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>For this project, I did everything I could to isolate the ADC reference for the best possible readings. Essentially,
@@ -293,11 +288,11 @@ ADC reference. This method heavily isolates the ADC reference. It is potentially
 seeing how the device would perform.</p>
 </section>
 <section id="pico-software">
-<h3>Pico Software<a class="headerlink" href="#pico-software" title="Link to this heading"></a></h3>
+<h3>Pico Software<a class="headerlink" href="#pico-software" title="Permalink to this headline"></a></h3>
 <figure class="align-center" id="id15">
 <img alt="../_images/microcontroller_software_drawio.png" src="../_images/microcontroller_software_drawio.png" />
 <figcaption>
-<p><span class="caption-text">Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+<p><span class="caption-text">Hardware Block Diagram of the Linear Power Supply.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The Pico has a relatively simple program loop, A few systems such as the LCD and ADC are initialized on startup,
@@ -307,7 +302,7 @@ interpretation. There are a few edge cases regarding the output being off, an op
 In these situations, the LCD relays the situation to the user based on interpreted ADC data.</p>
 </section>
 <section id="schematic-and-pcb-design">
-<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Link to this heading"></a></h3>
+<h3>Schematic and PCB Design<a class="headerlink" href="#schematic-and-pcb-design" title="Permalink to this headline"></a></h3>
 <p>All previously mentioned components must be compiled into a schematic design for wiring structure and PCB design.
 Bypass and decoupling capacitors are added to the board for several reasons. First, capacitors can be used on power
 headers to avoid voltage spikes and removing AC ripple on DC power. Small ceramic caps offer low series resistance and
@@ -325,45 +320,45 @@ ground layer to the PCB, further simplifying routing design.</p>
 <figure class="align-center" id="id16">
 <img alt="../_images/schematic1.png" src="../_images/schematic1.png" />
 <figcaption>
-<p><span class="caption-text">Power Supply schematic page 1 of 2.</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">Power Supply schematic page 1 of 2.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id17">
 <img alt="../_images/schematic2.png" src="../_images/schematic2.png" />
 <figcaption>
-<p><span class="caption-text">Power Supply schematic page 2 of 2.</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">Power Supply schematic page 2 of 2.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id18">
 <img alt="../_images/altium_pcb_top.png" src="../_images/altium_pcb_top.png" />
 <figcaption>
-<p><span class="caption-text">Top side of Power Supply PCB layout.</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+<p><span class="caption-text">Top side of Power Supply PCB layout.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id19">
 <img alt="../_images/altium_pcb_bottom.png" src="../_images/altium_pcb_bottom.png" />
 <figcaption>
-<p><span class="caption-text">Bottom side of Power Supply PCB layout.</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+<p><span class="caption-text">Bottom side of Power Supply PCB layout.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="bill-of-materials">
-<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Link to this heading"></a></h3>
+<h3>Bill Of Materials<a class="headerlink" href="#bill-of-materials" title="Permalink to this headline"></a></h3>
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline"></a></h2>
 <p>The schematic of the circuit and PCB turned out fine, with a few errors that were fixable. The
 assembled PCB was easy to debug because of its plentiful headers employed in the diagram. Thankfully,
 there were no design breaking errors in this circuit, and most components worked immediately after installation.</p>
 <figure class="align-center" id="id20">
 <img alt="../_images/assembled_board.jpg" src="../_images/assembled_board.jpg" />
 <figcaption>
-<p><span class="caption-text">Power Supply Board.</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+<p><span class="caption-text">Power Supply Board.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="flaws-and-oversights">
-<h3>Flaws and Oversights<a class="headerlink" href="#flaws-and-oversights" title="Link to this heading"></a></h3>
+<h3>Flaws and Oversights<a class="headerlink" href="#flaws-and-oversights" title="Permalink to this headline"></a></h3>
 <p>There were a few things that I messed up in designing the board, but acknowledging them is a good practice as lessons
 are learned and further revisions could be optimized. In terms of some minor design issues, I went overkill on a
 series of parts. the Raspberry Pico’s powerchain is excessive but works wonderfully. I could have easily removed one
@@ -384,7 +379,7 @@ decoupling capacitors and without a parallel limit resistor. These too factors l
 regulator IC’s from current spikes.</p>
 </section>
 <section id="conclusion">
-<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h3>
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline"></a></h3>
 <p>Overall, This project has been insightful and a useful addition to my workbench. While there were some design faults,
 all errors were fixable and operation has not been impacted. Creating a linear power supply is a great way to introduce
 power electronics to engineers and provide utility to the engineer for future projects. This device performed well at
@@ -392,9 +387,9 @@ providing power and realistic measurements to the user.</p>
 </section>
 </section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline"></a></h2>
 <section id="main-py">
-<h3>main.py<a class="headerlink" href="#main-py" title="Link to this heading"></a></h3>
+<h3>main.py<a class="headerlink" href="#main-py" title="Permalink to this headline"></a></h3>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># -----------------------------------------</span>
 <span class="linenos">  2</span><span class="c1">#                 NOTES </span>
@@ -656,15 +651,13 @@ providing power and realistic measurements to the user.</p>
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
-<p>F. T. Ulaby, M. M. Maharbiz, and C. Furse, “7-12 Application Note: Power-Supply Circuits,” in Circuit analysis
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>F. T. Ulaby, M. M. Maharbiz, and C. Furse, “7-12 Application Note: Power-Supply Circuits,” in Circuit analysis
 and Design, Ann Arbor, MI: Michigan Publishing, 2018, pp. 432–437.</p>
-</aside>
-</aside>
+</dd>
+</dl>
 </section>
 </section>
 
